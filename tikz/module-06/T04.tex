@@ -1,0 +1,46 @@
+% 核心结论：同频合成：首尾相接与分量相加
+% 图原型：纯几何／对比；按本题相位与电路拓扑绘制。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[font=\fontsize{11}{14}\selectfont\bfseries] at (0.00000,3.04000) {同频合成：首尾相接与分量相加};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.20000,-1.35000) -- (1.90000,-1.35000);
+\draw[axis] (-1.80000,-1.60000) -- (-1.80000,2.30000);
+\node[] at (-2.00000,-1.50000) {$O$};
+\draw[v,blue] (-1.80000,-1.35000) -- (0.45000,-1.35000);
+\node[lab,text=blue,anchor=center] at (-0.62500,-1.70000) {$\widetilde U_1=6$};
+\draw[v,green] (-1.80000,-1.35000) -- (-1.80000,1.65000);
+\node[lab,text=green,anchor=east] at (-2.08000,0.15000) {$\widetilde U_2=j8$};
+\node[] at (0.00000,-2.40000) {同起点：夹角 $90^\circ$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\draw[v,blue] (-1.80000,-1.35000) -- (0.45000,-1.35000);
+\node[lab,text=blue,anchor=center] at (-0.67500,-1.67000) {$6$};
+\draw[v,green] (0.45000,-1.35000) -- (0.45000,1.65000);
+\node[lab,text=green,anchor=west] at (0.75000,0.15000) {$j8$};
+\draw[v,red] (-1.80000,-1.35000) -- (0.45000,1.65000);
+\node[lab,text=red,anchor=east] at (-0.97500,0.40000) {$\widetilde U=6+j8$};
+\node[] at (-1.98000,-1.55000) {$O$};
+\node[] at (0.55000,-1.55000) {$A$};
+\node[] at (0.55000,1.85000) {$B$};
+\node[] at (0.00000,-2.40000) {首尾相接；单位：$\mathrm{V}$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {平移相量保持长度和方向，红色相量连接起点与最终终点。};
+\end{tikzpicture}
+\end{document}

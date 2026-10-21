@@ -1,0 +1,49 @@
+% 统一复核：正阶微分式与负阶关系分开，避免负阶导数。
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+
+\begin{document}\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box](-8,-4.1)rectangle(8,4.1);
+\node[title]at(0,3.75){球谐角向结构：方位周期与纬向节点};
+\begin{scope}[shift={(-4.2,1.2)}]
+\fill[red!7](-1.35,0)arc(180:0:1.35)--cycle;
+\fill[blue!7](1.35,0)arc(0:-180:1.35)--cycle;
+\draw[ink!70](0,0)circle(1.35);\draw[ink!60](-1.35,0)--(1.35,0);
+\node[red]at(0,.6){$+$};\node[blue]at(0,-.6){$-$};
+\node at(0,1.75){$Y_{10}\propto\cos\theta$};
+\node[label]at(0,-1.75){一个纬向节点：赤道};
+\end{scope}
+\begin{scope}[shift={(4.2,1.2)}]
+\fill[blue!7](0,-1.35)arc(270:90:1.35)--cycle;
+\fill[red!7](0,1.35)arc(90:-90:1.35)--cycle;
+\draw[ink!70](0,0)circle(1.35);\draw[ink!60](0,-1.35)--(0,1.35);
+\node[blue]at(-.65,0){$-$};\node[red]at(.65,0){$+$};
+\node at(0,1.75){实偶极模 $Y_x\propto\sin\theta\cos\phi$};
+\node[label]at(0,-1.75){一个穿过极轴的节点面};
+\end{scope}
+\node[align=center,text width=15cm]at(0,-1.55){
+整数 $l\ge0$，$0\le m\le l$：$\displaystyle
+P_l^m(x)=(-1)^m(1-x^2)^{m/2}\frac{\mathrm d^mP_l(x)}{\mathrm dx^m}$};
+\node[align=center,text width=15cm]at(0,-2.65){
+负阶由正阶给出：$\displaystyle P_l^{-m}=(-1)^m\frac{(l-m)!}{(l+m)!}P_l^m$，$m=0,1,\ldots,l$};
+\node[label,text width=15cm]at(0,-3.65){球谐阶数为 $-l\le m\le l$；$|m|$ 控制方位周期，$l-|m|$ 给出纬向节点数。};
+\end{tikzpicture}\end{document}

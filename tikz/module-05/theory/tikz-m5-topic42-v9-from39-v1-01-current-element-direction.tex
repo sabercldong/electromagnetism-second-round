@@ -1,0 +1,65 @@
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage[fontset=none]{ctex}
+\usepackage{amsmath,amssymb,bm}
+\usetikzlibrary{arrows.meta,calc,positioning,angles,quotes}
+
+\definecolor{ink}{HTML}{263238}
+\definecolor{muted}{HTML}{6B7780}
+\definecolor{blue}{HTML}{245BFF}
+\definecolor{green}{HTML}{087F5B}
+\definecolor{orange}{HTML}{E67700}
+\definecolor{red}{HTML}{E03131}
+\definecolor{purple}{HTML}{7048E8}
+\definecolor{paleBlue}{HTML}{EDF3FF}
+\definecolor{paleGreen}{HTML}{EAF8F3}
+\definecolor{paleOrange}{HTML}{FFF4E6}
+\definecolor{palePurple}{HTML}{F3F0FF}
+
+\tikzset{
+  title/.style={font=\fontsize{18}{22}\selectfont\bfseries,text=ink,align=center},
+  subtitle/.style={font=\fontsize{12.5}{16}\selectfont\bfseries,text=ink,align=center},
+  body/.style={font=\fontsize{10.5}{14}\selectfont,text=ink,align=center},
+  small/.style={font=\fontsize{8.8}{11.5}\selectfont,text=ink,align=center},
+  box/.style={draw=muted,line width=.8pt,rounded corners=2pt,inner sep=6pt,body},
+  vec/.style={-{Latex[length=3.2mm,width=2.3mm]},line width=1.35pt},
+  patharrow/.style={-{Latex[length=2.8mm,width=2mm]},line width=1.25pt},
+  nodept/.style={circle,fill=ink,minimum size=5pt,inner sep=0pt}
+}
+
+\usepackage{fontspec,xeCJK}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\usetikzlibrary{bending}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \path[use as bounding box] (0,0) rectangle (16,8); \fill[white] (0,0) rectangle (16,8);
+  \node[title] at (8,7.45) {磁场微元垂直于 $d\bm l'$ 与 $\bm R$ 张成的平面};
+  \draw[muted,line width=.8pt] (8,1.0)--(8,6.75);
+
+  \node[subtitle,blue] at (4,6.35) {沿磁场方向观察：叉乘关系};
+  \fill[paleBlue,draw=muted,line width=.8pt]
+    (1.1,2.0)--(6.8,2.0)--(7.1,5.45)--(1.4,5.45)--cycle;
+  \coordinate (Q) at (2.35,3.0);
+  \coordinate (P) at (6.0,4.65);
+  \fill[ink] (Q) circle (.08); \node[small,below left] at (Q) {源点 $\bm r'$};
+  \fill[ink] (P) circle (.08); \node[small,above right] at (P) {场点 $\bm r$};
+  \draw[red,vec] (Q)--++(1.55,0); \node[small,red,below] at (3.05,2.95) {$I\,d\bm l'$};
+  \draw[blue,vec] (Q)--(P); \node[small,blue,below] at (4.3,3.75) {$\bm R=\bm r-\bm r'$};
+  \draw[orange,line width=1.3pt] ($(Q)+(1.05,0)$) arc[start angle=0,end angle=24,radius=1.05];
+  \node[small,orange] at (3.45,3.25) {$\theta$};
+  \draw[purple,line width=1.4pt] (5.15,3.0) circle (.22); \fill[purple] (5.15,3.0) circle (.065);
+  \node[small,purple,right] at (5.45,3.0) {$d\bm B$ 指向观察者};
+  \node[box,fill=paleBlue,text width=5.5cm] at (4,1.05)
+    {$d\bm B\parallel d\bm l'\times\bm R$；先用右手定则判方向，再积分可叠加的分量};
+
+  \node[subtitle,purple] at (12,6.35) {从平面侧面观察：垂直关系};
+  \draw[muted,line width=2.0pt] (9.0,3.35)--(15.0,3.35);
+  \node[small,muted,below] at (12,3.25) {$d\bm l'$ 与 $\bm R$ 所在平面的侧视边缘};
+  \fill[ink] (12,3.35) circle (.09);
+  \draw[purple,vec,line width=1.8pt] (12,3.35)--(12,5.55);
+  \node[small,purple,right] at (12.15,4.7) {$d\bm B$};
+  \draw[ink,line width=.9pt] (12,3.75)--(12.4,3.75)--(12.4,3.35);
+  \node[box,fill=palePurple,text width=5.5cm] at (12,1.05)
+    {$\displaystyle dB=\frac{\mu_0}{4\pi}\frac{I\,dl'\sin\theta}{R^2}$；若 $d\bm l'\parallel\bm R$，该电流元贡献为零};
+\end{tikzpicture}
+\end{document}

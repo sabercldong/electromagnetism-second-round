@@ -1,0 +1,44 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M3-004\quad 随位置增强的极化强度};
+\begin{scope}[shift={(-4,0)}]
+\filldraw[fill=blue!6,draw=ink!55] (-1.5,-1.65) rectangle(1.5,1.65);
+\draw[axis] (-2.3,-2)--(2.4,-2) node[right] {$x$};
+\draw[<->,orange] (-1.5,-2.4)--(1.5,-2.4) node[midway,below] {$d$};
+\node[label] at(0,2){介质平板（局部截面）};
+\draw[guide] (-.7,-.65) rectangle(.7,.65);
+\draw[vec] (-1.35,1.05)--(-.85,1.05);
+\draw[vec] (-.5,1.05)--(.35,1.05);
+\draw[vec] (.65,1.05)--(1.95,1.05);
+\node[label] at(0,1.5){$P_x$ 随 $x$ 增大};
+\draw[vec,green] (-.7,0)--(-.2,0);
+\draw[vec,green] (.7,0)--(1.55,0);
+\node[label] at(-.85,-1.1){流入较小};\node[label] at(.85,-1.1){流出较大};
+\node at(0,-.3){$dV$};
+\node[note] at (0,-2.85) {仅取 $1+x/L>0$ 的局部区域示意；虚框为微元。};
+\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.1) {$P_x=P_0(1+x/L)$};
+\node[card,draw=green!65,fill=green!4] at (3.9,-1.1) {$\displaystyle\rho_b=-\frac{\partial P_x}{\partial x}=-\frac{P_0}{L}$};
+\end{tikzpicture}\end{document}

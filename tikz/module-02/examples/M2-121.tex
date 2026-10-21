@@ -1,0 +1,32 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M2-121\quad 纯二阶圆周边界在圆心没有匀强场};
+\begin{scope}[shift={(-4,0)}]
+\begin{scope}\clip(0,0)circle(1.6);\fill[blue!7](-1.7,-1.7)rectangle(1.7,1.7);\fill[red!12](0,0)--(-45:1.7)arc(-45:45:1.7)--cycle;\fill[red!12](0,0)--(135:1.7)arc(135:225:1.7)--cycle;\end{scope}\draw[ink!55](0,0)circle(1.6);\node at(0,0){$O$};\draw[axis](-1.9,0)--(2.1,0)node[right]{$x$};\node[note] at (0,-2.85) {着色示意 $V_0>0$ 的正负分区，边界是圆而非球。};
+\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$\varphi=V_0(\rho/R)^2\cos2\phi$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\varphi=V_0(x^2-y^2)/R^2$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {$\varphi(0)=0,\quad\mathbf E(0)=0$};
+\end{tikzpicture}\end{document}

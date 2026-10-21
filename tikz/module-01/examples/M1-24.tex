@@ -1,0 +1,45 @@
+% 对应题号 M1-24，复用已核对的本题几何图。
+% 核心结论：给定单位方向具有负法向分量，因此方向导数为负。
+% 图契约：物理竞赛讲义；印刷宽16cm，最小字号8.5pt；几何示意与公式分区。
+% 布局：[几何/曲线 7cm] [定义/结果 7cm]；实线主量，虚线辅助；无装饰数据。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,positioning,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{
+ every node/.style={font=\fontsize{9.5}{13}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!60,fill=blue!4,
+   align=center,text width=6.8cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{11}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.5}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[title] at (0,2.95) {方向导数与切平面：负投影对应下降};
+\begin{scope}[shift={(-4,0)}]
+
+\fill[blue!5] (-3,-.15) rectangle(2.7,.15);
+\draw[ink!55] (-3,0)--(2.7,0);
+\coordinate (P) at (-.6,0);
+\draw[vec] (P)--(-.6,2.1) node[above] {$\nabla f(P)$};
+\draw[vec,green] (P)--(1.25,-1.17) node[below right] {$\mathbf l=\mathbf v/|\mathbf v|$};
+\draw[guide] (1.25,-1.17)--(-.6,-1.17);
+\draw[vec,orange] (P)--(-.6,-1.17);
+\fill[red] (P) circle(2pt);\node[above left] at (P) {$P$};
+\node[label] at (0,-2.45) {法截面：切平面为水平线；给定方向含负法向分量};
+
+\end{scope}\node[card,draw=blue!65,fill=blue!4] at (3.9,1.65) {$\nabla f(P)=(2,-4,6)$\\$\mathbf l=(2,1,-2)/3$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\mathbf l_{\max}=\frac{(1,-2,3)}{\sqrt{14}}$\\$|\nabla f(P)|=2\sqrt{14}$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.65) {$D_{\mathbf l}f(P)=-4$\\切平面：$x-2y+3z=6$};
+\end{tikzpicture}\end{document}

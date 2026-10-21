@@ -1,0 +1,4221 @@
+% 来自2026-10-21统一复核稿；题号、图号和解答保留。
+\clearpage
+\begingroup
+\fancyhead[R]{\small 模块三：电介质、极化与边界条件}
+\chapter{模块三：电介质、极化与边界条件}\label{m3:ux6a21ux5757ux4e09ux7535ux4ecbux8d28ux6781ux5316ux4e0eux8fb9ux754cux6761ux4ef6}
+
+本模块讨论物质中的电荷和电场。先区分总电荷、自由电荷与束缚电荷，再讨论极化模型和介质边界；\(\mathbf D=\varepsilon\mathbf E\)
+只在线性、各向同性等给定条件下成立。
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+层级
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+内容
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+阅读定位
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+基础必讲 &
+极化强度、束缚电荷、电位移矢量、三种高斯定律、介质边界条件、线性介质能量
+& 介质题所需的电荷分类、边界条件和能量计算 \\
+拔高选讲 & 偶极层、退极化场、复合介质、电像法、介电泳与局部应力 &
+处理形状效应、复杂边界及由能量求力的问题 \\
+\end{longtable}
+}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/theory/tikz-v11-module3-method-map.pdf}}
+\par\smallskip{\small 图示：模块三对自由电荷、束缚电荷和三种场量进行分账}
+\end{center}
+\end{minipage}\par
+
+\section{专题二十一：电介质、极化与电位移矢量（基础必讲与拔高选讲）}\label{m3:ux4e13ux9898ux4e8cux5341ux4e00ux7535ux4ecbux8d28ux6781ux5316ux4e0eux7535ux4f4dux79fbux77e2ux91cfux57faux7840ux5fc5ux8bb2ux4e0eux62d4ux9ad8ux9009ux8bb2}
+
+\begin{quote}
+阅读准备：宏观场量是小尺度平均 \(\mathbf P\)
+是单位体积的偶极矩，但``单位体积''不是取到单个原子大小，而是在包含大量微观粒子、同时又远小于场变化尺度的小体积上平均。体密度描述体积内部的分布，面密度描述平均区域在边界处被截断后留下的贡献。
+
+\end{quote}
+
+\textbf{例 M3-001：均匀极化的体电荷与面电荷}
+
+一块有限电介质在内部具有处处相同的宏观极化强度
+\(\mathbf P=\mathbf P_0\)，其外部为真空，边界分片光滑。给定
+\(\mathbf P_0\)，不要求进一步反求产生它的外加场。求介质内部的束缚体电荷密度，并用介质实体指向真空的单位外法向
+\(\mathbf n\)
+表示边界束缚面电荷密度；讨论``均匀极化''是否意味着内部和边界都没有束缚电荷。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-001.pdf}}
+\par\smallskip{\small 图 M3-001：均匀极化的体电荷与面电荷}
+\end{center}
+\end{minipage}\par
+
+图 M3-001 取一块沿 \(+x\)
+均匀极化的平板为例。相邻偶极子在体内抵消，而左右边界截断偶极子链；因此体内散度为零，边界仍留下图示的负、正束缚电荷。
+
+均匀极化意味着
+\(\nabla\cdot\mathbf P=0\)，所以介质内部没有束缚体电荷；边界上仍可有
+\(\sigma_b=\mathbf P\cdot\mathbf n\)。
+
+电介质问题需要区分介质极化、束缚电荷的产生，以及自由电荷和束缚电荷各自进入的场方程。以下定义
+\(\mathbf P\)、\(\rho_b\)、\(\sigma_b\) 与
+\(\mathbf D\)，并说明这些关系的使用条件。
+
+\subsection{一、极化机制与宏观极化强度（基础必讲）}\label{m3:ux4e00ux6781ux5316ux673aux5236ux4e0eux5b8fux89c2ux6781ux5316ux5f3aux5ea6ux57faux7840ux5fc5ux8bb2}
+
+\subsubsection{1.
+电介质与两类极化机制}\label{m3:ux7535ux4ecbux8d28ux4e0eux4e24ux7c7bux6781ux5316ux673aux5236}
+
+电介质是在所研究的时间尺度和场强范围内，传导电流可以忽略的物质。``自由电荷''和``束缚电荷''是宏观模型中的分类：束缚电荷并非绝对静止，它们仍可在原子、分子或晶格尺度发生微小位移。
+
+外电场作用下常见两类机制：
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{位移极化}：原来没有永久偶极矩的原子或分子中，正、负电荷中心发生微小相对位移，产生感生偶极矩。
+\item
+  \textbf{取向极化}：有极分子本来具有永久偶极矩；外场使其取向出现统计偏向。热运动会阻碍完全取向，因此一般不能画成所有偶极子严格平行。
+\end{itemize}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic21-v2-01.png}}
+\par\smallskip{\small 图示：位移极化与取向极化的微观机制及宏观结果}
+\end{center}
+\end{minipage}\par
+
+均匀极化时，介质内部相邻偶极子的正、负端在宏观平均中相互抵消，边界处偶极子链被截断，形成束缚面电荷；若极化强度随位置变化，介质内部还可能出现束缚体电荷。
+
+\subsubsection{2.
+极化强度的粗粒化定义}\label{m3:ux6781ux5316ux5f3aux5ea6ux7684ux7c97ux7c92ux5316ux5b9aux4e49}
+
+在以 \(\mathbf r\) 为中心的宏观小体积 \(\Delta V\)
+内，定义电极化强度为偶极矩的体密度：
+
+\[
+\boxed{
+\mathbf P(\mathbf r)
+=\frac{1}{\Delta V}\sum_{i\in\Delta V(\mathbf r)}\mathbf p_i
+},
+\qquad
+\ell_{\mathrm{\text{微}}}^3\ll \Delta V\ll L_{\mathrm{\text{宏}}}^3.
+\]
+
+这里 \(\ell_{\mathrm{\text{微}}}\)
+是分子尺度，\(L_{\mathrm{\text{宏}}}\)
+是场发生显著变化的尺度。\(\Delta V\)
+必须包含大量分子，同时在宏观上又足够小。因此不能把该定义理解为真正令
+\(\Delta V\to0\)；那会失去连续介质近似。其量纲为
+
+\[
+[\mathbf P]=\mathrm{C/m^2}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic21-v2-02.png}}
+\par\smallskip{\small 图示：极化强度必须在介观体积内作粗粒化平均}
+\end{center}
+\end{minipage}\par
+
+\textbf{例 M3-002：由平均分子偶极矩求极化强度}
+
+某电介质小体元内的分子数密度均匀，为
+\(N=2.0\times10^{28}\ \mathrm{m^{-3}}\)。在宏观平均尺度上，每个分子的平均电偶极矩为
+\(\langle\mathbf p\rangle=3.0\times10^{-30}\mathbf e_x\ \mathrm{C\cdot m}\)，这里已包含分子取向的统计平均，\(\mathbf e_x\)
+为固定单位矢量。按单位体积偶极矩的定义求极化强度矢量，写出大小、方向与
+SI 单位。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-002.pdf}}
+\par\smallskip{\small 图 M3-002：由平均分子偶极矩求极化强度}
+\end{center}
+\end{minipage}\par
+
+图 M3-002 的虚拟小体积 \(\Delta V\) 含有 \(N\Delta V\) 个分子。沿 \(+x\)
+的平均偶极矩相加后再除以 \(\Delta V\)，体积因子约去，得到下式的
+\(N\langle\mathbf p\rangle\)；其方向与图中平均箭头一致。
+
+若某区域分子数密度为
+\(N=2.0\times10^{28}\ \mathrm{m^{-3}}\)，平均偶极矩为
+\(\langle\mathbf p\rangle=3.0\times10^{-30}\mathbf e_x\ \mathrm{C\cdot m}\)，则
+
+\[
+\mathbf P=N\langle\mathbf p\rangle
+=6.0\times10^{-2}\mathbf e_x\ \mathrm{C/m^2}.
+\]
+
+\subsubsection{3.
+线性本构关系及其边界}\label{m3:ux7ebfux6027ux672cux6784ux5173ux7cfbux53caux5176ux8fb9ux754c}
+
+对\textbf{局域、线性、各向同性}介质，且场强未超过线性响应范围时，
+
+\[
+\boxed{\mathbf P=\varepsilon_0\chi_e\mathbf E}.
+\]
+
+其中 \(\mathbf E\)
+是介质内部的\textbf{宏观总电场}，不是只由外加自由电荷产生的场，也不是单个分子位置处的微观局域场；\(\chi_e\)
+为无量纲电极化率。各向异性线性介质应写成
+
+\[
+P_i=\varepsilon_0\sum_j\chi_{ij}E_j,
+\]
+
+此时 \(\mathbf P\) 与 \(\mathbf E\) 未必平行。非线性介质还可能含有
+\(E_jE_k\) 等高阶项。
+
+\subsection{二、束缚电荷：体电荷、面电荷与界面跳跃（基础必讲）}\label{m3:ux4e8cux675fux7f1aux7535ux8377ux4f53ux7535ux8377ux9762ux7535ux8377ux4e0eux754cux9762ux8df3ux8dc3ux57faux7840ux5fc5ux8bb2}
+
+\subsubsection{1. 束缚体电荷}\label{m3:ux675fux7f1aux4f53ux7535ux8377}
+
+取介质内任意闭合曲面 \(S\)，其外法向面元为
+\(d\mathbf S\)。\(\mathbf P\cdot d\mathbf S\)
+可理解为极化过程中穿出该面元的正束缚电荷。于是体积内留下的净束缚电荷为
+
+\[
+Q_b=-\oiint_S\mathbf P\cdot d\mathbf S.
+\]
+
+利用散度定理，
+
+\[
+\iiint_V\rho_b\,dV
+=-\iiint_V\nabla\cdot\mathbf P\,dV.
+\]
+
+由于 \(V\) 任意，得到
+
+\[
+\boxed{\rho_b=-\nabla\cdot\mathbf P}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic21-v2-03.png}}
+\par\smallskip{\small 图示：均匀极化只产生面束缚电荷，非均匀极化还会产生体束缚电荷}
+\end{center}
+\end{minipage}\par
+
+\textbf{例 M3-003：均匀极化平板的束缚电荷}
+
+一块横向视为无限大的电介质平板占据
+\(0<x<d\)，\(d>0\)，左右两面均与真空相接。板内给定均匀极化强度
+\(\mathbf P=P_0\mathbf e_x\)，\(P_0>0\)，板外极化强度取零。求板内束缚体电荷密度及
+\(x=0,d\)
+两面的束缚面电荷密度，明确每个面的介质外法向，并检查单位面积所对应束缚电荷的代数和。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-003.pdf}}
+\par\smallskip{\small 图 M3-003：均匀极化平板的束缚电荷}
+\end{center}
+\end{minipage}\par
+
+图 M3-003 的 \(\mathbf n_L=-\mathbf e_x\)、\(\mathbf n_R=+\mathbf e_x\)
+都取介质实体的外法向。均匀的 \(P_x\) 不产生体散度；把两个外法向分别代入
+\(\mathbf P\cdot\mathbf n\)，便得到两面的相反符号。
+
+厚度为 \(d\) 的平板均匀极化，\(\mathbf P=P_0\mathbf e_x\)。板内
+\(\nabla\cdot\mathbf P=0\)，故
+\(\rho_b=0\)；左右表面的束缚面电荷密度分别为 \(-P_0\)、\(+P_0\)。
+
+\textbf{例 M3-004：随位置增强的极化强度}
+
+在一块电介质的内部光滑区域中，给定极化强度
+\(\mathbf P(x)=P_0(1+x/L)\mathbf e_x\)，\(P_0>0,L>0\)。只考察该表达式成立的体内区域，不把所选微元的虚拟边界当作介质实体表面。求束缚体电荷密度，并用一个沿
+\(x\) 方向的小长方体微元解释其符号与两端极化通量之差的关系。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-004.pdf}}
+\par\smallskip{\small 图 M3-004：随位置增强的极化强度}
+\end{center}
+\end{minipage}\par
+
+图 M3-004 虚框内，右面的极化通量比左面流入量大；在 \(P_0/L>0\)
+时，净穿出的正电荷使微元内留下负束缚电荷。计算中的 \(\partial_xP_x\)
+正是两端通量之差除以微元体积。
+
+若某区域 \(\mathbf P=P_0(1+x/L)\mathbf e_x\)，则
+
+\[
+\rho_b=-\frac{\partial P_x}{\partial x}=-\frac{P_0}{L}.
+\]
+
+可见判断体束缚电荷不能只看 \(\mathbf P\) 的方向，还要看它的净流出。
+
+\subsubsection{2.
+束缚面电荷与两介质界面}\label{m3:ux675fux7f1aux9762ux7535ux8377ux4e0eux4e24ux4ecbux8d28ux754cux9762}
+
+若介质 1 与介质 2 的分界面法向 \(\mathbf n_{12}\) 由介质 1 指向介质
+2，则界面上的总束缚面电荷密度为
+
+\[
+\boxed{
+\sigma_{b,12}=(\mathbf P_1-\mathbf P_2)\cdot\mathbf n_{12}
+}.
+\]
+
+它来自界面两侧极化终止产生的两项贡献。若介质 2
+为真空，\(\mathbf P_2=\mathbf0\)，才化为熟悉的特殊式
+
+\[
+\boxed{\sigma_b=\mathbf P\cdot\mathbf n},
+\]
+
+其中 \(\mathbf n\) 必须是\textbf{介质实体指向真空的外法向}。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic21-v2-04.png}}
+\par\smallskip{\small 图示：两介质界面束缚面电荷由极化强度的法向跳跃决定}
+\end{center}
+\end{minipage}\par
+
+对一块有限且整体电中性的孤立介质，若把所有体、面束缚电荷都计入，则束缚电荷代数和为零；但局部的
+\(\rho_b\) 或 \(\sigma_b\) 可以不为零。
+
+\subsection{三、电位移矢量与本构关系（基础必讲）}\label{m3:ux4e09ux7535ux4f4dux79fbux77e2ux91cfux4e0eux672cux6784ux5173ux7cfbux57faux7840ux5fc5ux8bb2}
+
+总电荷密度分为自由电荷与束缚电荷：\(\rho=\rho_f+\rho_b\)。由
+
+\[
+\nabla\cdot\mathbf E=\frac{\rho_f+\rho_b}{\varepsilon_0},
+\qquad
+\rho_b=-\nabla\cdot\mathbf P,
+\]
+
+可得
+
+\[
+\nabla\cdot(\varepsilon_0\mathbf E+\mathbf P)=\rho_f.
+\]
+
+定义电位移矢量
+
+\[
+\boxed{\mathbf D\equiv\varepsilon_0\mathbf E+\mathbf P},
+\]
+
+于是
+
+\[
+\boxed{\nabla\cdot\mathbf D=\rho_f},
+\qquad
+\boxed{\oiint_S\mathbf D\cdot d\mathbf S=Q_{f,\text{内}}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic21-v2-05.png}}
+\par\smallskip{\small 图示：电位移矢量把束缚电荷吸收到定义中，但不能脱离对称性直接给出电场}
+\end{center}
+\end{minipage}\par
+
+必须同时记住以下边界：
+
+\begin{itemize}
+\tightlist
+\item
+  \(\mathbf D\) 是组织介质宏观方程的辅助场，真实电荷所受电力仍由
+  \(\mathbf E\) 决定。
+\item
+  \(\nabla\cdot\mathbf D=\rho_f\)
+  只给出散度。没有足够对称性时，不能只凭高斯定律唯一确定 \(\mathbf D\)。
+\item
+  静电场中 \(\nabla\times\mathbf E=0\)，但
+  \(\nabla\times\mathbf D=\nabla\times\mathbf P\)
+  一般不为零，因此通常不能给 \(\mathbf D\) 引入标量势。
+\end{itemize}
+
+对局域、线性、各向同性介质，
+
+\[
+\mathbf D=\varepsilon_0\mathbf E+\varepsilon_0\chi_e\mathbf E
+=\varepsilon\mathbf E,
+\qquad
+\varepsilon=\varepsilon_0(1+\chi_e)=\varepsilon_0\varepsilon_r.
+\]
+
+应把两类关系分清：\(\mathbf D\equiv\varepsilon_0\mathbf E+\mathbf P\)
+是定义，而 \(\mathbf D=\varepsilon\mathbf E\)
+是有适用条件的本构关系。各向异性线性介质应写为
+\(D_i=\sum_j\varepsilon_{ij}E_j\)；非均匀介质中还可能有
+\(\varepsilon=\varepsilon(\mathbf r)\)。
+
+\subsection{四、例：充满介质的平行板（基础必讲）}\label{m3:ux56dbux4f8bux5145ux6ee1ux4ecbux8d28ux7684ux5e73ux884cux677fux57faux7840ux5fc5ux8bb2}
+
+\textbf{题号：M3-005}
+
+两块无限大平行导体板的内表面位于
+\(x=0,d\)，\(d>0\)，分别带固定自由面电荷密度
+\(+\sigma_f,-\sigma_f\)，\(\sigma_f>0\)。间隙全部充满均匀线性各向同性电介质，绝对电容率为
+\(\varepsilon=\varepsilon_0\varepsilon_r\)，\(\varepsilon_r>1\)；介质与极板贴合，间隙中没有其他自由电荷。忽略边缘效应，取
+\(+x\) 从正板指向负板。求板间
+\(\mathbf D,\mathbf E,\mathbf P\)，并求介质左右表面的束缚面电荷密度，区分它们与极板自由电荷。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-005.pdf}}
+\par\smallskip{\small 图 M3-005：充满介质的平行板}
+\end{center}
+\end{minipage}\par
+
+图 M3-005 把自由电荷所在的导体板与紧贴它的介质束缚电荷分开标出。沿图中的
+\(\mathbf n\)，高斯柱先给出 \(D_n=\sigma_f\)；介质两面的外法向分别为
+\(-\mathbf n\)、\(+\mathbf n\)，用它们确定束缚电荷符号。
+
+两无限大平行导体板带自由面电荷 \(+\sigma_f\) 与
+\(-\sigma_f\)，板间完全充满相对电容率为 \(\varepsilon_r\)
+的均匀线性各向同性介质，忽略边缘效应。令 \(\mathbf n\)
+从正极板指向负极板，则
+
+\[
+\mathbf D=\sigma_f\mathbf n,
+\]
+
+\[
+\mathbf E=\frac{\sigma_f}{\varepsilon_0\varepsilon_r}\mathbf n,
+\qquad
+\mathbf P=\mathbf D-\varepsilon_0\mathbf E
+=\frac{\varepsilon_r-1}{\varepsilon_r}\sigma_f\mathbf n.
+\]
+
+介质靠近正极板的一面，其介质外法向为 \(-\mathbf n\)，故
+\(\sigma_b=-P\)；靠近负极板的一面有
+\(\sigma_b=+P\)。束缚电荷产生的场与原自由电荷场相反，使介质中的总场减弱。
+
+\subsubsection{图示：高度对称介质题的求解顺序}\label{m3:ux56feux793aux9ad8ux5ea6ux5bf9ux79f0ux4ecbux8d28ux9898ux7684ux6c42ux89e3ux987aux5e8f}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-dielectric-05-solution-route-pdf-v11.jpg}}
+\par\smallskip{\small 图示：介质静电题按自由电荷、极化电荷、边界和本构关系组织求解}
+\end{center}
+\end{minipage}\par
+
+这条路线适用于自由电荷已知、介质本构关系明确且对称性足够的模型。没有可用对称性时，应联立泊松方程、本构关系与边界条件；不能强行把
+\(\mathbf D\) 当作常量。
+
+\subsection{五、练习与解答}\label{m3:ux4e94ux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\subsubsection{作业一：介质球壳中的场量、极化电荷与电容}\label{m3:ux4f5cux4e1aux4e00ux4ecbux8d28ux7403ux58f3ux4e2dux7684ux573aux91cfux6781ux5316ux7535ux8377ux4e0eux7535ux5bb9}
+
+\textbf{题号：M3-006}
+
+\textbf{层级：} 基础　　\textbf{方法：} 介质边界
+
+真空中一个半径为 \(a>0\) 的孤立导体球带固定自由电荷
+\(Q\)。球外同心包覆均匀线性各向同性电介质壳，内、外半径为
+\(a,b\)，\(b>a\)，相对电容率为 \(\varepsilon_r>0\)；\(r>b\)
+为真空，无其他外部电荷，取 \(\varphi(\infty)=0\)。
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  求 \(r<a\)、\(a<r<b\)、\(r>b\) 各开区域的
+  \(\mathbf D,\mathbf E,\mathbf P\)，界面场取相应侧极限。
+\item
+  求壳内束缚体电荷密度与壳内、外表面的束缚面电荷密度，两个球面的法向均按介质实体的外法向取定。
+\item
+  求导体球电势及其相对于无穷远的电容，并检验介质消失、壳厚趋零及介质延伸到无穷远等极限。
+\end{enumerate}
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-006.pdf}}
+\par\smallskip{\small 图 M3-006：介质球壳中的场量、极化电荷与电容}
+\end{center}
+\end{minipage}\par
+
+图 M3-006 中 \(r<a\) 是导体，\(a<r<b\) 是介质，\(r>b\)
+是真空。介质的内法向箭头 \(\mathbf n_a\) 指向球心，外法向
+\(\mathbf n_b\) 背离球心；它们决定后面两个 \(\sigma_b\)
+的正负。以下先按同心球面求 \(D_r\)，再逐区换算 \(E_r\)、\(P_r\)。
+
+\textbf{第 1 步：利用电介质中的高斯定理求解} \textbf{\(\mathbf{D}\)}
+\textbf{分布}
+
+系统具有严格的球对称性，\(\mathbf{D}\)
+的方向沿径向。选取同心球面作为高斯面，半径为 \(r\)。
+
+根据 \(\oiint \mathbf{D} \cdot d\mathbf{S} = Q_{f,\text{内}}\)，即
+\(4\pi r^2D=Q_{f,\text{内}}\)。
+
+\begin{itemize}
+\tightlist
+\item
+  区域 I (\(r < a\), 导体内部)：高斯面未包围位于 \(r=a\)
+  的自由面电荷；又因球对称性，\(\mathbf D=\mathbf0\)。在本题的宏观描述中导体内部取
+  \(\mathbf P=\mathbf0\)，且静电平衡时
+  \(\mathbf E=\mathbf0\)，与此一致。
+\item
+  区域 II (\(a < r < b\),
+  介质内部)：\(Q_{f,\text{内}}=Q\implies \mathbf D=\dfrac{Q}{4\pi r^2}\hat{\mathbf r}\)
+\item
+  区域 III (\(r > b\),
+  真空区域)：\(Q_{f,\text{内}}=Q\implies \mathbf D=\dfrac{Q}{4\pi r^2}\hat{\mathbf r}\)
+\end{itemize}
+
+\textbf{第 2 步：通过本构方程}
+\textbf{\(\mathbf{D} = \varepsilon \mathbf{E}\)} \textbf{求解}
+\textbf{\(\mathbf{E}\)}
+
+\begin{itemize}
+\tightlist
+\item
+  区域 I (\(r < a\))：\(\mathbf{E} = \mathbf{0}\)
+\item
+  区域 II (\(a < r < b\))：介质内
+  \(\varepsilon = \varepsilon_0 \varepsilon_r\)，故
+  \(\mathbf{E} = \frac{\mathbf{D}}{\varepsilon_0 \varepsilon_r} = \frac{Q}{4\pi \varepsilon_0 \varepsilon_r r^2} \hat{\mathbf{r}}\)
+\item
+  区域 III (\(r > b\))：真空中 \(\varepsilon_r = 1\)，故
+  \(\mathbf{E} = \frac{\mathbf{D}}{\varepsilon_0} = \frac{Q}{4\pi \varepsilon_0 r^2} \hat{\mathbf{r}}\)
+\end{itemize}
+
+可见在自由电荷 \(Q\) 固定时，介质层电场是相应真空场的
+\(1/\varepsilon_r\)。当 \(\varepsilon_r>1\)
+时场强减弱；\(0<\varepsilon_r<1\) 时场强增强；\(\varepsilon_r=1\)
+时不变。
+
+\textbf{第 3 步：利用定义}
+\textbf{\(\mathbf{P} = \mathbf{D} - \varepsilon_0 \mathbf{E}\)}
+\textbf{求解} \textbf{\(\mathbf{P}\)}
+
+\begin{itemize}
+\item
+  区域 I (\(r < a\)) 与 区域 III
+  (\(r > b\))：真空及导体内部没有极化，\(\mathbf{P} = \mathbf{0}\)
+\item
+  区域 II (\(a < r < b\))：
+
+  \[
+  \mathbf{P} = \mathbf{D} - \varepsilon_0 \mathbf{E} = \frac{Q}{4\pi r^2} \hat{\mathbf{r}} - \varepsilon_0 \frac{Q}{4\pi \varepsilon_0 \varepsilon_r r^2} \hat{\mathbf{r}} = \frac{Q(\varepsilon_r - 1)}{4\pi \varepsilon_r r^2} \hat{\mathbf{r}}
+  \]
+\end{itemize}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-006a.pdf}}
+\par\smallskip{\small 图 M3-006a：内、外界面的法向投影}
+\end{center}
+\end{minipage}\par
+
+图 M3-006a 把球壳沿同一径向射线展开：图示取
+\(Q>0\)、\(\varepsilon_r>1\)，故 \(\mathbf P\) 在两端都沿
+\(+\mathbf e_r\)，但介质外法向在 \(a\) 处向左、在 \(b\) 处向右。面积因子
+\(4\pi a^2\)、\(4\pi b^2\)
+分别乘回面密度后，两面的束缚电荷总量恰好相消。 其他符号情形由
+\(Q(\varepsilon_r-1)\) 决定极化方向，几何外法向不变。
+
+\textbf{第 4 步：计算极化电荷密度}
+
+\begin{itemize}
+\item
+  \textbf{体束缚电荷密度 \(\rho_b\)（\(a<r<b\)）}：
+
+  \[
+  \rho_b = - \nabla \cdot \mathbf{P} = - \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 P_r \right) = - \frac{1}{r^2} \frac{\partial}{\partial r} \left( \frac{Q(\varepsilon_r - 1)}{4\pi \varepsilon_r} \right) = 0
+  \]
+\end{itemize}
+
+本题介质层内 \(r^2P_r\) 为常量，直接给出
+\(\rho_b=-\nabla\cdot\mathbf P=0\)。更一般地，均匀线性各向同性介质中
+\(\mathbf P=(\varepsilon-\varepsilon_0)\mathbf E\)，故
+\(\nabla\cdot\mathbf P=(\varepsilon-\varepsilon_0)\rho_f/\varepsilon\)；
+只要该区域内自由体电荷为零，体束缚电荷也为零，无须球对称。若区域含自由体电荷，或电容率随位置变化，则应重新计算散度。
+
+\begin{itemize}
+\item
+  \textbf{面束缚电荷密度 \(\sigma_b\)}：利用
+  \(\sigma_b=\mathbf P\cdot\hat{\mathbf n}\)。
+
+  \begin{itemize}
+  \item
+    \textbf{内表面 \(r=a\)}：介质的外法向 \(\hat{\mathbf n}\)
+    指向球心，即 \(\hat{\mathbf n}=-\hat{\mathbf r}\)。
+
+    \[
+    \sigma_{b,a} = \mathbf{P}(a) \cdot (-\hat{\mathbf{r}}) = - \frac{Q(\varepsilon_r - 1)}{4\pi \varepsilon_r a^2}
+    \]
+  \item
+    \textbf{外表面 \(r=b\)}：介质的外法向 \(\hat{\mathbf n}\)
+    指向外部，即 \(\hat{\mathbf n}=\hat{\mathbf r}\)。
+
+    \[
+    \sigma_{b,b} = \mathbf{P}(b) \cdot (\hat{\mathbf{r}}) = \frac{Q(\varepsilon_r - 1)}{4\pi \varepsilon_r b^2}
+    \]
+  \end{itemize}
+\end{itemize}
+
+\textbf{检验物理自洽性：}
+
+内表面总极化电荷
+\(q_{b,a} = \sigma_{b,a} \times 4\pi a^2 = -Q\frac{\varepsilon_r - 1}{\varepsilon_r}\)。
+
+外表面总极化电荷
+\(q_{b,b} = \sigma_{b,b} \times 4\pi b^2 = Q\frac{\varepsilon_r - 1}{\varepsilon_r}\)。
+
+总束缚电荷 \(q_{b,\text{总}}=q_{b,a}+q_{b,b}+\iiint\rho_b\,dV=0\)。当
+\(Q>0\)、\(\varepsilon_r>1\)
+时，内表面的束缚电荷为负，极化附加场削弱原场。若
+\(0<\varepsilon_r<1\)，两面束缚电荷反号；\(Q\)
+反号时各电荷符号也随之反转。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-006b.pdf}}
+\par\smallskip{\small 图 M3-006b：由分段径向场求导体球电势}
+\end{center}
+\end{minipage}\par
+
+图 M3-006b 中从 \(a\) 到无穷远的径向路径在 \(b\)
+处分为两段；第一段含因子 \(1/\varepsilon_r\)，第二段属于真空。电势差
+\(\varphi(a)-\varphi(\infty)\) 等于沿该向外路径的
+\(\int E_r\,dr\)，不能把介质的电容率延用到 \(b\) 之外。
+
+\textbf{第 5 步：求导体球电势与系统电容}
+
+取无穷远电势为零，导体球电势为
+
+\[
+\begin{aligned}
+\varphi(a)
+&=\int_a^b\frac{Q}{4\pi\varepsilon_0\varepsilon_r r^2}\,dr
++\int_b^{\infty}\frac{Q}{4\pi\varepsilon_0r^2}\,dr\\
+&=\frac{Q}{4\pi\varepsilon_0}
+\left[
+\frac{1}{\varepsilon_r}\left(\frac1a-\frac1b\right)+\frac1b
+\right].
+\end{aligned}
+\]
+
+因此导体球相对于无穷远的电容为
+
+\[
+\boxed{
+C=\frac{Q}{\varphi(a)}
+=\frac{4\pi\varepsilon_0}
+{\dfrac1{\varepsilon_r}\left(\dfrac1a-\dfrac1b\right)+\dfrac1b}
+}.
+\]
+
+\textbf{极限检验：}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\varepsilon_r\to1\)
+  时，\(C\to4\pi\varepsilon_0a\)，回到真空孤立导体球。
+\item
+  \(b\to a\) 时，介质层消失，同样有 \(C\to4\pi\varepsilon_0a\)。
+\item
+  \(b\to\infty\)
+  时，空间全部由介质填充，\(C\to4\pi\varepsilon_0\varepsilon_ra\)。
+\end{itemize}
+
+\subsection{六、附录一：极化物理量的微观推导（拔高选讲）}\label{m3:ux516dux9644ux5f55ux4e00ux6781ux5316ux7269ux7406ux91cfux7684ux5faeux89c2ux63a8ux5bfcux62d4ux9ad8ux9009ux8bb2}
+
+本附录旨在从微观物理图像与宏观电荷守恒定律出发，完整推导静电场中电介质极化的两个核心物理关系：极化强度矢量与极化体电荷（通量关系），以及极化强度矢量与极化面电荷密度的关系。
+
+\subsubsection{第一部分：极化强度矢量通量与极化体电荷量的关系}\label{m3:ux7b2cux4e00ux90e8ux5206ux6781ux5316ux5f3aux5ea6ux77e2ux91cfux901aux91cfux4e0eux6781ux5316ux4f53ux7535ux8377ux91cfux7684ux5173ux7cfb}
+
+本节推导极化强度矢量 \(\mathbf{P}\)
+的闭合面积分（通量）等于体积内极化电荷量（束缚电荷量）负值的关系式：\(\oiint_S \mathbf{P} \cdot d\mathbf{S} = -Q_b\)。
+
+\textbf{1. 极化强度的微观物理本质}
+
+极化强度矢量 \(\mathbf{P}\) 表示单位体积内的平均电偶极矩。
+
+设电介质的分子数密度为
+\(N\)。对无极分子，无外场时正、负电荷中心重合；施加外场后，两者发生微小相对位移。对有极分子，单个分子原本就有永久偶极矩，但无外场时取向通常杂乱，宏观平均可以为零。
+
+\begin{itemize}
+\tightlist
+\item
+  设参与极化的等效正电荷量为 \(q\)，正电荷相对负电荷的位移矢量为
+  \(\mathbf{l}\)。
+\item
+  单个分子的电偶极矩为：\(\mathbf{p} = q\mathbf{l}\)。
+\end{itemize}
+
+宏观极化强度是大量分子偶极矩的局部平均：
+
+\[
+\mathbf P=N\langle\mathbf p\rangle.
+\]
+
+只有当各分子的偶极矩相同且同向时，才可简写为
+\(\mathbf P=N\mathbf p=Nq\mathbf l\)。必须强调：\(\mathbf P\)
+是偶极矩密度，不是电荷密度；是否产生体束缚电荷，要看 \(\mathbf P\)
+的散度。
+
+\textbf{2. 穿过体积边界的电荷量计算}
+
+在电介质内部任意划定一个闭合体积 \(V\)，其外表面为 \(S\)。考察表面 \(S\)
+上的微小面积元
+\(d\mathbf{S}\)，其方向规定为指向体积外部（\(d\mathbf{S} = \mathbf{\hat{n}} dS\)，\(\mathbf{\hat{n}}\)
+为外法向单位矢量）。
+
+极化时，正电荷沿 \(\mathbf{l}\)
+方向移动。只有原本距离边界小于投影位移（\(\mathbf{l} \cdot \mathbf{\hat{n}}\)）的正电荷，才能穿出该面积元。这些正电荷在极化前位于一个以
+\(d\mathbf{S}\) 为底、以 \(\mathbf{l}\) 为斜边的微小柱体内。
+
+该微小柱体的带符号投影体积为：
+
+\[
+dV_{\text{柱}}=\mathbf l\cdot d\mathbf S=(\mathbf l\cdot\hat{\mathbf n})dS.
+\]
+
+若该投影为负，表示正电荷的净运动方向是穿入而非穿出。
+
+该柱体对应的带符号电荷通量为
+
+\[
+dQ_{\text{出}}=qN\,dV_{\text{柱}}=qN(\mathbf l\cdot d\mathbf S).
+\]
+
+代入 \(\mathbf{P} = Nq\mathbf{l}\)，可得：
+
+\[
+dQ_{\text{出}}=\mathbf P\cdot d\mathbf S.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/theory/M3-T16.pdf}}
+\par\smallskip{\small 图示：极化强度通量的负号来自正电荷穿出闭合体积后内部留下负束缚电荷}
+\end{center}
+\end{minipage}\par
+
+\textbf{3. 电荷守恒与通量关系}
+
+对整个闭合表面 \(S\) 积分，得到净穿出体积 \(V\) 的总电荷量
+\(Q_{\text{出}}\)：
+
+\[
+Q_{\text{出}}=\oiint_S\mathbf P\cdot d\mathbf S.
+\]
+
+根据电荷守恒定律，极化前体积 \(V\)
+内电中性（净电荷为零）。极化后，正电荷 \(Q_{out}\) 流失到外部，导致体积
+\(V\) 内部必然留下等量的负电荷。这部分留在内部的净电荷即为极化体电荷总量
+\(Q_b\)：
+
+\[
+Q_b=-Q_{\text{出}}=-\oiint_S\mathbf P\cdot d\mathbf S.
+\]
+
+这一步的负号不是人为约定，而是电荷守恒的结果：穿出闭合体积的是正极化电荷，留在体积内部的净束缚电荷就为负。下图把``穿出量、留下量、微分式''连成一条链。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/theory/M3-T17.pdf}}
+\par\smallskip{\small 图示：极化通量负号来自穿出正电荷与内部剩余束缚电荷相反}
+\end{center}
+\end{minipage}\par
+
+\textbf{4. 微分形式的延伸}
+
+极化体电荷总量 \(Q_b\) 是极化体电荷密度 \(\rho_b\) 在体积 \(V\)
+上的积分：
+
+\[
+Q_b = \iiint_V \rho_b dV
+\]
+
+利用高斯散度定理，将通量转化为体积分：
+
+\[
+\oiint_S \mathbf{P} \cdot d\mathbf{S} = \iiint_V (\nabla \cdot \mathbf{P}) dV
+\]
+
+联立上述关系并合并积分项：
+
+\[
+\iiint_V (\nabla \cdot \mathbf{P} + \rho_b) dV = 0
+\]
+
+由于体积 \(V\) 的任意性，被积函数必须处处为零，从而得到微分关系：
+
+\[
+\rho_b = -\nabla \cdot \mathbf{P}
+\]
+
+因此，判断体束缚电荷时不能只看 \(\mathbf P\) 朝哪个方向，而要看
+\(\mathbf P\) 的净流出。均匀 \(\mathbf P\) 在体内没有散度；若
+\(\mathbf P\) 向外增强，净流出为正，体内留下负束缚电荷；若 \(\mathbf P\)
+向内汇聚，体内留下正束缚电荷。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-polar-rel-03-divergence-intuition-pdf-v11.jpg}}
+\par\smallskip{\small 图示：体束缚电荷的符号由 P 的净流出决定}
+\end{center}
+\end{minipage}\par
+
+\subsubsection{第二部分：极化强度与界面束缚电荷密度}\label{m3:ux7b2cux4e8cux90e8ux5206ux6781ux5316ux5f3aux5ea6ux4e0eux754cux9762ux675fux7f1aux7535ux8377ux5bc6ux5ea6}
+
+先推导两介质界面的一般式，再把介质---真空边界作为特殊情形。
+
+面束缚电荷只取 \(\mathbf P\)
+在\textbf{介质实体外法向}上的投影。\(\mathbf P\)
+指向介质外侧时表面显正电，指向介质内部时表面显负电；若 \(\mathbf P\)
+沿表面切向，则该处没有面束缚电荷。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-polar-rel-04-surface-normal-signs-pdf-v11.jpg}}
+\par\smallskip{\small 图示：面束缚电荷密度只取 P 在介质外法向上的投影}
+\end{center}
+\end{minipage}\par
+
+\textbf{方法一：跨界面小柱体推导一般式}
+
+设法向 \(\mathbf n_{12}\) 由介质 1 指向介质 2。取一个横截面积为
+\(A\)、高度趋于零的小柱体跨过界面。由
+\(\rho_b=-\nabla\cdot\mathbf P\)，柱体内束缚电荷为
+
+\[
+\begin{aligned}
+\sigma_{b,12}A
+&=-\lim_{h\to0}\oiint\mathbf P\cdot d\mathbf S\\
+&=-A(\mathbf P_2-\mathbf P_1)\cdot\mathbf n_{12}.
+\end{aligned}
+\]
+
+故
+
+\[
+\boxed{\sigma_{b,12}=(\mathbf P_1-\mathbf P_2)\cdot\mathbf n_{12}}.
+\]
+
+若介质 2 为真空，\(\mathbf P_2=\mathbf0\)，且 \(\mathbf n_{12}\)
+正是介质外法向，才得到
+\(\sigma_b=\mathbf P\cdot\mathbf n\)。这一推导同时说明，不能仅由``整个封闭表面上的积分为零''直接推出任意一点的局部面密度。
+
+\textbf{方法二：介质---真空边界的微观位移推导}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{构建表面微观模型}：考虑电介质表面上的微小面积元
+  \(\Delta S\)，其外法向单位矢量为 \(\mathbf{\hat{n}}\)。
+\item
+  \textbf{计算堆积电荷量}：极化时，正电荷移动距离
+  \(\mathbf{l}\)。所有穿出 \(\Delta S\)
+  并``裸露''堆积在表面的正电荷，原先位于以 \(\Delta S\) 为底、高为
+  \(\mathbf{l} \cdot \mathbf{\hat{n}}\) 的微小斜柱体内。\\
+  该斜柱体体积为：\(\Delta V = (\mathbf{l} \cdot \mathbf{\hat{n}}) \Delta S\)
+\item
+  \textbf{计算面电荷密度}：该体积内的电荷总量 \(\Delta q_b\) 即为堆积在
+  \(\Delta S\) 上的面电荷：
+
+  \[
+  \Delta q_b = (N \Delta V) q = N q (\mathbf{l} \cdot \mathbf{\hat{n}} \Delta S)
+  \]
+\end{enumerate}
+
+代入极化强度定义 \(\mathbf{P} = Nq\mathbf{l}\)，重组各项：
+
+\[
+\Delta q_b = (Nq\mathbf{l}) \cdot \mathbf{\hat{n}} \Delta S = \mathbf{P} \cdot \mathbf{\hat{n}} \Delta S
+\]
+
+根据面电荷密度定义 \(\sigma_b=\Delta q_b/\Delta S\)，两边同除以
+\(\Delta S\) 即得：
+
+\[
+\sigma_b = \mathbf{P} \cdot \mathbf{\hat{n}}
+\]
+
+\subsection{七、附录二：均匀介质中的极化强度是否均匀（拔高选讲）}\label{m3:ux4e03ux9644ux5f55ux4e8cux5747ux5300ux4ecbux8d28ux4e2dux7684ux6781ux5316ux5f3aux5ea6ux662fux5426ux5747ux5300ux62d4ux9ad8ux9009ux8bb2}
+
+本附录总结了在不同电场与几何条件下，理想电介质内部极化强度矢量
+\(\mathbf{P}\) 的分布特性。
+
+\subsubsection{1.
+极化强度的决定性因素}\label{m3:ux6781ux5316ux5f3aux5ea6ux7684ux51b3ux5b9aux6027ux56e0ux7d20}
+
+对于\textbf{各向同性、线性且均匀}的电介质，其极化强度矢量 \(\mathbf{P}\)
+与介质内部的宏观总电场 \(\mathbf{E}\) 满足以下本构关系：
+
+\[
+\mathbf{P}(\mathbf{r}) = \varepsilon_0 \chi_e \mathbf{E}(\mathbf{r})
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{材料属性的局限性}：``各向同性、线性、均匀''仅保证了极化率
+  \(\chi_e\) 在介质内部是一个不随空间坐标 \(\mathbf{r}\)
+  变化的常数标量。
+\item
+  \textbf{空间分布的从属性}：极化强度 \(\mathbf{P}\)
+  的空间分布（无论大小还是方向）完全从属于内部总电场 \(\mathbf{E}\)
+  的空间分布。若 \(\mathbf{E}\) 不均匀，\(\mathbf{P}\) 必然不均匀。
+\end{itemize}
+
+先把 \(\mathbf P\)
+的来源和解题位置固定下来：它是分子偶极矩的体密度，并非另一个独立外加场。对有自由电荷的介质题，常用路线是先由自由电荷求
+\(\mathbf D\)，再通过本构关系得到 \(\mathbf E\) 与
+\(\mathbf P\)，最后才讨论束缚电荷。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/theory/unified7-P-D-flux.pdf}}
+\par\smallskip{\small 图示：P 的通量对应束缚电荷，D 的通量只对应自由电荷，二者不能互换使用}
+\end{center}
+\end{minipage}\par
+
+这张对照图给出解题顺序的原因：若自由电荷分布和对称性已知，先用
+\(\oiint\mathbf D\cdot d\mathbf S=q_f\) 求 \(\mathbf D\)
+往往最省力；但束缚电荷、极化电荷或 \(\mathbf P\) 的散度题，必须回到
+\(\mathbf P\) 的定义与 \(\rho_b=-\nabla\cdot\mathbf P\)，不能把
+\(\mathbf D\) 的通量误当成束缚电荷。
+
+图中左右是两个独立的通量示意：左图取所包围的净束缚电荷
+\(q_b>0\)，极化矢量在闭曲面上的净通量为负；右图取自由电荷
+\(q_f>0\)，电位移的净通量为正。箭头用于说明通量的符号，不表示材料一定均匀极化；实际
+\(\mathbf P\) 仍由内部总场和几何边界决定。
+
+\subsubsection{2.
+内部总电场的不均匀性来源}\label{m3:ux5185ux90e8ux603bux7535ux573aux7684ux4e0dux5747ux5300ux6027ux6765ux6e90}
+
+介质内部的总电场 \(\mathbf{E}\) 由两部分叠加而成：
+
+\[
+\mathbf{E} = \mathbf{E}_0 + \mathbf{E}'
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\(\mathbf{E}_0\)} \textbf{（外加电场）}
+  ：若外场本身（如点电荷激发的电场）随空间变化，总电场必然不均匀。
+\item
+  \textbf{\(\mathbf{E}'\)} \textbf{（退极化场）}
+  ：由介质极化后表面产生的束缚电荷所激发，方向通常与外场相反。\textbf{退极化场的空间分布高度依赖于电介质的几何形状}，这是导致内部电场不均匀的最隐蔽且最常见的因素。
+\end{itemize}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/theory/M3-T21.pdf}}
+\par\smallskip{\small 图示：各向同性线性均匀介质中极化强度仍然由内部总电场决定，几何边缘会造成不均匀}
+\end{center}
+\end{minipage}\par
+
+\subsubsection{3.
+几何形状对分布的决定性影响}\label{m3:ux51e0ux4f55ux5f62ux72b6ux5bf9ux5206ux5e03ux7684ux51b3ux5b9aux6027ux5f71ux54cd}
+
+假设外加电场 \(\mathbf{E}_0\) 为绝对匀强电场：
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-dielectric-06-p-uniformity-decision-pdf-v11.jpg}}
+\par\smallskip{\small 图示：判断极化强度是否均匀时，必须同时检查材料参数和内部总电场}
+\end{center}
+\end{minipage}\par
+
+因此，表中``严格均匀''的结论并非由材料名称本身得到，而是由该几何中退极化场的空间分布得到。遇到有限介质时，应先问内部总场是否仍均匀，再判断
+\(\mathbf P\) 的分布。
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1818}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2121}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1818}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4242}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{电介质几何形状}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{退极化场 E′ 的状态}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{极化强度 P 的状态}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{物理原因}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{椭球体}（含球体） & 严格均匀 & \textbf{各点相同} &
+完美的二次曲面边界使表面束缚电荷产生的退极化场在内部处处相等。 \\
+\textbf{无限大平板 / 无限长圆柱} & 严格均匀 & \textbf{各点相同} &
+椭球体的退化形式（极限情况），边界效应被推至无限远。 \\
+\textbf{有限长方体}（及一般非椭球形状） & 一般不均匀 &
+\textbf{通常随位置变化} &
+棱、角与有限边界使表面束缚电荷和退极化场出现明显的边缘效应。 \\
+\end{longtable}
+}
+
+\subsubsection{4.
+案例结论：有限长方体在匀强外场中}\label{m3:ux6848ux4f8bux7ed3ux8bbaux6709ux9650ux957fux65b9ux4f53ux5728ux5300ux5f3aux5916ux573aux4e2d}
+
+\textbf{题号：M3-007}
+
+真空中放置一块有限尺寸、均匀线性各向同性的电介质长方体，无预置自由电荷。远处固定自由源在未放入长方体时产生匀强外场
+\(\mathbf E_0\)，放入后这些源保持不变。材料相对电容率
+\(\varepsilon_r>1\)
+处处相同，外场非零，但边界有平面、棱与角。定性比较几何中心附近、表面中部及棱角附近的极化强度，讨论它们是否必然相同，并说明退极化场与本构关系各决定什么；不要求求出完整三维数值场。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-007.pdf}}
+\par\smallskip{\small 图 M3-007：有限长方体的非均匀极化}
+\end{center}
+\end{minipage}\par
+
+图 M3-007 的 \(C\) 位于长方体中心，\(A\)
+靠近边缘。材料参数相同只使两点满足同一个本构系数
+\(\varepsilon_0\chi_e\)；边缘改变了总场
+\(\mathbf E(A)\)，所以不能把中心的 \(\mathbf P_c\)
+直接延伸到全部表面。图中箭头仅说明这种差异。
+
+将有限尺寸的长方体置于匀强外场中，其表面与内部的极化状态存在显著差异：
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{几何中心区域}：退极化场相对平缓且稳定，极化强度 \(\mathbf{P}\)
+  变化较小。
+\item
+  \textbf{表面及边缘区域（棱、角）}
+  ：电场线在此处明显畸变，退极化场往往具有较大的空间梯度。
+\item
+  \textbf{最终状态}：长方体表面（特别是靠近边缘处）的极化强度
+  \(\mathbf{P}\) 与内部几何中心的 \(\mathbf{P}\)
+  \textbf{不仅在数值上不相等，在方向上也可能发生偏转}。
+\end{itemize}
+
+\section{专题二十二：自由电荷、束缚电荷与高斯定律（基础必讲）}\label{m3:ux4e13ux9898ux4e8cux5341ux4e8cux81eaux7531ux7535ux8377ux675fux7f1aux7535ux8377ux4e0eux9ad8ux65afux5b9aux5f8bux57faux7840ux5fc5ux8bb2}
+
+对同一个闭合面，\(\varepsilon_0\mathbf E\)、\(\mathbf P\)、\(\mathbf D\)
+的通量分别对应总电荷、束缚电荷与自由电荷。把三式并列计算，可以检查介质题中的符号和边界项。
+
+球壳几何与专题二十一相同，但这里分别计算自由电荷、束缚电荷和三种通量。相同几何便于比较两种计算目标，通量核对不能由上一题的结论代替。
+
+\subsection{一、同一闭合面上的三种通量（基础必讲）}\label{m3:ux4e00ux540cux4e00ux95edux5408ux9762ux4e0aux7684ux4e09ux79cdux901aux91cfux57faux7840ux5fc5ux8bb2}
+
+设闭合面 \(S\) 的面元 \(d\mathbf S\) 指向外部；\(q_f\)、\(q_b\) 分别表示
+\(S\) 内自由电荷与束缚电荷的\textbf{代数和}。三条关系是
+
+\[
+\boxed{
+\varepsilon_0\oiint_S\mathbf E\cdot d\mathbf S=q_f+q_b
+},
+\]
+
+\[
+\boxed{
+\oiint_S\mathbf P\cdot d\mathbf S=-q_b
+},
+\]
+
+\[
+\boxed{
+\oiint_S\mathbf D\cdot d\mathbf S=q_f
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic22-v2-01.png}}
+\par\smallskip{\small 图示：同一闭合面上的三种通量分别统计总电荷、束缚电荷和自由电荷}
+\end{center}
+\end{minipage}\par
+
+三式的对象必须严格区分：
+
+\begin{itemize}
+\tightlist
+\item
+  \(\varepsilon_0\mathbf E\)
+  的通量统计全部实际电荷，即自由电荷与束缚电荷之和。
+\item
+  \(\mathbf P\) 的通量只统计束缚电荷，并带负号。负号来自
+  \(\rho_b=-\nabla\cdot\mathbf P\)，不是人为规定。
+\item
+  \(\mathbf D\)
+  的通量只统计自由电荷。它不等于总电荷，也不意味着束缚电荷没有产生电场。
+\end{itemize}
+
+把 \(\mathbf P\) 或 \(\mathbf D\)
+画成``线''只能辅助观察方向与通量，不能把这些线当成独立的物理实体。
+
+\textbf{例 M3-008：均匀极化闭合面的零通量}
+
+均匀极化介质内部的极化强度为常矢量
+\(\mathbf P_0\ne\mathbf0\)。在介质内部任取一个完全闭合、分片光滑的高斯面
+\(S\)，它与真实介质边界不相交，面元取向外。求
+\(\oint_S\mathbf P_0\cdot d\mathbf S\)，说明它对应何种束缚电荷，并判断零通量能否推出面上每点极化强度均为零。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-008.pdf}}
+\par\smallskip{\small 图 M3-008：均匀极化闭合面的零通量}
+\end{center}
+\end{minipage}\par
+
+图 M3-008 的闭合面 \(S\)
+完全位于介质内部。左右两面的外法向相反，通量分别为 \(-PA\) 与
+\(+PA\)；其余面上 \(\mathbf P\)
+为切向，故总通量抵消，图中每条非零极化箭头仍然存在。
+
+在均匀极化介质内部取一个不接触边界的闭合面。虽然
+\(\mathbf P\ne\mathbf0\)，但闭合面内 \(q_b=0\)，所以
+
+\[
+\oiint_S\mathbf P\cdot d\mathbf S=0.
+\]
+
+这说明``通量为零''不等于``场处处为零''。
+
+\textbf{例 M3-009：没有自由电荷时的非零电位移}
+
+无限大平行导体板内表面带
+\(+\sigma_f,-\sigma_f\)，\(\sigma_f>0\)，板间充满均匀线性各向同性介质，不含体自由电荷，忽略边缘效应。在板间取一个完全不接触极板的闭合长方体面
+\(S\)，其两面垂直于场方向，面元统一向外。求穿过 \(S\)
+的总电位移通量，并比较与场平行的两个相对面上的贡献；据此判断``闭合面内没有自由电荷''能否推出
+\(\mathbf D\) 在面上各点为零。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-009.pdf}}
+\par\smallskip{\small 图 M3-009：没有自由电荷时的非零电位移}
+\end{center}
+\end{minipage}\par
+
+图 M3-009 的自由电荷位于 \(S\) 外的两块极板上，\(S\)
+内没有自由电荷。非零的 \(\mathbf D\)
+从左面进入、从右面穿出，两项通量相消；因此零通量不能推出图中
+\(\mathbf D\) 的逐点值为零。
+
+若闭合面内没有自由电荷，则
+\(\oiint_S\mathbf D\cdot d\mathbf S=0\)；但闭合面内外的自由电荷仍可能使
+\(\mathbf D\) 在各点不为零。高斯定律给出的是总通量，不是逐点场值。
+
+\subsection{二、三种高斯定律的推导（基础必讲）}\label{m3:ux4e8cux4e09ux79cdux9ad8ux65afux5b9aux5f8bux7684ux63a8ux5bfcux57faux7840ux5fc5ux8bb2}
+
+\subsubsection{\texorpdfstring{1. 从束缚电荷定义得到 \(\mathbf P\)
+的高斯定律}{1. 从束缚电荷定义得到 \textbackslash mathbf P 的高斯定律}}\label{m3:ux4eceux675fux7f1aux7535ux8377ux5b9aux4e49ux5f97ux5230-mathbf-p-ux7684ux9ad8ux65afux5b9aux5f8b}
+
+上一专题已经由粗粒化极化模型得到
+
+\[
+\rho_b=-\nabla\cdot\mathbf P.
+\]
+
+对任意体积 \(V\) 积分并使用散度定理，
+
+\[
+q_b=\iiint_V\rho_b\,dV
+=-\iiint_V\nabla\cdot\mathbf P\,dV
+=-\oiint_{\partial V}\mathbf P\cdot d\mathbf S.
+\]
+
+因此
+
+\[
+\boxed{\oiint_S\mathbf P\cdot d\mathbf S=-q_b}.
+\]
+
+若闭合面跨越介质界面，应把 \(\mathbf P\)
+在真空中延拓为零，并把界面束缚面电荷一并计入
+\(q_b\)；这样积分式仍然成立。若闭合面恰好与跃变界面重合，应改取界面两侧的极限，避免使用界面上的未定义场值。
+
+\subsubsection{\texorpdfstring{2. 从总电荷高斯定律得到 \(\mathbf D\)
+的高斯定律}{2. 从总电荷高斯定律得到 \textbackslash mathbf D 的高斯定律}}\label{m3:ux4eceux603bux7535ux8377ux9ad8ux65afux5b9aux5f8bux5f97ux5230-mathbf-d-ux7684ux9ad8ux65afux5b9aux5f8b}
+
+宏观总场满足
+
+\[
+\nabla\cdot\mathbf E=\frac{\rho_f+\rho_b}{\varepsilon_0}.
+\]
+
+代入 \(\rho_b=-\nabla\cdot\mathbf P\)，移项得
+
+\[
+\nabla\cdot(\varepsilon_0\mathbf E+\mathbf P)=\rho_f.
+\]
+
+定义
+
+\[
+\mathbf D\equiv\varepsilon_0\mathbf E+\mathbf P,
+\]
+
+便有
+
+\[
+\boxed{\nabla\cdot\mathbf D=\rho_f},
+\qquad
+\boxed{\oiint_S\mathbf D\cdot d\mathbf S=q_f}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic22-v2-02.png}}
+\par\smallskip{\small 图示：电位移矢量的高斯定律是把总电荷账本重新分组}
+\end{center}
+\end{minipage}\par
+
+这里的 \(\mathbf D\equiv\varepsilon_0\mathbf E+\mathbf P\)
+是定义；\(\mathbf D=\varepsilon\mathbf E\)
+是局域、线性、各向同性介质中的本构关系。两者不能混为一谈。
+
+\subsection{三、高斯定律能做什么、不能做什么（基础必讲）}\label{m3:ux4e09ux9ad8ux65afux5b9aux5f8bux80fdux505aux4ec0ux4e48ux4e0dux80fdux505aux4ec0ux4e48ux57faux7840ux5fc5ux8bb2}
+
+高斯定律总能给出闭合面的\textbf{总通量}，但只有对称性足够时，才能把通量积分化为``面积乘场强''，进而直接求出逐点场量。
+
+以 \(\mathbf D\) 为例：
+
+\begin{itemize}
+\tightlist
+\item
+  球对称时，\(\mathbf D=D(r)\mathbf e_r\)，且同一球面上大小相等，于是
+  \(4\pi r^2D(r)=q_f\)。
+\item
+  柱对称时，还必须确认场沿径向、只依赖柱半径，并且端面通量为零。
+\item
+  平面对称时，还必须确认两侧方向与大小关系，不能只凭``无限大平面''几个字直接写答案。
+\item
+  对一般几何，即使知道
+  \(\oiint_S\mathbf D\cdot d\mathbf S=q_f\)，也不能确定每一点的方向和大小。
+\end{itemize}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic22-v2-03.png}}
+\par\smallskip{\small 图示：高斯定律给出总通量，只有充分对称性才能直接求逐点场强}
+\end{center}
+\end{minipage}\par
+
+还要注意，静电场满足 \(\nabla\times\mathbf E=0\)，但
+
+\[
+\nabla\times\mathbf D
+=\nabla\times\mathbf P
+\]
+
+一般不为零。因此通常不能像处理 \(\mathbf E=-\nabla\varphi\) 那样，为
+\(\mathbf D\) 普遍引入标量势。
+
+\textbf{方法选择：}
+
+\begin{itemize}
+\tightlist
+\item
+  已知自由电荷且具有充分对称性，优先用 \(\mathbf D\) 的高斯定律。
+\item
+  已知极化强度，求束缚电荷，使用 \(\rho_b=-\nabla\cdot\mathbf P\)
+  与界面公式。
+\item
+  已知全部实际电荷，或需要检验总场，使用 \(\mathbf E\) 的高斯定律。
+\item
+  缺少对称性时，应联立本构关系、泊松方程和边界条件，而不是强行使用高斯面求场。
+\end{itemize}
+
+\subsection{四、练习与解答}\label{m3:ux56dbux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\subsubsection{作业一：介质球壳中的三种高斯定律}\label{m3:ux4f5cux4e1aux4e00ux4ecbux8d28ux7403ux58f3ux4e2dux7684ux4e09ux79cdux9ad8ux65afux5b9aux5f8b}
+
+\textbf{题号：M3-010}
+
+\textbf{层级：} 基础　　\textbf{方法：} 高斯定理、介质边界
+
+自由点电荷 \(Q\) 固定于原点。以原点为中心，\(a<r<b\)
+为均匀线性各向同性电介质球壳，\(0<a<b\)，相对电容率
+\(\varepsilon_r>0\)；\(0<r<a\) 与 \(r>b\)
+为真空。介质两界面没有额外自由面电荷，空间中无其他源。
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  求 \(r>0\) 各开区域的
+  \(\mathbf D,\mathbf E,\mathbf P\)，不把原点当作普通无源点。
+\item
+  求介质的束缚体电荷密度、内外表面束缚面电荷密度及各部分总量，界面法向取介质自身外法向。
+\item
+  分别在 \(0<r<a\)、\(a<r<b\)、\(r>b\) 取向外的同心球形高斯面，计算
+  \(\varepsilon_0\Phi_E,\Phi_P,\Phi_D\)，核对它们对应的总电荷、束缚电荷与自由电荷。
+\item
+  检查整层介质束缚电荷的代数和，并讨论 \(\varepsilon_r\to1\) 的极限。
+\end{enumerate}
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-010.pdf}}
+\par\smallskip{\small 图 M3-010：介质球壳中的三种高斯定律}
+\end{center}
+\end{minipage}\par
+
+图 M3-010
+的中心是自由点电荷，内腔仍是真空，不能沿用上一专题导体内部零场的结论。绿色高斯面
+\(S_r\) 若位于介质中，只包围内表面的负束缚电荷；移到 \(r>b\)
+后才把外表面的正束缚电荷也计入。
+
+\paragraph{\texorpdfstring{1. 求 \(\mathbf D\)、\(\mathbf E\) 与
+\(\mathbf P\)}{1. 求 \textbackslash mathbf D、\textbackslash mathbf E 与 \textbackslash mathbf P}}\label{m3:ux6c42-mathbf-dmathbf-e-ux4e0e-mathbf-p}
+
+系统具有球对称性。任意半径 \(r>0\) 的同心球面都包围自由电荷 \(Q\)，所以
+
+\[
+4\pi r^2D_r=Q,
+\qquad
+\boxed{\mathbf D=\frac{Q}{4\pi r^2}\mathbf e_r}\quad(r>0).
+\]
+
+真空中 \(\mathbf P=\mathbf0\)；介质层内
+\(\mathbf D=\varepsilon_0\varepsilon_r\mathbf E\)。因此
+
+\[
+\boxed{
+\mathbf E=\begin{cases}
+\dfrac{Q}{4\pi\varepsilon_0r^2}\mathbf e_r,&0<r<a,\\[6pt]
+\dfrac{Q}{4\pi\varepsilon_0\varepsilon_rr^2}\mathbf e_r,&a<r<b,\\[6pt]
+\dfrac{Q}{4\pi\varepsilon_0r^2}\mathbf e_r,&r>b,
+\end{cases}}
+\]
+
+\[
+\boxed{
+\mathbf P=\begin{cases}
+\mathbf0,&0<r<a,\\[4pt]
+\dfrac{Q}{4\pi r^2}\left(1-\dfrac1{\varepsilon_r}\right)\mathbf e_r,&a<r<b,\\[6pt]
+\mathbf0,&r>b.
+\end{cases}}
+\]
+
+在 \(r=a,b\)
+处场量发生跃变，应分别取内、外侧极限，不能把分段式端点值当作唯一值。
+
+\paragraph{2.
+求束缚体电荷与面电荷}\label{m3:ux6c42ux675fux7f1aux4f53ux7535ux8377ux4e0eux9762ux7535ux8377}
+
+令
+
+\[
+\alpha=1-\frac1{\varepsilon_r}.
+\]
+
+介质层内 \(P_r=Q\alpha/(4\pi r^2)\)，故
+
+\[
+\rho_b=-\nabla\cdot\mathbf P
+=-\frac1{r^2}\frac{d}{dr}(r^2P_r)=0.
+\]
+
+介质内表面的介质实体外法向为 \(-\mathbf e_r\)，外表面的外法向为
+\(+\mathbf e_r\)，于是
+
+\[
+\sigma_{b,a}=-\frac{Q\alpha}{4\pi a^2},
+\qquad
+\sigma_{b,b}=+\frac{Q\alpha}{4\pi b^2}.
+\]
+
+两表面束缚电荷总量分别为
+
+\[
+\boxed{q_{b,a}=-Q\alpha},
+\qquad
+\boxed{q_{b,b}=+Q\alpha}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-010a.pdf}}
+\par\smallskip{\small 图 M3-010a：三个高斯面的包围电荷}
+\end{center}
+\end{minipage}\par
+
+图 M3-010a 把三个高斯面分开画出。左面只包围点电荷；中面另外包围内表面的
+\(-Q\alpha\)；右面又包围外表面的 \(+Q\alpha\)。表格的 \(q_b\)
+列按这三个包围关系填写，而 \(\Phi_D\) 始终只统计 \(Q\)。
+
+\paragraph{3.
+三个区域的通量验算}\label{m3:ux4e09ux4e2aux533aux57dfux7684ux901aux91cfux9a8cux7b97}
+
+定义
+
+\[
+\Phi_E=\oiint_S\mathbf E\cdot d\mathbf S,
+\qquad
+\Phi_P=\oiint_S\mathbf P\cdot d\mathbf S,
+\qquad
+\Phi_D=\oiint_S\mathbf D\cdot d\mathbf S.
+\]
+
+结果为
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1579}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+高斯面位置
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+面内束缚电荷 \(q_b\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(\varepsilon_0\Phi_E\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(\Phi_P\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(\Phi_D\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(r<a\) & \(0\) & \(Q\) & \(0\) & \(Q\) \\
+\(a<r<b\) & \(-Q\alpha\) & \(Q/\varepsilon_r\) & \(Q\alpha\) & \(Q\) \\
+\(r>b\) & \(0\) & \(Q\) & \(0\) & \(Q\) \\
+\end{longtable}
+}
+
+逐行检查可得
+
+\[
+\varepsilon_0\Phi_E=q_f+q_b,
+\qquad
+\Phi_P=-q_b,
+\qquad
+\Phi_D=q_f.
+\]
+
+三列还满足
+
+\[
+\boxed{\Phi_D=\varepsilon_0\Phi_E+\Phi_P},
+\]
+
+这正是 \(\mathbf D=\varepsilon_0\mathbf E+\mathbf P\) 的通量形式。
+
+\paragraph{4.
+整体与极限检验}\label{m3:ux6574ux4f53ux4e0eux6781ux9650ux68c0ux9a8c}
+
+整个介质球壳的束缚电荷为
+
+\[
+q_{b,a}+q_{b,b}+\iiint_{a<r<b}\rho_b\,dV=0.
+\]
+
+当 \(\varepsilon_r\to1\) 时，\(\alpha\to0\)，故
+\(\mathbf P\to\mathbf0\)、\(q_{b,a},q_{b,b}\to0\)，介质层中的
+\(\mathbf E\) 连续回到真空点电荷场。
+
+\section{专题二十三：静电场的边界条件（基础必讲与拔高选讲）}\label{m3:ux4e13ux9898ux4e8cux5341ux4e09ux9759ux7535ux573aux7684ux8fb9ux754cux6761ux4ef6ux57faux7840ux5fc5ux8bb2ux4e0eux62d4ux9ad8ux9009ux8bb2}
+
+介质参数或导体性质在界面处发生突变时，场量通常只有界面两侧的极限值，而不必在界面上一点处有唯一值。边界条件的任务，是把这些两侧极限与界面上的自由电荷、束缚电荷严格连接起来。
+
+\subsection{一、法向约定与边界关系（基础必讲）}\label{m3:ux4e00ux6cd5ux5411ux7ea6ux5b9aux4e0eux8fb9ux754cux5173ux7cfbux57faux7840ux5fc5ux8bb2}
+
+设单位法向 \(\mathbf n_{12}\) \textbf{由介质 1 指向介质
+2}，界面自由面电荷密度为 \(\sigma_f\)。所有法向分量均相对于同一个
+\(\mathbf n_{12}\) 定义：
+
+\[
+E_{in}=\mathbf E_i\cdot\mathbf n_{12},
+\qquad
+D_{in}=\mathbf D_i\cdot\mathbf n_{12}.
+\]
+
+四条常用关系为
+
+\[
+\boxed{\mathbf n_{12}\times(\mathbf E_2-\mathbf E_1)=\mathbf0},
+\]
+
+\[
+\boxed{\mathbf n_{12}\cdot(\mathbf D_2-\mathbf D_1)=\sigma_f},
+\]
+
+\[
+\boxed{\varphi_2=\varphi_1},
+\]
+
+\[
+\boxed{\sigma_b=(\mathbf P_1-\mathbf P_2)\cdot\mathbf n_{12}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/theory/M3-T31.pdf}}
+\par\smallskip{\small 图示：固定同一界面法向后，电场、电位移、电势与束缚电荷的边界关系}
+\end{center}
+\end{minipage}\par
+
+其中电势连续要求界面上不存在理想电偶极层；普通有限的自由或束缚单层面电荷只会使法向电场跃变，不会使有限电势本身跃变。由总电荷的高斯定律还可得到
+
+\[
+\boxed{E_{2n}-E_{1n}=\frac{\sigma_f+\sigma_b}{\varepsilon_0}}.
+\]
+
+必须分清：\(\mathbf D\)
+的法向跃变右端只放\textbf{自由面电荷}；束缚电荷已经通过
+\(\mathbf D=\varepsilon_0\mathbf E+\mathbf P\) 收入定义，不能重复加入。
+
+\subsection{二、薄回路与薄高斯柱的推导（基础必讲）}\label{m3:ux4e8cux8584ux56deux8defux4e0eux8584ux9ad8ux65afux67f1ux7684ux63a8ux5bfcux57faux7840ux5fc5ux8bb2}
+
+在界面处取两条长边平行于界面的窄矩形回路。静电场满足
+
+\[
+\oint\mathbf E\cdot d\mathbf l=0.
+\]
+
+令回路高度
+\(h\to0\)；若界面两侧电场有有限极限，两条短边的贡献趋于零，从而
+
+\[
+(E_{1t}-E_{2t})\Delta l=0,
+\qquad
+\boxed{E_{1t}=E_{2t}}.
+\]
+
+再取跨越界面的薄高斯柱，顶、底面积均为 \(\Delta S\)。由
+
+\[
+\oiint\mathbf D\cdot d\mathbf S=q_f
+\]
+
+并令柱高趋于零，侧面通量消失，得到
+
+\[
+(D_{2n}-D_{1n})\Delta S=\sigma_f\Delta S,
+\qquad
+\boxed{D_{2n}-D_{1n}=\sigma_f}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic23-v3-02.png}}
+\par\smallskip{\small 图示：跨界薄回路提取切向电场条件，薄高斯柱提取法向电位移条件}
+\end{center}
+\end{minipage}\par
+
+若使用电势，因 \(\mathbf E=-\nabla\varphi\)，法向条件应写为
+
+\[
+\boxed{
+\varepsilon_2\frac{\partial\varphi_2}{\partial n}
+-\varepsilon_1\frac{\partial\varphi_1}{\partial n}
+=-\sigma_f
+},
+\]
+
+其中 \(\partial/\partial n\) 始终沿同一个 \(\mathbf n_{12}\)
+取导数，不是分别沿两种介质各自的外法向。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic23-v2-03.png}}
+\par\smallskip{\small 图示：把边界条件改写为电势形式时，法向导数的负号来自电场等于电势负梯度}
+\end{center}
+\end{minipage}\par
+
+\subsection{三、无自由面电荷时的折射关系（基础必讲）}\label{m3:ux4e09ux65e0ux81eaux7531ux9762ux7535ux8377ux65f6ux7684ux6298ux5c04ux5173ux7cfbux57faux7840ux5fc5ux8bb2}
+
+设两侧均为局域、线性、各向同性介质，界面上 \(\sigma_f=0\)。令
+\(\theta_1,\theta_2\) 都从同一界面法线量起。由 \(E_t\) 连续和 \(D_n\)
+连续，
+
+\[
+E_1\sin\theta_1=E_2\sin\theta_2,
+\]
+
+\[
+\varepsilon_1E_1\cos\theta_1
+=\varepsilon_2E_2\cos\theta_2.
+\]
+
+两式相除得
+
+\[
+\boxed{
+\frac{\tan\theta_1}{\tan\theta_2}
+=\frac{\varepsilon_1}{\varepsilon_2}
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic23-v2-04.png}}
+\par\smallskip{\small 图示：无自由面电荷时，电场线偏折由切向电场连续和法向电位移连续共同决定}
+\end{center}
+\end{minipage}\par
+
+若 \(\varepsilon_2>\varepsilon_1\)，则
+\(\theta_2>\theta_1\)：电场线进入较高电容率介质后更偏离法线、更靠近界面。该结论依赖``角度从法线量起''；若从界面量角，大小关系会相反。
+
+\subsection{四、导体---介质边界（基础必讲）}\label{m3:ux56dbux5bfcux4f53ux4ecbux8d28ux8fb9ux754cux57faux7840ux5fc5ux8bb2}
+
+导体处于静电平衡时，导体内部
+\(\mathbf E_{\rm in}=\mathbf0\)，导体整体等势。令 \(\mathbf n\)
+由导体指向相邻介质，则
+
+\[
+\boxed{\mathbf E_{\rm out,t}=\mathbf0},
+\qquad
+\boxed{\mathbf D_{\rm out}\cdot\mathbf n=\sigma_f}.
+\]
+
+若相邻介质为局域、线性、各向同性介质，才可进一步写成
+
+\[
+\boxed{\mathbf E_{\rm out}\cdot\mathbf n=\frac{\sigma_f}{\varepsilon}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic23-v2-05.png}}
+\par\smallskip{\small 图示：导体静电平衡使内部电场为零，介质侧电场垂直于导体表面}
+\end{center}
+\end{minipage}\par
+
+不能把导体的全部性质简单归结为``\(\varepsilon\to\infty\)''；导体静电平衡还包含自由电荷重新分布、内部等势和切向场为零等约束。
+
+\subsection{五、练习与解答}\label{m3:ux4e94ux7ec3ux4e60ux4e0eux89e3ux7b54-1}
+
+\subsubsection{作业一：已知一侧电场反推另一侧场}\label{m3:ux4f5cux4e1aux4e00ux5df2ux77e5ux4e00ux4fa7ux7535ux573aux53cdux63a8ux53e6ux4e00ux4fa7ux573a}
+
+\textbf{题号：M3-011}
+
+\textbf{层级：} 基础　　\textbf{方法：} 介质边界
+
+两种均匀线性各向同性电介质以无限平面相接，绝对电容率分别为
+\(\varepsilon_1,\varepsilon_2>0\)。单位法向 \(\mathbf n_{12}\) 从介质 1
+指向介质 2，\(\mathbf t\)
+为界面内一个单位切向。界面仅有给定自由面电荷密度
+\(\sigma_f\)，不含理想偶极层。已知介质 1 紧邻界面的场为
+\(\mathbf E_1=E_{1t}\mathbf t+E_{1n}\mathbf n_{12}\)，两个分量均为有符号量。求另一侧紧邻界面的
+\(\mathbf E_2\)，再由两侧极化强度求界面总束缚面电荷密度，并用总电场法向跃变核对。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-011.pdf}}
+\par\smallskip{\small 图 M3-011：已知一侧电场反推另一侧场}
+\end{center}
+\end{minipage}\par
+
+图 M3-011 统一取由下方介质 1 指向上方介质 2 的
+\(\mathbf n\)，\(\mathbf t\) 向右。先把已知箭头 \(\mathbf E_1\)
+投影到这两个方向：切向投影原样传递，法向电位移增加
+\(\sigma_f\)；再用两侧 \(P_{in}\)
+的差求界面束缚电荷。一般情形的方向仍应由分量符号判断。
+
+切向条件给出
+
+\[
+E_{2t}=E_{1t}.
+\]
+
+法向条件给出
+
+\[
+\varepsilon_2E_{2n}-\varepsilon_1E_{1n}=\sigma_f,
+\]
+
+故
+
+\[
+E_{2n}=\frac{\varepsilon_1E_{1n}+\sigma_f}{\varepsilon_2}.
+\]
+
+于是
+
+\[
+\boxed{
+\mathbf E_2=E_{1t}\mathbf t
++\frac{\varepsilon_1E_{1n}+\sigma_f}{\varepsilon_2}\mathbf n_{12}
+}.
+\]
+
+方向角应根据 \(E_{2t}\)、\(E_{2n}\) 的符号判断象限；只写
+\(\tan\theta=E_{2t}/E_{2n}\) 可能丢失方向信息。
+
+两侧极化强度为
+\(\mathbf P_i=(\varepsilon_i-\varepsilon_0)\mathbf E_i\)，所以界面总束缚面电荷密度为
+
+\[
+\boxed{
+\sigma_b=(\mathbf P_1-\mathbf P_2)\cdot\mathbf n_{12}
+=(\varepsilon_1-\varepsilon_0)E_{1n}
+-(\varepsilon_2-\varepsilon_0)E_{2n}
+}.
+\]
+
+将法向边界条件代入，还可检验
+
+\[
+\sigma_f+\sigma_b=\varepsilon_0(E_{2n}-E_{1n}),
+\]
+
+恰好等于总电场高斯定律给出的实际面电荷密度。
+
+\subsection{六、附录：理想电偶极层与电势跃变（拔高选讲）}\label{m3:ux516dux9644ux5f55ux7406ux60f3ux7535ux5076ux6781ux5c42ux4e0eux7535ux52bfux8dc3ux53d8ux62d4ux9ad8ux9009ux8bb2}
+
+普通单层面电荷使法向电场跃变而电势连续。理想电偶极层则来自两层等量异号面电荷的零厚度极限，它可以使电势本身发生有限跃变。
+
+设负、正面电荷密度分别为 \(-\sigma,+\sigma\)，间距为
+\(\delta\)，单位法向 \(\mathbf n\) 从负面指向正面。保持
+
+\[
+\mu=\lim_{\delta\to0}\sigma\delta
+\]
+
+有限，定义偶极面密度
+
+\[
+\boxed{\boldsymbol\mu=\mu\mathbf n},
+\qquad
+[\mu]=\mathrm{C/m}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic23-v2-07.png}}
+\par\smallskip{\small 图示：理想电偶极层是两层等量异号面电荷保持偶极面密度有限的零厚度极限}
+\end{center}
+\end{minipage}\par
+
+\subsubsection{1.
+局部平面推导}\label{m3:ux5c40ux90e8ux5e73ux9762ux63a8ux5bfc}
+
+在两层面电荷之间，电场为
+
+\[
+\mathbf E_{\rm \text{层内}}=-\frac{\sigma}{\varepsilon_0}\mathbf n,
+\]
+
+而层外两侧的场相互抵消。沿 \(\mathbf n\) 从负侧积分到正侧，
+
+\[
+\varphi_+-\varphi_-
+=-\int_-^+\mathbf E\cdot d\mathbf l
+=\frac{\sigma\delta}{\varepsilon_0}.
+\]
+
+取零厚度极限，得到
+
+\[
+\boxed{\varphi_+-\varphi_-=\frac{\mu}{\varepsilon_0}}.
+\]
+
+这里``正侧''指 \(\mathbf n\) 所指的一侧。若 \(\mu\)
+为常量且偶极层不再携带单极面电荷，则层外两侧有限的宏观电场可以连续；若
+\(\mu\) 沿曲面变化，则
+
+\[
+\mathbf E_{+t}-\mathbf E_{-t}
+=-\nabla_s\left(\frac{\mu}{\varepsilon_0}\right),
+\]
+
+切向电场一般不再连续。
+
+\subsubsection{2.
+有向立体角表示}\label{m3:ux6709ux5411ux7acbux4f53ux89d2ux8868ux793a}
+
+设源面元位于 \(\mathbf r'\)，观察点位于 \(\mathbf r\)，定义
+
+\[
+\mathbf R=\mathbf r-\mathbf r'.
+\]
+
+面元偶极矩为 \(d\mathbf p=\mu\mathbf n'\,dS'\)，其电势贡献为
+
+\[
+d\varphi
+=\frac{1}{4\pi\varepsilon_0}
+\frac{d\mathbf p\cdot\mathbf R}{R^3}
+=\frac{\mu}{4\pi\varepsilon_0}
+\frac{\mathbf n'\cdot\mathbf R}{R^3}\,dS'.
+\]
+
+把
+
+\[
+d\Omega=\frac{\mathbf n'\cdot\mathbf R}{R^3}\,dS'
+\]
+
+定义为本节采用的有向立体角，则均匀偶极层产生的电势为
+
+\[
+\boxed{
+\varphi(\mathbf r)=\frac{\mu}{4\pi\varepsilon_0}\Omega(\mathbf r)
+}.
+\]
+
+有向立体角的正负依赖上述 \(\mathbf R\)
+和法向约定；更换约定时，\(\Omega\) 与跃变式的符号必须同时改变。
+
+\subsubsection{3.
+作业：均匀球面电偶极层}\label{m3:ux4f5cux4e1aux5747ux5300ux7403ux9762ux7535ux5076ux6781ux5c42}
+
+\textbf{题号：M3-012}
+
+真空中半径为
+\(R>0\)、球心在原点的球面上，均匀分布理想电偶极层，偶极面密度矢量为
+\(\boldsymbol\mu=\mu\mathbf e_r\)，\(\mu>0\)，单位为
+\(\mathrm{C/m}\)。该理想层是负电荷在内侧、等量正电荷在外侧的零厚度极限，除此之外没有源。取无穷远零势，求
+\(r<R\) 与 \(r>R\)
+的电势和电场，并按``外侧减内侧''的次序验证电势跃变；普通场值不在零厚度层本身定义。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-012.pdf}}
+\par\smallskip{\small 图 M3-012：均匀球面电偶极层}
+\end{center}
+\end{minipage}\par
+
+图 M3-012
+的偶极矩箭头沿球面向外，故球内是负侧、球外是正侧。球内观察点对应有向立体角
+\(-4\pi\)，球外为零；由此得到两侧常电势，并按图中的``外减内''次序核对跃变。
+
+\textbf{第 1 步：分析立体角} \textbf{\(\Omega\)} \textbf{的分布}
+
+球面的法向和 \(\boldsymbol\mu\) 均沿径向向外。
+
+\begin{itemize}
+\item
+  \textbf{对于球面内部的任意观察点} \textbf{\(P_{in}\)} \textbf{：} 从
+  \(P_{in}\)
+  向四周观察，视线所及全部是球面的\textbf{内表面（即负电荷侧）}
+  。根据立体角的符号规定，由于看到的是负面，整个封闭曲面对内部点张的立体角为：
+
+  \[
+  \Omega_{in} = -4\pi
+  \]
+\item
+  \textbf{对于球面外部的任意观察点} \textbf{\(P_{out}\)} \textbf{：}\\
+  根据几何学原理，任意闭合曲面对其外部任意点所张的总立体角恒为零。直观理解是：外部点看过去，前半个球面展现的是正侧（正立体角），后半个球面展现的是负侧的内壁（负立体角），二者对外部点的视场恰好完全抵消：
+
+  \[
+  \Omega_{out} = 0
+  \]
+\end{itemize}
+
+\textbf{第 2 步：计算电势分布} \textbf{\(\varphi\)}
+
+利用 \(\varphi=\mu\Omega/(4\pi\varepsilon_0)\)：
+
+\begin{itemize}
+\item
+  \textbf{内部电势} (\(r < R\))：
+
+  \[
+  \varphi_{\rm in}=-\frac{\mu}{\varepsilon_0}
+  \]
+\item
+  \textbf{外部电势} (\(r > R\))：
+
+  \[
+  \varphi_{\rm out}=0
+  \]
+\end{itemize}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-012a.pdf}}
+\par\smallskip{\small 图 M3-012a：有限厚度偶极层与电势跃变}
+\end{center}
+\end{minipage}\par
+
+图 M3-012a
+将球面上一小片偶极层放大为局部平面。沿向外法向从负侧走到正侧，层内电场与路径相反，因此
+\(-\int\mathbf E\cdot d\mathbf l>0\)。零厚度极限保留的是这一有限电势跃变，球内外常电势的梯度仍各为零。
+
+\textbf{第 3 步：验证边界跃变与宏观电场}
+
+\begin{itemize}
+\item
+  \textbf{电势跃变验证：}\\
+  在球面处，正侧是外部，负侧是内部，故
+  \(\varphi_+=0\)、\(\varphi_-=-\mu/\varepsilon_0\)。
+
+  \[
+  \varphi_+-\varphi_-=\frac{\mu}{\varepsilon_0}.
+  \]
+\end{itemize}
+
+这与局部平面推导一致。
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{宏观电场计算：}\\
+  根据电场强度与电势的梯度关系 \(\mathbf{E} = -\nabla \varphi\)。\\
+  在内部区域 (\(r < R\))：\(\varphi_{in}\) 是常数，故
+  \(\mathbf{E}_{in} = \mathbf{0}\)。\\
+  在外部区域 (\(r > R\))：\(\varphi_{out}\) 是常数，故
+  \(\mathbf{E}_{out} = \mathbf{0}\)。\\
+  电势在理想球面上没有唯一值，只能讨论由内、外两侧逼近得到的极限。有限厚度模型中，强电场集中在两层面电荷之间；零厚度极限保留有限的电势跃变。
+\end{itemize}
+
+\section{专题二十四：典型极化模型与复合介质电容器（拔高选讲）}\label{m3:ux4e13ux9898ux4e8cux5341ux56dbux5178ux578bux6781ux5316ux6a21ux578bux4e0eux590dux5408ux4ecbux8d28ux7535ux5bb9ux5668ux62d4ux9ad8ux9009ux8bb2}
+
+退极化场取决于物体形状，复合介质电容器还要同时满足本构关系和界面条件。平板、球体、稀疏混合物和多介质电容器的处理方式不同；能否作串并联等效，要先看各区域的场结构。
+
+\subsection{例题一：无限介质平板的退极化场}\label{m3:ux4f8bux9898ux4e00ux65e0ux9650ux4ecbux8d28ux5e73ux677fux7684ux9000ux6781ux5316ux573a}
+
+\textbf{题号：M3-013}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 介质边界
+
+均匀线性各向同性电介质板占据 \(0<x<d\)，\(d>0\)，横向尺度远大于
+\(d\)，相对电容率为
+\(\varepsilon_r>1\)。外部固定自由电荷在未放入板时产生匀强场
+\(\mathbf E_0=E_0\mathbf e_x\)，\(E_0>0\)；放入后源电荷分布保持不变，介质表面没有另加自由电荷。忽略边缘效应，求板内宏观总场及极化强度，说明外加场、束缚电荷的退极化场和总场之间的自洽关系。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-013.pdf}}
+\par\smallskip{\small 图 M3-013：无限介质平板的退极化场}
+\end{center}
+\end{minipage}\par
+
+图 M3-013
+的正束缚电荷位于右表面，负束缚电荷位于左表面，所以红色退极化场向左，与绿色
+\(\mathbf P\) 相反。蓝色 \(\mathbf E_0\)
+来自保持不变的外部自由电荷；把两场沿同一 \(x\) 方向相加，再用总场决定
+\(\mathbf P\)。
+
+\textbf{1. 极化电荷分布分析}
+
+由于外部自由电荷分布固定，\(\mathbf E_0\)
+表示它们单独产生的场。平移对称性保证板内 \(\mathbf E\)、\(\mathbf P\)
+均匀并与 \(\mathbf E_0\) 平行。
+
+由极化体电荷密度与极化强度的关系：
+
+\[
+\rho_b = -\nabla \cdot \mathbf{P} = 0
+\]
+
+即介质内部无净极化体电荷。
+
+设外电场 \(\mathbf{E}_0\)
+的方向为正向。在介质板的两个表面处，外法向单位矢量分别与 \(\mathbf{P}\)
+反向（左侧）和同向（右侧）。由极化面电荷密度公式
+\(\sigma_b = \mathbf{P} \cdot \hat{\mathbf{n}}\)，可得左、右两侧表面的极化电荷面密度分别为：
+
+\[
+\sigma_{b, \text{左}} = -P, \quad \sigma_{b, \text{右}} = +P
+\]
+
+\textbf{2. 退极化场（附加电场）计算}
+
+上述两层相距 \(d\)
+的无限大均匀面电荷构成了等效的平行板电容器模型。它们在介质内部激发的附加电场（退极化场）\(\mathbf{E}'\)
+方向由正极化电荷指向负极化电荷，即与 \(\mathbf{P}\) 及其外场
+\(\mathbf{E}_0\) 方向相反。
+
+由无限大均匀带电平面的场强公式及叠加原理，两个表面电荷在介质内部各贡献大小为
+\(P/(2\varepsilon_0)\) 的同向电场。因而退极化场的大小和方向分别为
+
+\[
+|\mathbf E'|=\frac{P}{\varepsilon_0},
+\qquad
+\mathbf E'=-\frac{\mathbf P}{\varepsilon_0}.
+\]
+
+\textbf{3. 场强叠加与联立求解}
+
+介质内部的总宏观电场 \(\mathbf{E}\) 为外加场 \(\mathbf{E}_0\) 与退极化场
+\(\mathbf{E}'\) 的矢量叠加：
+
+\[
+\mathbf{E} = \mathbf{E}_0 + \mathbf{E}' = \mathbf{E}_0 - \frac{\mathbf{P}}{\varepsilon_0}
+\]
+
+对于均匀各向同性线性电介质，其极化强度与总电场满足本构方程：
+
+\[
+\mathbf{P} = \varepsilon_0 \chi_e \mathbf{E} = \varepsilon_0 (\varepsilon_r - 1) \mathbf{E}
+\]
+
+将本构方程代入电场叠加方程中，得：
+
+\[
+\mathbf{E} = \mathbf{E}_0 - \frac{\varepsilon_0 (\varepsilon_r - 1) \mathbf{E}}{\varepsilon_0}
+\]
+
+\[
+\mathbf{E} = \mathbf{E}_0 - (\varepsilon_r - 1)\mathbf{E}
+\]
+
+移项并整理，得到：
+
+\[
+\varepsilon_r \mathbf{E} = \mathbf{E}_0
+\]
+
+\[
+\mathbf{E} = \frac{\mathbf{E}_0}{\varepsilon_r}
+\]
+
+\textbf{结论：}
+
+在上述``外部自由电荷固定、无限横向尺度、法向加场''的条件下，介质内部电场为
+\(\mathbf E_0/\varepsilon_r\)。若外部装置维持的是固定电势而非固定自由电荷，插入介质后
+\(\mathbf E_0\) 的含义和结论必须重新分析。
+
+\subsection{例题二：均匀介质球置于匀强外场}\label{m3:ux4f8bux9898ux4e8cux5747ux5300ux4ecbux8d28ux7403ux7f6eux4e8eux5300ux5f3aux5916ux573a}
+
+\textbf{题号：M3-014}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 介质边界
+
+半径为 \(R>0\) 的均匀线性各向同性电介质球位于真空中，球内绝对电容率为
+\(\varepsilon_0\varepsilon_r\)，\(\varepsilon_r>0\)，球面没有自由面电荷。远处固定源产生匀强外场
+\(\mathbf E_0=E_0\mathbf e_z\)，\(E_0>0\)，球心取为原点，极角 \(\theta\)
+从 \(+z\) 轴起算；球的极化附加势要求在远处衰减。
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  求球内宏观总电场及极化强度。
+\item
+  求 \(r>R\)
+  的极化附加电场，说明与原匀强外场叠加的方式，并在球面核对切向电场和法向电位移条件。
+\end{enumerate}
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-014.pdf}}
+\par\smallskip{\small 图 M3-014：均匀介质球置于匀强外场}
+\end{center}
+\end{minipage}\par
+
+图 M3-014 的右向轴代表题设固定的 \(+z\) 方向；图示取
+\(\varepsilon_r>1\)，所以 \(\mathbf P\) 与 \(\mathbf E_0\)
+同向。全解仍统一从 \(+z\) 测量 \(\theta\)，用有符号分量
+\(P_z=\mathbf P\cdot\mathbf e_z\) 写 \(\sigma_b=P_z\cos\theta\)。当
+\(0<\varepsilon_r<1\) 时极化与束缚电荷方向反转；\(\varepsilon_r=1\)
+时极化为零，坐标约定仍有效。
+
+\textbf{1. 极化状态假设与微观等效模型}
+
+假设介质球在均匀外场 \(\mathbf{E}_0\)
+中发生均匀极化，即球内各处的电极化强度 \(\mathbf{P}\) 为均匀矢量。
+
+对于均匀极化的介质球，其内部无极化体电荷（\(\rho_b = -\nabla \cdot \mathbf{P} = 0\)），极化面电荷密度分布在球面上：
+
+\[
+\sigma_b(\theta)=\mathbf P\cdot\hat{\mathbf n}=P_z\cos\theta,
+\qquad P_z=\mathbf P\cdot\mathbf e_z.
+\]
+
+其中 \(\theta\) 始终为径向与题设 \(+z\) 方向的夹角，\(P_z\)
+可以为正、为负或为零。
+
+为了计算该面电荷分布在球内激发的附加电场（退极化场
+\(\mathbf{E}'\)），可采用\textbf{错开的均匀带电球模型}：
+
+将极化球等效为一个带均匀正体电荷 \(\rho\) 的球与一个带均匀负体电荷
+\(-\rho\) 的球的完全重合态。极化过程等效为正电荷球相对负电荷球沿
+\(\mathbf{P}\) 的方向发生微小位移 \(\mathbf{d}\)。
+
+此时，重叠区域的电偶极矩体密度即为极化强度：
+
+\[
+\mathbf{P} = \rho \mathbf{d}
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-014a.pdf}}
+\par\smallskip{\small 图 M3-014a：错开带电球得到均匀退极化场}
+\end{center}
+\end{minipage}\par
+
+图 M3-014a 在重叠区选观察点 \(A\)，它相对于负球心、正球心的位置分别为
+\(\mathbf r\)、\(\mathbf r-\mathbf d\)。两均匀带电球的场相加时，含
+\(\mathbf r\) 的项相消，只剩与观察点无关的
+\(-\rho\mathbf d/(3\varepsilon_0)\)。
+
+\textbf{2. 退极化场} \textbf{\(\mathbf{E}'\)} \textbf{的推导}
+
+由高斯定理可知，均匀带电球（电荷密度 \(\rho\)）内部任意一点
+\(\mathbf{r}\)（以球心为原点）的电场强度为：
+
+\[
+\mathbf{E}_{\text{球内}} = \frac{\rho}{3\varepsilon_0} \mathbf{r}
+\]
+
+设负电荷球球心位于原点，正电荷球球心位于
+\(\mathbf{d}\)。对于两个球重叠区域内的任意一点
+\(\mathbf{r}\)，其总退极化场为正负电荷球产生的电场之矢量和：
+
+\[
+\mathbf{E}' = \mathbf{E}_+ + \mathbf{E}_- = \frac{\rho}{3\varepsilon_0}(\mathbf{r} - \mathbf{d}) + \left(-\frac{\rho}{3\varepsilon_0}\mathbf{r}\right) = -\frac{\rho \mathbf{d}}{3\varepsilon_0}
+\]
+
+代入 \(\mathbf{P} = \rho \mathbf{d}\)，得到球内的退极化场为均匀场：
+
+\[
+\mathbf{E}' = -\frac{\mathbf{P}}{3\varepsilon_0}
+\]
+
+\textbf{3. 联立求解球内场强} \textbf{\(\mathbf{E}\)} \textbf{与}
+\textbf{\(\mathbf{P}\)}
+
+球内总宏观电场 \(\mathbf{E}\) 为外加场 \(\mathbf{E}_0\) 与退极化场
+\(\mathbf{E}'\) 的叠加：
+
+\[
+\mathbf{E} = \mathbf{E}_0 + \mathbf{E}' = \mathbf{E}_0 - \frac{\mathbf{P}}{3\varepsilon_0}
+\]
+
+对于线性各向同性电介质，本构关系为：
+
+\[
+\mathbf{P} = \varepsilon_0(\varepsilon_r - 1)\mathbf{E}
+\]
+
+将其代入叠加方程中：
+
+\[
+\mathbf{E} = \mathbf{E}_0 - \frac{\varepsilon_0(\varepsilon_r - 1)\mathbf{E}}{3\varepsilon_0} = \mathbf{E}_0 - \frac{\varepsilon_r - 1}{3}\mathbf{E}
+\]
+
+移项合并同类项：
+
+\[
+\left(1 + \frac{\varepsilon_r - 1}{3}\right)\mathbf{E} = \mathbf{E}_0 \implies \frac{\varepsilon_r + 2}{3}\mathbf{E} = \mathbf{E}_0
+\]
+
+解得球内总电场强度：
+
+\[
+\mathbf{E} = \frac{3}{\varepsilon_r + 2}\mathbf{E}_0
+\]
+
+由于算出的 \(\mathbf{E}\) 是均匀场，故 \(\mathbf{P}\)
+亦均匀，证明初始假设自洽。
+
+此时极化强度为：
+
+\[
+\mathbf{P} = \frac{3(\varepsilon_r - 1)}{\varepsilon_r + 2}\varepsilon_0 \mathbf{E}_0
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-014b.pdf}}
+\par\smallskip{\small 图 M3-014b：球外附加场的径向与角向分解}
+\end{center}
+\end{minipage}\par
+
+图 M3-014b 仍沿题设 \(+z\) 取极轴，在球外点 \(A\) 分别沿 \(\mathbf e_r\)
+和增大 \(\theta\) 的 \(\mathbf e_{\theta}\) 投影。图示箭头对应
+\(\varepsilon_r>1\)；下面用有符号偶极分量 \(p_z\) 统一表示所有
+\(\varepsilon_r>0\)，所得 \(E_r,E_{\theta}\) 仅为极化附加场，还须叠加
+\(\mathbf E_0\)。
+
+\textbf{4. 球外极化附加场分布}
+
+对于球外区域（\(r > R\)），极化球（等效为错开的带电双球）产生的电场等效于一个位于球心、总电偶极矩为
+\(\mathbf p_{\rm tot}\) 的理想电偶极子所激发的电场。
+
+该等效偶极矩为极化强度乘以球体体积：
+
+\[
+\mathbf p_{\rm tot} = \frac{4}{3}\pi R^3 \mathbf{P}
+\]
+
+沿题设 \(+z\) 取极轴，令
+
+\[
+K=\frac{\varepsilon_r-1}{\varepsilon_r+2},\qquad
+p_z=\mathbf p_{\rm tot}\cdot\mathbf e_z
+=4\pi\varepsilon_0R^3KE_0.
+\]
+
+球外极化附加场为
+
+\[
+E_{{\rm pol},r}=\frac{2p_z\cos\theta}{4\pi\varepsilon_0r^3},
+\qquad E_{{\rm pol},\theta}=\frac{p_z\sin\theta}{4\pi\varepsilon_0r^3}.
+\]
+
+叠加匀强外场，得到
+
+\[
+E_{{\rm out},r}=E_0\cos\theta+
+2KE_0\frac{R^3}{r^3}\cos\theta,\qquad
+E_{{\rm out},\theta}=-E_0\sin\theta+
+KE_0\frac{R^3}{r^3}\sin\theta.
+\]
+
+\textbf{5. 球面边界核对}
+
+球内均匀场的分量是 \(E_{{\rm in},r}=3E_0\cos\theta/(\varepsilon_r+2)\)、
+\(E_{{\rm in},\theta}=-3E_0\sin\theta/(\varepsilon_r+2)\)。在图 M3-014
+的球面 \(r=R\)，
+
+\[
+E_{{\rm out},\theta}(R)
+=-\frac{3E_0\sin\theta}{\varepsilon_r+2}
+=E_{{\rm in},\theta}(R),
+\]
+
+\[
+D_{{\rm out},r}(R)
+=\varepsilon_0E_{{\rm out},r}(R)
+=\frac{3\varepsilon_0\varepsilon_r E_0\cos\theta}{\varepsilon_r+2}
+=\varepsilon_0\varepsilon_r E_{{\rm in},r}(R)
+=D_{{\rm in},r}(R).
+\]
+
+因此切向电场连续，且无自由面电荷时法向电位移连续。\(K\)
+的正负同时覆盖极化同向、反向及为零的情形。
+
+\subsection{例题三：稀疏介质球混合物的等效电容率}\label{m3:ux4f8bux9898ux4e09ux7a00ux758fux4ecbux8d28ux7403ux6df7ux5408ux7269ux7684ux7b49ux6548ux7535ux5bb9ux7387}
+
+\textbf{题号：M3-015}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 介质边界、等效变换
+
+真空中稀疏、均匀地分布大量互不接触的同种介质小球，半径为
+\(a>0\)、相对电容率为
+\(\varepsilon_r>0\)，材料线性且各向同性。颗粒数密度为 \(n\)，体积分数
+\(f=4\pi a^3n/3\ll1\)。施加在许多颗粒尺度上缓慢变化的弱静电场，只保留体积分数的一阶贡献，忽略颗粒间偶极相互作用及高阶相关效应。通过单球诱导偶极矩与单位总体积的平均极化，求混合物等效相对电容率的一阶稀释近似，并说明近似适用条件。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-015.pdf}}
+\par\smallskip{\small 图 M3-015：稀疏介质球混合物的等效电容率}
+\end{center}
+\end{minipage}\par
+
+图 M3-015 中各颗粒半径为 \(a\)，宏观体积 \(\Delta V\) 含有 \(n\Delta V\)
+个颗粒。图示取
+\(\varepsilon_r>1\)，每个球的诱导偶极矩与蓝色宏观场同向，再求和除以
+\(\Delta V\)，得到 \(\mathbf P=n\mathbf p\)
+的一阶项；颗粒间的空隙对应真空背景。 若
+\(0<\varepsilon_r<1\)，偶极矩与宏观场反向；\(\varepsilon_r=1\)
+时为零。以下带符号的极化率公式对三种情况统一适用。
+
+\textbf{1. 单个介质球的电偶极矩}
+
+设系统的宏观电场为 \(\mathbf E\)。在 \(f\ll1\)
+的稀释极限中，其他颗粒产生的偶极相互作场只会给结果带来更高阶修正，因而
+
+\[
+\mathbf E_{\rm loc}=\mathbf E+O(fE).
+\]
+
+求等效电容率的一阶项时，可在单球极化率中以 \(\mathbf E\) 代替
+\(\mathbf E_{\rm loc}\)。
+
+对于置于均匀外场 \(\mathbf{E}\)
+中的单个均匀电介质球，由介质球极化的经典边界条件问题结果可知，其内部极化强度
+\(\mathbf{P}_{\text{in}}\) 是均匀的，大小为：
+
+\[
+\mathbf{P}_{\text{in}} = \frac{3(\varepsilon_r - 1)}{\varepsilon_r + 2} \varepsilon_0 \mathbf{E}
+\]
+
+由此可求得单个介质球被极化后产生的等效电偶极矩 \(\mathbf{p}\)：
+
+\[
+\mathbf{p} = \mathbf{P}_{\text{in}} V = \left[ \frac{3(\varepsilon_r - 1)}{\varepsilon_r + 2} \varepsilon_0 \mathbf{E} \right] \left( \frac{4}{3}\pi a^3 \right) = 4\pi a^3 \varepsilon_0 \frac{\varepsilon_r - 1}{\varepsilon_r + 2} \mathbf{E}
+\]
+
+\textbf{2. 系统的宏观极化强度}
+
+宏观极化强度 \(\mathbf{P}\)
+定义为单位体积内分子（此处为介质颗粒）的电偶极矩的矢量和。已知颗粒的数量密度为
+\(n\)，则系统的宏观极化强度为：
+
+\[
+\mathbf{P} = n\mathbf{p}
+=4\pi a^3 n \varepsilon_0
+\frac{\varepsilon_r - 1}{\varepsilon_r + 2}\mathbf{E}
++O(f^2\varepsilon_0E)
+\]
+
+\textbf{3. 等效相对介电常数的推导}
+
+对于等效宏观介质，定义
+\(\mathbf D=\varepsilon_0\varepsilon_{r,\rm eff}\mathbf E\)。于是
+
+\[
+\mathbf D
+=\varepsilon_0\mathbf E+\mathbf P
+=\varepsilon_0\left[
+1+4\pi a^3n\frac{\varepsilon_r-1}{\varepsilon_r+2}
++O(f^2)
+\right]\mathbf E.
+\]
+
+\textbf{结论：}
+
+该稀疏混合物的一阶近似为
+
+\[
+\boxed{\varepsilon_{r,\rm eff}
+=1+3f\frac{\varepsilon_r-1}{\varepsilon_r+2}+O(f^2)}.
+\]
+
+等价地，一阶项可写为
+\(1+4\pi a^3n(\varepsilon_r-1)/(\varepsilon_r+2)\)。体积分数不再很小时，不能继续忽略颗粒间的局域场作用。
+
+\subsection{例题四：介质平面上的带电导体球}\label{m3:ux4f8bux9898ux56dbux4ecbux8d28ux5e73ux9762ux4e0aux7684ux5e26ux7535ux5bfcux4f53ux7403}
+
+\textbf{题号：M3-016}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 介质边界
+
+两种均匀线性各向同性介质被无限平面 \(z=0\) 分开，\(z>0,z<0\)
+的相对电容率分别为 \(\varepsilon_{r1},\varepsilon_{r2}>0\)。半径为
+\(R>0\)
+的孤立导体球球心在原点，恰有两个半球分别接触两介质，球带固定总自由电荷
+\(Q\)。球外介质中及介质分界面上没有另加自由电荷，取无穷远零势。求整个
+\(r>R\)
+区域的电场，要求同时满足球面等势、两介质界面条件与总电荷约束；不能仅由外观预设完整球对称性。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-016.pdf}}
+\par\smallskip{\small 图 M3-016：介质平面上的带电导体球}
+\end{center}
+\end{minipage}\par
+
+图 M3-016 的介质界面通过导体球心。径向场在该平面上恰为切向，因此满足两侧
+\(E_t\) 连续，且 \(D_n\) 均为零。绿色高斯球面被分成 \(S_1,S_2\)
+两个等面积半球，电容率虽不同，两部分的自由电荷通量仍须相加为 \(Q\)。
+
+\textbf{1. 场强形式假设与边界条件检验（唯一性定理）}
+
+介质分界面通过球心，所以从球心发出的径向线在分界面上恰好是切向。除导体球表面外，空间中无其他自由电荷分布（\(\rho_f=0\)）。这提示我们构造一个径向候选解，再用全部边界条件和唯一性定理判定它。
+
+我们猜测，外部电场呈现出类似于真空中点电荷的纯径向对称分布。假设在
+\(r > R\) 的空间内，电场强度分布为：
+
+\[
+\mathbf{E}(\mathbf{r}) = \frac{1}{4\pi\varepsilon_0} \frac{Q'}{r^2} \hat{\mathbf{r}}
+\]
+
+其中 \(Q'\) 为待定的等效电荷。
+
+我们需要检验该形式是否满足两种介质交界面处的静电场边界条件：
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{法向条件}：在此交界面上，径向单位矢量 \(\hat{\mathbf{r}}\)
+  平行于界面。因此，电场没有垂直于界面的法向分量，即
+  \(E_{1n} = E_{2n} = 0\)。根据本构关系，电位移矢量的法向分量
+  \(D_{1n} = D_{2n} = 0\)。自然满足
+  \(D_{1n} - D_{2n} = \sigma_f = 0\)（界面无自由电荷）。
+\item
+  \textbf{切向条件}：电场仅有切向分量。由于假设的 \(\mathbf{E}\)
+  场关于原点球对称，在分界面两侧紧邻处的切向场强必定大小相等、方向相同，即
+  \(\mathbf{E}_{1t} = \mathbf{E}_{2t}\)。满足切向连续性条件。
+\end{itemize}
+
+此外，该径向电场正交于导体球表面（\(r=R\)
+处），满足导体表面为等势面的要求。由静电场唯一性定理可知，一旦我们找到一个满足所有边界条件的解，该解必定是系统真实的物理场分布。
+
+\textbf{2. 利用} \textbf{\(\mathbf{D}\)} \textbf{的高斯定理求解等效电荷}
+\textbf{\(Q'\)}
+
+由本构关系
+\(\mathbf{D} = \varepsilon_0 \varepsilon_r \mathbf{E}\)，可写出两种介质中各自的电位移矢量分布：
+
+\begin{itemize}
+\item
+  在上半空间（\(\varepsilon_{r1}\)）中：
+
+  \[
+  \mathbf{D}_1(\mathbf{r}) = \varepsilon_0 \varepsilon_{r1} \left( \frac{1}{4\pi\varepsilon_0} \frac{Q'}{r^2} \hat{\mathbf{r}} \right) = \frac{\varepsilon_{r1} Q'}{4\pi r^2} \hat{\mathbf{r}}
+  \]
+\item
+  在下半空间（\(\varepsilon_{r2}\)）中：
+
+  \[
+  \mathbf{D}_2(\mathbf{r}) = \varepsilon_0 \varepsilon_{r2} \left( \frac{1}{4\pi\varepsilon_0} \frac{Q'}{r^2} \hat{\mathbf{r}} \right) = \frac{\varepsilon_{r2} Q'}{4\pi r^2} \hat{\mathbf{r}}
+  \]
+\end{itemize}
+
+作一半极为 \(r\)（\(r > R\)）的同心球面作为高斯面 \(S\)。应用
+\(\mathbf{D}\) 的高斯定理
+\(\oiint_S \mathbf{D} \cdot d\mathbf{S} = \Sigma Q_{\text{free}}\)：
+
+\[
+\iint_{S_1} \mathbf{D}_1 \cdot d\mathbf{S} + \iint_{S_2} \mathbf{D}_2 \cdot d\mathbf{S} = Q
+\]
+
+其中 \(S_1\) 和 \(S_2\) 分别对应高斯面在 \(\varepsilon_{r1}\) 和
+\(\varepsilon_{r2}\) 中的半球面，面积均为 \(2\pi r^2\)。代入
+\(\mathbf{D}\) 的表达式：
+
+\[
+2\pi r^2 \left( \frac{\varepsilon_{r1} Q'}{4\pi r^2} + \frac{\varepsilon_{r2} Q'}{4\pi r^2} \right) = Q
+\]
+
+\[
+\frac{1}{2}(\varepsilon_{r1} + \varepsilon_{r2}) Q' = Q
+\]
+
+由此解得等效电荷 \(Q'\)：
+
+\[
+Q' = \frac{2Q}{\varepsilon_{r1} + \varepsilon_{r2}}
+\]
+
+\textbf{3. 最终结果}
+
+将 \(Q'\)
+代回最初假设的电场强度公式中，得到空间各点（\(r > R\)）的电场强度：
+
+\[
+\mathbf{E}(\mathbf{r}) = \frac{1}{4\pi\varepsilon_0} \frac{2Q}{\varepsilon_{r1} + \varepsilon_{r2}} \frac{\hat{\mathbf{r}}}{r^2}
+\]
+
+\subsection{例题五：两种介质填充平行板电容器}\label{m3:ux4f8bux9898ux4e94ux4e24ux79cdux4ecbux8d28ux586bux5145ux5e73ux884cux677fux7535ux5bb9ux5668}
+
+\textbf{题号：M3-017}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 介质边界
+
+两种介质均匀、线性且各向同性，相对电容率分别为
+\(\varepsilon_{r1},\varepsilon_{r2}>0\)。分别构造下列两个平行板电容器，介质与极板紧贴、界面没有自由电荷，忽略边缘效应：
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  横向拼接：两板间距为 \(d>0\)、总面积为 \(2S\)，两介质各占面积
+  \(S>0\)，各自跨越完整间距 \(d\)，它们的分界面垂直极板。
+\item
+  纵向叠放：两板总面积为 \(S\)、总间距为 \(2d\)，两层介质各厚
+  \(d\)，其分界面平行极板。
+\end{enumerate}
+
+两例分别施加电势差
+\(U\)。从切向电场、法向电位移的界面条件出发求各自等效电容，说明共同电压或共同自由电荷如何产生并联或串联关系；注意两例的总几何尺寸不同。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-017.pdf}}
+\par\smallskip{\small 图 M3-017：两种介质填充平行板电容器}
+\end{center}
+\end{minipage}\par
+
+图 M3-017 先画横向拼接：两个面积为 \(S\)
+的区域跨接相同的上、下极板，分界线平行于竖直电场，因而
+\(E_1=E_2\)、电荷相加。纵向叠放的厚度与通量另见图
+M3-017a，不能把两种结构的总厚度混为一谈。
+
+\paragraph{情形一：横向拼接（并联模型）}\label{m3:ux60c5ux5f62ux4e00ux6a2aux5411ux62fcux63a5ux5e76ux8054ux6a21ux578b}
+
+\textbf{1. 边界条件分析}
+
+在该结构中，两种介质的交界面平行于外加电场。根据静电场边界条件，交界面两侧电场强度的切向分量必须连续，即
+\(E_{1t} = E_{2t}\)。
+
+由于金属极板是等势面，两介质两端的电势差 \(U\)
+相同，故两介质内部的宏观电场强度大小处处相等，且方向均垂直于极板：
+
+\[
+E_1 = E_2 = E = \frac{U}{d}
+\]
+
+同时，在介质交界面处，电位移矢量的法向分量为零（无自由电荷），满足
+\(D_{1n} = D_{2n} = 0\)。
+
+\textbf{2. 电位移矢量与电荷计算}
+
+根据线性介质的本构关系，两种介质中的电位移矢量分别为：
+
+\[
+D_1 = \varepsilon_0 \varepsilon_{r1} E
+\]
+
+\[
+D_2 = \varepsilon_0 \varepsilon_{r2} E
+\]
+
+由高斯定理可知，极板上的总自由电荷 \(Q\)
+等于两部分介质对应极板面上的自由电荷之和：
+
+\[
+Q = D_1 S + D_2 S = (\varepsilon_0 \varepsilon_{r1} E)S + (\varepsilon_0 \varepsilon_{r2} E)S
+\]
+
+\textbf{3. 等效电容推导}
+
+系统等效电容为：
+
+\[
+C = \frac{Q}{U} = \frac{(\varepsilon_{r1} S + \varepsilon_{r2} S) \varepsilon_0 E}{E \cdot d} = \frac{\varepsilon_0 \varepsilon_{r1} S}{d} + \frac{\varepsilon_0 \varepsilon_{r2} S}{d}
+\]
+
+令
+\(C_1 = \frac{\varepsilon_0 \varepsilon_{r1} S}{d}\)，\(C_2 = \frac{\varepsilon_0 \varepsilon_{r2} S}{d}\)，则有：
+
+\[
+C = C_1 + C_2
+\]
+
+这证明了横向拼接情形等效于两个独立电容器的\textbf{并联}。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-017a.pdf}}
+\par\smallskip{\small 图 M3-017a：纵向叠放：同一自由电荷通量}
+\end{center}
+\end{minipage}\par
+
+图 M3-017a 中每一层厚度均为 \(d\)，总极板间距为 \(2d\)，面积仍为
+\(S\)。水平界面上 \(D_n\) 连续，故沿竖直路径积分时，两层共享
+\(D=Q/S\)，但各自的电场由各自电容率决定，电势降必须相加。
+
+\paragraph{情形二：纵向叠放（串联模型）}\label{m3:ux60c5ux5f62ux4e8cux7eb5ux5411ux53e0ux653eux4e32ux8054ux6a21ux578b}
+
+\textbf{1. 边界条件分析}
+
+在该结构中，两介质的交界面垂直于外加电场。假设介质层间无自由电荷分布，根据静电场边界条件，交界面两侧电位移矢量的法向分量必须连续，即
+\(D_{1n} = D_{2n} = D\)。
+
+由于极板面积为
+\(S\)，且忽略边缘效应，两介质内部的电位移矢量处处相等，且由极板上的面电荷密度决定：
+
+\[
+D_1 = D_2 = D = \frac{Q}{S}
+\]
+
+交界面处的切向电场为零，即 \(E_{1t} = E_{2t} = 0\)。
+
+\textbf{2. 电场强度与电势差计算}
+
+根据本构关系，两层介质内部的实际宏观电场强度分别为：
+
+\[
+E_1 = \frac{D}{\varepsilon_0 \varepsilon_{r1}}, \quad E_2 = \frac{D}{\varepsilon_0 \varepsilon_{r2}}
+\]
+
+极板间的总电势差 \(U\) 为两层介质电势降落之和：
+
+\[
+U = E_1 d + E_2 d = \left( \frac{D}{\varepsilon_0 \varepsilon_{r1}} + \frac{D}{\varepsilon_0 \varepsilon_{r2}} \right) d
+\]
+
+\textbf{3. 等效电容推导}
+
+系统等效电容为：
+
+\[
+C = \frac{Q}{U} = \frac{D \cdot S}{\left( \frac{D}{\varepsilon_0 \varepsilon_{r1}} + \frac{D}{\varepsilon_0 \varepsilon_{r2}} \right) d} = \frac{S}{\left( \frac{1}{\varepsilon_0 \varepsilon_{r1}} + \frac{1}{\varepsilon_0 \varepsilon_{r2}} \right) d}
+\]
+
+将其分子分母同除以 \(S\)，并变形可得：
+
+\[
+C = \frac{1}{\frac{d}{\varepsilon_0 \varepsilon_{r1} S} + \frac{d}{\varepsilon_0 \varepsilon_{r2} S}} = \frac{1}{\frac{1}{C_1} + \frac{1}{C_2}}
+\]
+
+这证明了纵向叠放情形等效于两个独立电容器的\textbf{串联}。
+
+\subsection{例题六：三介质电容器的精确条件与渐近模型}\label{m3:ux4f8bux9898ux516dux4e09ux4ecbux8d28ux7535ux5bb9ux5668ux7684ux7cbeux786eux6761ux4ef6ux4e0eux6e10ux8fd1ux6a21ux578b}
+
+\textbf{题号：M3-018}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 介质边界
+
+两极板平行，三种介质均线性、各向同性且绝对电容率为正；介质彼此及与极板紧贴，内部界面不含自由面电荷或偶极层。取下极板零势、上极板电势为
+\(U\ne0\)。
+
+一极板面积为 \(2S\)、间距为 \(2d\)
+的平行板电容器内填充有三种均匀各向同性线性电介质。其中，上半部分（厚度为
+\(d\)，面积为 \(2S\)）填充相对介电常数为 \(\varepsilon_{r3}\)
+的介质；下半部分按面积平分为左右两块（厚度均为 \(d\)，面积均为
+\(S\)），分别填充相对介电常数为 \(\varepsilon_{r1}\) 和
+\(\varepsilon_{r2}\) 的介质（设
+\(\varepsilon_{r1} \neq \varepsilon_{r2}\)）。
+
+在极板间施加电压 \(U\)。设每个横向分区的特征宽度均远大于
+\(d\)。现尝试运用两种等效电路模型计算该系统的等效电容：
+
+\textbf{模型一：}
+假设上下介质层的水平交界面为等势面，即将系统视为下层两介质并联后再与上层介质串联。
+
+\textbf{模型二：}
+假设系统可沿纵向中截面严格划分为左右两个独立的支路，即将系统视为左侧上下介质串联与右侧上下介质串联后再作并联。
+
+先在忽略极板外缘场的宽区理想化中，检验这两种集总模型能否同时满足介质边界条件；再说明两种模型为什么都不是有限宽系统的全域精确解，以及在每个横向分区的特征宽度都远大于
+\(d\)
+时，为什么只有模型二一般能给出正确的主阶近似。最后求出该条件下的主阶等效电容
+\(C^{(0)}\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-018.pdf}}
+\par\smallskip{\small 图 M3-018：三介质电容器的精确条件与渐近模型}
+\end{center}
+\end{minipage}\par
+
+图 M3-018 的上层为单一介质 3，下层左右分别为介质 1、2。水平分界面要求
+\(D_n\) 连续，中央竖直分界面要求 \(E_t\)
+连续；红框标出两个独立支路模型失效的邻近区域。下面分别用这两条条件检验模型。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-018a.pdf}}
+\par\smallskip{\small 图 M3-018a：水平等势面假设导致的通量矛盾}
+\end{center}
+\end{minipage}\par
+
+图 M3-018a
+沿水平界面左右各取一个高斯柱。在模型一的均匀场假设下，上层给两个柱相同的
+\(D_{3n}\)，下层却因 \(\varepsilon_{r1}\ne\varepsilon_{r2}\) 给出不同的
+\(D_{1n},D_{2n}\)。同一个上层值不可能逐点匹配二者。
+
+\textbf{1. 模型一（引入水平等势面）的边界条件分析}
+
+以下反证先工作在题设宽区的理想极限：忽略极板外缘场，并把横向区域视为无限延伸，或等价地给定不引入额外横向扰动的侧边界条件。若再假设上下介质层之间的水平交界面为等势面，那么各均匀子区的上下边界电势均为常量。拉普拉斯方程及唯一性定理给出电势只依赖竖直坐标且为线性函数，因此
+
+\[
+E_1=E_2=E_{\text{下}}.
+\]
+
+由本构关系，水平界面下侧左右两区的法向电位移分别为
+
+\[
+D_{1n}=\varepsilon_0\varepsilon_{r1}E_{\text{下}},\qquad
+D_{2n}=\varepsilon_0\varepsilon_{r2}E_{\text{下}}.
+\]
+
+由于 \(\varepsilon_{r1}\ne\varepsilon_{r2}\)，有
+\(D_{1n}\ne D_{2n}\)。上半层是单一均匀介质，其上下边界在这一假设下也都是等势面；同一个唯一性论证给出均匀法向场，故水平界面上侧的
+\(D_{3n}\) 处处相同。
+
+水平介质界面没有自由面电荷，法向边界条件必须逐点满足：
+
+\[
+D_{1n}=D_{3n}\quad\text{（左半部分）},\qquad
+D_{2n}=D_{3n}\quad\text{（右半部分）}.
+\]
+
+两式要求 \(D_{1n}=D_{2n}\)，与 \(\varepsilon_{r1}\ne\varepsilon_{r2}\)
+矛盾。因此，在上述无外缘场的宽区理想化中，水平交界面不能是严格等势面，模型一不能给出全域精确场。
+
+对有限极板，外缘和纵向分界线附近的场可以具有横向分量，不能仅凭``上下边界等势''直接断言全域均匀。此时必须求解包含侧边界的完整边值问题；下面的等效电路只用于提取宽区极限的主阶行为。
+
+\textbf{2. 模型二（纵向独立支路）的边界条件分析}
+
+假设左右两部分完全独立，电场线严格沿垂直方向。由串联支路的特性，左侧上下电位移矢量相等（设为
+\(D_a\)），右侧上下电位移矢量相等（设为 \(D_b\)）：
+
+左支路：\(D_1 = D_{3a} = D_a\)
+
+右支路：\(D_2 = D_{3b} = D_b\)
+
+左支路内的电场强度为
+\(E_1 = \frac{D_a}{\varepsilon_0 \varepsilon_{r1}}\)，\(E_{3a} = \frac{D_a}{\varepsilon_0 \varepsilon_{r3}}\)。由于满足电压约束
+\((E_1 + E_{3a})d = U\)，可解得：
+
+\[
+E_1 = \frac{U/d}{1 + \varepsilon_{r1}/\varepsilon_{r3}}
+\]
+
+同理，右支路的电压约束 \((E_2 + E_{3b})d = U\) 给出：
+
+\[
+E_2 = \frac{U/d}{1 + \varepsilon_{r2}/\varepsilon_{r3}}
+\]
+
+由于 \(\varepsilon_{r1} \neq \varepsilon_{r2}\)，必然有 \(E_1 \neq E_2\)
+且 \(E_{3a} \neq E_{3b}\)。
+
+现在考察下半层介质 1 和 2
+之间的垂直交界面。该界面平行于电场方向，根据切向电场连续性边界条件，界面两侧必须满足：
+
+\[
+E_{1t} = E_{2t} \implies E_1 = E_2
+\]
+
+这与推导出的 \(E_1 \neq E_2\) 矛盾。上半层 \(\varepsilon_{r3}\)
+内部假想的垂直分割面处同样存在 \(E_{3a} \neq E_{3b}\)
+的切向场强不连续矛盾。
+
+\textbf{结论：}
+模型二在介质交界的纵向界面处违背了电场强度的切向连续性条件，这意味着真实的电场线在纵向交界面附近必定会发生弯曲变形，而非严格的垂直分布。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-018b.pdf}}
+\par\smallskip{\small 图 M3-018b：独立支路只能给出宽区主阶}
+\end{center}
+\end{minipage}\par
+
+图 M3-018b
+的红框邻近区需要横向场来修复切向连续性；远离红框的左右宽区可各按上下两层串联处理。每个分区宽度远大于
+\(d\) 时，把两支路主阶电荷相加得到 \(C^{(0)}\)，上标仍保留近似含义。
+
+\textbf{3. 近似选择与等效电容计算}
+
+两种模型均非全域精确解。在题设的宽区极限中，模型一的相对偏差一般不会消失，不能将它也称为该极限下正确的渐近主阶；模型二则可给出主阶。二者的区别如下：
+
+\begin{itemize}
+\tightlist
+\item
+  模型一把整个水平界面当作等势面；在无外缘场的宽区理想化中，这会使上层
+  \(D_{3n}\)
+  均匀，却要求它同时匹配下层两个不同的法向电位移，因此不能作为全域精确场。
+\item
+  模型二所违背的切向 \(\mathbf{E}\) 连续性，仅在介质 1 与 2
+  的纵向交界面附近引起局部的电场线畸变（属于介质内部的``边缘效应''）。
+\end{itemize}
+
+当每个横向分区的宽度都远大于 \(d\) 时，纵向界面附近宽度约为 \(d\)
+的畸变区只占较小比例。此时模型二给出主导项，但不是严格解；误差的具体阶数还取决于极板轮廓和各分区的纵横比，不能只由总面积
+\(S\) 唯一判断。
+
+依据模型二，等效电容 \(C\) 为左右两串联支路电容的并联：
+
+左侧支路电容 \(C_L\)：
+
+\[
+C_L^{(0)} = \frac{1}{\frac{d}{\varepsilon_0 \varepsilon_{r1} S} + \frac{d}{\varepsilon_0 \varepsilon_{r3} S}} = \frac{\varepsilon_0 S}{d} \frac{\varepsilon_{r1} \varepsilon_{r3}}{\varepsilon_{r1} + \varepsilon_{r3}}
+\]
+
+右侧支路电容 \(C_R\)：
+
+\[
+C_R^{(0)} = \frac{1}{\frac{d}{\varepsilon_0 \varepsilon_{r2} S} + \frac{d}{\varepsilon_0 \varepsilon_{r3} S}} = \frac{\varepsilon_0 S}{d} \frac{\varepsilon_{r2} \varepsilon_{r3}}{\varepsilon_{r2} + \varepsilon_{r3}}
+\]
+
+系统总等效电容：
+
+\[
+C^{(0)} = C_L^{(0)} + C_R^{(0)} = \frac{\varepsilon_0 S}{d} \left( \frac{\varepsilon_{r1} \varepsilon_{r3}}{\varepsilon_{r1} + \varepsilon_{r3}} + \frac{\varepsilon_{r2} \varepsilon_{r3}}{\varepsilon_{r2} + \varepsilon_{r3}} \right)
+\]
+
+上标 \((0)\) 表示宽区极限的主阶结果，不表示有限宽度电容器的精确值。
+
+\subsection{例题七：同轴电容器中的介质界面}\label{m3:ux4f8bux9898ux4e03ux540cux8f74ux7535ux5bb9ux5668ux4e2dux7684ux4ecbux8d28ux754cux9762}
+
+\textbf{题号：M3-019}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 介质边界
+
+两根无限长同轴导体圆柱的内、外极板半径分别为
+\(R_1,R_2\)，\(0<R_1<R_2\)，保持非零电势差 \(U\)。间隙由绝对电容率为
+\(\varepsilon_1\ne\varepsilon_2\)
+的两种均匀线性各向同性介质充满，介质界面没有自由电荷。比较两种横截面分区：
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  分界面为通过轴线的纵向平面，两介质各占半圆环。检验纯径向候选场能否满足全部边界，求单位长度电容，以及忽略端效应的有效长度
+  \(L\) 的电容，说明并联等效的依据。
+\item
+  分界面仍平行轴线，但其横截面投影为一条不经过圆心且穿过场区的直线。检验沿用同一个纯径向场会在哪条界面条件上失败，说明为何不能直接按两部分面积套用简单并联公式；不要求求出任意偏置界面的完整场。
+\end{enumerate}
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-019.pdf}}
+\par\smallskip{\small 图 M3-019：同轴电容器中的介质界面}
+\end{center}
+\end{minipage}\par
+
+图 M3-019 是同轴圆柱的横截面，分界面经过轴线
+\(O\)，径向场在界面上为切向。候选势只依赖
+\(r\)，既能满足两个圆柱导体等势，也能满足介质界面条件，因此可按半圆柱的电荷贡献相加。偏置分界面的情况在图
+M3-019a 中另作分解。
+
+\paragraph{情境一：界面过中心轴线（径向界面）}\label{m3:ux60c5ux5883ux4e00ux754cux9762ux8fc7ux4e2dux5fc3ux8f74ux7ebfux5f84ux5411ux754cux9762}
+
+引入柱坐标系 \((r, \theta, z)\)，设极板间电势差为 \(U\)。
+
+设候选势函数仅与径向有关 \(\varphi=\varphi(r)\)，候选电场为
+\(\mathbf E=E(r)\mathbf e_r\)。随后用全部边界条件与唯一性定理检验它，而不是预先把圆柱对称性当作结论。
+
+由拉普拉斯方程 \(\nabla^2 \varphi = 0\)
+及极板边界条件，易知径向电场形式为：
+
+\[
+E_r = \frac{U}{r \ln(R_2/R_1)}
+\]
+
+现检验该场是否满足介质分界面（法向为
+\(\hat{e}_{\theta}\)）的静电场边界条件：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{切向电场连续}：界面的切向为径向和轴向。由于两侧电场均为纯径向的
+  \(E_r\)，切向连续条件 \(E_{1r} = E_{2r}\) 显然满足。
+\item
+  \textbf{法向电位移连续}：界面的法向为角向。由于电场无角向分量，故两侧法向电位移皆为零：
+
+  \[
+  D_{1n} = \varepsilon_1 E_{1\theta} = 0, \quad D_{2n} = \varepsilon_2 E_{2\theta} = 0 \Rightarrow D_{1n} = D_{2n} = 0
+  \]
+\end{enumerate}
+
+两项边界条件均严格满足。由静电场\textbf{唯一性定理}可知，该假设场即为空间的真实电场分布。
+
+此时，两部分介质独立承担各自张角内的电荷分布，且两端电势差同为
+\(U\)。体系总电荷等于两部分极板电荷之和，故该模型总电容严格等效为两部分电容的并联：
+
+\[
+C = C_1 + C_2
+\]
+
+若两介质各占半圆柱、轴向长度为 \(L\)，则
+
+\[
+\boxed{
+C=\frac{\pi L(\varepsilon_1+\varepsilon_2)}{\ln(R_2/R_1)}
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-019a.pdf}}
+\par\smallskip{\small 图 M3-019a：偏置界面的候选径向场失效}
+\end{center}
+\end{minipage}\par
+
+图 M3-019a 的偏置界面 \(L_0\) 不经过
+\(O\)，图示候选径向场在一般交点具有非零法向投影。即使两侧候选
+\(\mathbf E\) 相同，乘上不同电容率后，\(D_n\)
+也会产生不允许的跃变；因此真实场必须重新求解。
+
+\paragraph{情境二：界面不过中心轴线（非径向界面）}\label{m3:ux60c5ux5883ux4e8cux754cux9762ux4e0dux8fc7ux4e2dux5fc3ux8f74ux7ebfux975eux5f84ux5411ux754cux9762}
+
+设介质分界面在横截面上的投影为一条不过原点的直线 \(L\)。
+
+若此时依然假设电场保持纯径向分布 \(\mathbf E=E(r)\mathbf e_r\)：
+
+考虑界面上任意一点，设径向单位矢量 \(\hat{e}_r\)
+与该点处界面的单位法向矢量 \(\hat{n}\) 的夹角为 \(\alpha\)。由于直线
+\(L\) 不经过原点，\(\alpha\) 是位置坐标的函数，且除可能的一点外，普遍有
+\(\cos\alpha \neq 0\)。
+
+检验此时的介质边界条件：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{切向电场连续}：
+
+  \[
+  E_{1t} = E_{2t} \Rightarrow E_1 \sin\alpha = E_2 \sin\alpha \Rightarrow E_1 = E_2 = E(r)
+  \]
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \textbf{法向电位移连续}：
+
+  \[
+  D_{1n} = D_{2n} \Rightarrow \varepsilon_1 E_1 \cos\alpha = \varepsilon_2 E_2 \cos\alpha
+  \]
+\end{itemize}
+
+将切向边界条件得出的 \(E_1 = E_2\) 代入法向连续条件，得到：
+
+\[
+\varepsilon_1 \cos\alpha = \varepsilon_2 \cos\alpha
+\]
+
+已知两种介质属性不同（\(\varepsilon_1 \neq \varepsilon_2\)），该等式若要成立，必须且仅能要求
+\(\cos\alpha = 0\)。即分界面必须处处与径向平行。这与``界面为一条不过原点的割线''的几何前提完全矛盾。
+
+\textbf{物理本质论证：}
+
+在电场极化作用下，介质界面会出现束缚面电荷。若法向 \(\mathbf n_{12}\)
+由介质 1 指向介质 2，则
+\(\sigma_b=(\mathbf P_1-\mathbf P_2)\cdot\mathbf n_{12}\)。非径向界面会破坏纯径向场对两条边界条件的同时满足，真实电场线和等势面因而发生畸变。
+
+\textbf{结论：}
+
+情境二不再具有完整圆柱对称性，不能使用上述简单并联公式。一般需要分区求解
+\(\nabla\cdot(\varepsilon\nabla\varphi)=0\)
+并匹配界面条件，可采用保角映射、边界积分、有限元或其他适合具体几何的方法；不能仅凭几何外观断言一定不存在任何解析表示。
+
+\subsection{八、例题}\label{m3:ux516bux4f8bux9898}
+
+\subsubsection{三个典型形状的退极化因子}\label{m3:ux4e09ux4e2aux5178ux578bux5f62ux72b6ux7684ux9000ux6781ux5316ux56e0ux5b50}
+
+\textbf{题号：M3-020}
+
+真空中同一种均匀线性各向同性介质分别制成椭球族的三种理想形状：沿法向施场的极薄扁体、球体、沿长轴施场的极细长针。外部固定源产生主轴方向匀强场
+\(\mathbf E_0\)，材料电极化率为 \(\chi_e\)，内部满足
+\(\mathbf P=\varepsilon_0\chi_e\mathbf E\)。以
+\(\mathbf E_{\rm dep}=-N\mathbf P/\varepsilon_0\)
+定义该主轴的退极化因子。比较三种形状的 \(N\)
+值或极限，并由自洽关系求相应内部总场，说明形状的作用。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-020.pdf}}
+\par\smallskip{\small 图 M3-020：三个典型形状的退极化因子}
+\end{center}
+\end{minipage}\par
+
+图 M3-020 的蓝色箭头均沿所讨论形状的主轴。把
+\(\mathbf P=\varepsilon_0\chi_e\mathbf E\)
+代入退极化场关系后，形状仅通过 \(N\) 进入分母；薄板、球与细针的三个
+\(N\) 值因而给出不同内部场。
+
+沿主轴均匀极化的椭球内部满足
+
+\[
+\mathbf E_{\rm dep}=-\frac{N\mathbf P}{\varepsilon_0},
+\qquad
+\mathbf E=\frac{\mathbf E_0}{1+N\chi_e}.
+\]
+
+法向薄板有 \(N\to1\)，球有 \(N=1/3\)，沿长轴的细针有
+\(N\to0\)。这说明``材料相同''并不保证内部场相同；形状通过退极化因子进入本构闭合。
+
+\subsubsection{先看界面方向，再判断串联或并联}\label{m3:ux5148ux770bux754cux9762ux65b9ux5411ux518dux5224ux65adux4e32ux8054ux6216ux5e76ux8054}
+
+\textbf{题号：M3-021}
+
+一个平行板电容器由两种均匀线性各向同性介质填充，介质间无自由面电荷，忽略边缘效应。分别考虑界面平行于理想电场方向、两区各跨完整板间距的横向拼接，以及界面垂直理想电场方向、两层依次跨越板间距的纵向叠放。用
+\(E_t\) 与 \(D_n\)
+的界面关系检验候选均匀场，说明各自为何可作并联或串联等效，并指出一般混合界面几何还需检验什么，不能仅凭外观画出等效电路。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-021.pdf}}
+\par\smallskip{\small 图 M3-021：由界面方向判断串联或并联}
+\end{center}
+\end{minipage}\par
+
+图 M3-021
+中竖直界面平行于电场，左右两区同接上、下等势极板，故电压相同而电荷相加。若改成图
+M3-017a 的水平分层，电场成为界面法向，无自由面电荷使 \(D_n\)
+连续，电压则按两层路径相加。
+
+若介质界面平行于候选电场，电场是界面切向分量，两区具有同一电势差而电荷相加，对应并联。若界面垂直于电场且界面无自由电荷，法向
+\(\mathbf D\) 连续，两区承担同一自由电荷通量而电势降相加，对应串联。
+
+判断的依据是边界条件，不是图形在纸面上看起来``并排''还是``叠放''。
+
+\subsection{八、使用条件}\label{m3:ux516bux4f7fux7528ux6761ux4ef6}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  退极化场由形状决定；只有椭球及其退化极限等特殊形状，均匀外场才保证内部极化严格均匀。
+\item
+  把不同介质区域等效为串联或并联之前，必须先验证界面方向与候选电场满足切向
+  \(\mathbf E\) 和法向 \(\mathbf D\) 的边界条件。
+\item
+  三介质电容器的分区模型依赖横向尺度远大于极板间距；靠近分区交界处的边缘场不能由简单串并联精确描述。
+\item
+  稀疏混合物公式只保留体积分数的一阶项；颗粒接近、体积分数增大或局域场关联明显时必须改用自洽模型。
+\item
+  对称性可以减少未知量，但不能替代唯一性定理和边界条件的逐项验证。
+\end{enumerate}
+
+\section{专题二十五：介质边界的电像法（拔高选讲）}\label{m3:ux4e13ux9898ux4e8cux5341ux4e94ux4ecbux8d28ux8fb9ux754cux7684ux7535ux50cfux6cd5ux62d4ux9ad8ux9009ux8bb2}
+
+导体边界的电像法通常只需满足等势条件；介质边界还必须同时满足电势连续和法向电位移条件。平面界面可以用有限像源闭合，球面界面一般不能，正交复合边界则要逐面检查。像源个数由全部边界条件决定，不能只凭几何外观猜测。
+
+\subsection{例题一：点电荷与平面介质界面的电像法}\label{m3:ux4f8bux9898ux4e00ux70b9ux7535ux8377ux4e0eux5e73ux9762ux4ecbux8d28ux754cux9762ux7684ux7535ux50cfux6cd5}
+
+\textbf{题号：M3-022}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 电像法、介质边界
+
+无限平面 \(z=0\) 分隔两半空间：\(z>0\) 为真空，\(z<0\)
+为均匀线性各向同性介质，绝对电容率
+\(\varepsilon_0\varepsilon_r\)，\(\varepsilon_r>0\)。界面没有自由面电荷或理想偶极层。真实点电荷
+\(Q\ne0\) 固定于
+\((0,0,h)\)，\(h>0\)，要求电势在无穷远衰减。用分区电像表示同时满足电势连续和法向电位移条件，求
+\(Q\) 排除自身电场后所受的力，写明沿 \(+z\)
+的有符号分量及吸引、排斥的参数条件。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-022.pdf}}
+\par\smallskip{\small 图 M3-022：点电荷与平面介质界面的电像法}
+\end{center}
+\end{minipage}\par
+
+图 M3-022 的实点 \(Q\) 在 \(z=h\)，虚线圈 \(Q^{\prime}\) 在
+\(z=-h\)，二者相距 \(2h\)。该像源只用来表示上方 a 区的极化附加场；下方 b
+区另用透射等效源匹配。受力时只取 \(Q^{\prime}\) 在实点处产生的场，排除
+\(Q\) 的自场。
+
+取界面为 \(z=0\)，a 区为 \(z>0\)，b 区为 \(z<0\)，原电荷位于
+\((0,0,h)\)。记观察点到 \((0,0,h)\) 和 \((0,0,-h)\) 的距离分别为
+\(R_+\)、\(R_-\)。
+
+\textbf{1. 构造两区电势}
+
+在 a 区以镜像电荷 \(Q'\) 表示界面极化对真空区的作用；在 b
+区用位于原电荷位置的等效透射电荷 \(Q''\) 表示电势：
+
+\[
+\varphi_a=\frac{1}{4\pi\varepsilon_0}
+\left(\frac{Q}{R_+}+\frac{Q'}{R_-}\right),
+\]
+
+\[
+\varphi_b=\frac{1}{4\pi\varepsilon_0\varepsilon_r}
+\frac{Q''}{R_+}.
+\]
+
+这两个候选势在各自区域内都满足泊松方程或拉普拉斯方程，下面只需定出
+\(Q'\) 和 \(Q''\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-022a.pdf}}
+\par\smallskip{\small 图 M3-022a：反射像源与透射等效源的适用区域}
+\end{center}
+\end{minipage}\par
+
+图 M3-022a 在界面取点
+\(A\)，到真实电荷和反射像源的距离相等。电势条件比较 \(1/R\)
+的系数，法向电位移条件则比较两条镜面对称连线的法向投影；二者给出的约束须同时满足。透射等效源
+\(Q^{\prime\prime}\) 只在 b 区势函数中使用。
+
+\textbf{2. 同时匹配两条边界条件}
+
+在 \(z=0\) 上有 \(R_+=R_-\)。电势连续给出
+
+\[
+Q''=\varepsilon_r(Q+Q').
+\tag{1}
+\]
+
+再以 \(+z\) 为两侧共同法向。界面无自由电荷，故
+
+\[
+\varepsilon_0E_{az}
+=\varepsilon_0\varepsilon_rE_{bz}.
+\]
+
+在界面上对上述电势求导，公共几何因子消去后得
+
+\[
+Q''=Q-Q'.
+\tag{2}
+\]
+
+联立式 (1)、(2)，得
+
+\[
+\boxed{Q'=\frac{1-\varepsilon_r}{1+\varepsilon_r}Q},
+\qquad
+\boxed{Q''=\frac{2\varepsilon_r}{1+\varepsilon_r}Q}.
+\]
+
+因为候选势同时满足场方程、无穷远条件和两条界面条件，由唯一性定理，它就是真实解。
+
+\textbf{3. 计算受力}
+
+计算 \(Q\) 的受力时必须排除它的自场；介质界面的极化附加场，在 \(Q\)
+所在的真空区内正好由镜像电荷 \(Q'\) 的场表示。因而受力可按 \(Q\) 与
+\(Q'\) 之间的库仑力计算。
+
+二者间距为 \(2h\)，由库仑定律得到受力大小
+
+\[
+|\mathbf F|=\frac{|QQ'|}{4\pi\varepsilon_0(2h)^2}
+=\frac{Q^2}{16\pi\varepsilon_0h^2}
+\frac{|1-\varepsilon_r|}{1+\varepsilon_r}.
+\]
+
+当 \(\varepsilon_r>1\) 时，\(Q'\) 与 \(Q\) 异号，力指向介质；当
+\(0<\varepsilon_r<1\) 时二者同号，力背离介质；\(\varepsilon_r=1\)
+时力为零。按题设向上的 \(\mathbf e_z\) 写有符号矢量为
+
+\[
+\boxed{
+\mathbf F
+=\frac{Q^2}{16\pi\varepsilon_0h^2}
+\frac{1-\varepsilon_r}{1+\varepsilon_r}\,\mathbf e_z
+}.
+\]
+
+当 \(\varepsilon_r\to1\) 时，\(Q'\to0\)、\(\mathbf F\to\mathbf0\)；当
+\(\varepsilon_r\to\infty\)
+时，\(Q'\to-Q\)，退化为点电荷与接地导体平面的结果。
+
+\subsection{例题二：介质球外点电荷为何不能只用一个像电荷}\label{m3:ux4f8bux9898ux4e8cux4ecbux8d28ux7403ux5916ux70b9ux7535ux8377ux4e3aux4f55ux4e0dux80fdux53eaux7528ux4e00ux4e2aux50cfux7535ux8377}
+
+\textbf{题号：M3-023}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 电像法、介质边界
+
+真空中有一半径为 \(R>0\) 的均匀线性各向同性电介质球，相对电容率满足
+\(0<\varepsilon_r<\infty\) 且
+\(\varepsilon_r\ne1\)。球内没有自由电荷，球面没有自由面电荷。真实点电荷
+\(Q\ne0\) 位于
+\(z=d>R\)，球心为原点，取无穷远零势。有人尝试在球内放置单个待定像点电荷
+\(Q'\)，使``真实电荷加这个像电荷''在全部球外复现真实势。证明这一单点像方案不能同时满足球面的电势连续与法向电位移条件；像源位置应允许待定，不能仅否定一个猜测位置。说明
+\(\varepsilon_r=1\) 与导体极限为何不属于本命题。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-023.pdf}}
+\par\smallskip{\small 图 M3-023：介质球外点电荷的单像源矛盾}
+\end{center}
+\end{minipage}\par
+
+图 M3-023 把球面观察点记为 \(A(R,\theta)\)，把球内任意待定位置 \(b\)
+处的单个反射像源记为
+\(Q^{\prime}\)。先由整个介质球的束缚电荷中性证明任何非零单点像源都不可能；再检验
+\(Q^{\prime}=0\)
+时裸电荷场的边界条件。后面的共轭位置构造只作进一步的代数对照。
+
+\textbf{先排除任意位置的单个反射像源}
+
+有限介质球的束缚电荷总量恒为零，因为体、面贡献满足
+
+\[
+q_b=\iiint_V(-\nabla\cdot\mathbf P)\,dV
++\oiint_{\partial V}\mathbf P\cdot\mathbf n\,dS=0.
+\]
+
+在真空中取包围介质球和真实电荷 \(Q\) 的大高斯面。真实场的通量为
+\(Q/\varepsilon_0\)；若球外极化附加场只由一个点像源 \(Q^{\prime}\)
+表示，候选场的通量则为 \((Q+Q^{\prime})/\varepsilon_0\)。两者相等要求
+
+\[
+Q^{\prime}=q_b=0.
+\]
+
+这与像源放在球内的哪个位置无关。若
+\(Q^{\prime}=0\)，球外只剩裸电荷场，球面电势连续又唯一确定球内为同一个裸电荷势的延拓；该场在球面一般有非零法向分量，却须满足
+\(\varepsilon_0E_n=\varepsilon_0\varepsilon_rE_n\)，对
+\(\varepsilon_r\ne1\)
+不可能成立。因此，任意单个反射点像源都不能给出真实球外场。
+
+\textbf{补充：单反射源、单透射源构造的代数对照}
+
+下面保留一种更受限构造的边界匹配：还要求球内势由一个透射点源
+\(Q^{\prime\prime}\)
+表示。这里的共轭位置与三式矛盾只是对该构造的进一步检验；一般不可行性已由上面的整体中性论证给出。
+
+\textbf{结论：不可行。单个镜像点电荷无法同时满足介质球面的两项静电场边界条件。}
+
+\textbf{证明过程：}
+
+建立球坐标系，设介质球心为原点，点电荷 \(Q\) 位于极轴 \(z=d\) 处。
+
+假设球外场可由原电荷 \(Q\) 与球内某一镜像点电荷 \(Q'\)
+共同等效；球内场可由球外某一镜像点电荷 \(Q''\) 等效。
+
+\textbf{1. 匹配切向边界条件（电势连续）}
+
+在球面 \(r=R\) 上，要求电势 \(\varphi_{out} = \varphi_{in}\)。
+
+\[
+\frac{1}{4\pi\varepsilon_0} \left( \frac{Q}{\sqrt{R^2+d^2-2Rd\cos\theta}} + \frac{Q'}{\sqrt{R^2+b^2-2Rb\cos\theta}} \right) = \frac{1}{4\pi\varepsilon_0} \frac{Q''}{\sqrt{R^2+h^2-2Rh\cos\theta}}
+\]
+
+为使上式对任意极角 \(\theta\) 均成立，根号下包含 \(\cos\theta\)
+的项必须具有相同的比例结构。
+
+对比 \(Q\) 项，球内镜像电荷 \(Q''\) 的位置必须为 \(h=d\)。
+
+对于 \(Q'\) 项，必须满足几何共轭关系 \(b = R^2/d\)。
+
+此时，\(\sqrt{R^2+b^2-2Rb\cos\theta} = \frac{R}{d}\sqrt{R^2+d^2-2Rd\cos\theta}\)。代入电势等式并消去相同的分母，得到电荷量约束条件：
+
+\[
+Q + Q'\frac{d}{R} = Q'' \quad \text{--- (式 1)}
+\]
+
+\textbf{2. 匹配法向边界条件（电位移连续）}
+
+在球面 \(r=R\) 上，要求法向电位移连续，即 \(D_{out, r} = D_{in, r}\)：
+
+\[
+\left. \frac{\partial \varphi_{out}}{\partial r} \right|_{r=R} = \varepsilon_r \left. \frac{\partial \varphi_{in}}{\partial r} \right|_{r=R}
+\]
+
+已知点电荷场径向导数为
+\(\frac{\partial}{\partial r} \left(r^2+l^2-2rl\cos\theta\right)^{-1/2} = -\frac{r-l\cos\theta}{(r^2+l^2-2rl\cos\theta)^{3/2}}\)。
+
+分别对 \(Q\)、\(Q'\)、\(Q''\) 求径向偏导并代入 \(r=R\) 与 \(b=R^2/d\)：
+
+\begin{itemize}
+\item
+  \textbf{左式分子（球外法向场项）：}
+
+  \[
+  Q(R-d\cos\theta) + \frac{Q'}{(R/d)^3} \left(R - \frac{R^2}{d}\cos\theta\right) = \left( QR + Q'\frac{d^3}{R^2} \right) - \left( Qd + Q'\frac{d^2}{R} \right)\cos\theta
+  \]
+\item
+  \textbf{右式分子（球内法向场项乘} \textbf{\(\varepsilon_r\)}
+  \textbf{）：}
+
+  \[
+  \varepsilon_r Q''(R-d\cos\theta) = \varepsilon_r Q'' R - \varepsilon_r Q'' d\cos\theta
+  \]
+\end{itemize}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-023a.pdf}}
+\par\smallskip{\small 图 M3-023a：单反射、单透射候选的代数矛盾}
+\end{center}
+\end{minipage}\par
+
+图 M3-023a 进一步把球内势也限制为一个透射点源，并取反射点的共轭位置
+\(b=R^2/d\)，作为受限构造的代数对照。观察点 \(A\)
+沿整个球面移动，三式必须同时成立；前两式强迫 \(Q^{\prime\prime}=0\) 和
+\(Q^{\prime}=-QR/d\)，第三式又给出
+\(d=R\)，与题设冲突。任意单反射点源的不可行性已由前面的总束缚电荷中性论证排除。
+
+\textbf{3. 导出矛盾}
+
+法向边界条件等式必须对任意 \(\cos\theta\) 恒成立，故常数项与
+\(\cos\theta\) 的系数必须分别相等：
+
+\[
+\begin{cases} QR + Q'\frac{d^3}{R^2} = \varepsilon_r Q'' R \quad \text{--- (式 2)} \\ Qd + Q'\frac{d^2}{R} = \varepsilon_r Q'' d \quad \Rightarrow \quad Q + Q'\frac{d}{R} = \varepsilon_r Q'' \quad \text{--- (式 3)} \end{cases}
+\]
+
+将 (式 1) \(Q'' = Q + Q'\frac{d}{R}\) 代入 (式 3)：
+
+\[
+Q + Q'\frac{d}{R} = \varepsilon_r \left( Q + Q'\frac{d}{R} \right)
+\]
+
+由于电介质 \(\varepsilon_r \neq 1\)，该式成立的唯一可能为：
+
+\[
+Q + Q'\frac{d}{R} = 0 \quad \Rightarrow \quad Q' = -Q\frac{R}{d}
+\]
+
+且此时 \(Q'' = 0\)。将这两项结果代回常数项匹配方程 (式 2)：
+
+\[
+QR + \left(-Q\frac{R}{d}\right)\frac{d^3}{R^2} = 0 \quad \Rightarrow \quad QR - Q\frac{d^2}{R} = 0
+\]
+
+化简得到 \(R^2 = d^2\)，即 \(d = R\)。
+
+这与题设条件``点电荷位于球外（\(d > R\)）''产生根本性矛盾。
+
+\textbf{物理实质论证：}
+
+电介质球面上的极化束缚电荷分布不仅受原电荷影响，还受介质内部退极化场的影响。单一点电荷的镜像场自由度过低（仅提供
+\(1/r\)
+形式的势），无法同时兼顾电势匹配与不均匀极化电荷产生的法向电场跃变。严格求解表明，电介质球的等效像电荷是一个\textbf{点电荷与一段连续线电荷的叠加}。
+
+\subsection{例题三：接地球与介质平面的正交电像闭合}\label{m3:ux4f8bux9898ux4e09ux63a5ux5730ux7403ux4e0eux4ecbux8d28ux5e73ux9762ux7684ux6b63ux4ea4ux7535ux50cfux95edux5408}
+
+\textbf{题号：M3-024}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 电像法、介质边界
+
+半径为 \(R>0\) 的理想导体球壳接地，球心在原点。壳内 \(z>0\)
+的上半球为真空，\(z<0\) 的下半球充满均匀线性各向同性介质，其相对电容率
+\(\varepsilon_r>0\) 待定。平面圆盘界面 \(z=0,r<R\)
+上没有自由面电荷或偶极层。点电荷 \(Q\ne0\) 位于上半球轴线
+\(z=R/3\)。已知它排除自场后受到的静电合力为零，求 \(\varepsilon_r\)
+的精确值。应同时检验接地球面与介质界面的条件；只计算静电力，不把重力计入平衡。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-024.pdf}}
+\par\smallskip{\small 图 M3-024：接地球与介质平面的正交电像闭合}
+\end{center}
+\end{minipage}\par
+
+图 M3-024 中只有上半球内的 \(Q\) 为真实电荷，三个虚线圈都是求真空区域
+\(V_1\) 场时的像源。球反演给出轴上 \(\pm3R\)
+的位置，平面反射给出负半轴位置；两条操作路径得到同一个
+\(q_3\)，使像源集合闭合。
+
+以下电荷正负与箭头示意取 \(Q>0\)；若
+\(Q<0\)，所有源电荷同时反号，最终受力系数仍只含 \(Q^2\)。
+
+求解真空区域
+\(V_1\)（\(0 < r < R, z > 0\)）内的静电场。该区域受两组边界条件约束：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{球面边界}：\(r=R, z>0\) 处接地，电势 \(\varphi=0\)。
+\item
+  \textbf{介质平面边界}：\(z=0, 0<r<R\) 处，电势连续且法向电位移连续。
+\end{enumerate}
+
+利用电像法构造满足上述边界条件的等效电荷体系。引入参量
+\(x = \frac{\varepsilon_r - 1}{\varepsilon_r + 1}\)。
+
+\textbf{1. 构建电像体系}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{初始电荷} \textbf{\(Q\)} 位于 \(z_0 = R/3\)。
+\item
+  为了满足\textbf{球面边界} \textbf{\(\varphi=0\)}，需引入 \(Q\)
+  在接地导体球中的镜像电荷 \(q_1\)：\\
+  位置：\(z_1 = \frac{R^2}{R/3} = 3R\)\\
+  电量：\(q_1 = -Q \frac{R}{R/3} = -3Q\)
+\item
+  为了满足\textbf{介质平面边界}，需引入 \(Q\) 在电介质平面的镜像电荷
+  \(q_2\)：\\
+  位置：\(z_2 = -R/3\)\\
+  电量：\(q_2 = -xQ\)
+\item
+  引入 \(q_2\) 会破坏球面上的零电势条件，故需再次引入 \(q_2\)
+  在接地导体球中的镜像电荷 \(q_3\)：\\
+  位置：\(z_3 = \frac{R^2}{-R/3} = -3R\)\\
+  电量：\(q_3 = -q_2 \frac{R}{R/3} = -(-xQ) \cdot 3 = 3xQ\)
+\item
+  \textbf{自洽性检验}：我们还需考察原本在 \(V_1\) 域外的 \(q_1\)
+  是否也会对介质平面边界产生影响。\(q_1\) (位于 \(3R\))
+  在介质平面对应的镜像电荷应为位于 \(-3R\)、电量为
+  \(-xq_1 = -x(-3Q) = 3xQ\) 的点电荷。这与我们为满足球面条件推导出的
+  \(q_3\) \textbf{在位置和电量上完全等同}。
+\item
+  \textbf{结论}：由 \(Q, q_1, q_2, q_3\)
+  构成的电荷系统完美闭合，同时满足了两组正交边界条件。根据唯一性定理，此即为
+  \(V_1\) 区域内真实电场的等效源。
+\end{itemize}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-024a.pdf}}
+\par\smallskip{\small 图 M3-024a：三个像源在真实电荷处的力分解}
+\end{center}
+\end{minipage}\par
+
+图 M3-024a 在真实电荷处统一取向上为正。上方异号 \(q_1\)
+吸引向上，下方异号 \(q_2\) 吸引向下，下方同号 \(q_3\)
+排斥向上。三段距离分别为
+\(8R/3,2R/3,10R/3\)，它们进入三个库仑力分母后再作带符号求和。
+
+\textbf{2. 受力平衡计算}
+
+设定向上（正 \(z\) 向）为正方向。点电荷 \(Q\) 所在处的电场由
+\(q_1, q_2, q_3\) 共同激发。
+
+根据库仑定律，计算各电荷对 \(Q\) 的作用力分量：
+
+\begin{itemize}
+\item
+  \textbf{\(q_1\)} \textbf{的作用力} (\(q_1\) 为负，在上方，力向上)：
+
+  \[
+  F_1 = \frac{1}{4\pi\varepsilon_0} \frac{Q |q_1|}{(3R - R/3)^2} = \frac{1}{4\pi\varepsilon_0} \frac{Q(3Q)}{(8R/3)^2} = \frac{1}{4\pi\varepsilon_0} \frac{27Q^2}{64R^2}
+  \]
+\item
+  \textbf{\(q_2\)} \textbf{的作用力} (\(q_2\) 为负，在下方，力向下)：
+
+  \[
+  F_2 = -\frac{1}{4\pi\varepsilon_0} \frac{Q |q_2|}{(R/3 - (-R/3))^2} = -\frac{1}{4\pi\varepsilon_0} \frac{Q(xQ)}{(2R/3)^2} = -\frac{1}{4\pi\varepsilon_0} \frac{9xQ^2}{4R^2}
+  \]
+\item
+  \textbf{\(q_3\)} \textbf{的作用力} (\(q_3\) 为正，在下方，力向上)：
+
+  \[
+  F_3 = \frac{1}{4\pi\varepsilon_0} \frac{Q |q_3|}{(R/3 - (-3R))^2} = \frac{1}{4\pi\varepsilon_0} \frac{Q(3xQ)}{(10R/3)^2} = \frac{1}{4\pi\varepsilon_0} \frac{27xQ^2}{100R^2}
+  \]
+\end{itemize}
+
+由题意，合力为零：
+
+\[
+F_{net} = F_1 + F_2 + F_3 = 0
+\]
+
+提取公因子 \(\frac{1}{4\pi\varepsilon_0} \frac{Q^2}{R^2}\)，得到方程：
+
+\[
+\frac{27}{64} - \frac{9x}{4} + \frac{27x}{100} = 0
+\]
+
+\textbf{3. 求解介电常数}
+
+将上述方程两边同除以 \(9\)：
+
+\[
+\frac{3}{64} - \frac{x}{4} + \frac{3x}{100} = 0
+\]
+
+移项并合并同类项：
+
+\[
+\frac{3}{64} = x \left( \frac{1}{4} - \frac{3}{100} \right) = x \left( \frac{25 - 3}{100} \right) = \frac{22x}{100}
+\]
+
+解得：
+
+\[
+x = \frac{3}{64} \times \frac{100}{22} = \frac{300}{1408} = \frac{75}{352}
+\]
+
+将 \(x = \frac{\varepsilon_r - 1}{\varepsilon_r + 1}\) 代回：
+
+\[
+\frac{\varepsilon_r - 1}{\varepsilon_r + 1} = \frac{75}{352}
+\]
+
+\[
+352\varepsilon_r - 352 = 75\varepsilon_r + 75
+\]
+
+\[
+(352 - 75)\varepsilon_r = 352 + 75
+\]
+
+\[
+277\varepsilon_r = 427
+\]
+
+\[
+\varepsilon_r = \frac{427}{277} \approx 1.54
+\]
+
+最终精确解为 \(\varepsilon_r = \frac{427}{277}\)。
+
+\subsection{四、使用条件}\label{m3:ux56dbux4f7fux7528ux6761ux4ef6}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  像电荷只在指定求解区域内复现真实场；它通常位于该区域之外，不代表真实自由电荷。
+\item
+  介质界面必须同时满足电势连续与法向电位移关系，只满足其中一条的像源构造不是解。
+\item
+  计算真实电荷受力时应排除自场；计算由诱导极化产生的相互作用能时还要保留建立诱导电荷带来的二分之一因子。
+\item
+  平面界面可由有限个像电荷闭合，不意味着球面介质边界也能用单个像电荷解决；应先比较各边界条件给出的函数依赖。
+\item
+  多重边界的连续反射一般生成无限像源链；只有特殊几何与反射系数使像源集合闭合时，有限像源法才成立。
+\end{enumerate}
+
+\section{专题二十六：介质中的静电能与电场力（基础必讲与拔高选讲）}\label{m3:ux4e13ux9898ux4e8cux5341ux516dux4ecbux8d28ux4e2dux7684ux9759ux7535ux80fdux4e0eux7535ux573aux529bux57faux7840ux5fc5ux8bb2ux4e0eux62d4ux9ad8ux9009ux8bb2}
+
+\begin{quote}
+阅读准备：约束不同，能量账本不同
+电容器几何改变时，孤立系统保持自由电荷不变；接在理想恒压源上时，电势不变而电源可以送入或取走电荷。机械力始终由同一瞬时电磁状态决定，但沿不同约束过程用能量求力时，必须采用与外界交换相匹配的能量账本；固定电势情形不能漏掉外电源做功。
+
+\end{quote}
+
+\textbf{例 M3-025：介质插入时的两种能量账本}
+
+均匀线性各向同性介质板部分插入平行板电容器，以继续插入的位移为 \(x\)
+正向。设在所讨论位置电容为可微函数 \(C(x)\)，且
+\(dC/dx>0\)；过程准静态、无耗散，其他几何参数固定。比较两个独立约束：电容器绝缘，极板自由电荷
+\(\pm Q\) 固定；电容器接理想恒压源，电压 \(V\)
+固定。分别判断插入时场能的变化和介质所受电场力方向，说明恒压情况下电源输入功如何参与能量守恒。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-025.pdf}}
+\par\smallskip{\small 图 M3-025：介质插入时的两种能量账本}
+\end{center}
+\end{minipage}\par
+
+图 M3-025 的 \(+x\) 表示介质继续插入，介质所占面积 \(wx\) 增大，故
+\(C^{\prime}(x)>0\)。固定 \(Q\) 时以场能减少支付机械功；固定 \(V\)
+时电源输入的能量同时支付场能增加和机械功。两条能量路径均给出向右的力。
+
+介质插入使 \(C\) 增大：固定 \(Q\) 时 \(Q^2/(2C)\) 降低；固定 \(V\)
+时场能 \(CV^2/2\)
+增加，增加部分由电源提供，机械力仍把介质拉向电容较大的位置。
+
+介质进入电场以后，电源、自由电荷、极化自由度和机械约束之间会交换能量。此时不能只把真空中的
+\(\varepsilon_0\) 换成
+\(\varepsilon\)，还必须说明介质是否线性、过程是否可逆，以及外电路保持的是自由电荷还是电势。以下只讨论准静态、无耗散的介质响应；有明显色散、迟滞或漏电时，能量关系需要连同动力学与耗散重新建立。
+
+\subsection{一、线性介质的场能密度（基础必讲）}\label{m3:ux4e00ux7ebfux6027ux4ecbux8d28ux7684ux573aux80fdux5bc6ux5ea6ux57faux7840ux5fc5ux8bb2}
+
+在几何形状和材料状态不变的条件下，从零场准静态地建立电位移。单位体积内外界所做的增量功为
+
+\[
+du=\mathbf E\cdot d\mathbf D.
+\]
+
+因此一般可逆本构关系对应的能量密度为
+
+\[
+u(\mathbf D)=\int_{\mathbf 0}^{\mathbf D}
+\mathbf E(\mathbf D')\cdot d\mathbf D'.
+\]
+
+若介质线性且互易，\(\mathbf D=\boldsymbol\varepsilon\mathbf E\)，其中介电张量满足
+\(\varepsilon_{ij}=\varepsilon_{ji}\)，沿任意比例路径
+\(\mathbf D'=s\mathbf D\) 积分得到
+
+\[
+\boxed{u=\frac12\mathbf E\cdot\mathbf D}.
+\]
+
+各向同性介质中进一步化为
+
+\[
+\boxed{u=\frac12\varepsilon E^2=\frac{D^2}{2\varepsilon}}.
+\]
+
+整个场区的能量为
+
+\[
+U=\int_Vu\,dV.
+\]
+
+这里的 \(\tfrac12\) 来自从零场逐步建立极化的过程。若直接把最终的
+\(\mathbf E\cdot\mathbf D\)
+当成能量密度，就会把建立过程中的平均场强多算一倍。
+
+\textbf{例 M3-026：充满线性介质的平行板场能密度}
+
+平行板电容器的板面积与间距固定，间隙全部充满均匀线性各向同性介质，绝对电容率为
+\(\varepsilon>0\)，介质响应准静态、可逆。两板内表面带固定自由面电荷密度
+\(+\sigma_f,-\sigma_f\)，忽略边缘效应及其他场区能量。求板间场能密度，并在极板自由电荷和几何都不变的条件下，讨论增大
+\(\varepsilon\) 时 \(D,E\) 以及场能密度如何变化。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-026.pdf}}
+\par\smallskip{\small 图 M3-026：充满线性介质的平行板场能密度}
+\end{center}
+\end{minipage}\par
+
+图 M3-026 的均匀场沿板间法向，\(D_n\) 由极板上的自由面电荷确定。固定
+\(\sigma_f\) 时 \(D\) 不随 \(\varepsilon\) 改变，而 \(E=D/\varepsilon\)
+减小，所以 \(\tfrac12 ED\) 随电容率增加而降低。
+
+平行板间充满线性介质，忽略边缘效应。若自由面电荷密度为 \(\sigma_f\)，则
+\(D=\sigma_f\)，故
+
+\[
+u=\frac{\sigma_f^2}{2\varepsilon}.
+\]
+
+在自由电荷固定时，增大 \(\varepsilon\)
+会降低场能；这正是介质趋向进入强场区域的能量依据之一。
+
+\subsection{二、电容器的能量与约束条件（基础必讲）}\label{m3:ux4e8cux7535ux5bb9ux5668ux7684ux80fdux91cfux4e0eux7ea6ux675fux6761ux4ef6ux57faux7840ux5fc5ux8bb2}
+
+对由一个几何参数 \(x\) 决定的线性电容器，\(Q=C(x)V\)，场能可写成
+
+\[
+U_{\rm field}=\frac{Q^2}{2C(x)}
+=\frac12Q V
+=\frac12C(x)V^2.
+\]
+
+三个表达式数值相同，但求机械力时不能任意选择自变量。
+
+\subsubsection{1.
+自由电荷固定}\label{m3:ux81eaux7531ux7535ux8377ux56faux5b9a}
+
+电容器与外界绝缘，\(Q\) 不变。机械力沿 \(x\) 的分量为
+
+\[
+\boxed{
+F_x=-\left(\frac{\partial U_{\rm field}}{\partial x}\right)_Q
+=\frac{Q^2}{2C^2}\frac{dC}{dx}
+}.
+\]
+
+\subsubsection{2. 电势固定}\label{m3:ux7535ux52bfux56faux5b9a}
+
+电容器连接理想恒压电源，几何变化时电源会转移电荷。此时若只对
+\(U_{\rm field}=\tfrac12CV^2\)
+取负导数，会得到错误符号。把电源交换的能量计入后，应使用
+
+\[
+\mathcal G=U_{\rm field}-VQ
+=-\frac12C(x)V^2,
+\]
+
+从而
+
+\[
+\boxed{
+F_x=-\left(\frac{\partial\mathcal G}{\partial x}\right)_V
+=\frac12V^2\frac{dC}{dx}
+}.
+\]
+
+两种约束在同一瞬间都可写成 \(F_x=\tfrac12V^2C'(x)\)，但固定 \(Q\) 时
+\(V=Q/C(x)\) 会随位置变化；因此两种运动过程中的力---位移关系并不相同。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic26-v3-01-fixed-q-v.png}}
+\par\smallskip{\small 图示：介质部分插入平行板电容器时，固定电荷对应外电路断开，固定电压对应电源闭合连接，两种约束需要使用不同的能量函数}
+\end{center}
+\end{minipage}\par
+
+\subsection{三、例题：部分插入平行板的介质板（基础必讲）}\label{m3:ux4e09ux4f8bux9898ux90e8ux5206ux63d2ux5165ux5e73ux884cux677fux7684ux4ecbux8d28ux677fux57faux7840ux5fc5ux8bb2}
+
+\textbf{题号：M3-027}
+
+真空平行板电容器的板间距为 \(d>0\)，极板沿插入方向长 \(L>0\)、垂直纸面宽
+\(w>0\)。一块均匀线性各向同性介质板的厚度恰为 \(d\)，宽度为
+\(w\)，长度足以完全填满间隙，相对电容率为
+\(\varepsilon_r>1\)。它从一端沿板面插入
+\(x\)，\(0<x<L\)，剩余区域为真空，界面没有自由电荷。忽略边缘效应，用整体能量近似求合力，取增大
+\(x\) 为正。先求 \(C(x)\)，再分别求理想电源保持电压 \(V\)
+固定、断电后极板电荷 \(\pm Q\) 固定时的力，说明各自的能量约束。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-027.pdf}}
+\par\smallskip{\small 图 M3-027：部分插入平行板的介质板}
+\end{center}
+\end{minipage}\par
+
+图 M3-027 中介质区域面积为 \(wx\)，真空区域面积为
+\(w(L-x)\)；两区均跨过间距 \(d\)
+并承受同一电势差，所以按并联相加。红色力箭头沿增大 \(x\) 的方向，后面由
+\(C^{\prime}(x)\) 的正号确定它的方向。
+
+介质区和真空区承受同一电势差，相当于两个电容并联：
+
+\[
+C(x)=\frac{\varepsilon_0\varepsilon_rwx}{d}
++\frac{\varepsilon_0w(L-x)}{d}
+=\frac{\varepsilon_0w}{d}
+\left[L+(\varepsilon_r-1)x\right].
+\]
+
+因此
+
+\[
+\frac{dC}{dx}=\frac{\varepsilon_0w}{d}(\varepsilon_r-1).
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-027a.pdf}}
+\par\smallskip{\small 图 M3-027a：固定电荷与固定电压的能量路径}
+\end{center}
+\end{minipage}\par
+
+图 M3-027a 用同一插入位移 \(dx\) 比较能量路径。恒压源输入
+\(V\,dQ=V^2dC\)，其中一半增加场能，另一半成为机械功；固定 \(Q\)
+时没有电源输入，机械功完全来自 \(Q^2/(2C)\) 的减少。
+
+固定电压时
+
+\[
+\boxed{
+F_x=\frac{\varepsilon_0w(\varepsilon_r-1)}{2d}V^2
+}.
+\]
+
+固定自由电荷时
+
+\[
+\boxed{
+F_x=\frac{Q^2}{2C(x)^2}
+\frac{\varepsilon_0w(\varepsilon_r-1)}{d}
+}.
+\]
+
+当 \(\varepsilon_r>1\)
+时两式均为正，介质被进一步吸入电容器。固定电压时，在忽略边缘场的模型中力为常量；固定电荷时，随着
+\(x\) 增大，\(C\)
+增大而力逐渐减小。力真正作用在介质前缘附近的非均匀场区，均匀场近似虽然没有解析描写该局部结构，却能通过总能量的变化正确给出合力。
+
+\subsection{四、诱导偶极子的能量与介电泳（拔高选讲）}\label{m3:ux56dbux8bf1ux5bfcux5076ux6781ux5b50ux7684ux80fdux91cfux4e0eux4ecbux7535ux6cf3ux62d4ux9ad8ux9009ux8bb2}
+
+若一个各向同性小物体在线性范围内产生诱导偶极矩
+
+\[
+\mathbf p=\alpha\mathbf E_0,
+\]
+
+建立偶极矩时场也从零逐渐增加，所以相互作用能不是永久偶极子的
+\(-\mathbf p\cdot\mathbf E_0\)，而是
+
+\[
+\boxed{U_{\rm ind}=-\frac12\alpha E_0^2}.
+\]
+
+于是缓慢变化的外场中
+
+\[
+\boxed{
+\mathbf F=\frac12\alpha\nabla E_0^2
+}.
+\]
+
+对真空中半径为 \(a\)、相对介电常数为 \(\varepsilon_r\)
+的介质球，专题二十四已经得到
+
+\[
+\alpha=4\pi\varepsilon_0a^3
+\frac{\varepsilon_r-1}{\varepsilon_r+2}.
+\]
+
+因此 \(\varepsilon_r>1\)
+的小球趋向场强较大的区域；若有效极化率为负，方向相反。该结论要求小球尺度远小于外场变化尺度，并且忽略球对外场分布的高阶扰动。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/original/tikz-m3-topic26-v3-02-induced-dipole-margin12-v11.png}}
+\par\smallskip{\small 图示：非均匀场中各位置的场矢量由左向右逐渐变长，诱导偶极子正端所受力大于负端所受力，净力指向场强平方增大的方向}
+\end{center}
+\end{minipage}\par
+
+\subsection{五、局部应力与能量法的边界（拔高选讲）}\label{m3:ux4e94ux5c40ux90e8ux5e94ux529bux4e0eux80fdux91cfux6cd5ux7684ux8fb9ux754cux62d4ux9ad8ux9009ux8bb2}
+
+在均匀线性各向同性介质的纯电场区域，常用电应力张量写成
+
+\[
+\mathbf T
+=\mathbf E\mathbf D
+-\frac12(\mathbf E\cdot\mathbf D)\mathbf I.
+\]
+
+它可用于计算理想宏观模型中的面力。但真实介质界面还可能存在弹性、压强、密度变化和电致伸缩；若题目要求介质内部的局部机械应力，不能只凭上述电磁部分断言全部应力。竞赛中求刚性介质整体所受合力时，优先使用总能量或包围物体的应力面积分，并明确外电路约束，通常更稳妥。
+
+\subsection{六、练习与解答}\label{m3:ux516dux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\subsubsection{作业一：不同外电路约束下的介质插入过程}\label{m3:ux4f5cux4e1aux4e00ux4e0dux540cux5916ux7535ux8defux7ea6ux675fux4e0bux7684ux4ecbux8d28ux63d2ux5165ux8fc7ux7a0b}
+
+\textbf{层级：} 基础　　\textbf{方法：} 介质边界
+
+\textbf{题目一}
+
+\textbf{题号：M3-028}
+
+真空平行板电容器的极板间距为 \(d>0\)、长度为 \(L>0\)、宽度为
+\(w>0\)。厚度为 \(d\)、宽度为 \(w\)
+的均匀线性各向同性介质板从一端平行极板插入，长度足以完全填充，介质相对电容率为
+\(\varepsilon_r>1\)。以插入深度 \(x\) 为坐标，初态 \(x=0\)
+全为真空，末态 \(x=L\)
+全为介质。全过程电容器与外界绝缘，极板自由电荷保持
+\(+Q,-Q\)，准静态且无耗散，忽略边缘效应。求初末电容、场能变化
+\(\Delta U=U_L-U_0\) 及能量减少量，并以沿 \(x\)
+的电场力积分验证电场所做机械功等于场能减少量。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-028.pdf}}
+\par\smallskip{\small 图 M3-028：固定电荷下介质插入的能量与功}
+\end{center}
+\end{minipage}\par
+
+图 M3-028 取 \(x\) 从极板入口量到介质前缘，积分从 \(x=0\) 走到
+\(x=L\)。初态全部为真空，末态全部填充介质，故图中的两区电容在端点分别化为
+\(C_0\)、\(C_L\)；这也是能量差与机械功的共同积分端点。
+
+初、末电容分别为
+
+\[
+C_0=\frac{\varepsilon_0wL}{d},
+\qquad
+C_L=\frac{\varepsilon_0\varepsilon_rwL}{d}.
+\]
+
+所以
+
+\[
+\boxed{
+\Delta U=U_L-U_0
+=-\frac{Q^2d}{2\varepsilon_0wL}
+\left(1-\frac1{\varepsilon_r}\right)
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-028a.pdf}}
+\par\smallskip{\small 图 M3-028a：初态与末态的电容和能量}
+\end{center}
+\end{minipage}\par
+
+图 M3-028a 将初态、末态单独列出。在相同 \(Q\) 下，电容从 \(C_0\) 增至
+\(\varepsilon_rC_0\)，场能降为初值的
+\(1/\varepsilon_r\)。下面的力积分必须覆盖这两个端点，因而与该能量减少量一致。
+
+另一方面
+
+\[
+W_{\rm field}=\int_0^L F_x\,dx
+=-\int_0^L\frac{dU}{dx}\,dx
+=U_0-U_L=-\Delta U,
+\]
+
+与能量守恒一致。
+
+\textbf{题目二}
+
+\textbf{题号：M3-029}
+
+真空中一小介质球无永久偶极矩，具有各向同性线性极化率
+\(\alpha>0\)，约定其诱导偶极矩为
+\(\mathbf p=\alpha\mathbf E_0\)。外部固定源产生轴对称静电场，在对称轴球心附近的取值为
+\(\mathbf E_0(z)=E_c(1+z/\ell)\mathbf e_z\)，\(E_c>0,\ell>0\)，只保留
+\(|z|\ll\ell\) 的局部一阶变化。球的半径远小于
+\(\ell\)，忽略高阶多极、球对外部源的反作用及其他力。求球心在 \(z=0\)
+时所受的主阶电场力，说明应使用诱导偶极子的哪种能量关系。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-029.pdf}}
+\par\smallskip{\small 图 M3-029：线性梯度场中的介质小球}
+\end{center}
+\end{minipage}\par
+
+图 M3-029 中 \(z\) 向上，外场箭头随 \(z\) 增大而变长。以球心 \(z=0\)
+为求导位置，把两端感受到的非均匀场效应归入
+\(\tfrac12\alpha\,dE_0^2/dz\)；在 \(\ell>0\) 时红色合力沿 \(+z\)。
+
+由诱导偶极能量
+
+\[
+F_z=\frac12\alpha\frac{dE_0^2}{dz}.
+\]
+
+在 \(z=0\) 处，\(dE_0^2/dz=2E_c^2/\ell\)，故
+
+\[
+\boxed{\mathbf F=\frac{\alpha E_c^2}{\ell}\mathbf e_z}.
+\]
+
+\subsection{七、使用条件}\label{m3:ux4e03ux4f7fux7528ux6761ux4ef6}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(u=\tfrac12\mathbf E\cdot\mathbf D\)
+  要求线性、互易且准静态可逆；非线性介质应从
+  \(u=\int\mathbf E\cdot d\mathbf D\) 出发。
+\item
+  固定电压时必须计入电源功，不能直接把 \(\tfrac12CV^2\) 当作机械势能。
+\item
+  诱导偶极能量含 \(\tfrac12\)，永久偶极子的取向能一般不含该因子。
+\item
+  忽略边缘场可以求某些整体电容和合力，却不能据此声称介质前缘处的局部场仍然均匀。
+\item
+  有漏电、色散或迟滞时，输入功的一部分转化为热，不能全部解释为可恢复的静电能。
+\end{enumerate}
+
+\section{模块三小结}\label{m3:ux6a21ux5757ux4e09ux5c0fux7ed3}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+检验问题
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+结论或判断
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+回看位置
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\mathbf E,\mathbf D,\mathbf P\) 分别由什么决定？ &
+总电荷、自由电荷与介质响应 & 专题二十一、二十二 \\
+束缚面电荷的法向如何选？ & 使用介质自身外法向或明确界面法向 &
+专题二十一 \\
+介质界面连续的是哪些分量？ & \(E_t\) 与无自由面电荷时的 \(D_n\) &
+专题二十三 \\
+均匀外场是否保证任意介质体均匀极化？ & 不保证，形状决定退极化场 &
+专题二十四 \\
+介质球边界能否只放一个像电荷？ & 一般不能同时满足两条边界条件 &
+专题二十五 \\
+介质受力为何要先说明外电路约束？ & 固定量不同会改变能量账本 &
+专题二十六 \\
+\end{longtable}
+}
+
+\section{模块三综合题：介质边界、极化与能量}\label{m3:ux6a21ux5757ux4e09ux7efcux5408ux9898ux4ecbux8d28ux8fb9ux754cux6781ux5316ux4e0eux80fdux91cf}
+
+\subsection{综合题一：带自由面电荷的介质分界面}\label{m3:ux7efcux5408ux9898ux4e00ux5e26ux81eaux7531ux9762ux7535ux8377ux7684ux4ecbux8d28ux5206ux754cux9762}
+
+\textbf{题号：M3-030}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 介质边界、自由面电荷
+
+两种均匀线性各向同性介质以平面相接，绝对电容率为
+\(\varepsilon_1=2\varepsilon_0\)、\(\varepsilon_2=5\varepsilon_0\)。单位法向
+\(\mathbf n\) 由介质 1 指向介质 2，界面带给定自由面电荷密度
+\(\sigma_f=2.0\times10^{-9}\ \mathrm{C/m^2}\)，不含偶极层。已知紧邻界面的场完全沿法向，且
+\(\mathbf D_1\cdot\mathbf n=6.0\times10^{-9}\ \mathrm{C/m^2}\)。求两侧电位移与电场的矢量，写清方向和单位，并说明为何界面束缚电荷不能再次作为自由面电荷写入
+\(\mathbf D\) 的跃变条件。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-030.pdf}}
+\par\smallskip{\small 图 M3-030：带自由面电荷的介质分界面}
+\end{center}
+\end{minipage}\par
+
+图 M3-030 的高斯柱跨过水平界面，顶、底法向分别为
+\(+\mathbf n\)、\(-\mathbf n\)。因此柱面通量是
+\(A(D_{2n}-D_{1n})\)，只等于柱内的自由面电荷 \(A\sigma_f\)；再分别除以
+\(\varepsilon_1,\varepsilon_2\) 得到两侧场强。
+
+高斯柱面跨越分界面时，只有自由电荷进入 \(\mathbf D\) 的高斯定理，因此
+
+\[
+(\mathbf D_2-\mathbf D_1)\cdot\mathbf n=\sigma_f.
+\]
+
+于是
+
+\[
+\mathbf D_2\cdot\mathbf n
+=(6.0+2.0)\times10^{-9}
+=8.0\times10^{-9}\ \mathrm{C/m^2}.
+\]
+
+场沿 \(\mathbf n\)，故
+
+\[
+\mathbf E_1
+=\frac{\mathbf D_1}{\varepsilon_1}
+=\frac{3.0\times10^{-9}}{\varepsilon_0}\mathbf n,
+\qquad
+\mathbf E_2
+=\frac{\mathbf D_2}{\varepsilon_2}
+=\frac{1.6\times10^{-9}}{\varepsilon_0}\mathbf n.
+\]
+
+两边的切向电场均为零，自动满足静电边界条件
+\(\mathbf E_{2t}=\mathbf E_{1t}\)。这里
+\(\mathbf D=\varepsilon_0\mathbf E+\mathbf P\)
+已经把极化贡献包含在定义中；因此它的法向跃变只等于自由面电荷。若再把束缚面电荷加到右端，就会把极化效应计算两次。
+
+\subsection{综合题二：斜入射电场与界面束缚电荷}\label{m3:ux7efcux5408ux9898ux4e8cux659cux5165ux5c04ux7535ux573aux4e0eux754cux9762ux675fux7f1aux7535ux8377}
+
+\textbf{题号：M3-031}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 介质边界、场的折射
+
+两种均匀线性各向同性介质以无限平面相接，绝对电容率为
+\(\varepsilon_1=2\varepsilon_0\)、\(\varepsilon_2=4\varepsilon_0\)。界面没有自由面电荷或偶极层，单位法向
+\(\mathbf n\) 从介质 1 指向介质 2，\(\mathbf t\)
+为界面内的固定单位切向。介质 1 紧邻界面的电场为
+\(\mathbf E_1=3E_0\mathbf t+2E_0\mathbf n\)，\(E_0>0\)。求另一侧紧邻界面的
+\(\mathbf E_2\) 及界面总束缚面电荷密度，用
+\(\varepsilon_0(E_{2n}-E_{1n})\)
+对实际界面电荷作独立检验，并保持两次计算的法向一致。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-031.pdf}}
+\par\smallskip{\small 图 M3-031：斜入射电场与界面束缚电荷}
+\end{center}
+\end{minipage}\par
+
+图 M3-031 的虚线分解把两侧电场投影到同一
+\(\mathbf t,\mathbf n\)。切向长度都对应 \(3E_0\)；由于介质 2
+的电容率是介质 1 的两倍，连续的 \(D_n\) 要求法向分量由 \(2E_0\) 降为
+\(E_0\)，两侧极化法向分量之差给出负束缚面电荷。
+
+\[
+E_{2t}=E_{1t}=3E_0,
+\qquad
+\varepsilon_2E_{2n}=\varepsilon_1E_{1n}.
+\]
+
+故
+
+\[
+\boxed{\mathbf E_2=3E_0\mathbf t+E_0\mathbf n}.
+\]
+
+界面两侧介质各自外法向相反，所以合并后的界面束缚电荷为
+
+\[
+\sigma_b=(\mathbf P_1-\mathbf P_2)\cdot\mathbf n.
+\]
+
+代入 \(\mathbf P_i=(\varepsilon_i-\varepsilon_0)\mathbf E_i\) 得
+
+\[
+\sigma_b
+=(\varepsilon_1-\varepsilon_0)2E_0
+-(\varepsilon_2-\varepsilon_0)E_0
+=-\varepsilon_0E_0.
+\]
+
+而
+
+\[
+\varepsilon_0(E_{2n}-E_{1n})
+=-\varepsilon_0E_0
+=\sigma_f+\sigma_b,
+\]
+
+与总电荷高斯定律一致。
+
+\subsection{综合题三：部分插入介质板的两种外电路约束}\label{m3:ux7efcux5408ux9898ux4e09ux90e8ux5206ux63d2ux5165ux4ecbux8d28ux677fux7684ux4e24ux79cdux5916ux7535ux8defux7ea6ux675f}
+
+\textbf{题号：M3-032}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 能量法、介质边界
+
+平行板电容器的板间距为 \(d>0\)，极板长度为 \(L>0\)、宽度为
+\(w>0\)。厚度为 \(d\)、宽度为 \(w\)
+的均匀线性各向同性介质板从一端插入深度 \(x\)，相对电容率为
+\(\varepsilon_r>1\)，未填部分为真空；忽略边缘效应、漏电和耗散，取增大
+\(x\) 为力的正向。第一阶段从 \(x=0\) 准静态插入到
+\(L/2\)，由理想电源保持电压 \(V_0\)；在 \(x=L/2\)
+处断开理想开关，几何和电荷均不受瞬时扰动，随后绝缘地继续插入到
+\(L\)。求两阶段的电场力与插入深度的关系，并说明断开瞬间电容、自由电荷、电压及力的连续性；第二阶段的固定电荷应由切换瞬间确定。
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-032.pdf}}
+\par\smallskip{\small 图 M3-032：部分插入介质板的两种外电路约束}
+\end{center}
+\end{minipage}\par
+
+图 M3-032 的插入方向与 \(x\) 增大方向一致。阶段I接恒压源，阶段II在
+\(x=L/2\) 断开；断开处的几何、电容和极板自由电荷均连续。随后以该处的
+\(Q_*\) 作为第二阶段常量，而电压改为 \(Q_*/C(x)\)。
+
+\[
+C(x)=C_0\left[1+(\varepsilon_r-1)\frac{x}{L}\right],
+\qquad
+C_0=\frac{\varepsilon_0wL}{d}.
+\]
+
+第一阶段固定电压：
+
+\[
+\boxed{
+F_1=\frac12V_0^2\frac{C_0(\varepsilon_r-1)}{L}
+}.
+\]
+
+断开前后几何位置和电容不突变，理想开关又不提供瞬时电荷通道，所以极板自由电荷连续：
+
+\[
+Q_*=C(L/2)V_0
+=\frac{\varepsilon_r+1}{2}C_0V_0.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/process/M3-032a.pdf}}
+\par\smallskip{\small 图 M3-032a：断开电源处的连续条件}
+\end{center}
+\end{minipage}\par
+
+图 M3-032a 以 \(x_*=L/2\) 为两阶段的共同端点。断开瞬间
+\(C=C_*\)、\(Q=Q_*\)，故
+\(V=Q_*/C_*=V_0\)，两种力表达式也接上；继续插入后 \(Q_*\)
+保持不变，电压和力才开始下降。
+
+第二阶段固定 \(Q_*\)：
+
+\[
+\boxed{
+F_2(x)=
+\frac{Q_*^2}{2C(x)^2}
+\frac{C_0(\varepsilon_r-1)}{L}
+}.
+\]
+
+在断开瞬间
+\(x=L/2\)，两式给出相同的力；此后电容增大、电压下降，\(F_2(x)\)
+随插入深度减小。
+
+\subsection{综合题四：点电荷与介质平面的力和相互作用能}\label{m3:ux7efcux5408ux9898ux56dbux70b9ux7535ux8377ux4e0eux4ecbux8d28ux5e73ux9762ux7684ux529bux548cux76f8ux4e92ux4f5cux7528ux80fd}
+
+\textbf{题号：M3-033}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 能量法、介质边界
+
+平面 \(z=0\) 将空间分为真空区 \(z>0\) 和均匀线性各向同性介质区
+\(z<0\)，介质绝对电容率为
+\(\varepsilon_0\varepsilon_r\)，\(\varepsilon_r>0\)。界面没有自由面电荷或偶极层。真实点电荷
+\(Q\ne0\) 固定于
+\((0,0,h)\)，\(h>0\)，取无穷远零势。求排除点电荷自场后所受的静电力，以及与界面诱导极化有关的有限相互作用能；该能量以
+\(h\to\infty\) 为零，不计点电荷自身发散的自能。以 \(+z\)
+为力的正向，验证 \(F_z=-dU_{\rm int}/dh\)，并说明 \(\varepsilon_r>1\)
+时的方向。
+
+\textbf{解答}
+
+\[
+Q'=\frac{1-\varepsilon_r}{1+\varepsilon_r}Q.
+\]
+
+排除 \(Q\) 的自场后，力为
+
+\[
+\boxed{
+\mathbf F
+=\frac{QQ'}{16\pi\varepsilon_0h^2}\mathbf e_z
+}.
+\]
+
+诱导电荷随 \(Q\) 的建立而逐渐形成，所以相互作用能含二分之一因子：
+
+\[
+U_{\rm int}
+=\frac12Q\varphi_{\rm ind}(Q)
+=\frac{QQ'}{16\pi\varepsilon_0h}.
+\]
+
+于是
+
+\[
+-\frac{dU_{\rm int}}{dh}
+=\frac{QQ'}{16\pi\varepsilon_0h^2}
+=F_z.
+\]
+
+当 \(\varepsilon_r>1\) 时 \(QQ'<0\)，故 \(F_z<0\)，点电荷被吸向界面。
+
+\newpage
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-03/examples/M3-033.pdf}}
+\par\smallskip{\small 图 M3-033：点电荷与介质平面的力和相互作用能}
+\end{center}
+\end{minipage}\par
+
+图 M3-033 的像源与真实电荷相距 \(2h\)，在真实电荷位置产生
+\(\varphi_{\rm ind}=Q^{\prime}/(8\pi\varepsilon_0h)\)。建立真实电荷的同时极化源逐渐形成，故相互作用能取
+\(\tfrac12Q\varphi_{\rm ind}\)；再对图中距界面的高度 \(h\) 求负导数。
+
+\subsection{静电介质与稳恒导电介质}\label{m3:ux9759ux7535ux4ecbux8d28ux4e0eux7a33ux6052ux5bfcux7535ux4ecbux8d28}
+
+静电介质与稳恒导电介质都满足
+\(\nabla\times\mathbf E=0\)，但它们组织场方程的物理量不同：\(\mathbf D\)
+记录自由电荷对极化介质的约束，\(\mathbf J\) 记录电荷输运与耗散。
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+比较项目
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+静电介质
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+稳恒导电介质
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+本构关系 & \(\mathbf D=\varepsilon\mathbf E\) &
+\(\mathbf J=\sigma\mathbf E\) \\
+区域方程 & \(\nabla\cdot\mathbf D=\rho_f\) &
+\(\nabla\cdot\mathbf J=0\)（无体源区） \\
+共同条件 & \(\nabla\times\mathbf E=0\) & \(\nabla\times\mathbf E=0\) \\
+界面法向关系 & \(D_{2n}-D_{1n}=\sigma_f\) & 稳恒时 \(j_{2n}=j_{1n}\) \\
+切向关系 & \(E_{2t}=E_{1t}\) & \(E_{2t}=E_{1t}\) \\
+能量特征 & \(u=\tfrac12\mathbf E\cdot\mathbf D\) &
+\(p=\mathbf J\cdot\mathbf E\) \\
+\end{longtable}
+}
+
+当介质同时具有 \(\varepsilon\) 与 \(\sigma\)
+时，接通后的电荷会重新分布。对均匀介质内部的局域自由体电荷，只有瞬时欧姆近似可用时才有一阶时间常数
+\(\tau_c=\varepsilon/\sigma\)；界面电荷和整体电路的建立还取决于两侧材料、几何及传播过程。下一模块将进一步讨论这些适用条件、电荷输运、焦耳热和宏观电路。
+\clearpage
+\endgroup

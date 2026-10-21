@@ -1,0 +1,46 @@
+% 核心结论：方波电压积分得到三角磁通
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-049-P1　方波电压积分得到三角磁通};
+\draw[axis] (-6.60000,0.02500) -- (6.72000,0.02500);
+\draw[axis] (-6.60000,-1.85000) -- (-6.60000,1.97000);
+\node[] at (6.60000,-2.55000) {$t/T$};
+\node[] at (-6.35000,2.12000) {$\text{归一化值}$};
+\draw[blue,thick] plot[domain=0:2,samples=250] ({-6.6+6.6*(\x-0)},{-1.8+1.3518518518518519*((ifthenelse(mod(\x,1)<.5,1,-1))-(-1.35))});
+\draw[green,thick] plot[domain=0:2,samples=250] ({-6.6+6.6*(\x-0)},{-1.8+1.3518518518518519*((ifthenelse(mod(\x,1)<.5,-1+4*mod(\x,1),3-4*mod(\x,1)))-(-1.35))});
+\draw[ink] (-3.30000,-0.03500) -- (-3.30000,0.08500);
+\node[] at (-3.30000,-2.20000) {$.5$};
+\draw[ink] (0.00000,-0.03500) -- (0.00000,0.08500);
+\node[] at (0.00000,-2.20000) {$1$};
+\draw[ink] (3.30000,-0.03500) -- (3.30000,0.08500);
+\node[] at (3.30000,-2.20000) {$1.5$};
+\draw[ink] (6.60000,-0.03500) -- (6.60000,0.08500);
+\node[] at (6.60000,-2.20000) {$2$};
+\draw[ink] (-6.66000,-1.80000) -- (-6.54000,-1.80000);
+\node[anchor=east] at (-6.82000,-1.80000) {$-1.35$};
+\draw[ink] (-6.66000,0.02500) -- (-6.54000,0.02500);
+\node[anchor=east] at (-6.82000,0.02500) {$0$};
+\draw[ink] (-6.66000,1.85000) -- (-6.54000,1.85000);
+\node[anchor=east] at (-6.82000,1.85000) {$1.35$};
+\node[text=blue] at (-5.80000,2.55000) {$u/U$};
+\node[text=green] at (-3.30000,2.55000) {$\Phi/\Phi_m$};
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {蓝色电压为±U，绿色磁通为±Φm；每半周期磁通单调变化，周期净伏秒为零。};
+
+\end{tikzpicture}\end{document}

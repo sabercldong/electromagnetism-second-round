@@ -1,0 +1,45 @@
+% 图契约：欧姆导体的局域耗散；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-003　欧姆导体的局域耗散};
+\begin{scope}[shift={(-4,0)}]
+\fill[blue!5](-2,-1)rectangle(2,1);\draw[ink](-2,-1)rectangle(2,1);
+\draw[v,blue](-2.60000,0.00000)--(2.80000,0.00000);
+\node[]at(2.50000,-0.50000){$+z,I$};
+\node[lab,text=blue]at(0.00000,0.40000){$\mathbf E,\mathbf J$};
+\draw[v,red](-1.40000,1.90000)--(-1.40000,1.05000);
+\draw[v,red](-1.40000,-1.90000)--(-1.40000,-1.05000);
+\draw[v,red](0.00000,1.90000)--(0.00000,1.05000);
+\draw[v,red](0.00000,-1.90000)--(0.00000,-1.05000);
+\draw[v,red](1.40000,1.90000)--(1.40000,1.05000);
+\draw[v,red](1.40000,-1.90000)--(1.40000,-1.05000);
+\draw[green](0.7,1.4)circle(0.13);
+\fill[green](0.7,1.4)circle(.035);
+\node[anchor=west,text=green]at(0.92000,1.40000){$\mathbf H$};
+\node[text=red]at(-1.75000,2.25000){$\mathbf S$ 径向流入};
+\draw[{Latex[length=1.3mm]}-{Latex[length=1.3mm]},ink!65,line width=.5pt](-2.00000,-2.35000)--(2.00000,-2.35000);
+\node[lab]at(0.00000,-2.60000){$\ell$};
+\draw[{Latex[length=1.3mm]}-{Latex[length=1.3mm]},ink!65,line width=.5pt](2.45000,0.00000)--(2.45000,1.00000);
+\node[lab]at(2.80000,0.50000){$a$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$\mathbf J=\sigma\mathbf E$};
+\node[card]at(4.00000,-1.05000){$p_v=\mathbf J\cdot\mathbf E=\sigma E^2\ge0$};
+\node[text width=15.2cm,align=center]at(0.00000,-3.20000){能量由周围电磁场流入导体，转化为焦耳热。};
+\end{tikzpicture}\end{document}

@@ -1,0 +1,47 @@
+% 图契约：线性叠加同时保持每条支路的欧姆关系；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {\quad 线性叠加同时保持每条支路的欧姆关系};
+\begin{scope}[shift={(-5.3,.8)}]\draw[wire,draw=ink](-1.7,0)--(-0.275,0.0) (0.275,0.0)--(1.7,0);\begin{scope}[shift={(0.0,0.0)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label]at(0.0,0.42){$R$};
+\fill[ink] (-1.7,0)circle(2pt);\node[left=4pt] at(-1.7,0){$A$};
+\fill[ink] (1.7,0)circle(2pt);\node[right=4pt] at(1.7,0){$B$};
+\draw[vec,green](-1,.85)--(1,.85)node[midway,above]{$I$};\node at(0,1.7){状态一};\end{scope}\node[card,text width=4.3cm,draw=green!65,fill=green!4]at(-5.3,-0.8){$U=(I)R$};
+\begin{scope}[shift={(0,.8)}]\draw[wire,draw=ink](-1.7,0)--(-0.275,0.0) (0.275,0.0)--(1.7,0);\begin{scope}[shift={(0.0,0.0)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label]at(0.0,0.42){$R$};
+\fill[ink] (-1.7,0)circle(2pt);\node[left=4pt] at(-1.7,0){$A$};
+\fill[ink] (1.7,0)circle(2pt);\node[right=4pt] at(1.7,0){$B$};
+\draw[vec,blue](-1,.85)--(1,.85)node[midway,above]{$I'$};\node at(0,1.7){状态二};\end{scope}\node[card,text width=4.3cm,draw=blue!65,fill=blue!4]at(0,-0.8){$U'=(I')R$};
+\begin{scope}[shift={(5.3,.8)}]\draw[wire,draw=ink](-1.7,0)--(-0.275,0.0) (0.275,0.0)--(1.7,0);\begin{scope}[shift={(0.0,0.0)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label]at(0.0,0.42){$R$};
+\fill[ink] (-1.7,0)circle(2pt);\node[left=4pt] at(-1.7,0){$A$};
+\fill[ink] (1.7,0)circle(2pt);\node[right=4pt] at(1.7,0){$B$};
+\draw[vec,red](-1,.85)--(1,.85)node[midway,above]{$I+I'$};\node at(0,1.7){叠加态};\end{scope}\node[card,text width=4.3cm,draw=red!65,fill=red!4]at(5.3,-0.8){$U+U'=(I+I')R$};
+\node[card,text width=14.5cm,draw=purple!65,fill=purple!4]at(0,-2.5){同一线性网络、同一参考方向：电压与电流可叠加；功率应在相加后再平方。};
+
+\end{tikzpicture}\end{document}

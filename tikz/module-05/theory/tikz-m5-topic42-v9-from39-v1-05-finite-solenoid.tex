@@ -1,0 +1,66 @@
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage[fontset=none]{ctex}
+\usepackage{amsmath,amssymb,bm}
+\usetikzlibrary{arrows.meta,calc,positioning,angles,quotes}
+
+\definecolor{ink}{HTML}{263238}
+\definecolor{muted}{HTML}{6B7780}
+\definecolor{blue}{HTML}{245BFF}
+\definecolor{green}{HTML}{087F5B}
+\definecolor{orange}{HTML}{E67700}
+\definecolor{red}{HTML}{E03131}
+\definecolor{purple}{HTML}{7048E8}
+\definecolor{paleBlue}{HTML}{EDF3FF}
+\definecolor{paleGreen}{HTML}{EAF8F3}
+\definecolor{paleOrange}{HTML}{FFF4E6}
+\definecolor{palePurple}{HTML}{F3F0FF}
+
+\tikzset{
+  title/.style={font=\fontsize{18}{22}\selectfont\bfseries,text=ink,align=center},
+  subtitle/.style={font=\fontsize{12.5}{16}\selectfont\bfseries,text=ink,align=center},
+  body/.style={font=\fontsize{10.5}{14}\selectfont,text=ink,align=center},
+  small/.style={font=\fontsize{8.8}{11.5}\selectfont,text=ink,align=center},
+  box/.style={draw=muted,line width=.8pt,rounded corners=2pt,inner sep=6pt,body},
+  vec/.style={-{Latex[length=3.2mm,width=2.3mm]},line width=1.35pt},
+  patharrow/.style={-{Latex[length=2.8mm,width=2mm]},line width=1.25pt},
+  nodept/.style={circle,fill=ink,minimum size=5pt,inner sep=0pt}
+}
+
+\usepackage{fontspec,xeCJK}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\usetikzlibrary{bending}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \path[use as bounding box] (0,0) rectangle (16,8); \fill[white] (0,0) rectangle (16,8);
+  \node[title] at (8,7.45) {有限螺线管：把每一匝看成圆环并沿轴线叠加};
+  \draw[muted,line width=.8pt] (8.4,1.0)--(8.4,6.75);
+  \node[subtitle,blue] at (4.2,6.35) {轴截面中的“圆环薄片”};
+  \draw[ink,vec] (.8,3.7)--(7.8,3.7); \node[small,above] at (7.55,3.75) {轴线 $z$};
+  \draw[muted,line width=1pt] (1.6,2.2) rectangle (6.8,5.2);
+  \foreach \x in {1.8,2.3,...,6.8}{
+    \draw[red,line width=.8pt] (\x,4.95) circle (.10); \fill[red] (\x,4.95) circle (.03);
+    \draw[red,line width=.8pt] (\x-.07,2.38)--(\x+.07,2.52);
+    \draw[red,line width=.8pt] (\x-.07,2.52)--(\x+.07,2.38);
+  }
+  \coordinate (zp) at (4.0,3.7); \coordinate (P) at (7.05,3.7);
+  \draw[orange,line width=2pt] (4.0,2.2)--(4.0,5.2);
+  \node[small,orange,above] at (4.0,5.25) {厚度 $dz'$，匝数 $n\,dz'$};
+  \draw[blue,dashed] (4.0,4.95)--(P); \draw[blue,dashed] (4.0,2.45)--(P);
+  \fill[ink] (P) circle (.08); \node[small,above right] at (P) {$P$};
+  \draw[green,vec,line width=1.7pt] (P)--++(.65,0); \node[small,green,below] at (7.35,3.65) {$d\bm B$};
+  \node[box,fill=paleBlue,text width=6.2cm] at (4.2,1.0)
+    {$\displaystyle dB_z=\frac{\mu_0(n\,dz')IR^2}{2[R^2+(z-z')^2]^{3/2}}$};
+
+  \node[subtitle,green] at (12.2,6.35) {积分结果与三个重要极限};
+  \node[box,fill=paleGreen,text width=6.8cm,font=\fontsize{8.7}{11.5}\selectfont] at (12.2,5.05)
+    {$\displaystyle B_z(z)=\frac{\mu_0nI}{2}
+    \left[\frac{z-z_-}{\sqrt{R^2+(z-z_-)^2}}-
+    \frac{z-z_+}{\sqrt{R^2+(z-z_+)^2}}\right]$};
+  \node[box,fill=paleBlue,text width=6.0cm] at (12.2,3.25)
+    {中心：$\displaystyle B(0)=\frac{\mu_0nIL}{2\sqrt{R^2+(L/2)^2}}$};
+  \node[box,fill=paleOrange,text width=6.0cm] at (12.2,1.75)
+    {长螺线管内部：$B\to\mu_0nI$\qquad
+     端面中心：$B\to\mu_0nI/2$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,48 @@
+% 核心结论：固定相量夹角要求同一频率
+% 图原型：纯几何／对比；按本题相位与电路拓扑绘制。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[font=\fontsize{11}{14}\selectfont\bfseries] at (0.00000,3.04000) {固定相量夹角要求同一频率};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.50000,0.00000) -- (2.60000,0.00000);
+\draw[axis] (0.00000,-2.05000) -- (0.00000,2.25000);
+\node[] at (2.58000,-0.26000) {$\operatorname{Re}$};
+\node[] at (-0.33000,2.20000) {$\operatorname{Im}$};
+\node[] at (-0.18000,-0.20000) {$O$};
+\draw[v,blue] (0.00000,0.00000) -- (1.69145,0.61564);
+\node[lab,text=blue] at (1.40000,-0.40000) {$1$};
+\draw[v,green] (0.00000,0.00000) -- (0.88750,1.90325);
+\node[lab,text=green] at (-0.35000,1.60000) {$2$};
+\node[] at (0.00000,-2.40000) {同频：相位差保持不变};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\draw[axis] (-2.50000,0.00000) -- (2.60000,0.00000);
+\draw[axis] (0.00000,-2.05000) -- (0.00000,2.25000);
+\node[] at (2.58000,-0.26000) {$\operatorname{Re}$};
+\node[] at (-0.33000,2.20000) {$\operatorname{Im}$};
+\node[] at (-0.18000,-0.20000) {$O$};
+\draw[v,blue] (0.00000,0.00000) -- (1.69145,0.61564);
+\node[lab,text=blue] at (1.40000,-0.40000) {$1$};
+\draw[v,green] (0.00000,0.00000) -- (-0.71824,1.97335);
+\node[lab,text=green] at (-1.55000,1.70000) {$2$};
+\node[] at (0.00000,-2.40000) {异频：相位差随时间变化};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {$\Delta\phi(t)=(\omega_2-\omega_1)t+\phi_2-\phi_1$；异频面板表示某一时刻的旋转向量。};
+\end{tikzpicture}
+\end{document}

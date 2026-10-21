@@ -1,0 +1,50 @@
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,decorations.pathmorphing}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{224,116,10}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\definecolor{softpurple}{RGB}{247,242,255}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  fieldline/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=1pt,draw=bluefield},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange},
+  purplebox/.style={box,draw=purplefield,fill=softpurple}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.4cm,align=center] at (0,4.05) {模块二方法主线：源、边界与唯一性共同确定静电场};
+\node[bluebox,text width=3.05cm] (n0) at (-7.6,.55) {\textbf{识别源}\\$\rho,\sigma,Q$};
+\node[greenbox,text width=3.05cm] (n1) at (-3.8,.55) {\textbf{利用对称}\\优先求 $\mathbf E$ 或 $\mathbf D$};
+\node[orangebox,text width=3.05cm] (n2) at (0,.55) {\textbf{改用电势}\\$\mathbf E=-\nabla\varphi$};
+\node[purplebox,text width=3.05cm] (n3) at (3.8,.55) {\textbf{匹配边界}\\狄利克雷、诺伊曼};
+\node[bluebox,text width=3.05cm] (n4) at (7.6,.55) {\textbf{选择方法}\\展开、分离变量、电像};
+\draw[arrow,bluefield] (n0)--(n1);
+\draw[arrow,greenfield] (n1)--(n2);
+\draw[arrow,orangefield] (n2)--(n3);
+\draw[arrow,purplefield] (n3)--(n4);
+\node[greenbox,text width=15.9cm] at (0,-2.45) {候选解必须同时满足区域方程、全部边界条件和远处条件；唯一性定理负责最后确认。};
+\end{tikzpicture}
+\end{document}

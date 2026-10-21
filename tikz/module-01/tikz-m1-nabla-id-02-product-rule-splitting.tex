@@ -1,0 +1,84 @@
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathreplacing}
+\IfFontExistsTF{Heiti SC}{
+  \IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}
+  \IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}
+}{
+  \IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}
+  \IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}
+}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{238,132,20}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{105,72,170}
+\definecolor{linegray}{RGB}{70,76,84}
+\definecolor{softgray}{RGB}{246,248,250}
+\definecolor{lightblue}{RGB}{230,238,255}
+\definecolor{lightred}{RGB}{255,235,232}
+\definecolor{lightgreen}{RGB}{232,248,240}
+\definecolor{lightorange}{RGB}{255,244,229}
+\tikzset{
+  axis/.style={-{Latex[length=2.7mm,width=1.8mm]},line width=.85pt,linegray},
+  arrow/.style={-{Latex[length=3.0mm,width=1.9mm]},line width=1.05pt},
+  thinarr/.style={-{Latex[length=2.2mm,width=1.45mm]},line width=.82pt},
+  flow/.style={-{Latex[length=2.7mm,width=1.8mm]},line width=1.0pt},
+  card/.style={draw=linegray,rounded corners=5pt,fill=white,line width=.82pt,align=center,inner sep=6pt},
+  box/.style={draw=linegray,rounded corners=4pt,fill=softgray,line width=.78pt,align=center,inner sep=6pt},
+  formula/.style={draw=linegray,rounded corners=4pt,fill=white,line width=.75pt,align=center,inner sep=5pt,font=\large},
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \fill[white] (-9.6,-4.35) rectangle (9.6,4.65);
+  \node[font=\Large\bfseries] at (0,4.22) {乘积法则：纳布拉要依次作用到每一个因子};
+
+  \begin{scope}[shift={(-6.1,.15)}]
+    \node[font=\bfseries,bluefield] at (0,3.02) {梯度};
+    \node[formula,text width=4.9cm] (g0) at (0,1.7)
+      {$\displaystyle \nabla(uv)$};
+    \node[formula,draw=bluefield,text width=4.9cm] at (0,.05)
+      {$\displaystyle u\nabla v+v\nabla u$};
+    \draw[thinarr,bluefield] (-.35,1.28).. controls (-1.4,.9) and (-1.45,.55).. (-1.0,.38);
+    \draw[thinarr,bluefield] (.35,1.28).. controls (1.4,.9) and (1.45,.55).. (1.0,.38);
+    \node[card,draw=bluefield,fill=lightblue,text width=4.9cm,font=\small] at (0,-2.0)
+      {标量乘积：每个因子各被微分一次。};
+  \end{scope}
+
+  \begin{scope}[shift={(0,.15)}]
+    \node[font=\bfseries,greenfield] at (0,3.02) {散度};
+    \node[formula,text width=5.2cm] at (0,1.7)
+      {$\displaystyle \nabla\cdot(u\mathbf A)$};
+    \node[formula,draw=greenfield,text width=5.2cm] at (0,.05)
+      {$\displaystyle u(\nabla\cdot\mathbf A)+\mathbf A\cdot\nabla u$};
+    \draw[thinarr,greenfield] (-.45,1.28).. controls (-1.6,.9) and (-1.7,.55).. (-1.15,.38);
+    \draw[thinarr,greenfield] (.45,1.28).. controls (1.6,.9) and (1.7,.55).. (1.15,.38);
+    \node[card,draw=greenfield,fill=lightgreen,text width=5.2cm,font=\small] at (0,-2.0)
+      {散度输出标量；第二项保留点乘结构。};
+  \end{scope}
+
+  \begin{scope}[shift={(6.1,.15)}]
+    \node[font=\bfseries,redfield] at (0,3.02) {旋度};
+    \node[formula,text width=4.9cm] at (0,1.7)
+      {$\displaystyle \nabla\times(u\mathbf A)$};
+    \node[formula,draw=redfield,text width=4.9cm] at (0,.05)
+      {$\displaystyle u(\nabla\times\mathbf A)+(\nabla u)\times\mathbf A$};
+    \draw[thinarr,redfield] (-.45,1.28).. controls (-1.55,.9) and (-1.6,.55).. (-1.05,.38);
+    \draw[thinarr,redfield] (.45,1.28).. controls (1.55,.9) and (1.6,.55).. (1.05,.38);
+    \node[card,draw=redfield,fill=lightred,text width=4.9cm,font=\small] at (0,-2.0)
+      {旋度输出矢量；第二项保留叉乘顺序。};
+  \end{scope}
+
+  \node[box,draw=orangefield,fill=lightorange,text width=12.8cm,font=\small] at (0,-3.55)
+    {学生常错点：把 $\nabla$ 当普通矢量搬来搬去，却忘记它会对右侧因子求导。};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,79 @@
+% 图契约：保留原稿的物理与电路拓扑，启用中文字体及中文断行，逐图检查标注。
+
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathreplacing,bending}
+\IfFontExistsTF{Heiti SC}{
+  \IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}
+  \IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}
+}{
+  \IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}
+  \IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}
+}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{238,132,20}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{105,72,170}
+\definecolor{linegray}{RGB}{62,69,78}
+\definecolor{softgray}{RGB}{247,248,250}
+\definecolor{lightblue}{RGB}{232,239,255}
+\definecolor{lightred}{RGB}{255,237,234}
+\definecolor{lightgreen}{RGB}{232,248,240}
+\definecolor{lightorange}{RGB}{255,244,229}
+\tikzset{
+  arr/.style={-{Latex[length=3.0mm,width=1.9mm]},line width=1.05pt},
+  smallarr/.style={-{Latex[length=2.2mm,width=1.4mm]},line width=.82pt},
+  wire/.style={line width=1.0pt,linegray},
+  heavywire/.style={line width=1.55pt,linegray},
+  faintwire/.style={line width=.68pt,linegray!55},
+  nodept/.style={circle,fill=linegray,inner sep=1.65pt},
+  terminal/.style={circle,draw=linegray,fill=white,line width=.9pt,minimum size=7mm,inner sep=0pt},
+  card/.style={draw=linegray,rounded corners=4pt,fill=white,line width=.8pt,align=center,inner sep=6pt},
+  box/.style={draw=linegray,rounded corners=4pt,fill=softgray,line width=.78pt,align=center,inner sep=5pt},
+  formula/.style={draw=linegray,rounded corners=4pt,fill=white,line width=.78pt,align=center,inner sep=5pt,font=\large},
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \fill[white] (-9.8,-4.8) rectangle (9.8,4.85);
+  \node[font=\Large\bfseries] at (0,4.42) {端面边界：把半直线模式延拓为偶对称};
+
+  \begin{scope}[shift={(-5.45,.45)}]
+    \draw[heavywire] (-3.2,0)--(3.4,0);
+    \foreach \x/\lab in {-3/-3,-2/-2,-1/-1,0/0,1/1,2/2,3/3} {
+      \node[nodept] at (\x,0) {};
+      \node[below=5pt,font=\small] at (\x,0) {$\lab$};
+    }
+    \draw[redfield,line width=2pt] (-.5,-1.7)--(-.5,1.7);
+    \node[font=\small,redfield] at (-.5,2.05) {端面位于 $-1$ 与 $0$ 之间};
+    \node[terminal,draw=greenfield] at (0,0) {$0$};
+    \node[terminal,draw=redfield] at (2,0) {$k$};
+    \node[terminal,draw=purplefield] at (-3,0) {$-k-1$};
+    \draw[decorate,decoration={brace,amplitude=5pt},purplefield] (-3,1.15)--(-1,1.15)
+      node[midway,above=6pt,font=\small] {镜像区};
+    \draw[decorate,decoration={brace,amplitude=5pt},greenfield] (0,1.15)--(3,1.15)
+      node[midway,above=6pt,font=\small] {真实网络 $n\ge0$};
+    \node[box,draw=orangefield,fill=lightorange,text width=6.5cm] at (0,-2.75)
+      {缺少 $n=-1$ 邻点等价于镜像条件\\$u_{-1}=u_0$。};
+  \end{scope}
+
+  \begin{scope}[shift={(4.7,.25)}]
+    \node[formula,text width=8.0cm] at (0,2.65)
+      {$\displaystyle \mu_q=2-2\cos\theta_q,\qquad
+      \rho_q=\frac{2+\mu_q-\sqrt{\mu_q(\mu_q+4)}}{2}$};
+    \node[formula,draw=bluefield,text width=8.0cm] at (0,.45)
+      {$\displaystyle G_q(j,k)=
+      \frac{\rho_q^{|j-k|}+\rho_q^{j+k+1}}
+      {\sqrt{\mu_q(\mu_q+4)}}$};
+    \node[card,draw=greenfield,fill=lightgreen,text width=7.9cm] at (0,-1.75)
+      {第一项来自真实源，第二项来自镜像源；\\二者共同保证端面节点只有三个相邻支路。};
+    \node[font=\small,linegray] at (0,-3.3) {$q=0$ 为均匀模式，其两点贡献单独等于 $n/m$。};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

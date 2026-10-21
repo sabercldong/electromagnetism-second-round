@@ -1,0 +1,80 @@
+% 核心结论：实际线圈：电容只补偿无功分量
+% 图原型：纯几何／对比；按本题相位与电路拓扑绘制。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[font=\fontsize{11}{14}\selectfont\bfseries] at (0.00000,3.04000) {实际线圈：电容只补偿无功分量};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-2.50000,1.50000) -- (-2.50000,0.42000);
+\draw[ink,thick] (-2.50000,-0.42000) -- (-2.50000,-1.50000);
+\draw[ink,thick] (-2.5,0) circle (.42);
+\node[] at (-2.50000,0.00000) {$\sim$};
+\node[] at (-2.88000,1.60000) {$+$};
+\node[] at (-2.88000,-1.50000) {$-$};
+\node[] at (-3.12000,0.00000) {$u$};
+\draw[ink,thick] (-2.50000,1.50000) -- (2.25000,1.50000);
+\draw[ink,thick] (-2.50000,-1.50000) -- (2.25000,-1.50000);
+\node[] at (-0.90000,1.80000) {$A$};
+\node[] at (-1.70000,-1.80000) {$B$};
+\draw[ink,thick] (-0.45000,1.50000) -- (-0.45000,0.98000);
+\begin{scope}[shift={(-0.45000,0.50000)},rotate=-90]
+\draw[ink,thick] (-.48,-.16) rectangle (.48,.16);
+\end{scope}
+\draw[ink,thick] (-0.45000,0.02000) -- (-0.45000,-0.02000);
+\begin{scope}[shift={(-0.45000,-0.50000)},rotate=-90]
+\draw[ink,thick] plot[domain=-.48:.48,samples=80] (\x,{.22*abs(sin(750*(\x+.48)))});
+\end{scope}
+\draw[ink,thick] (-0.45000,-0.98000) -- (-0.45000,-1.50000);
+\node[] at (-1.00000,0.50000) {$r$};
+\node[] at (-1.00000,-0.50000) {$L$};
+\draw[v,blue] (0.10000,1.05000) -- (0.10000,0.35000);
+\node[lab,text=blue,anchor=west] at (0.25000,0.70000) {$i_L$};
+\draw[ink,thick] (1.75000,1.50000) -- (1.75000,0.48000);
+\begin{scope}[shift={(1.75000,0.00000)},rotate=-90]
+\draw[ink,thick] (-.10,-.35) -- (-.10,.35);
+\draw[ink,thick] (.10,-.35) -- (.10,.35);
+\draw[ink,thick] (-.48,0) -- (-.10,0);
+\draw[ink,thick] (.10,0) -- (.48,0);
+\end{scope}
+\draw[ink,thick] (1.75000,-0.48000) -- (1.75000,-1.50000);
+\node[] at (1.20000,0.00000) {$C$};
+\draw[v,green] (2.15000,1.05000) -- (2.15000,0.35000);
+\node[lab,text=green,anchor=west] at (2.20000,0.70000) {$i_C$};
+\draw[v,red] (-2.20000,1.50000) -- (-1.45000,1.50000);
+\node[lab,text=red,anchor=center] at (-1.82500,1.82000) {$i$};
+\node[] at (0.00000,-2.40000) {$u=u_{AB}$；各支路电流从 $A$ 流向 $B$。};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\draw[axis] (-2.10000,0.90000) -- (2.10000,0.90000);
+\node[] at (2.20000,0.60000) {$\widetilde U$};
+\draw[v,blue] (-1.60000,0.90000) -- (0.80000,-1.55000);
+\node[lab,text=blue,anchor=east] at (-0.55000,-0.44500) {$\widetilde I_L$};
+\draw[v,green] (0.80000,-1.55000) -- (0.80000,0.90000);
+\node[lab,text=green,anchor=west] at (0.98000,-0.32500) {$\widetilde I_C$};
+\draw[v,red] (-1.60000,0.90000) -- (0.80000,0.90000);
+\node[lab,text=red,anchor=center] at (-0.40000,1.22000) {$\widetilde I$};
+\draw[aux] (-1.60000,0.90000) -- (-1.60000,-1.55000);
+\draw[aux] (-1.60000,-1.55000) -- (0.80000,-1.55000);
+\node[] at (-1.78000,1.05000) {$O$};
+\node[] at (0.95000,-1.77000) {$B$};
+\node[] at (0.92000,1.08000) {$A$};
+\node[] at (0.00000,-2.40000) {示意条件：$\operatorname{Im}\widetilde I=0$。};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {实际线圈含内阻：电容抵消竖直的无功分量，水平有功分量仍由电源提供。};
+\end{tikzpicture}
+\end{document}

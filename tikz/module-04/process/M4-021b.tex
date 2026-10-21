@@ -1,0 +1,38 @@
+% 2026-10-20用户反馈复核；图号、参考方向、数据与本题解答同步。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.3}{12.5}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.8mm,width=1.1mm]},ink!70,line width=.6pt},
+aux/.style={ink!40,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-3.6) rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{14}\selectfont,text width=15cm,align=center] at (0,3.23) {M4-021b　空腔场怎样进入端口电阻};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[ink,fill=green!5] (-2.5,-1.6) rectangle(2.5,1.7);
+\draw[ink,fill=white](0,0)circle(.85);
+\node[text width=1.4cm,align=center] at (0,0) {绝缘空腔\\$f$};
+\node[] at (0,2.22) {导电基体 $\sigma$};
+\draw[v,blue] (-2.2,0.6)--(-1.2,0.6);
+\draw[v,blue] (1.2,0.6)--(2.2,0.6);
+\node[] at (-1.7,1.0) {$E_m$};
+\node[] at (1.7,1.0) {$E_m$};
+\node[] at (0,-1.2) {$E_c=3E_m/2,\quad j_c=0$};
+\node[] at (0,-2.15) {体积分数 $f\ll1$；形状不按比例};
+\end{scope}
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,1.65) {$\overline E=(1-f)E_m+fE_c$\\[3pt]$=(1+f/2)E_m$};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,0.05) {$\overline j=(1-f)\sigma E_m$\\[3pt]孔内电场不为零，传导电流为零};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,-1.65) {$\displaystyle \sigma_{\rm eff}=\frac{\overline j}{\overline E}=\sigma\frac{1-f}{1+f/2}$\\[3pt]$=\sigma(1-3f/2)+O(f^2)$};
+\node[text width=15cm,align=center] at (0,-3.12) {固定总电流时，电导率降低使端电压升高；不能仅按缺失的横截面积估算。};
+\end{tikzpicture}\end{document}

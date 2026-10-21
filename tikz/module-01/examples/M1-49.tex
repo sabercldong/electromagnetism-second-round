@@ -1,0 +1,56 @@
+% 对应题号 M1-49，复用已核对的本题几何图。
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {有限半径时变磁场：感生电场在边界连续，径向规律分段};
+\begin{scope}[shift={(-5.0,-.2)}]
+\fill[softblue] (0,0) circle(1.65); \draw[bluefield,line width=1pt] (0,0) circle(1.65);
+\foreach \x in {-1,-.3,.4,1.1}\foreach \y in {-1,-.3,.4,1.1}{\node[bluefield,font=\scriptsize] at (\x,\y) {$\odot$};}
+\draw[arrow,redfield] (1.0,0) arc[start angle=0,end angle=-270,radius=1.0];
+\draw[arrow,redfield] (2.45,0) arc[start angle=0,end angle=-285,radius=2.45];
+\node[bluefield] at (0,2.95) {$\dot B>0$，磁场指向纸外};
+\node[redfield] at (0,-2.85) {楞次定律：$\mathbf E$ 顺时针};
+\end{scope}
+\begin{scope}[shift={(4.25,-.3)}]
+\draw[axis] (-2.4,0)--(3.5,0) node[right] {$\rho$};
+\draw[axis] (-2.1,-2.5)--(-2.1,1.6) node[left] {$E_\phi$};
+\draw[guide] (.25,-2.3)--(.25,1.9);\node[right=2pt] at (.25,-2) {$R$};
+\draw[redfield,line width=1.3pt] (-2.1,0)--(.25,-1.75);
+\draw[redfield,line width=1.3pt] plot[domain=.25:3.2,samples=60] (\x,{-1.75*2.35/(\x+2.1)});
+\node[bluebox,text width=5.6cm] at (.7,2.65) {$\displaystyle E_\phi=-\frac{\dot B}{2}\begin{cases}\rho,&\rho<R,\\R^2/\rho,&\rho>R.\end{cases}$};
+\node[greenfield] at (.8,-2.55) {$E_\phi(R^-)=E_\phi(R^+)$};
+\end{scope}
+\end{tikzpicture}
+\end{document}

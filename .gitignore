@@ -1,0 +1,14 @@
+/build/
+/.latex-output/
+/.codex-latex/
+/.vscode/
+/.idea/
+__pycache__/
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+.DS_Store

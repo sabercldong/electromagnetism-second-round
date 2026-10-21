@@ -1,0 +1,44 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {理论图 T21\quad 均匀材料的极化分布仍取决于总场};
+
+\node[label] at(-4,2.5){椭球：均匀外场下内部极化均匀};
+\node[label] at(4,2.5){有限长方体：边缘会改变内部场};
+\begin{scope}[shift={(-4,.3)}]
+\filldraw[draw=ink!60,fill=blue!5](0,0)ellipse(2.1 and 1.05);
+\foreach \y in {-.55,0,.55}{\draw[vec,green](-1.3,\y)--(1.3,\y);}
+\draw[vec](-2,1.55)--(2,1.55) node[midway,above]{$\mathbf E_0$};
+\end{scope}
+\begin{scope}[shift={(4,.3)}]
+\filldraw[draw=ink!60,fill=blue!5](-1.65,-1)rectangle(1.65,1);
+\draw[vec,green](-1.1,0)--(.9,0) node[midway,below]{$\mathbf P_c$};
+\draw[vec,green](.5,.65)--(1.4,.88) node[above left]{$\mathbf P_e$};
+\draw[vec](-2,1.55)--(2,1.55) node[midway,above]{$\mathbf E_0$};
+\end{scope}
+\node[card,text width=6.0cm] at(-4,-1.85){线性、均匀、各向同性介质\\$\mathbf P(\mathbf r)=\varepsilon_0\chi_e\mathbf E(\mathbf r)$};
+\node[card,text width=6.0cm] at(4,-1.85){中心和边缘的 $\mathbf E$ 可不同\\$\mathbf P$ 的大小、方向也可不同};
+\node[label,text width=15cm] at(0,-3.0){右图为极化差异示意，非数值场解；材料均匀只保证 $\chi_e$ 相同。};
+
+\end{tikzpicture}\end{document}

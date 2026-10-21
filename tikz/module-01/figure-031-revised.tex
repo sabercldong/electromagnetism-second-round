@@ -1,0 +1,35 @@
+% 核心结论：指标的保留和收缩决定结果的对象类型。
+% 图契约：物理竞赛讲义；印刷宽16cm，最小字号8.5pt；几何示意与公式分区。
+% 布局：[几何/曲线 7cm] [定义/结果 7cm]；实线主量，虚线辅助；无装饰数据。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,positioning,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{
+ every node/.style={font=\fontsize{9.5}{13}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!60,fill=blue!4,
+   align=center,text width=6.8cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{11}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.5}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[title] at (0,2.95) {分量证明：先标出自由指标与求和指标};
+
+\node[card,text width=6.1cm] at (-4,1.1) {自由指标 $i$：结果的第 $i$ 个分量\\在每一项中出现一次};
+\node[card,text width=6.1cm,draw=green!65,fill=green!4] at (-4,-1.15) {哑指标 $j,k$：重复两次表示求和\\同一项内不能重复三次};
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.65) {$\partial_i u\ \Rightarrow\ (\nabla u)_i$\\输出是矢量。};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\partial_i A_i\ \Rightarrow\ \nabla\cdot\mathbf A$\\没有自由指标，输出是标量。};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.65) {$\varepsilon_{ijk}\partial_j A_k$\\只保留自由指标 $i$，输出是矢量。};
+\end{tikzpicture}\end{document}

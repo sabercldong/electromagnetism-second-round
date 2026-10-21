@@ -1,0 +1,33 @@
+% 图契约：斯托克斯定理的面法向与边界正向，并列散度定理；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-H12　斯托克斯定理的面法向与边界正向，并列散度定理};
+\begin{scope}[shift={(-4,0)}]
+\draw[blue,fill=blue!5](0,0)circle(1.8);
+\draw[v,blue](1.8,0)arc(0:240:1.8);
+\draw[red](0,0)circle(0.13);
+\fill[red](0,0)circle(.035);
+\node[anchor=west,text=red]at(0.22000,0.00000){$\mathbf n$};
+\node[]at(0.00000,-2.30000){面法向出纸面；边界逆时针};
+\node[]at(0.00000,2.30000){固定积分面 $S$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$\int_V\nabla\cdot\mathbf F\,dV=\oint_{\partial V}\mathbf F\cdot d\mathbf S$};
+\node[card]at(4.00000,-1.05000){$\int_S\nabla\times\mathbf F\cdot d\mathbf S=\oint_{\partial S}\mathbf F\cdot d\mathbf l$};
+\end{tikzpicture}\end{document}

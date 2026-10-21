@@ -1,0 +1,43 @@
+% 2026-10-21 统一复核：几何、箭头、符号与正文逐项对应。
+% 印宽17cm；最小字号8.4pt；保留独立注释行与框间空隙。
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+
+\node[title] at(0,3.15){M5-070a\quad 开路运动杆：两端积累电荷，稳态电流为零};
+\begin{scope}[shift={(-4.4,0)}]
+\foreach \x in {-1.8,-.9,.9,1.8}{\foreach \y in {-1.45,-.6,.6,1.45}{
+\draw[blue!50](\x,\y)circle(.075);\fill[blue!50](\x,\y)circle(.025);}}
+\draw[line width=4pt,draw=ink!65] (0,-1.7)--(0,1.7);
+\fill[red](0,-1.7)circle(2pt);\node[below=4pt]at(0,-1.7){$A$：正电端};
+\fill[blue](0,1.7)circle(2pt);\node[above=4pt]at(0,1.7){$B$：负电端};
+\draw[vec] (.6,1.05)--(1.8,1.05)node[midway,above]{$\mathbf v=v\mathbf e_x$};
+\draw[vec,orange](-.45,.65)--(-.45,-.7)node[midway,left]{$\mathbf v\times\mathbf B$};
+\draw[vec,red](.35,-.65)--(.35,.65)node[midway,right]{$\mathbf E$};
+\draw[<->,ink!50](-2.3,-1.7)--(-2.3,1.7)node[midway,left]{$\ell$};
+\node[label]at(0,-2.55){$\mathbf B=B\mathbf e_z$（纸外），$B>0,\ v>0$};
+\end{scope}
+\node[card]at(3.65,1.65){正电荷所受磁力沿 $-\mathbf e_y$\\$A$ 端电势高于 $B$ 端};
+\node[card,draw=green!70,fill=green!4]at(3.65,0){开路稳态：$\mathbf E=-\mathbf v\times\mathbf B$\\沿杆的电场力与磁力平衡};
+\node[card,draw=orange!70,fill=orange!4]at(3.65,-1.65){$\displaystyle V_A-V_B=B\ell v$\\$\partial_t\mathbf B=0$，仍可有运动电动势};
+\end{tikzpicture}\end{document}

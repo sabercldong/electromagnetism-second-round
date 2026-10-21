@@ -1,0 +1,41 @@
+% 对应题号 M1-42；图与本题条件、推导、结论逐项对应。
+% 图契约：印刷宽16cm；最小字号8.4pt；几何/场或曲线在左，计算关系在右。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.6cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.4}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.4) rectangle(8,3.4);
+\node[title] at (0,3) {M1-42\quad 圆周切向场的通量与环量};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink!35,fill=blue!3] (0,0) circle(1.75);
+\draw[short,blue] (0:1.75) arc[start angle=0,end angle=24,radius=1.75];
+\draw[short,blue] (45:1.75) arc[start angle=45,end angle=69,radius=1.75];
+\draw[short,blue] (90:1.75) arc[start angle=90,end angle=114,radius=1.75];
+\draw[short,blue] (135:1.75) arc[start angle=135,end angle=159,radius=1.75];
+\draw[short,blue] (180:1.75) arc[start angle=180,end angle=204,radius=1.75];
+\draw[short,blue] (225:1.75) arc[start angle=225,end angle=249,radius=1.75];
+\draw[short,blue] (270:1.75) arc[start angle=270,end angle=294,radius=1.75];
+\draw[short,blue] (315:1.75) arc[start angle=315,end angle=339,radius=1.75];
+\node[blue] at (0,.35) {$\odot\,\mathbf e_z$};
+\node[label] at (0,-2.5) {箭头沿圆周切向；$+z$ 指向纸外};
+\end{scope}\node[card,draw=blue!65,fill=blue!4] at (3.95,1.65) {$\mathbf A=k\rho\mathbf e_\phi$};
+\node[card,draw=green!65,fill=green!4] at (3.95,0) {$\nabla\times\mathbf A=2k\mathbf e_z$};
+\node[card,draw=orange!65,fill=orange!4] at (3.95,-1.65) {圆周上逆时针取向对应纸外法向；\\图示系数为正，系数变号时场反向。};
+\end{tikzpicture}\end{document}

@@ -1,0 +1,55 @@
+% 对应题号 M2-009，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {无限带电平面：两侧场恒定，电势只能相对平面定义};
+\begin{scope}[shift={(-4.8,-.2)}]
+\fill[softblue] (-2.8,-.18) rectangle (2.8,.18); \draw[linegray] (-2.8,0)--(2.8,0);
+\foreach \x in {-2.3,-1.5,-.7,.1,.9,1.7,2.5}{\node[redfield] at (\x,0) {$+$};}
+\foreach \x in {-2,-1,0,1,2}{\draw[arrow,bluefield] (\x,.25)--(\x,2.3); \draw[arrow,bluefield] (\x,-.25)--(\x,-2.3);}
+\draw[orangefield,dashed,line width=.8pt](-.55,-.85)rectangle(.55,.85);
+\draw[thinarr,orangefield](.55,.85)--(.55,1.5);\node[orangefield]at(.5,1.9){$\mathbf n_+$};
+\draw[thinarr,orangefield](.55,-.85)--(.55,-1.5);\node[orangefield]at(.5,-1.9){$\mathbf n_-$};
+\node[orangefield,font=\small,fill=white,inner sep=1pt]at(-.4,1.6){$\Delta S$};
+\node[redfield] at (0,2.85) {$z>0:\ \mathbf E=+\dfrac{\sigma}{2\varepsilon_0}\mathbf e_z$};
+\node[redfield] at (0,-2.85) {$z<0:\ \mathbf E=-\dfrac{\sigma}{2\varepsilon_0}\mathbf e_z$};
+\end{scope}
+\begin{scope}[shift={(4.55,-.2)}]
+\draw[axis] (-3,0)--(3,0) node[right] {$z$}; \draw[axis] (0,-2.4)--(0,2.4) node[above] {$\varphi$};
+\draw[greenfield,line width=1.3pt] (-2.6,-2)--(0,0)--(2.6,-2);
+\node[greenfield,right] at (.45,1.05) {$\displaystyle \varphi(z)=-\frac{\sigma}{2\varepsilon_0}|z|$};
+\node[orangebox,text width=5.9cm] at (0,-3.15) {$|z|\to\infty$ 时 $\varphi\to-\infty$，不能令无穷远为有限零势。};
+\end{scope}
+\end{tikzpicture}
+\end{document}

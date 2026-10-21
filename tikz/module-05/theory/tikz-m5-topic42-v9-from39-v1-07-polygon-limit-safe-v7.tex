@@ -1,0 +1,65 @@
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage[fontset=none]{ctex}
+\usepackage{amsmath,amssymb,bm}
+\usetikzlibrary{arrows.meta,calc,positioning,angles,quotes}
+
+\definecolor{ink}{HTML}{263238}
+\definecolor{muted}{HTML}{6B7780}
+\definecolor{blue}{HTML}{245BFF}
+\definecolor{green}{HTML}{087F5B}
+\definecolor{orange}{HTML}{E67700}
+\definecolor{red}{HTML}{E03131}
+\definecolor{purple}{HTML}{7048E8}
+\definecolor{paleBlue}{HTML}{EDF3FF}
+\definecolor{paleGreen}{HTML}{EAF8F3}
+\definecolor{paleOrange}{HTML}{FFF4E6}
+\definecolor{palePurple}{HTML}{F3F0FF}
+
+\tikzset{
+  title/.style={font=\fontsize{18}{22}\selectfont\bfseries,text=ink,align=center},
+  subtitle/.style={font=\fontsize{12.5}{16}\selectfont\bfseries,text=ink,align=center},
+  body/.style={font=\fontsize{10.5}{14}\selectfont,text=ink,align=center},
+  small/.style={font=\fontsize{8.8}{11.5}\selectfont,text=ink,align=center},
+  box/.style={draw=muted,line width=.8pt,rounded corners=2pt,inner sep=6pt,body},
+  vec/.style={-{Latex[length=3.2mm,width=2.3mm]},line width=1.35pt},
+  patharrow/.style={-{Latex[length=2.8mm,width=2mm]},line width=1.25pt},
+  nodept/.style={circle,fill=ink,minimum size=5pt,inner sep=0pt}
+}
+
+\usepackage{fontspec,xeCJK}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\usetikzlibrary{bending}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \path[use as bounding box] (0,0) rectangle (16,8); \fill[white] (0,0) rectangle (16,8);
+  \node[title] at (8,7.45) {正多边形线圈：先算一条边，再由旋转对称性叠加};
+  \draw[muted,line width=.8pt] (8,1.0)--(8,6.75);
+  \node[subtitle,blue] at (4,6.35) {外接圆半径为 $R$ 的正 $n$ 边形};
+  \coordinate (O) at (4.0,3.75);
+  \draw[blue,line width=1.8pt] ($(O)+(90:2.15)$) \foreach \a in {90,30,-30,-90,-150,150} {--($(O)+(\a:2.15)$)} --cycle;
+  \draw[blue,patharrow] ($($(O)+(90:2.15)$)!.48!($(O)+(30:2.15)$)$)--($(O)+(90:2.15)$);
+  \fill[ink] (O) circle (.08); \node[small,below] at (O) {中心};
+  \draw[green,<->,line width=1.1pt] (O)--($(O)+(30:2.15)$); \node[small,green,above] at ($(O)+(30:1.1)$) {$R$};
+  \draw[orange,<->,line width=1.1pt] (O)--($(O)+(0:1.86)$);
+  \node[small,orange,below] at ($(O)+(0:1.15)$) {$\rho$};
+  \node[small,orange] at (4.0,2.95) {$\rho=R\cos(\pi/n)$};
+  \draw[purple,line width=1.35pt] ($(O)+(-.55,.45)$) circle (.22); \fill[purple] ($(O)+(-.55,.45)$) circle (.065);
+  \node[small,purple,left] at ($(O)+(-.85,.45)$) {$\bm B$};
+  \node[box,fill=paleBlue,text width=5.6cm] at (4,1.0)
+    {$\displaystyle B_n=n\frac{\mu_0I}{2\pi\rho}\sin\frac{\pi}{n}
+     =\frac{\mu_0In}{2\pi R}\tan\frac{\pi}{n}$};
+
+  \node[subtitle,green] at (12,6.35) {边数增加时趋近圆电流环};
+  \foreach \n/\x/\c in {3/9.0/red,4/11.0/orange,6/13.0/green,12/15.0/blue}{
+    \begin{scope}[shift={(\x,4.15)}]
+      \draw[\c,line width=1.4pt] (90:.90)
+        \foreach \k in {1,...,\n} {--({90+360*\k/\n}:.90)} -- cycle;
+    \end{scope}
+    \node[small,\c] at (\x,2.65) {$n=\n$};
+  }
+  \node[box,fill=paleGreen,text width=5.8cm] at (12,1.15)
+    {$\displaystyle \lim_{n\to\infty}B_n=\frac{\mu_0I}{2R}$\\[3pt]
+     其中 $\tan(\pi/n)\sim\pi/n$};
+\end{tikzpicture}
+\end{document}

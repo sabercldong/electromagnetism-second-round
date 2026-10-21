@@ -1,0 +1,71 @@
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage[fontset=none]{ctex}
+\usepackage{amsmath,amssymb,bm}
+\usetikzlibrary{arrows.meta,calc,positioning,angles,quotes}
+
+\definecolor{ink}{HTML}{263238}
+\definecolor{muted}{HTML}{6B7780}
+\definecolor{blue}{HTML}{245BFF}
+\definecolor{green}{HTML}{087F5B}
+\definecolor{orange}{HTML}{E67700}
+\definecolor{red}{HTML}{E03131}
+\definecolor{purple}{HTML}{7048E8}
+\definecolor{paleBlue}{HTML}{EDF3FF}
+\definecolor{paleGreen}{HTML}{EAF8F3}
+\definecolor{paleOrange}{HTML}{FFF4E6}
+\definecolor{palePurple}{HTML}{F3F0FF}
+
+\tikzset{
+  title/.style={font=\fontsize{18}{22}\selectfont\bfseries,text=ink,align=center},
+  subtitle/.style={font=\fontsize{12.5}{16}\selectfont\bfseries,text=ink,align=center},
+  body/.style={font=\fontsize{10.5}{14}\selectfont,text=ink,align=center},
+  small/.style={font=\fontsize{8.8}{11.5}\selectfont,text=ink,align=center},
+  box/.style={draw=muted,line width=.8pt,rounded corners=2pt,inner sep=6pt,body},
+  vec/.style={-{Latex[length=3.2mm,width=2.3mm]},line width=1.35pt},
+  patharrow/.style={-{Latex[length=2.8mm,width=2mm]},line width=1.25pt},
+  nodept/.style={circle,fill=ink,minimum size=5pt,inner sep=0pt}
+}
+
+\usepackage{fontspec,xeCJK}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\usetikzlibrary{bending}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \path[use as bounding box] (0,0) rectangle (16,8); \fill[white] (0,0) rectangle (16,8);
+  \node[title,font=\fontsize{16}{20}\selectfont\bfseries] at (8,7.45) {圆电流环轴线场：俯视图判方向，轴截面配对分量};
+  \draw[muted,line width=.8pt] (5.35,1.0)--(5.35,6.75);
+  \draw[muted,line width=.8pt] (11.1,1.0)--(11.1,6.75);
+
+  \node[subtitle,blue] at (2.7,6.35) {沿轴线观察};
+  \draw[blue,line width=1.8pt] (2.7,3.85) circle (1.55);
+  \draw[blue,patharrow] ($(2.7,3.85)+(135:1.55)$) arc[start angle=135,end angle=180,radius=1.55];
+  \fill[ink] (2.7,3.85) circle (.08); \node[small,below] at (2.7,3.7) {圆心};
+  \draw[purple,line width=1.35pt] (2.7,3.85) circle (.23); \fill[purple] (2.7,3.85) circle (.065);
+  \node[small,purple] at (2.7,1.65) {按图示电流，轴向磁场指向观察者};
+
+  \node[subtitle,green] at (8.2,6.35) {包含轴线的截面};
+  \draw[ink,line width=1.1pt] (5.8,3.8)--(10.75,3.8); \node[small,above] at (10.55,3.85) {轴线 $x$};
+  \coordinate (U) at (7.0,5.1); \coordinate (D) at (7.0,2.5); \coordinate (P) at (9.45,3.8);
+  \draw[blue,dashed,line width=1.05pt] (U)--(P)--(D);
+  \draw[green,<->,line width=1.05pt] (7.0,3.8)--(U); \node[small,green,left] at (6.9,4.45) {$R$};
+  \draw[orange,<->,line width=1.05pt] (7.0,3.45)--(9.45,3.45); \node[small,orange,below] at (8.25,3.4) {$x$};
+  \draw[red,line width=1.35pt] (U) circle (.2); \fill[red] (U) circle (.06);
+  \draw[red,line width=1.35pt] ($(D)+(-.14,-.14)$)--($(D)+(.14,.14)$);
+  \draw[red,line width=1.35pt] ($(D)+(-.14,.14)$)--($(D)+(.14,-.14)$); \draw[red] (D) circle (.2);
+  \node[small,red,left] at (6.65,5.1) {出纸面}; \node[small,red,left] at (6.65,2.5) {入纸面};
+  \fill[ink] (P) circle (.08); \node[small,above left] at (P) {$P$};
+  \draw[purple,vec] (P)--++(35:.95); \draw[purple,vec] (P)--++(-35:.95);
+  \draw[green,vec,line width=1.65pt] (P)--++(.95,0);
+  \node[small,muted] at (8.2,1.45) {上下分量相消，轴向分量同向};
+
+  \node[subtitle,purple] at (13.55,6.35) {轴线上场强随距离衰减};
+  \draw[ink,->] (11.65,2.0)--(15.25,2.0); \draw[ink,->] (13.45,1.45)--(13.45,5.65);
+  \node[small,below left] at (15.25,1.95) {$x/R$}; \node[small,above] at (13.45,5.55) {$B_x/B_0$};
+  \draw[blue,line width=1.7pt,domain=-1.8:1.8,samples=120,variable=\t]
+    plot ({13.45+.9*\t},{2.0+3.0/(1+\t*\t)^(1.5)});
+  \node[small,blue] at (14.55,4.55) {$\displaystyle \frac{1}{(1+x^2/R^2)^{3/2}}$};
+  \node[box,fill=palePurple,text width=4.0cm] at (13.45,.8)
+    {$\displaystyle B_x=\frac{\mu_0IR^2}{2(R^2+x^2)^{3/2}}$};
+\end{tikzpicture}
+\end{document}

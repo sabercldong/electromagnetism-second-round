@@ -1,0 +1,41 @@
+% 核心结论：给定参数的电流时间过程
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-036-P1　给定参数的电流时间过程};
+\draw[axis] (-6.60000,-0.49643) -- (6.72000,-0.49643);
+\draw[axis] (-6.60000,-1.85000) -- (-6.60000,1.97000);
+\node[] at (6.60000,-2.55000) {$t/s$};
+\node[] at (-6.35000,2.12000) {$i/A$};
+\draw[blue,thick] plot[domain=0:0.04,samples=250] ({-6.6+330.0*(\x-0)},{-1.8+26.071428571428573*((.10050378*exp(-100*\x)*sin(deg(994.987437*\x)))-(-0.05))});
+\draw[ink] (-6.60000,-0.55643) -- (-6.60000,-0.43643);
+\node[] at (-6.60000,-2.20000) {$0$};
+\draw[ink] (0.00000,-0.55643) -- (0.00000,-0.43643);
+\node[] at (0.00000,-2.20000) {$0.02$};
+\draw[ink] (6.60000,-0.55643) -- (6.60000,-0.43643);
+\node[] at (6.60000,-2.20000) {$0.04$};
+\draw[ink] (-6.66000,-1.80000) -- (-6.54000,-1.80000);
+\node[anchor=east] at (-6.82000,-1.80000) {$-0.05$};
+\draw[ink] (-6.66000,-0.49643) -- (-6.54000,-0.49643);
+\node[anchor=east] at (-6.82000,-0.49643) {$0$};
+\draw[ink] (-6.66000,1.85000) -- (-6.54000,1.85000);
+\node[anchor=east] at (-6.82000,1.85000) {$0.09$};
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {使用L=1H、C=1μF、R=200Ω、V0=100V的数值；峰值随时间衰减。};
+
+\end{tikzpicture}\end{document}

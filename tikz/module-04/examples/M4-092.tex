@@ -1,0 +1,74 @@
+% 图契约：环形梯形网络；沿用可恢复原图的真实变量及结构，图号由正文图注统一给定。\n% 图契约：保留原稿的物理与电路拓扑，启用中文字体及中文断行，逐图检查标注。
+
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathreplacing,bending}
+\IfFontExistsTF{Heiti SC}{
+  \IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}
+  \IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}
+}{
+  \IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}
+  \IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}
+}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{238,132,20}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{105,72,170}
+\definecolor{linegray}{RGB}{62,69,78}
+\definecolor{softgray}{RGB}{247,248,250}
+\definecolor{lightblue}{RGB}{232,239,255}
+\definecolor{lightred}{RGB}{255,237,234}
+\definecolor{lightgreen}{RGB}{232,248,240}
+\definecolor{lightorange}{RGB}{255,244,229}
+\tikzset{
+  arr/.style={-{Latex[length=3.0mm,width=1.9mm]},line width=1.05pt},
+  smallarr/.style={-{Latex[length=2.2mm,width=1.4mm]},line width=.82pt},
+  wire/.style={line width=1.0pt,linegray},
+  heavywire/.style={line width=1.55pt,linegray},
+  faintwire/.style={line width=.68pt,linegray!55},
+  nodept/.style={circle,fill=linegray,inner sep=1.65pt},
+  terminal/.style={circle,draw=linegray,fill=white,line width=.9pt,minimum size=7mm,inner sep=0pt},
+  card/.style={draw=linegray,rounded corners=4pt,fill=white,line width=.8pt,align=center,inner sep=6pt},
+  box/.style={draw=linegray,rounded corners=4pt,fill=softgray,line width=.78pt,align=center,inner sep=5pt},
+  formula/.style={draw=linegray,rounded corners=4pt,fill=white,line width=.78pt,align=center,inner sep=5pt,font=\large},
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \fill[white] (-9.8,-4.75) rectangle (9.8,4.8);
+  \node[font=\Large\bfseries] at (0,4.4) {环形梯形：周期闭合只改变反相模式的格林函数};
+
+  \begin{scope}[shift={(-5.0,0)}]
+    \foreach \i in {0,...,11} {
+      \coordinate (O\i) at ({90-30*\i}:3.0);
+      \coordinate (I\i) at ({90-30*\i}:1.75);
+      \draw[wire] (O\i)--(I\i);
+      \node[nodept] at (O\i) {}; \node[nodept] at (I\i) {};
+    }
+    \draw[heavywire] (O0) \foreach \i in {1,...,11} {--(O\i)} --cycle;
+    \draw[heavywire] (I0) \foreach \i in {1,...,11} {--(I\i)} --cycle;
+    \node[terminal,draw=greenfield] at (O6) {$A$};
+    \node[terminal,draw=redfield] at (I6) {$B$};
+    \draw[arr,greenfield] ($(O6)+(0,-1.2)$)--($(O6)+(0,-.35)$) node[midway,left,font=\small] {$I$};
+    \draw[arr,redfield] ($(I6)+(0,.35)$)--($(I6)+(0,1.2)$) node[midway,right,font=\small] {$I$};
+    \node[font=\small,align=center,text width=2.6cm] at (-2.2,-3.85) {$N$ 个周期单元\\每条边均为 $r$};
+  \end{scope}
+
+  \begin{scope}[shift={(4.95,.15)}]
+    \node[card,draw=orangefield,fill=lightorange,text width=7.2cm] at (0,2.35)
+      {端口激励为 $(1,-1)$，\\同相模式完全不被激发。};
+    \node[formula,text width=7.2cm] at (0,.25)
+      {$\displaystyle G_N(0)=\frac{1}{2\sqrt3}\frac{1+\rho^N}{1-\rho^N}$};
+    \node[formula,draw=greenfield,text width=7.2cm] at (0,-1.8)
+      {$\displaystyle R_{AB}=2rG_N(0)
+       =\frac{r}{\sqrt3}\frac{1+\rho^N}{1-\rho^N}$};
+    \node[font=\small,linegray] at (0,-3.3) {$\rho=2-\sqrt3,\quad N\ge3$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

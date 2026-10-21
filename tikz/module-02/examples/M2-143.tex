@@ -1,0 +1,33 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M2-143\quad 中心像源不能抵消角向变化};
+\begin{scope}[shift={(-4,0)}]
+\filldraw[fill=ink!6,draw=ink!60](-.7,0)circle(1);\draw[guide](-1.8,0)--(2.4,0);\fill[ink](-.7,0)circle(1.4pt)node[above left]{$O$};\fill[red] (2.1,0) circle(2.3pt) node[below=3pt] {$q$};
+\fill[blue] (-0.343,0) circle(2.3pt) node[below=3pt] {$q^{\prime}$};
+\draw[<->,orange](-.7,1.45)--(2.1,1.45)node[midway,above]{$d$};\node[label]at(-1.5,-1.35){半径 $R$};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$q^{\prime}=-qR/d,\quad b=R^2/d$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {球心源只在球面产生常量势。};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {偏心像源才能抵消角向变化；\\中心源用来另调球净电荷。};
+\end{tikzpicture}\end{document}

@@ -1,0 +1,46 @@
+% 核心结论：非理想变压器的功率去向、损耗组成和最大效率条件
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-H37　非理想变压器的功率去向、损耗组成和最大效率条件};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.50000,-1.80000) -- (2.72000,-1.80000);
+\draw[axis] (-2.50000,-1.85000) -- (-2.50000,1.97000);
+\node[] at (2.60000,-2.55000) {$x$};
+\node[] at (-2.25000,2.12000) {$P/P_{cu,N}$};
+\draw[blue,thick] plot[domain=0:1.2,samples=250] ({-2.5+4.25*(\x-0)},{-1.8+2.4333333333333336*((.25)-(0))});
+\draw[green,thick] plot[domain=0:1.2,samples=250] ({-2.5+4.25*(\x-0)},{-1.8+2.4333333333333336*((\x^2)-(0))});
+\draw[ink] (-0.37500,-1.86000) -- (-0.37500,-1.74000);
+\node[] at (-0.37500,-2.20000) {$.5$};
+\draw[ink] (1.75000,-1.86000) -- (1.75000,-1.74000);
+\node[] at (1.75000,-2.20000) {$1$};
+\draw[ink] (-2.56000,-1.80000) -- (-2.44000,-1.80000);
+\node[anchor=east] at (-2.72000,-1.80000) {$0$};
+\draw[ink] (-2.56000,1.85000) -- (-2.44000,1.85000);
+\node[anchor=east] at (-2.72000,1.85000) {$1.5$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$P_{in}=P_{out}+P_{fe}+P_{cu}$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$P_{cu}=P_{fe}\Rightarrow\eta\text{ 极大}$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {示例取铁损/额定铜损=0.25。固定端电压、频率与功率因数，两曲线交点给出最高效率条件。};
+
+\end{tikzpicture}\end{document}

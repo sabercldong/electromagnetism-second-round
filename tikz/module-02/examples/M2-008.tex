@@ -1,0 +1,58 @@
+% 对应题号 M2-008，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {均匀带电实心球：场和势在球面连续衔接};
+\begin{scope}[shift={(-5.0,-.15)}]
+\fill[softblue] (0,0) circle(2.1); \draw[bluefield] (0,0) circle(2.1);
+\foreach \x in {-1.3,-.65,0,.65,1.3}\foreach \y in {-1.3,-.65,0,.65,1.3}{\pgfmathparse{\x*\x+\y*\y<3.2?1:0}\ifnum\pgfmathresult=1\node[redfield,font=\scriptsize] at (\x,\y) {$+$};\fi}
+\draw[<->,linegray] (0,0)--(2.1,0) node[midway,above] {$a$};
+\node[redfield] at (0,2.65) {$\rho=\rho_0$};
+\end{scope}
+\begin{scope}[shift={(3.9,.55)}]
+\draw[axis] (-2.0,0)--(3.6,0) node[right] {$r$}; \draw[axis] (-1.7,-.2)--(-1.7,2.5) node[above] {$E$};
+\draw[guide] (.25,-.1)--(.25,2.2) node[above] {$a$};
+\draw[bluefield,line width=1.25pt] (-1.7,0)--(.25,1.65);
+\draw[bluefield,line width=1.25pt] plot[domain=.25:3.2,samples=60] (\x,{1.65*(.25+1.7)^2/(\x+1.7)^2});
+\node[bluefield] at (.8,2.45) {$E$ 连续};
+\end{scope}
+\begin{scope}[shift={(3.9,-2.35)}]
+\draw[axis] (-2.0,0)--(3.6,0) node[right] {$r$}; \draw[axis] (-1.7,-.2)--(-1.7,2.1) node[above] {$\varphi$};
+\draw[guide] (.25,-.1)--(.25,1.9) node[above] {$a$};
+\draw[greenfield,line width=1.25pt] plot[domain=-1.7:.25,samples=40] (\x,{1.425-.475*((\x+1.7)/1.95)^2});
+\draw[greenfield,line width=1.25pt] plot[domain=.25:3.2,samples=60] (\x,{.95*(.25+1.7)/(\x+1.7)});
+\node[greenfield] at (1.2,1.65) {$\varphi,\ d\varphi/dr$ 连续};
+\end{scope}
+\end{tikzpicture}
+\end{document}

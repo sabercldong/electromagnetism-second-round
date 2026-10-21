@@ -1,0 +1,60 @@
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathmorphing,decorations.markings,shapes.geometric}
+\IfFontExistsTF{Heiti SC}{
+  \IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}
+  \IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}
+}{
+  \IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}
+  \IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}
+}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{245,140,24}
+\definecolor{greenfield}{RGB}{20,135,90}
+\definecolor{purplefield}{RGB}{115,70,190}
+\definecolor{softgray}{RGB}{244,246,248}
+\definecolor{linegray}{RGB}{85,92,100}
+\tikzset{
+  arrow/.style={-{Latex[length=3.0mm,width=2.1mm]},line width=1.05pt},
+  thinarr/.style={-{Latex[length=2.4mm,width=1.7mm]},line width=.85pt},
+  box/.style={draw=linegray,rounded corners=4pt,fill=softgray,line width=.8pt,align=center,inner sep=6pt},
+  note/.style={align=center,font=\small},
+  terminal/.style={circle,draw=linegray,fill=white,line width=.9pt,inner sep=1.8pt,font=\small},
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \fill[white] (-7.1,-4.05) rectangle (7.1,4.2);
+  \node[font=\Large\bfseries] at (0,3.8) {分量法证明矢量恒等式的标准路线};
+
+  \node[box,minimum width=2.5cm] (a) at (-5.3,1.5) {选定目标公式\\只先看 $x$ 分量};
+  \node[box,minimum width=2.5cm] (b) at (-2.55,1.5) {把点乘、叉乘\\全部写成分量};
+  \node[box,minimum width=2.5cm] (c) at (0.25,1.5) {用乘积求导\\展开每一项};
+  \node[box,minimum width=2.5cm] (d) at (3.05,1.5) {按目标结构\\重新分组};
+  \node[box,minimum width=2.5cm] (e) at (5.65,1.5) {用轮换对称\\得到 $y,z$ 分量};
+  \foreach \u/\v in {a/b,b/c,c/d,d/e}{
+    \draw[arrow,linegray] (\u) -- (\v);
+  }
+
+  \node[box,minimum width=5.2cm,minimum height=2.05cm,fill=bluefield!6,draw=bluefield!65] at (-3.3,-1.0)
+    {典型抵消\\[2pt]
+    $\dfrac{\partial^2 A_z}{\partial x\partial y}
+    -\dfrac{\partial^2 A_z}{\partial y\partial x}=0$\\[2pt]
+    光滑场中混合偏导可交换};
+  \node[box,minimum width=5.2cm,minimum height=2.05cm,fill=greenfield!6,draw=greenfield!65] at (3.3,-1.0)
+    {典型重组\\[2pt]
+    先凑出 $\nabla\cdot\mathbf A$、$\nabla\times\mathbf A$\\[2pt]
+    再把剩余项认成方向导数};
+
+  \node[note,draw=orangefield,fill=orangefield!8,rounded corners=4pt,inner sep=7pt] at (0,-3.35)
+    {证明的关键不是背展开式，而是知道“展开后哪些项会抵消，哪些项要重组成目标算符”};
+\end{tikzpicture}
+\end{document}

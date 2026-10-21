@@ -1,0 +1,39 @@
+% 对应题号 M1-33；图与本题条件、推导、结论逐项对应。
+% 图契约：印刷宽16cm；最小字号8.4pt；几何/场或曲线在左，计算关系在右。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.6cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.4}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.4) rectangle(8,3.4);
+\node[title] at (0,3) {M1-33\quad 薄柱跨越带自由面电荷的界面};
+\begin{scope}[shift={(-4,0)}]
+
+\fill[blue!5] (-2.6,0) rectangle(2.6,1.9);\fill[green!5] (-2.6,-1.9) rectangle(2.6,0);
+\draw[ink!65] (-2.6,0)--(2.6,0) node[right] {$z=0$};
+\draw[red,thick] (-.85,-1.1) rectangle(.85,1.1);
+\draw[vec] (-.1,-1.45)--(-.1,-.25) node[left] {$\mathbf D_-$};
+\draw[vec] (-.1,.25)--(-.1,1.65) node[left] {$\mathbf D_+$};
+\draw[vec,orange] (1.6,-.45)--(1.6,.8) node[right] {$\hat{\mathbf n}$};
+\node[label] at (0,-2.65) {图示 $D_0>0,\sigma_f>0$；通式允许任意符号};
+
+\end{scope}\node[card,draw=blue!65,fill=blue!4] at (3.95,1.65) {$\hat{\mathbf n}=\mathbf e_z$，$\mathbf D_-=D_0\mathbf e_z$};
+\node[card,draw=green!65,fill=green!4] at (3.95,0) {上、下盖的区域外法向相反：\\$(D_+-D_-)\Delta S=\sigma_f\Delta S$};
+\node[card,draw=orange!65,fill=orange!4] at (3.95,-1.65) {$\mathbf D_+=(D_0+\sigma_f)\mathbf e_z$\\侧面通量在薄柱极限下消失。};
+\end{tikzpicture}\end{document}

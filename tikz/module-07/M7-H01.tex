@@ -1,0 +1,37 @@
+% 图契约：电场能量密度和磁场能量密度在空间中的分布；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-H01　电场能量密度和磁场能量密度在空间中的分布};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,line width=1.4pt](-2.50000,-1.20000)--(-2.50000,1.20000);
+\draw[ink,line width=1.4pt](-0.70000,-1.20000)--(-0.70000,1.20000);
+\draw[v,blue](-2.30000,-0.60000)--(-0.90000,-0.60000);
+\draw[v,blue](-2.30000,0.00000)--(-0.90000,0.00000);
+\draw[v,blue](-2.30000,0.60000)--(-0.90000,0.60000);
+\node[]at(-1.60000,1.80000){电场储能};
+\draw[ink](1.5,0)circle(1.05);
+\draw[green](1.5,0)circle(0.13);
+\fill[green](1.5,0)circle(.035);
+\node[anchor=west,text=green]at(1.72000,0.00000){$\mathbf B$};
+\node[]at(1.50000,1.80000){磁场储能};
+\end{scope}
+\node[card]at(4.00000,1.25000){$u_E=\frac12\mathbf E\cdot\mathbf D$};
+\node[card]at(4.00000,-1.05000){$u_B=\frac12\mathbf B\cdot\mathbf H$};
+\end{tikzpicture}\end{document}

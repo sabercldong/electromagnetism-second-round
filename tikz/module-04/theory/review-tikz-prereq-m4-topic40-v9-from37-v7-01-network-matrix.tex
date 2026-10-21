@@ -1,0 +1,51 @@
+% 核心结论：说明框自动分行，下方电势标签避开竖直导线
+% 草图：[真实几何与节点 | 条件、推导、结论]；17cm印宽，最小字号8pt。
+% 图契约：节点电导矩阵只作用于相邻节点的电势差；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {\quad 节点电导矩阵只作用于相邻节点的电势差};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[wire,draw=ink](-2,1.5)--(-0.275,1.5) (0.275,1.5)--(2,1.5);\begin{scope}[shift={(0.0,1.5)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label]at(0.0,1.92){$1/g_{12}$};
+\draw[wire,draw=ink](-2,1.5)--(-2.0,0.275) (-2.0,-0.275)--(-2,-1.5);\begin{scope}[shift={(-2.0,0.0)},rotate=-90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label,anchor=west]at(-1.58,0.0){$1/g_{13}$};
+\draw[wire,draw=ink](2,1.5)--(2.0,0.275) (2.0,-0.275)--(2,-1.5);\begin{scope}[shift={(2.0,0.0)},rotate=-90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label,anchor=west]at(2.42,0.0){$1/g_{24}$};
+\draw[wire,draw=ink](-2,-1.5)--(-0.275,-1.5) (0.275,-1.5)--(2,-1.5);\begin{scope}[shift={(0.0,-1.5)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label]at(0.0,-1.08){$1/g_{34}$};
+\fill[ink] (-2,1.5)circle(2pt);\node[above left=4pt] at(-2,1.5){$V_1$};
+\fill[ink] (2,1.5)circle(2pt);\node[above right=4pt] at(2,1.5){$V_2$};
+\fill[ink] (-2,-1.5)circle(2pt);\node[below left=4pt] at(-2,-1.5){$V_3$};
+\fill[ink] (2,-1.5)circle(2pt);\node[below right=4pt] at(2,-1.5){$V_4$};
+\node[note]at(0,-2.8){$I_i$ 为外部注入节点i的电流；$V_3,V_4$ 标在节点外};
+\end{scope}
+\node[card,text width=6.5cm,draw=blue!65,fill=blue!4]at(3.9,1.8){$I_i=\sum_jg_{ij}(V_i-V_j)$};
+\node[card,text width=6.5cm,draw=green!65,fill=green!4]at(3.9,0){$L_{ii}=\sum_{j\ne i}g_{ij},\quad L_{ij}=-g_{ij}\ (i\ne j)$};
+\node[card,text width=6.5cm,draw=orange!65,fill=orange!4]at(3.9,-1.8){$L\mathbf1=0:\quad\mathbf V\mapsto\mathbf V+V_0\mathbf1$};
+
+\end{tikzpicture}\end{document}

@@ -1,0 +1,42 @@
+% 2026-10-20用户反馈复核；图号、参考方向、数据与本题解答同步。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.3}{12.5}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.8mm,width=1.1mm]},ink!70,line width=.6pt},
+aux/.style={ink!40,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-3.6) rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{14}\selectfont,text width=15cm,align=center] at (0,3.23) {M5-016　半无限长导线：大小与方向都要给出};
+\begin{scope}[shift={(-4.1,0)}]
+\draw[v,red] (-1.5,-1.5)--(-1.5,2.0);
+\draw[axis] (-1.5,-1.5)--(2.25,-1.5);
+\node[] at (-1.8,2.2) {$+z$};
+\node[text=red] at (-1.95,1.35) {$I$};
+\node[] at (2.3,-1.8) {$x$};
+\fill[ink](-1.5,-1.5)circle(1.4pt);
+\node[] at (-1.75,-1.7) {$O$};
+\fill[ink](1.65,-1.5)circle(1.4pt);
+\node[] at (1.8499999999999999,-1.8) {$P$};
+\fill[ink](-1.5,0.7)circle(1.4pt);
+\node[] at (-1.8,0.7) {$Q$};
+\draw[aux] (-1.5,0.7)--(1.65,-1.5);
+\node[text=blue] at (1.65,-0.9) {$\otimes\ \mathbf B(P)$};
+\draw[{Latex[length=1.5mm]}-{Latex[length=1.5mm]},ink!60] (-1.5,-2.1)--(1.65,-2.1);
+\node[] at (0.05,-2.35) {$a$};
+\end{scope}
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,1.2) {$z\ge0,\quad P=(a,0,0)$\\[3pt]$d\boldsymbol\ell\times\mathbf R\ \parallel+\mathbf e_y$};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,-1.05) {$\displaystyle\mathbf B(P)=\frac{\mu_0I}{4\pi a}\mathbf e_y$\\[4pt]大小是无限长导线的一半};
+\node[text width=15cm,align=center] at (0,-3.12) {纸面为xz平面；电流沿+z，正y方向入纸面。虚线QP是源点到场点的连线，不是导线。};
+\end{tikzpicture}\end{document}

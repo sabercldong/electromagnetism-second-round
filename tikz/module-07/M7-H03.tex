@@ -1,0 +1,36 @@
+% 图契约：从两条旋度方程到坡印廷定理局域形式的推导链；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-H03　从两条旋度方程到坡印廷定理局域形式的推导链};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,fill=blue!4](0,0)circle(1.65);
+\draw[v,orange](1.65000,0.00000)--(2.40000,0.00000);
+\draw[v,orange](0.82500,1.42894)--(1.20000,2.07846);
+\draw[v,orange](-0.82500,1.42894)--(-1.20000,2.07846);
+\draw[v,orange](-1.65000,0.00000)--(-2.40000,0.00000);
+\draw[v,orange](-0.82500,-1.42894)--(-1.20000,-2.07846);
+\draw[v,orange](0.82500,-1.42894)--(1.20000,-2.07846);
+\node[]at(0.00000,0.45000){控制体 $V$};
+\node[]at(0.00000,-0.35000){场能 $U$};
+\node[]at(0.00000,-2.40000){正能流：穿出 $\partial V$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$\nabla\cdot(\mathbf E\times\mathbf H)=\mathbf H\cdot\nabla\times\mathbf E-\mathbf E\cdot\nabla\times\mathbf H$};
+\node[card]at(4.00000,-1.05000){$\partial_tu+\nabla\cdot\mathbf S=-\mathbf J\cdot\mathbf E$};
+\end{tikzpicture}\end{document}

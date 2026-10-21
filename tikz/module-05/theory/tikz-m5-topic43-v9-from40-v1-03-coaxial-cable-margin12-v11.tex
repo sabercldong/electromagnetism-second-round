@@ -1,0 +1,72 @@
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage[fontset=none]{ctex}
+\usepackage{amsmath,amssymb,bm}
+\usetikzlibrary{arrows.meta,calc,positioning}
+
+\definecolor{ink}{HTML}{263238}
+\definecolor{muted}{HTML}{6B7780}
+\definecolor{blue}{HTML}{245BFF}
+\definecolor{green}{HTML}{087F5B}
+\definecolor{orange}{HTML}{E67700}
+\definecolor{red}{HTML}{E03131}
+\definecolor{purple}{HTML}{7048E8}
+\definecolor{paleBlue}{HTML}{EDF3FF}
+\definecolor{paleGreen}{HTML}{EAF8F3}
+\definecolor{paleOrange}{HTML}{FFF4E6}
+\definecolor{palePurple}{HTML}{F3F0FF}
+
+\tikzset{
+  title/.style={font=\fontsize{18}{22}\selectfont\bfseries,text=ink,align=center},
+  subtitle/.style={font=\fontsize{12.5}{16}\selectfont\bfseries,text=ink,align=center},
+  body/.style={font=\fontsize{10.5}{14}\selectfont,text=ink,align=center},
+  small/.style={font=\fontsize{8.8}{11.5}\selectfont,text=ink,align=center},
+  box/.style={draw=muted,line width=.8pt,rounded corners=2pt,inner sep=6pt,body},
+  vec/.style={-{Latex[length=3.2mm,width=2.3mm]},line width=1.35pt},
+  patharrow/.style={-{Latex[length=2.8mm,width=2mm]},line width=1.25pt}
+}
+
+\usepackage{fontspec,xeCJK}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\usetikzlibrary{bending}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \path[use as bounding box] (0,0) rectangle (16,8); \fill[white] (0,0) rectangle (16,8);
+  \node[title] at (8,7.45) {同轴电缆：回流电流使外部磁场严格抵消};
+  \draw[muted,line width=.8pt] (7.4,1.0)--(7.4,6.75);
+  \node[subtitle,blue] at (3.7,6.35) {内导体送出 $I$，外导体均匀返回 $-I$};
+  \coordinate (O) at (3.7,3.65);
+  \fill[paleBlue,draw=blue,line width=1.3pt] (O) circle (.9);
+  \fill[paleOrange,even odd rule,draw=orange,line width=1.3pt]
+    (O) circle (2.5) (O) circle (1.65);
+  \foreach \a in {0,60,...,300}{
+    \draw[red,line width=.8pt] ($(O)+(\a:.55)$) circle (.08); \fill[red] ($(O)+(\a:.55)$) circle (.027);
+  }
+  \foreach \a in {15,45,...,345}{
+    \coordinate (X) at ($(O)+(\a:2.05)$);
+    \draw[purple,line width=.75pt] ($(X)+(-.06,-.06)$)--($(X)+(.06,.06)$);
+    \draw[purple,line width=.75pt] ($(X)+(-.06,.06)$)--($(X)+(.06,-.06)$);
+  }
+  \draw[green,<->] (O)--++(0:.9); \node[small,green,above] at ($(O)+(0:.45)$) {$a$};
+  \draw[green,<->] (O)--++(35:1.65); \node[small,green,left] at ($(O)+(35:1.25)$) {$b$};
+  \draw[green,<->] (O)--++(120:2.5); \node[small,green,right] at ($(O)+(120:1.95)$) {$c$};
+  \node[small,red] at (3.7,3.65) {$+I$}; \node[small,purple] at (3.7,1.25) {$-I$};
+  \node[box,fill=paleBlue,text width=5.8cm] at (3.7,1.0)
+    {在 $r>c$ 的环路内，$I_{\rm enc}=I-I=0$，故理想同轴结构外部 $B=0$};
+
+  \node[subtitle,green] at (11.7,6.35) {四个区域必须分别计算包围电流};
+  \draw[ink,->] (8.1,2.05)--(15.35,2.05); \draw[ink,->] (8.6,1.7)--(8.6,5.75);
+  \node[small,below left] at (15.35,2.0) {$r$}; \node[small,above] at (8.6,5.65) {$B(r)$};
+  \foreach \x/\lab in {10.0/$a$,11.55/$b$,13.1/$c$}{\draw[muted,dashed] (\x,2.05)--(\x,5.05); \node[small,muted,below] at (\x,2.0) {\lab};}
+  \draw[blue,line width=1.8pt] (8.6,2.05)--(10.0,4.65);
+  \draw[blue,line width=1.8pt,domain=0:1,samples=70,variable=\t]
+    plot ({10.0+1.55*\t},{2.05+2.6/(1+\t)});
+  \draw[blue,line width=1.8pt,domain=0:1,samples=70,variable=\t]
+    plot ({11.55+1.55*\t},{2.05+2.6*(9-(2+\t)*(2+\t))/(5*(2+\t))});
+  \draw[blue,line width=1.8pt] (13.1,2.05)--(15.0,2.05);
+  \node[small,blue] at (9.25,3.3) {线性}; \node[small,blue] at (10.8,3.7) {$1/r$};
+  \node[small,blue] at (12.45,2.8) {回流区}; \node[small,blue] at (14.0,2.35) {零};
+  \node[box,fill=paleGreen,text width=6.1cm,font=\fontsize{9.2}{12}\selectfont] at (11.7,.9)
+    {$\displaystyle B=\frac{\mu_0I_{\rm enc}(r)}{2\pi r}$；曲线在 $a,b,c$ 连续，因为电流均为体分布而非理想面电流};
+\end{tikzpicture}
+\end{document}

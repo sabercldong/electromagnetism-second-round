@@ -1,0 +1,38 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M3-021\quad 由界面方向判断串联或并联};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,line width=2pt] (-2,-1.4)--(2,-1.4) (-2,1.4)--(2,1.4);
+\node[label] at(0,1.9){上极板 $\varphi=U$};\node[label] at(0,-2.0){下极板 $\varphi=0$};
+\fill[blue!7] (-2,-1.36) rectangle(0,1.36);\fill[green!7] (0,-1.36) rectangle(2,1.36);
+\draw[ink!55] (0,-1.4)--(0,1.4);
+\node at(-1,.3){$\varepsilon_{r1}$};\node at(1,.3){$\varepsilon_{r2}$};
+\draw[vec] (-1,0)--(-1,-1.0);\draw[vec] (1,0)--(1,-1.0);
+\node[label] at(-.65,-.5){$E$};\node[label] at(1.35,-.5){$E$};
+\draw[<->,orange] (2.3,-1.4)--(2.3,1.4) node[midway,right] {$d$};
+\node[label] at(0,2.5){两区面积各 $S$，总面积 $2S$};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.1) {界面平行于场：$E_t$ 连续\\同电压、电荷相加，等效并联};
+\node[card,draw=green!65,fill=green!4] at (3.9,-1.1) {界面垂直于场：$D_n$ 连续\\同通量、电压相加，等效串联};
+\end{tikzpicture}\end{document}

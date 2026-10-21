@@ -1,0 +1,59 @@
+% 图契约：保留原稿的物理与电路拓扑，启用中文字体及中文断行，逐图检查标注。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,decorations.pathmorphing,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\definecolor{softpurple}{RGB}{245,240,255}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  wire/.style={draw=linegray,line width=1.05pt},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange},
+  purplebox/.style={box,draw=purplefield,fill=softpurple}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {电子束电偏转：板内加速加上板后漂移};
+\begin{scope}[shift={(-5.4,-.15)}]
+  \draw[linegray,line width=1.4pt] (-1.5,1.25)--(.7,1.25) (-1.5,-1.25)--(.7,-1.25);
+  \node[redfield] at (-.4,1.65) {$+$}; \node[bluefield] at (-.4,-1.65) {$-$};
+  \draw[guide] (-2.6,0)--(2.5,0);
+  \draw[bluefield,line width=1.25pt](-2.6,0)--(-1.5,0);
+\draw[bluefield,line width=1.25pt]plot[domain=-1.5:.7,samples=60](\x,{.11*(\x+1.5)^2});
+\draw[bluefield,line width=1.25pt,-{Latex}](.7,.5324)--(2.55,1.4278);
+\draw[arrow,greenfield](-.8,.25)--(-.8,.9)node[left]{$\mathbf F=-e\mathbf E$};
+\draw[guide](.7,-1.25)--(.7,1.25);
+\node[above,font=\small]at(.7,1.35){板末端};
+  \draw[<->,orangefield](-3,1.25)--(-3,-1.25)node[midway,left]{$d$};\draw[<->,orangefield](-1.5,-2.3)--(.7,-2.3)node[midway,below]{$\ell$};\draw[<->,orangefield](.7,-2.3)--(2.55,-2.3)node[midway,below]{$L$};\draw[orangefield,line width=2pt] (2.55,-2)--(2.55,2);
+  \draw[arrow,redfield] (-.2,.9)--(-.2,-.1) node[right] {$\mathbf E$};
+  \node[text=linegray] at (0,-3.35) {板内加速，板后沿切线匀速漂移};
+  \end{scope}
+
+\begin{scope}[shift={(4.55,-.15)}]
+  \node[bluebox,text width=7.0cm,minimum height=2.15cm] at (0,1.25) {$|a_y|=eU_y/(md)$};
+  \node[greenbox,text width=7.0cm,minimum height=2.15cm] at (0,-1.55) {$y=U_y\ell(L+\ell/2)/(2U_ad)$\\方向与电场相反};
+\end{scope}
+\end{tikzpicture}
+\end{document}

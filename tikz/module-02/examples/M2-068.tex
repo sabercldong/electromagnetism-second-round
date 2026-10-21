@@ -1,0 +1,42 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{blue}{HTML}{2455DE}
+\definecolor{green}{HTML}{078565}
+\definecolor{orange}{HTML}{D77B00}
+\definecolor{red}{HTML}{D53636}
+\definecolor{purple}{HTML}{7750C5}
+\definecolor{ink}{HTML}{28343C}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2.2mm,width=1.4mm]},line width=.85pt},
+axis/.style={-{Latex[length=2mm,width=1.2mm]},ink,line width=.6pt},
+aux/.style={ink!45,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-3.45) rectangle(8,3.45);
+\node[font=\bfseries\fontsize{11}{14}\selectfont,text width=15.2cm,align=center] at (0,3.05) {M2-068　两极板电荷、储能与电势零点};
+\node[text=blue,font=\bfseries] at (-4,2.25) {电荷由两板的电势差决定};
+\draw[blue,line width=1.8pt] (-5.6,-0.7)--(-5.6,1.45);
+\node[] at (-5.6,1.8) {极板 1};
+\node[] at (-5.6,-1.05) {$V_1$};
+\node[text=blue] at (-5.949999999999999,0.5) {$+Q$};
+\draw[green,line width=1.8pt] (-2.5,-0.7)--(-2.5,1.45);
+\node[] at (-2.5,1.8) {极板 2};
+\node[] at (-2.5,-1.05) {$V_2$};
+\node[text=green] at (-2.15,0.5) {$-Q$};
+\draw[v,blue] (-5.4,-0.35)--(-2.7,-0.35);
+\draw[v,blue] (-5.4,0.3)--(-2.7,0.3);
+\draw[v,blue] (-5.4,0.95)--(-2.7,0.95);
+\node[lab,text=blue] at (-4.05,0.62) {$\mathbf E$};
+\draw[{Latex[length=1.6mm]}-{Latex[length=1.6mm]},ink!70] (-5.6,-1.45)--(-2.5,-1.45);
+\node[] at (-4.05,-1.72) {$d$};
+\node[] at (-4.05,-2.3) {$C_0=\varepsilon_0S/d,\quad U_{12}=V_1-V_2$};
+\node[text=green,font=\bfseries] at (4,2.25) {更换电势零点：差值保持不变};
+\node[box,fill=blue!3,text width=6.3cm] at (4,1.4) {原表示：$V_1=5\,V,\quad V_2=2\,V$\\$U_{12}=3\,V$};
+\node[box,fill=green!3,text width=6.3cm] at (4,-0.05) {两电势同加 $10\,V$：\\$V_1^{\prime}=15\,V,\quad V_2^{\prime}=12\,V$\\$U_{12}^{\prime}=3\,V$};
+\node[box,fill=orange!3,text width=6.3cm] at (4,-1.85) {$Q_1=C_0U_{12},\quad Q_2=-Q_1$\\[4pt]$\displaystyle W=\frac12C_0U_{12}^2$\\[4pt]电场、电荷和储能均不改变};
+\node[text width=15cm,align=center] at (0,-3.02) {左图以 $V_1>V_2$ 为例；右图只更换电势的数值零点，不改变实际场、极板位置或外部连接。};
+\end{tikzpicture}\end{document}

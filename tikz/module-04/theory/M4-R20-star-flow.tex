@@ -1,0 +1,33 @@
+% 2026-10-20用户反馈复核；图号、参考方向、数据与本题解答同步。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.3}{12.5}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.8mm,width=1.1mm]},ink!70,line width=.6pt},
+aux/.style={ink!40,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-3.6) rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{14}\selectfont,text width=15cm,align=center] at (0,3.23) {星形—三角形变换的完整流程};
+\node[box,fill=blue!3,text width=2.45cm,minimum height=2.1cm] at (-6.25,0.8) {识别三端子网\\[5pt]中心是否连接？\\是否含源？};
+\draw[v,blue] (-4.8,0.8)--(-4.575,0.8);
+\node[box,fill=blue!3,text width=2.45cm,minimum height=2.1cm] at (-3.125,0.8) {确定变换方向\\[5pt]目标：产生\\串联或并联};
+\draw[v,blue] (-1.675,0.8)--(-1.45,0.8);
+\node[box,fill=blue!3,text width=2.45cm,minimum height=2.1cm] at (0.0,0.8) {固定节点下标\\[5pt]相邻边、对臂\\逐项代入公式};
+\draw[v,blue] (1.45,0.8)--(1.675,0.8);
+\node[box,fill=blue!3,text width=2.45cm,minimum height=2.1cm] at (3.125,0.8) {替换原子网\\[5pt]保留外部端口\\重新画连接};
+\draw[v,blue] (4.575,0.8)--(4.8,0.8);
+\node[box,fill=blue!3,text width=2.45cm,minimum height=2.1cm] at (6.25,0.8) {继续化简\\[5pt]串并联、对称\\量纲与极限};
+\node[box,text width=13.7cm,fill=green!3] at (0,-1.65) {变换保留三个外端口的电压—电流关系。\\[5pt]内部中心电势与逐支路电流一般不会保持。};
+\node[text width=15cm,align=center] at (0,-3.12) {先标端口，再改内部连接；只有变换后出现更简单的拓扑，变换才有助于计算。};
+\end{tikzpicture}\end{document}

@@ -1,0 +1,32 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M2-110\quad 第二正弦模态衰减得更快};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick](-1.8,-1.4)--(-1.8,1.7) (1.8,-1.4)--(1.8,1.7) (-1.8,-1.4)--(1.8,-1.4);\draw[guide](-1.8,1.7)--(-1.8,2.1) (1.8,1.7)--(1.8,2.1);\node[left]at(-1.8,0){$0$};\node[right]at(1.8,0){$0$};\node[below]at(-1.8,-1.4){$0$};\node[below]at(1.8,-1.4){$a$};\draw[red,line width=2pt](-1.8,-1.4)--(0.0,-1.4);\draw[blue,line width=2pt](0.0,-1.4)--(1.8,-1.4);\draw[vec,green](0,-.8)--(0,1.3);\node[label]at(.9,.3){向内\\指数衰减};\node[label]at(0,-2.15){底边单一正弦模态};\node[note] at (0,-2.85) {红、蓝底边示意 $V_0>0$ 时两瓣数据的符号。};
+\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$b_2=V_0,\quad b_{n\ne2}=0$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\varphi=V_0\sin(2\pi x/a)e^{-2\pi y/a}$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {衰减长度为 $a/(2\pi)$；\\该单模解是精确解。};
+\end{tikzpicture}\end{document}

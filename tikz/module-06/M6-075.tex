@@ -1,0 +1,68 @@
+% 核心结论：三角形电容组补偿
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-075　三角形电容组补偿};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-1.80000,1.50000) -- (-0.42000,1.50000);
+\draw[ink,thick] (0.42000,1.50000) -- (1.80000,1.50000);
+\begin{scope}[shift={(0.00000,1.50000)},rotate=0.0]
+\draw[ink,thick] (-0.09000,-0.30000) -- (-0.09000,0.30000);
+\draw[ink,thick] (0.09000,-0.30000) -- (0.09000,0.30000);
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.09000,0.00000);
+\draw[ink,thick] (0.09000,0.00000) -- (0.42000,0.00000);
+\end{scope}
+\node[lab] at (0.00000,1.92000) {$C$};
+\draw[ink,thick] (1.80000,1.50000) -- (1.11609,0.36015);
+\draw[ink,thick] (0.68391,-0.36015) -- (0.00000,-1.50000);
+\begin{scope}[shift={(0.90000,0.00000)},rotate=-120.96375653207352]
+\draw[ink,thick] (-0.09000,-0.30000) -- (-0.09000,0.30000);
+\draw[ink,thick] (0.09000,-0.30000) -- (0.09000,0.30000);
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.09000,0.00000);
+\draw[ink,thick] (0.09000,0.00000) -- (0.42000,0.00000);
+\end{scope}
+\node[lab] at (1.26015,-0.21609) {$C$};
+\draw[ink,thick] (0.00000,-1.50000) -- (-0.68391,-0.36015);
+\draw[ink,thick] (-1.11609,0.36015) -- (-1.80000,1.50000);
+\begin{scope}[shift={(-0.90000,0.00000)},rotate=120.96375653207352]
+\draw[ink,thick] (-0.09000,-0.30000) -- (-0.09000,0.30000);
+\draw[ink,thick] (0.09000,-0.30000) -- (0.09000,0.30000);
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.09000,0.00000);
+\draw[ink,thick] (0.09000,0.00000) -- (0.42000,0.00000);
+\end{scope}
+\node[lab] at (-1.26015,-0.21609) {$C$};
+\draw[ink,thick] (-2.80000,1.50000) -- (-1.80000,1.50000);
+\fill[ink] (-1.80000,1.50000) circle (1.6pt);
+\node[] at (-2.90000,1.85000) {$A$};
+\draw[ink,thick] (2.80000,1.50000) -- (1.80000,1.50000);
+\fill[ink] (1.80000,1.50000) circle (1.6pt);
+\node[] at (2.90000,1.85000) {$B$};
+\draw[ink,thick] (0.00000,-2.40000) -- (0.00000,-1.50000);
+\fill[ink] (0.00000,-1.50000) circle (1.6pt);
+\node[] at (0.35000,-2.40000) {$C$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$Q_{comp}=P(\tan\phi_1-\tan\phi_2)$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$C=Q_{comp}/(3\omega U_L^2)$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {每只电容跨接两相线，承受线电压；三只电容的无功补偿量相加。};
+
+\end{tikzpicture}\end{document}

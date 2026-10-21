@@ -1,0 +1,56 @@
+% 图契约：七边形网络：镜像电势反号；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {M4-034\quad 七边形网络：镜像电势反号};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[wire,draw=ink](1.3164953090834046e-16,2.15)--(0.5927024049799668,1.864569565255467) (1.0882352823262973,1.62593350874081)--(1.680937687306264,1.3405030739962769);\begin{scope}[shift={(0.8404688436531321,1.7452515369981385)},rotate=-25.714285714285722]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](1.3164953090834046e-16,2.15)--(0.14403375176461872,1.5189469013321573)(0.2664202654405917,0.9827365496321543)--(0.9328500391027504,-1.9370830659902007);\begin{scope}[shift={(0.2052270086026052,1.2508417254821558)},rotate=-77.14285714285714]\draw[draw=ink,fill=white](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](1.3164953090834046e-16,2.15)--(-0.14403375176461838,1.518946901332157)(-0.2664202654405913,0.9827365496321541)--(-0.9328500391027498,-1.9370830659902012);\begin{scope}[shift={(-0.20522700860260484,1.2508417254821556)},rotate=-102.85714285714286]\draw[draw=ink,fill=white](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](1.3164953090834046e-16,2.15)--(-0.5927024049799667,1.8645695652554668) (-1.0882352823262973,1.6259335087408098)--(-1.6809376873062642,1.3405030739962767);\begin{scope}[shift={(-0.840468843653132,1.7452515369981383)},rotate=-154.28571428571428]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](1.680937687306264,1.3405030739962769)--(1.8273230924106059,0.6991467088451019) (1.9497096060865788,0.1629363571450989)--(2.0960950111909207,-0.4784200080060761);\begin{scope}[shift={(1.8885163492485924,0.4310415329951004)},rotate=-77.14285714285714]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](1.680937687306264,1.3405030739962769)--(1.2773640830074329,0.83443778087796)(0.9344446919851294,0.4044304655205435)--(-0.9328500391027498,-1.9370830659902012);\begin{scope}[shift={(1.105904387496281,0.6194341231992517)},rotate=-128.57142857142858]\draw[draw=ink,fill=white](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](1.680937687306264,1.3405030739962769)--(1.0977569323100487,1.059658024213088)(0.602224054963718,0.821021967698431)--(-2.096095011190921,-0.47842000800607526);\begin{scope}[shift={(0.8499904936368833,0.9403399959557595)},rotate=-154.2857142857143]\draw[draw=ink,fill=white](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](2.0960950111909207,-0.4784200080060761)--(1.6859322206579872,-0.9927478793194302) (1.343012829635684,-1.4227551946768466)--(0.9328500391027504,-1.9370830659902007);\begin{scope}[shift={(1.5144725251468356,-1.2077515369981384)},rotate=-128.57142857142858]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](2.0960950111909207,-0.4784200080060761)--(1.4488132062669155,-0.478420008006076)(0.8988132062669155,-0.47842000800607587)--(-2.096095011190921,-0.47842000800607526);\begin{scope}[shift={(1.1738132062669155,-0.4784200080060759)},rotate=180.0]\draw[draw=ink,fill=white](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](2.0960950111909207,-0.4784200080060761)--(1.5129142561947053,-0.19757495822288698)(1.0173813788483748,0.04106109829176999)--(-1.6809376873062642,1.3405030739962767);\begin{scope}[shift={(1.26514781752154,-0.0782569299655585)},rotate=154.28571428571428]\draw[draw=ink,fill=white](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=red](0.9328500391027504,-1.9370830659902007)--(0.27500000000000036,-1.937083065990201) (-0.2749999999999997,-1.937083065990201)--(-0.9328500391027498,-1.9370830659902012);\begin{scope}[shift={(3.3306690738754696e-16,-1.937083065990201)},rotate=-180.0]\draw[draw=red,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](0.9328500391027504,-1.9370830659902007)--(0.5292764348039191,-1.431017772871884)(0.18635704378161547,-1.0010104575144676)--(-1.6809376873062642,1.3405030739962767);\begin{scope}[shift={(0.35781673929276725,-1.2160141151931758)},rotate=128.57142857142858]\draw[draw=ink,fill=white](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](-0.9328500391027498,-1.9370830659902012)--(-1.3430128296356836,-1.4227551946768464) (-1.6859322206579872,-0.99274787931943)--(-2.096095011190921,-0.47842000800607526);\begin{scope}[shift={(-1.5144725251468354,-1.2077515369981382)},rotate=128.57142857142858]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](-2.096095011190921,-0.47842000800607526)--(-1.9497096060865793,0.16293635714509924) (-1.8273230924106063,0.6991467088451022)--(-1.6809376873062642,1.3405030739962767);\begin{scope}[shift={(-1.8885163492485928,0.43104153299510073)},rotate=77.14285714285712]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\fill[ink] (1.3164953090834046e-16,2.15)circle(2pt);\node[above=4pt] at(1.3164953090834046e-16,2.15){$A$};
+\fill[ink] (1.680937687306264,1.3405030739962769)circle(2pt);\node[above=4pt] at(1.680937687306264,1.3405030739962769){$B$};
+\fill[ink] (2.0960950111909207,-0.4784200080060761)circle(2pt);\node[right=4pt] at(2.0960950111909207,-0.4784200080060761){$C$};
+\fill[ink] (0.9328500391027504,-1.9370830659902007)circle(2pt);\node[below=4pt] at(0.9328500391027504,-1.9370830659902007){$D$};
+\fill[ink] (-0.9328500391027498,-1.9370830659902012)circle(2pt);\node[below=4pt] at(-0.9328500391027498,-1.9370830659902012){$E$};
+\fill[ink] (-2.096095011190921,-0.47842000800607526)circle(2pt);\node[left=4pt] at(-2.096095011190921,-0.47842000800607526){$F$};
+\fill[ink] (-1.6809376873062642,1.3405030739962767)circle(2pt);\node[above=4pt] at(-1.6809376873062642,1.3405030739962767){$G$};
+\node[note]at(0,-2.8){每条支路为 $r$；交叉无黑点处不连接};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$V_A=0,\quad V_G=-V_B$\\$V_F=-V_C,\quad V_E=-V_D$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$V_D=9Ir/13$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {$I_{DE}=(V_D-V_E)/r$};
+\end{tikzpicture}\end{document}

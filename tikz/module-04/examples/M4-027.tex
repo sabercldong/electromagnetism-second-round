@@ -1,0 +1,39 @@
+% 图契约：负号改变实际方向，不改变参考；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {M4-027\quad 负号改变实际方向，不改变参考};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[wire,draw=ink](-2,0)--(-0.275,0.0) (0.275,0.0)--(2,0);\begin{scope}[shift={(0.0,0.0)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label] at(0.0,0.28){$2\ \Omega$};
+\fill[ink] (-2,0)circle(2pt);\node[above=4pt] at(-2,0){$A:3\ \mathrm V$};
+\fill[ink] (2,0)circle(2pt);\node[above=4pt] at(2,0){$B:5\ \mathrm V$};
+\draw[vec](-1,-.8)--(1,-.8)node[midway,below]{参考 $I_{AB}$};\draw[vec,red](1,1)--(-1,1)node[midway,above]{实际 $1\ \mathrm A$};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$U_{AB}=V_A-V_B=-2\ \mathrm V$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$I_{AB}=U_{AB}/R=-1\ \mathrm A$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {实际方向：$B\longrightarrow A$};
+\end{tikzpicture}\end{document}

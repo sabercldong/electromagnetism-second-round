@@ -1,0 +1,82 @@
+% 核心结论：开路实验与短路实验所确定的等效参数及其近似条件
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-H35　开路实验与短路实验所确定的等效参数及其近似条件};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-2.60000,1.50000) -- (-2.60000,0.40000);
+\draw[ink,thick] (-2.60000,-0.40000) -- (-2.60000,-1.50000);
+\draw[ink,thick] (-2.6,0) circle (.4);
+\node[] at (-2.60000,0.00000) {$\sim$};
+\node[] at (-3.22000,0.00000) {$U_0$};
+\draw[ink,thick] (-2.60000,1.50000) -- (-0.60000,1.50000);
+\draw[ink,thick] (-0.60000,1.50000) -- (2.30000,1.50000);
+\draw[ink,thick] (-2.60000,-1.50000) -- (2.30000,-1.50000);
+\draw[ink,thick] (-0.10000,1.50000) -- (-0.10000,0.42000);
+\draw[ink,thick] (-0.10000,-0.42000) -- (-0.10000,-1.50000);
+\begin{scope}[shift={(-0.10000,0.00000)},rotate=-90.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab,anchor=east] at (-0.52000,0.00000) {$R_c$};
+\draw[v,blue] (0.35000,0.85000) -- (0.35000,0.20000);
+\node[lab,text=blue,anchor=west] at (0.41000,0.52500) {$i_1$};
+\draw[ink,thick] (2.10000,1.50000) -- (2.10000,0.42000);
+\draw[ink,thick] (2.10000,-0.42000) -- (2.10000,-1.50000);
+\begin{scope}[shift={(2.10000,0.00000)},rotate=-90.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab,anchor=east] at (1.68000,0.00000) {$jX_m$};
+\draw[v,green] (2.55000,0.85000) -- (2.55000,0.20000);
+\node[lab,text=green,anchor=west] at (2.61000,0.52500) {$i_2$};
+\fill[ink] (-0.60000,1.50000) circle (1.6pt);
+\node[] at (-0.70000,1.85000) {$A$};
+\fill[ink] (-0.60000,-1.50000) circle (1.6pt);
+\node[] at (-0.70000,-1.85000) {$B$};
+\node[] at (0.00000,2.40000) {开路实验：次级开路};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\draw[ink,thick] (-2.60000,1.50000) -- (-2.60000,0.40000);
+\draw[ink,thick] (-2.60000,-0.40000) -- (-2.60000,-1.50000);
+\draw[ink,thick] (-2.6,0) circle (.4);
+\node[] at (-2.60000,0.00000) {$\sim$};
+\node[] at (-3.22000,0.00000) {$U_{sc}$};
+\draw[ink,thick] (-2.60000,1.50000) -- (-1.22000,1.50000);
+\draw[ink,thick] (-0.38000,1.50000) -- (1.00000,1.50000);
+\begin{scope}[shift={(-0.80000,1.50000)},rotate=0.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab] at (-0.80000,1.92000) {$Z_{eq}$};
+\draw[ink,thick] (1.00000,1.50000) -- (2.50000,1.50000);
+\draw[ink,thick] (2.50000,1.50000) -- (2.50000,0.42000);
+\draw[ink,thick] (2.50000,-0.42000) -- (2.50000,-1.50000);
+\begin{scope}[shift={(2.50000,0.00000)},rotate=-90.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab,anchor=east] at (2.08000,0.00000) {$0$};
+\draw[ink,thick] (2.50000,-1.50000) -- (-2.60000,-1.50000);
+\fill[ink] (1.00000,1.50000) circle (1.6pt);
+\node[] at (1.20000,1.80000) {$A$};
+\fill[ink] (1.00000,-1.50000) circle (1.6pt);
+\node[] at (1.20000,-1.80000) {$B$};
+\node[] at (0.00000,-2.35000) {负载接端口 $AB$；$I$ 流入负载正端。};
+\node[] at (0.00000,2.40000) {短路实验：低压供电};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {同名端、电流方向与折算侧统一；有限励磁和损耗不能混入理想模型。};
+
+\end{tikzpicture}\end{document}

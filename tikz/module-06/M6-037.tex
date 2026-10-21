@@ -1,0 +1,81 @@
+% 核心结论：交叉电容的对称暂态
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-037　交叉电容的对称暂态};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-2.70000,0.00000) -- (-2.22000,0.00000);
+\draw[ink,thick] (-1.38000,0.00000) -- (-0.90000,0.00000);
+\begin{scope}[shift={(-1.80000,0.00000)},rotate=0.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab] at (-1.80000,0.42000) {$r$};
+\draw[ink,thick] (-0.90000,0.00000) -- (-0.42000,0.00000);
+\draw[ink,thick] (0.42000,0.00000) -- (0.90000,0.00000);
+\begin{scope}[shift={(0.00000,0.00000)},rotate=0.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab] at (0.00000,0.42000) {$r$};
+\draw[ink,thick] (0.90000,0.00000) -- (1.38000,0.00000);
+\draw[ink,thick] (2.22000,0.00000) -- (2.70000,0.00000);
+\begin{scope}[shift={(1.80000,0.00000)},rotate=0.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab] at (1.80000,0.42000) {$r$};
+\fill[ink] (-2.70000,0.00000) circle (1.6pt);
+\node[] at (-2.70000,-0.35000) {$P_0$};
+\fill[ink] (-0.90000,0.00000) circle (1.6pt);
+\node[] at (-1.25000,-0.35000) {$P_1$};
+\fill[ink] (0.90000,0.00000) circle (1.6pt);
+\node[] at (0.90000,-0.35000) {$P_2$};
+\fill[ink] (2.70000,0.00000) circle (1.6pt);
+\node[] at (3.05000,-0.35000) {$P_3$};
+\draw[ink,thick] (-2.70000,0.00000) -- (-2.70000,1.60000);
+\draw[ink,thick] (-2.70000,1.60000) -- (-1.32000,1.60000);
+\draw[ink,thick] (-0.48000,1.60000) -- (0.90000,1.60000);
+\begin{scope}[shift={(-0.90000,1.60000)},rotate=0.0]
+\draw[ink,thick] (-0.09000,-0.30000) -- (-0.09000,0.30000);
+\draw[ink,thick] (0.09000,-0.30000) -- (0.09000,0.30000);
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.09000,0.00000);
+\draw[ink,thick] (0.09000,0.00000) -- (0.42000,0.00000);
+\end{scope}
+\node[lab] at (-0.90000,2.02000) {$C$};
+\draw[ink,thick] (0.90000,1.60000) -- (0.90000,0.00000);
+\draw[ink,thick] (-0.90000,0.00000) -- (-0.90000,-1.60000);
+\draw[ink,thick] (-0.90000,-1.60000) -- (0.48000,-1.60000);
+\draw[ink,thick] (1.32000,-1.60000) -- (2.70000,-1.60000);
+\begin{scope}[shift={(0.90000,-1.60000)},rotate=0.0]
+\draw[ink,thick] (-0.09000,-0.30000) -- (-0.09000,0.30000);
+\draw[ink,thick] (0.09000,-0.30000) -- (0.09000,0.30000);
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.09000,0.00000);
+\draw[ink,thick] (0.09000,0.00000) -- (0.42000,0.00000);
+\end{scope}
+\node[lab] at (0.90000,-2.02000) {$C$};
+\draw[ink,thick] (2.70000,-1.60000) -- (2.70000,0.00000);
+\node[] at (0.00000,2.40000) {$V(P_0)-V(P_3)=\mathcal E$，$t=0$ 接通};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$i_C=\dot q$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$i_R: I-i_C,\ I-2i_C,\ I-i_C$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {上电容连接P0P2，下电容连接P1P3；依节点分流可得三段电阻电流，中段在接通初期可为负。};
+
+\end{tikzpicture}\end{document}

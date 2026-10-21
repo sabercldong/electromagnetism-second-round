@@ -1,0 +1,78 @@
+% 核心结论：作业三：端电压与等效阻抗
+% 图原型：纯几何／对比；按本题相位与电路拓扑绘制。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[font=\fontsize{11}{14}\selectfont\bfseries] at (0.00000,3.04000) {作业三：端电压与等效阻抗};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-2.50000,1.50000) -- (-2.50000,0.42000);
+\draw[ink,thick] (-2.50000,-0.42000) -- (-2.50000,-1.50000);
+\draw[ink,thick] (-2.5,0) circle (.42);
+\node[] at (-2.50000,0.00000) {$\sim$};
+\node[] at (-2.88000,1.60000) {$+$};
+\node[] at (-2.88000,-1.50000) {$-$};
+\node[] at (-3.12000,0.00000) {$u$};
+\draw[ink,thick] (-2.50000,1.50000) -- (-1.83000,1.50000);
+\begin{scope}[shift={(-1.35000,1.50000)}]
+\draw[ink,thick] (-.48,-.16) rectangle (.48,.16);
+\end{scope}
+\node[] at (-1.35000,2.12000) {$R$};
+\node[] at (-1.83000,0.97000) {$+$};
+\node[] at (-0.87000,0.97000) {$-$};
+\begin{scope}[shift={(0.00000,1.50000)}]
+\draw[ink,thick] plot[domain=-.48:.48,samples=80] (\x,{.22*abs(sin(750*(\x+.48)))});
+\end{scope}
+\node[] at (0.00000,2.12000) {$L$};
+\node[] at (-0.48000,0.97000) {$+$};
+\node[] at (0.48000,0.97000) {$-$};
+\begin{scope}[shift={(1.35000,1.50000)}]
+\draw[ink,thick] (-.10,-.35) -- (-.10,.35);
+\draw[ink,thick] (.10,-.35) -- (.10,.35);
+\draw[ink,thick] (-.48,0) -- (-.10,0);
+\draw[ink,thick] (.10,0) -- (.48,0);
+\end{scope}
+\node[] at (1.35000,2.12000) {$C$};
+\node[] at (0.87000,0.97000) {$+$};
+\node[] at (1.83000,0.97000) {$-$};
+\draw[ink,thick] (-0.87000,1.50000) -- (-0.48000,1.50000);
+\draw[ink,thick] (0.48000,1.50000) -- (0.87000,1.50000);
+\draw[ink,thick] (1.83000,1.50000) -- (2.50000,1.50000);
+\draw[ink,thick] (2.50000,1.50000) -- (2.50000,-1.50000);
+\draw[ink,thick] (2.50000,-1.50000) -- (-2.50000,-1.50000);
+\draw[v,blue] (-0.50000,-1.50000) -- (-1.50000,-1.50000);
+\node[lab,text=blue,anchor=center] at (-1.00000,-1.82000) {$i$};
+\node[] at (0.00000,-2.40000) {元件电压取左正右负；公共电流为参考。};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\draw[v,blue] (-1.90000,-1.30000) -- (1.35000,-1.30000);
+\node[lab,text=blue,anchor=center] at (-0.27500,-1.65000) {$U_R=24$};
+\draw[v,green] (1.35000,-1.30000) -- (1.35000,1.40833);
+\node[lab,text=green,anchor=west] at (1.80000,-0.48750) {$U_L=20$};
+\draw[v,purple] (1.35000,1.40833) -- (1.35000,1.13750);
+\node[lab,text=purple,anchor=west] at (1.80000,1.45292) {$U_C=2$};
+\draw[v,red] (-1.90000,-1.30000) -- (1.35000,1.13750);
+\node[lab,text=red,anchor=east] at (-0.37500,0.03875) {$\widetilde U$};
+\node[] at (-2.10000,-1.42000) {$O$};
+\node[] at (1.50000,-1.55000) {$A$};
+\node[] at (1.21000,1.64833) {$B$};
+\node[] at (1.50000,0.85750) {$D$};
+\node[] at (0.00000,-2.40000) {电压单位：$\mathrm V$；实轴沿 $\widetilde I$。};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {电感电压向上，电容电压向下；两段有向电压之和决定终点的高度。};
+\end{tikzpicture}
+\end{document}

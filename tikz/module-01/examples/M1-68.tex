@@ -1,0 +1,76 @@
+% 核心结论：点、线、面源分别约束三个、两个、一个方向。
+% 图原型：纯几何·三列对比；中等档；17.4 cm × 7.8 cm。
+% 草图：[点+xyz | z轴线+xy约束 | xy面+z约束]，下方检验测度和量纲。
+% 支撑契约：原点点源、无限z轴线源、无限z=0面源；各自模型互不叠加。
+% 坐标投影：x向右，y向左下，z向上；源线箭头仅表示无限延伸。
+% 面片仅为局部示意，不能被误读为有限矩形带电面。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,decorations.pathmorphing}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{224,116,10}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\definecolor{softpurple}{RGB}{247,242,255}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  fieldline/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=1pt,draw=bluefield},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange},
+  purplebox/.style={box,draw=purplefield,fill=softpurple}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box](-8.7,-4.0)rectangle(8.7,3.8);
+\fill[white](-8.7,-4.0)rectangle(8.7,3.8);
+\node[font=\Large\bfseries]at(0,3.25){约束几个独立方向，就需要几个 $\delta$ 因子};
+\foreach \xc in {-5.8,0}{
+  \begin{scope}[shift={(\xc,.1)}]
+    \draw[axis](-1.65,0)--(1.85,0)node[right]{$x$};
+    \draw[axis](0,0)--(-1.15,-1.2)node[below]{$y$};
+    \draw[axis](0,-.55)--(0,.90)node[above]{$z$};
+  \end{scope}
+}
+\node[bluebox,text width=4.7cm]at(-5.8,2.05){原点点电荷 $Q$\\$\rho_Q=Q\delta(x)\delta(y)\delta(z)$};
+\node[greenbox,text width=4.7cm]at(0,2.05){整条 $z$ 轴：线密度 $\lambda$\\$\rho_\lambda=\lambda\delta(x)\delta(y)$};
+\node[orangebox,text width=4.7cm]at(5.8,2.05){整个 $z=0$ 面：面密度 $\sigma$\\$\rho_\sigma=\sigma\delta(z)$};
+\fill[bluefield](-5.8,.1)circle(.115);
+\node[bluefield,anchor=north west]at(-5.55,-.1){$O:\ x=y=z=0$};
+\draw[greenfield,line width=2pt](0,-1.25)--(0,1.00);
+\draw[thinarr,greenfield](0,.6)--(0,1.00);
+\draw[thinarr,greenfield](0,-.85)--(0,-1.35);
+\node[greenfield,anchor=west]at(.25,.55){$x=y=0$};
+\node[greenfield,anchor=west]at(.25,-.15){$z$ 自由};
+\begin{scope}[shift={(5.8,.1)}]
+  \filldraw[fill=softorange,fill opacity=.75,draw=orangefield](-1.775,-.6)--(.625,-.6)--(1.775,.6)--(-.625,.6)--cycle;
+  \draw[axis](-1.65,0)--(1.85,0)node[right]{$x$};
+  \draw[axis](0,0)--(-1.15,-1.2)node[below]{$y$};
+  \draw[axis](0,0)--(0,.90)node[above]{$z$};
+  \fill[linegray](0,0)circle(.045);
+  \node[orangefield,anchor=west]at(.25,.82){$z=0$};
+  \node[orangefield,anchor=north]at(.2,-.8){$x,y$ 自由};
+\end{scope}
+\node[align=center,text width=5.0cm]at(-5.8,-2.25){3 个约束；对体积积分得 $Q$\\[4pt]$[\rho_Q]=\mathrm{C\,m^{-3}}$};
+\node[align=center,text width=5.0cm]at(0,-2.25){2 个约束；对横截面积分得 $\lambda$\\[4pt]$[\lambda]=\mathrm{C\,m^{-1}}$};
+\node[align=center,text width=5.0cm]at(5.8,-2.25){1 个约束；沿法向积分得 $\sigma$\\[4pt]$[\sigma]=\mathrm{C\,m^{-2}}$};
+\node[font=\small,text width=16cm,align=center]at(0,-3.42){线段和面片只表示无限源的局部；三种 $\rho$ 均为三维体密度，单位均为 $\mathrm{C\,m^{-3}}$。};
+\end{tikzpicture}
+\end{document}

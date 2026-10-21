@@ -1,0 +1,68 @@
+% 核心结论：法向垂直于面，边界正向与其满足右手定则。
+% 图原型：纯几何·正视/侧视对照；极简档；16 cm × 7.1 cm。
+% 草图：[正视矩形面+逆时针箭头+纸外法向 | 环量定义]
+%       [侧视面边+垂直法向+直角标记       | 右手定则]
+% 方向契约：正视法向为纸外，红色边界逆时针；侧视法向为向上。
+% 不用默认 TikZ z 投影代替真实法向；侧视图明确显示垂直关系。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,decorations.pathmorphing}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{224,116,10}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\definecolor{softpurple}{RGB}{247,242,255}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  fieldline/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=1pt,draw=bluefield},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange},
+  purplebox/.style={box,draw=purplefield,fill=softpurple}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box](-8,-3.55)rectangle(8,3.55);
+\fill[white](-8,-3.55)rectangle(8,3.55);
+\node[font=\Large\bfseries]at(0,3.03){面法向与边界正向必须按右手定则配对};
+\begin{scope}[shift={(-4.15,.50)}]
+  \filldraw[fill=softblue,draw=linegray](-2.55,-1.15)rectangle(2.55,1.15);
+  \draw[arrow,redfield](-2.4,-1.15)--(2.2,-1.15);
+  \draw[arrow,redfield](2.55,-1)--(2.55,.95);
+  \draw[arrow,redfield](2.35,1.15)--(-2.2,1.15);
+  \draw[arrow,redfield](-2.55,1)--(-2.55,-.95);
+  \draw[bluefield,line width=1.1pt](0,0)circle(.22);
+  \fill[bluefield](0,0)circle(.055);
+  \node[bluefield,anchor=west]at(.38,0){$\mathbf n$（纸外）};
+  \node[anchor=north west]at(-2.3,.95){$S$};
+  \node[redfield,anchor=north]at(0,-1.32){$\partial S$：逆时针};
+  \node[font=\small]at(0,1.68){正视图：从法向端看向曲面};
+\end{scope}
+\begin{scope}[shift={(-4.15,-2.65)}]
+  \draw[linegray,line width=1pt](-2.55,0)--(2.55,0)node[right]{$S$};
+  \draw[arrow,bluefield](0,0)--(0,1.02)node[right]{$\mathbf n$};
+  \draw[linegray](.23,0)--(.23,.23)--(0,.23);
+  \node[anchor=north,font=\small]at(0,-.18){侧视图：$\mathbf n\perp S$};
+\end{scope}
+\node[greenbox,text width=6.0cm]at(4,.65){$\displaystyle (\nabla\times\mathbf A)\cdot\mathbf n$\\[6pt]
+$\displaystyle =\lim_{\Delta S\to0}\frac{1}{\Delta S}\oint_{\partial S}\mathbf A\cdot d\mathbf l$};
+\node[orangebox,text width=6.0cm]at(4,-1.55){四指沿红色边界弯曲，大拇指指向 $\mathbf n$。\\反转法向时，边界正向也反转。};
+\end{tikzpicture}
+\end{document}

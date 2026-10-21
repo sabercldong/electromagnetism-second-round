@@ -1,0 +1,8814 @@
+% 来自2026-10-21统一复核稿；题号、图号和解答保留。
+\clearpage
+\begingroup
+\fancyhead[R]{\small 模块六：交流电路与电能变换}
+\clubpenalty=10000\widowpenalty=10000\displaywidowpenalty=10000
+\chapter{模块六：交流电路与电能变换}\label{m6:ux6a21ux5757ux516dux4ea4ux6d41ux7535ux8defux4e0eux7535ux80fdux53d8ux6362}
+
+逐题图解修订版 · 专题五十五至六十及非理想变压器附录
+
+本模块共86个题目条目。所有题目都补明参考方向、模型和设问，并在解答内配有图号对应的可编辑TikZ图。正弦稳态采用有效值相量和
+\(e^{j\omega t}\)；暂态、二极管分段与多频响应分别使用适用的模型。
+
+相量法用于同频正弦稳态计算。使用时要区分瞬时量、有效值相量和相位差；瞬态过程仍由时域微分方程描述。
+
+同频线性稳态电路用相量和复阻抗处理；整流、滤波与开关暂态需回到分段时域。三相输电和旋转磁场仍可用相量描述。
+
+层级 \textbar{} 内容 \textbar{} 阅读定位 \textbar{}
+
+基础必讲 \textbar{}
+相量定义、复阻抗、串并联网络、交流功率、谐振、理想变压器、整流滤波、稳压、三相连接与输电
+\textbar{} 正弦稳态交流电路和电能变换的复赛计算 \textbar{}\\
+拔高选讲与决赛拓展 \textbar{} 一般网络、完整 RLC
+暂态、耦合折算、非理想变压器、纹波近似、三相功率、功率因数补偿、旋转磁场、感应电动机与滑差
+\textbar{} 处理初始条件、频率响应、非理想器件、综合供电与机电转换问题
+\textbar{}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H00.pdf}}
+\par\smallskip{\small 图 M6-H00：模块六：按物理条件选择计算方法}
+\end{center}
+\end{minipage}\par
+
+\section{专题五十五：正弦稳态的相量表示（基础必讲）}\label{m6:ux4e13ux9898ux4e94ux5341ux4e94ux6b63ux5f26ux7a33ux6001ux7684ux76f8ux91cfux8868ux793aux57faux7840ux5fc5ux8bb2}
+
+模块六：交流电路与电能变换 · 逐题图解修订版
+
+本专题使用有效值相量，统一采用余弦与 \(e^{j\omega t}\) 约定。题目编号
+T55-001 至 T55-013；每题的图和可编辑 TikZ 源码同号。
+
+\textbf{阅读准备：复数保存幅值和相位} 复数 \(z=Ae^{j\phi}\) 的模 \(A\)
+表示大小，辐角 \(\phi\)
+表示相位。相量法只对同一角频率的正弦量统一去掉公共因子
+\(e^{j\omega t}\)；不同频率必须分别计算。本文使用有效值相量，因此峰值等于
+\(\sqrt2\) 倍有效值。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{阅读准备：从瞬时表达式读出相量〔T55-001〕}
+
+在角频率 \(\omega>0\) 的正弦稳态下，某端口按指定正方向测得
+\[u(t)=10\sqrt2\cos(\omega t+\pi/6)\,\mathrm V.\] 采用余弦基准和
+\(e^{j\omega t}\)
+约定。写出电压的有效值、峰值、初相及有效值相量，并说明在 \(t=0\)
+时如何由旋转复向量得到瞬时电压。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-001.pdf}}
+\par\smallskip{\small 图 T55-001：准备例：有效值相量与峰值向量}
+\end{center}
+\end{minipage}\par
+
+图 T55-001 中 \(OP\) 表示静止的有效值相量，故
+\[U=10\,\mathrm V,\qquad U_m=10\sqrt2\,\mathrm V,\qquad \phi=30^{\circ},\]
+\[\boxed{\widetilde U=10\angle30^{\circ}=(5\sqrt3+j5)\,\mathrm V.}\]
+外侧 \(OQ\) 的模为 \(10\sqrt2\,\mathrm V\)，它在 \(t=0\)
+与实轴的夹角也是 \(30^{\circ}\)。\(Q\) 在实轴上的投影为
+\[u(0)=10\sqrt2\cos30^{\circ}=5\sqrt6\,\mathrm V.\] 随时间旋转的是
+\(\sqrt2\widetilde Ue^{j\omega t}\)；相量 \(OP\) 本身不旋转。
+
+相量法省去同频正弦量共有的时间因子
+\(e^{j\omega t}\)，只保留有效值与初相。复阻抗把元件的微分关系写成相量之间的代数关系。
+
+本节仍采用有效值相量和 \(e^{j\omega t}\)
+约定。所讨论的电路均为线性、时不变的集总参数电路，并已进入角频率为
+\(\omega>0\) 的正弦稳态。
+
+\subsection{一、相量的定义与几何意义}\label{m6:ux4e00ux76f8ux91cfux7684ux5b9aux4e49ux4e0eux51e0ux4f55ux610fux4e49}
+
+\subsubsection{1.
+从旋转复向量到静止相量}\label{m6:ux4eceux65cbux8f6cux590dux5411ux91cfux5230ux9759ux6b62ux76f8ux91cf}
+
+设
+
+\[
+a(t)=\sqrt2A\cos(\omega t+\phi).
+\]
+
+由欧拉公式，
+
+\[
+a(t)=\sqrt2\operatorname{Re}\!\left\{Ae^{j\phi}e^{j\omega t}\right\}.
+\]
+
+定义有效值相量
+
+\[
+\boxed{\widetilde A=Ae^{j\phi}=A\angle\phi},
+\]
+
+于是
+
+\[
+\boxed{a(t)=\sqrt2\operatorname{Re}\!\left\{\widetilde A e^{j\omega t}\right\}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T01.pdf}}
+\par\smallskip{\small 图 T01：旋转峰值向量的实轴投影}
+\end{center}
+\end{minipage}\par
+
+图 T01 中的旋转复向量为 \(\sqrt2\widetilde A e^{j\omega t}\)，其模是峰值
+\(\sqrt2A\)；静止相量 \(\widetilde A\) 的模则是有效值
+\(A\)。二者不能混为一谈。相量也不是空间中的电场、磁场或导线方向，而是复平面中的计算对象。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T02.pdf}}
+\par\smallskip{\small 图 T02：静止相量保存有效值与初相}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{例1：负初相与两种幅值〔T55-002〕}
+
+某正弦稳态电压为
+\[u(t)=24\sqrt2\cos\!\left[(50\,\mathrm{rad/s})t-2\pi/9\right]\,\mathrm V.\]
+取原式的时间原点及余弦基准，求角频率、有效值相量及峰值；在复平面中标出静止相量和
+\(t=0\) 的旋转峰值向量，说明负初相的几何含义。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-002.pdf}}
+\par\smallskip{\small 图 T55-002：例1：第四象限的电压相量}
+\end{center}
+\end{minipage}\par
+
+角频率为 \(\omega=50\,\mathrm{rad/s}\)，初相为
+\(-2\pi/9=-40^{\circ}\)。图 T55-002 的 \(OP\)
+位于第四象限，即从正实轴顺时针转 \(40^{\circ}\)，因此
+\[\boxed{\widetilde U=24\angle(-40^{\circ})\,\mathrm V,\qquad U_m=24\sqrt2\,\mathrm V.}\]
+其中 \(OP\) 的模为 \(24\,\mathrm V\)，\(OQ\) 的模为
+\(24\sqrt2\,\mathrm V\)；二者方向相同，长度相差 \(\sqrt2\)
+倍。第四象限表示相对余弦基准滞后
+\(40^{\circ}\)，不能把负相位当作负有效值。
+
+\subsubsection{2.
+为什么必须同频}\label{m6:ux4e3aux4ec0ux4e48ux5fc5ux987bux540cux9891}
+
+对两个正弦量
+
+\[
+a_k(t)=\sqrt2A_k\cos(\omega_k t+\phi_k),
+\]
+
+其瞬时相位差为
+
+\[
+\Delta\phi(t)
+=(\omega_2-\omega_1)t+(\phi_2-\phi_1).
+\]
+
+只有 \(\omega_1=\omega_2\)
+时，相位差才是常量，两个旋转向量才能在共同旋转的参考系中保持相对静止。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T03.pdf}}
+\par\smallskip{\small 图 T03：固定相量夹角要求同一频率}
+\end{center}
+\end{minipage}\par
+
+因此：
+
+\begin{itemize}
+\tightlist
+\item
+  同频正弦量可以放在同一张静止相量图中；
+\item
+  不同频率的分量必须逐频率求解，最后回到时域叠加；
+\item
+  直流分量相当于 \(\omega=0\) 的独立问题；
+\item
+  开关暂态不属于正弦稳态相量。
+\end{itemize}
+
+\subsection{二、同频相量的合成与参考相量}\label{m6:ux4e8cux540cux9891ux76f8ux91cfux7684ux5408ux6210ux4e0eux53c2ux8003ux76f8ux91cf}
+
+\subsubsection{1.
+相量相加对应正弦量相加}\label{m6:ux76f8ux91cfux76f8ux52a0ux5bf9ux5e94ux6b63ux5f26ux91cfux76f8ux52a0}
+
+设两个同频正弦量为
+
+\[
+a_k(t)=\sqrt2\operatorname{Re}\!\left\{\widetilde A_k e^{j\omega t}\right\}.
+\]
+
+利用取实部运算的线性性，
+
+\[
+\begin{aligned}
+a_1(t)+a_2(t)
+&=\sqrt2\operatorname{Re}\!\left\{(\widetilde A_1+\widetilde A_2)e^{j\omega t}\right\}.
+\end{aligned}
+\]
+
+故合成相量为
+
+\[
+\boxed{\widetilde A=\widetilde A_1+\widetilde A_2}.
+\]
+
+若
+
+\[
+\widetilde A_k=A_k(\cos\phi_k+j\sin\phi_k),
+\]
+
+则
+
+\[
+A_x=A_1\cos\phi_1+A_2\cos\phi_2,
+\]
+
+\[
+A_y=A_1\sin\phi_1+A_2\sin\phi_2,
+\]
+
+\[
+\boxed{A=\sqrt{A_x^2+A_y^2}},
+\qquad
+\boxed{\phi=\operatorname{atan2}(A_y,A_x)}.
+\]
+
+由余弦定理还可得
+
+\[
+\boxed{A^2=A_1^2+A_2^2+2A_1A_2\cos(\phi_2-\phi_1)}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T04.pdf}}
+\par\smallskip{\small 图 T04：同频合成：首尾相接与分量相加}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{例2：同频量的直角合成〔T55-003〕}
+
+两电压按同一正方向相加，且 \[u_1(t)=6\sqrt2\cos\omega t\,\mathrm V,\quad
+u_2(t)=8\sqrt2\cos(\omega t+\pi/2)\,\mathrm V,\quad\omega>0.\] 求
+\(u(t)=u_1(t)+u_2(t)\) 的有效值相量和瞬时表达式，并指出合成电压相对
+\(u_1\) 的相位关系。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-003.pdf}}
+\par\smallskip{\small 图 T55-003：例2：两个同频电压相量相加}
+\end{center}
+\end{minipage}\par
+
+图 T55-003 左侧以 \(\widetilde U_1\) 为实轴，\(\widetilde U_2\)
+竖直向上。右侧把第二个相量平移到 \(A\)，于是
+\(OA=6\,\mathrm V\)、\(AB=8\,\mathrm V\)，合相量为 \(OB\)：
+\[\widetilde U=6+j8=10\angle53.13^{\circ}\,\mathrm V.\] 直角三角形
+\(OAB\) 给出
+\(U=\sqrt{6^2+8^2}=10\,\mathrm V\)，\(\phi=\arctan(8/6)=53.13^{\circ}\)。恢复公共时间因子后，
+\[\boxed{u(t)=10\sqrt2\cos(\omega t+0.92730)\,\mathrm V.}\] 相位
+\(0.92730\,\mathrm{rad}\) 等于 \(53.13^{\circ}\)，故总电压超前
+\(u_1\)。图 T55-003-P 的横轴为
+\(x=\omega t\)，三条曲线满足每个时刻的代数和关系；波形峰值为
+\(10\sqrt2\,\mathrm V\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-003-P.pdf}}
+\par\smallskip{\small 图 T55-003-P：例2过程：合成相量回到时域}
+\end{center}
+\end{minipage}\par
+
+\subsubsection{2.
+参考相量的选择}\label{m6:ux53c2ux8003ux76f8ux91cfux7684ux9009ux62e9}
+
+若所有相量同时乘以 \(e^{-j\alpha}\)，则
+
+\[
+\widetilde A_k'=\widetilde A_ke^{-j\alpha}.
+\]
+
+所有相量整体旋转
+\(-\alpha\)，但任意两相量之间的夹角和长度均保持不变。若取
+\(\alpha=\arg\widetilde U\)，便可令
+
+\[
+\widetilde U'=U\angle0^{\circ}=U,
+\]
+
+即把电压选作零相位参考。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T05.pdf}}
+\par\smallskip{\small 图 T05：改变参考：相位差保持不变}
+\end{center}
+\end{minipage}\par
+
+选择参考相量等价于改变相位零点。绝对初相依赖时间原点，幅值、相位差、功率和电路关系则不变。若最后需要相对于原时间原点的初相，应把共同转角
+\(\alpha\) 加回去。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{例3：整体改变零相位参考〔T55-004〕}
+
+在同一角频率下，某端口电压、电流的有效值相量为
+\[\widetilde U=100\angle30^{\circ}\,\mathrm V,\qquad
+\widetilde I=2\angle(-20^{\circ})\,\mathrm A.\]
+把电压选作零相位参考，写出新的两个相量，判断电流与电压的相位先后；再用原来的时间原点写出
+\(i(t)\)。电压与电流按各自尺度画图。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-004.pdf}}
+\par\smallskip{\small 图 T55-004：例3：全部相量共同改变参考}
+\end{center}
+\end{minipage}\par
+
+图 T55-004 两个面板中，相量均整体顺时针转 \(30^{\circ}\)，即同乘
+\(e^{-j30^{\circ}}\)：
+\[\widetilde U^{\prime}=100\angle0^{\circ}\,\mathrm V,\qquad
+\widetilde I^{\prime}=2\angle(-50^{\circ})\,\mathrm A.\]
+右图中电流比电压顺时针偏转 \(50^{\circ}\)，故电流滞后电压
+\(50^{\circ}\)。改变参考不会改变这个夹角，也不会改变有效值。电压和电流量纲不同，图中箭长不能直接比较大小。
+要恢复原时间坐标中的波形，应把参考旋转角补回去：\(\widetilde I=\widetilde I^{\prime}e^{j30^{\circ}}\)。于是
+\[\boxed{i(t)=2\sqrt2\cos(\omega t-\pi/9)\,\mathrm A.}\]
+若直接把新相量的 \(-50^{\circ}\)
+写回原时间坐标，会把波形的时间原点改掉。
+
+\subsection{三、相量形式基尔霍夫定律的推导依据}\label{m6:ux4e09ux76f8ux91cfux5f62ux5f0fux57faux5c14ux970dux592bux5b9aux5f8bux7684ux63a8ux5bfcux4f9dux636e}
+
+\subsubsection{1.
+相量表示的唯一性}\label{m6:ux76f8ux91cfux8868ux793aux7684ux552fux4e00ux6027}
+
+设 \(\omega>0\)。若某个复数 \(C=a+jb\) 满足
+
+\[
+\operatorname{Re}\!\left\{Ce^{j\omega t}\right\}=0
+\]
+
+对所有 \(t\) 都成立，则
+
+\[
+a\cos\omega t-b\sin\omega t=0.
+\]
+
+依次取 \(t=0\) 和 \(t=\pi/(2\omega)\)，得到 \(a=0\)、\(b=0\)，故
+\(C=0\)。因此，同频正弦恒等式中的复振幅是唯一的。\(\omega=0\)
+时不能这样证明，应按直流电路另行处理。
+
+这一步是从时域方程``去掉公共因子''而得到相量方程的严格依据。
+
+\subsubsection{2. KCL
+的相量形式}\label{m6:kcl-ux7684ux76f8ux91cfux5f62ux5f0f}
+
+在某节点，按预先规定的支路参考方向，时域 KCL 为
+
+\[
+\sum_k s_k i_k(t)=0,
+\qquad s_k=\pm1.
+\]
+
+代入同频相量表示：
+
+\[
+\sqrt2\operatorname{Re}\!\left\{
+\left(\sum_k s_k\widetilde I_k\right)e^{j\omega t}
+\right\}=0.
+\]
+
+由唯一性可得
+
+\[
+\boxed{\sum_k s_k\widetilde I_k=0}.
+\]
+
+\subsubsection{3. KVL
+的相量形式}\label{m6:kvl-ux7684ux76f8ux91cfux5f62ux5f0f}
+
+沿闭合回路按统一绕行方向写时域 KVL，同理得到
+
+\[
+\boxed{\sum_k s_k\widetilde U_k=0}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T06.pdf}}
+\par\smallskip{\small 图 T06：基尔霍夫定律对应有向多边形闭合}
+\end{center}
+\end{minipage}\par
+
+KCL、KVL 中相加的是带方向、带相位的复数，而不是各支路有效值的大小。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{例4：节点电流的有向和〔T55-005〕}
+
+三个支路在节点 \(N\) 相接，规定 \(i_1,i_2\) 流入节点，\(i_3\)
+流出节点。三者同频，且
+\[\widetilde I_1=4\angle0^{\circ}\,\mathrm A,\qquad
+\widetilde I_2=3\angle90^{\circ}\,\mathrm A.\]
+求流出电流的有效值相量，说明电流正方向如何决定方程中的符号。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-005.pdf}}
+\par\smallskip{\small 图 T55-005：例4：节点电流的有向合成}
+\end{center}
+\end{minipage}\par
+
+图 T55-005 左侧的方向给出 \(i_1+i_2-i_3=0\)，同频稳态下即
+\[\widetilde I_3=\widetilde I_1+\widetilde I_2=4+j3.\] 右图中 \(OA\)
+对应 \(4\,\mathrm A\)，\(AB\) 对应 \(j3\,\mathrm A\)，所以 \(OB\)
+就是流出电流相量：
+\[\boxed{\widetilde I_3=5\angle36.87^{\circ}\,\mathrm A.}\] 若把 \(i_3\)
+的正方向改为流入，则新相量为 \(-\widetilde I_3\)，其相位相差
+\(180^{\circ}\)；电流实际状态没有改变。模长 \(4+3=7\,\mathrm A\)
+不能代替复数和的模 \(5\,\mathrm A\)。
+
+\subsubsection{4.
+与微分本构关系的接口}\label{m6:ux4e0eux5faeux5206ux672cux6784ux5173ux7cfbux7684ux63a5ux53e3}
+
+相量法之所以能处理电感和电容，是因为在线性运算下取实部与求导可以交换：
+
+\[
+\frac{d}{dt}
+\left[\sqrt{2}\operatorname{Re}\!\left\{\widetilde A e^{j\omega t}\right\}\right]
+=\sqrt{2}\operatorname{Re}\!\left\{j\omega\widetilde A e^{j\omega t}\right\}.
+\]
+
+因此
+
+\[
+\frac d{dt}\longleftrightarrow j\omega,
+\qquad
+\int dt\longleftrightarrow\frac1{j\omega},
+\]
+
+从而
+
+\[
+\boxed{Z_R=R},
+\qquad
+\boxed{Z_L=j\omega L},
+\qquad
+\boxed{Z_C=\frac1{j\omega C}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T07.pdf}}
+\par\smallskip{\small 图 T07：求导：乘以角频率并超前九十度}
+\end{center}
+\end{minipage}\par
+
+积分映射不包含积分常数；直流分量和暂态必须另行求解。
+
+\subsection{四、相量图的标准作图方法}\label{m6:ux56dbux76f8ux91cfux56feux7684ux6807ux51c6ux4f5cux56feux65b9ux6cd5}
+
+\subsubsection{1.
+串联电路：取公共电流为参考}\label{m6:ux4e32ux8054ux7535ux8defux53d6ux516cux5171ux7535ux6d41ux4e3aux53c2ux8003}
+
+串联电路各元件电流相同，通常令
+
+\[
+\widetilde I=I\angle0^{\circ}.
+\]
+
+对串联 \(RLC\) 电路，
+
+\[
+\widetilde U_R=IR,
+\qquad
+\widetilde U_L=jI\omega L,
+\qquad
+\widetilde U_C=-j\frac I{\omega C}.
+\]
+
+故
+
+\[
+\widetilde U
+=\widetilde U_R+\widetilde U_L+\widetilde U_C.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T08.pdf}}
+\par\smallskip{\small 图 T08：串联 RLC：以公共电流为参考}
+\end{center}
+\end{minipage}\par
+
+由图 T08 的终点分量直接得到
+
+\[
+\boxed{U=\sqrt{U_R^2+(U_L-U_C)^2}},
+\]
+
+\[
+\boxed{\phi=\operatorname{atan2}(U_L-U_C,U_R)}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{例5：串联 RLC 的端电压〔T55-006〕}
+
+理想电阻 \(R\)、电感 \(L\)、电容 \(C\) 串联，处于角频率 \(\omega>0\)
+的正弦稳态。按电流流入端为正的关联参考方向，各元件电压有效值为
+\[U_R=12\,\mathrm V,\quad U_L=20\,\mathrm V,\quad U_C=11\,\mathrm V.\]
+取公共电流为零相位参考，求电源端电压的有效值相量及有效值，判断电路整体呈感性还是容性。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-006.pdf}}
+\par\smallskip{\small 图 T55-006：例5：串联电路的电压相量}
+\end{center}
+\end{minipage}\par
+
+图 T55-006 左侧电流依次流经
+\(R,L,C\)，三个元件电压均取左正右负。右侧以电流相位为实轴，电阻、电感、电容电压依次为
+\[\widetilde U_R=12,\qquad \widetilde U_L=j20,\qquad \widetilde U_C=-j11\quad(\mathrm V).\]
+从 \(O\) 到 \(A\)、\(B\)、\(D\) 首尾相接，\(BD\) 向下长
+\(11\,\mathrm V\)，故终点 \(D\) 高度为 \(20-11=9\,\mathrm V\)。KVL 得
+\[\boxed{\widetilde U=12+j9=15\angle36.87^{\circ}\,\mathrm V.}\]
+总电压超前公共电流 \(36.87^{\circ}\)，整体呈感性。三个电压的模的算术和为
+\(43\,\mathrm V\)，它不是此电路的电源电压有效值。
+
+\subsubsection{2.
+并联电路：取公共电压为参考}\label{m6:ux5e76ux8054ux7535ux8defux53d6ux516cux5171ux7535ux538bux4e3aux53c2ux8003}
+
+并联电路各支路电压相同，通常令
+
+\[
+\widetilde U=U\angle0^{\circ}.
+\]
+
+对理想并联 \(RLC\) 电路，
+
+\[
+\widetilde I_R=\frac UR,
+\qquad
+\widetilde I_C=j\omega CU,
+\qquad
+\widetilde I_L=-j\frac U{\omega L}.
+\]
+
+干路电流为
+
+\[
+\widetilde I
+=\widetilde I_R+\widetilde I_C+\widetilde I_L.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{例6：并联 RLC 的干路电流〔T55-007〕}
+
+理想电阻、电感、电容并联接在同一正弦电压源上。规定各支路电流从上端节点
+\(A\) 流向下端节点 \(B\)，干路电流流入 \(A\)。支路电流有效值为
+\[I_R=4\,\mathrm A,\quad I_C=6\,\mathrm A,\quad I_L=3\,\mathrm A.\]
+取端电压 \(\widetilde U=U\angle0^{\circ}\)
+为参考，求干路电流相量并判断相位关系和电路性质。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-007.pdf}}
+\par\smallskip{\small 图 T55-007：例6：并联电路的电流相量}
+\end{center}
+\end{minipage}\par
+
+图 T55-007 的三个支路具有相同的 \(u_{AB}\)；电阻电流同相，电容电流超前
+\(90^{\circ}\)，电感电流滞后 \(90^{\circ}\)。因此
+\[\widetilde I_R=4,\quad\widetilde I_C=j6,\quad\widetilde I_L=-j3\quad(\mathrm A).\]
+右图的首尾路径 \(O\to A_1\to B_1\to D_1\) 将虚轴分量相减，干路电流为
+\[\boxed{\widetilde I=4+j(6-3)=5\angle36.87^{\circ}\,\mathrm A.}\]
+终点在实轴上方，故干路电流超前端电压
+\(36.87^{\circ}\)，整体呈容性。支路中向下的参考电流箭头是电路方向，不能与复平面中表示相位的箭头混同。
+
+\subsubsection{3.
+作图流程与尺度检查}\label{m6:ux4f5cux56feux6d41ux7a0bux4e0eux5c3aux5ea6ux68c0ux67e5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  先标明所有电压、电流的参考方向。
+\item
+  找出串联中的公共电流或并联中的公共电压，并把它放在实轴上。
+\item
+  根据元件关系确定其余相量相对于参考相量的方向。
+\item
+  按 KCL 或 KVL 首尾相接，不能把有效值大小直接相加。
+\item
+  用水平、竖直分量求模和相位，反正切必须结合象限。
+\item
+  最后回到时域，并检查极限、量纲和相位先后关系。
+\end{enumerate}
+
+只有已知相位关系时，相量图才是定量工具；若元件并非理想元件，必须先建立正确模型，不能凭``感性向上、容性向下''机械作图。
+
+\subsection{五、实际线圈与电容并联的相量图}\label{m6:ux4e94ux5b9eux9645ux7ebfux5708ux4e0eux7535ux5bb9ux5e76ux8054ux7684ux76f8ux91cfux56fe}
+
+实际线圈可等效为内阻 \(r\) 与电感 \(L\) 串联。它与理想电容 \(C\)
+并联时，取端电压
+
+\[
+\widetilde U=U
+\]
+
+为参考相量。线圈支路电流为
+
+\[
+\begin{aligned}
+\widetilde I_L
+&=\frac{U}{r+j\omega L}\\
+&=\frac{Ur}{r^2+(\omega L)^2}
+-j\frac{U\omega L}{r^2+(\omega L)^2}.
+\end{aligned}
+\]
+
+电容支路电流为
+
+\[
+\widetilde I_C=j\omega CU.
+\]
+
+因此干路电流
+
+\[
+\widetilde I
+=\frac{Ur}{r^2+(\omega L)^2}
++jU\left[
+\omega C-\frac{\omega L}{r^2+(\omega L)^2}
+\right].
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T09.pdf}}
+\par\smallskip{\small 图 T09：实际线圈：电容只补偿无功分量}
+\end{center}
+\end{minipage}\par
+
+图 T09
+中，电流相量首尾相接后的终点位于实轴。当虚部为零时，干路电流与电压同相，本节称此状态为并联谐振。此时电容电流抵消线圈电流的无功分量，而不是抵消线圈支路电流的全部。
+
+\subsection{六、相量法的使用条件与常见错误}\label{m6:ux516dux76f8ux91cfux6cd5ux7684ux4f7fux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux9519ux8bef}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{峰值和有效值混用。}
+  本节相量的模为有效值；旋转复向量的模为峰值。
+\item
+  \textbf{把静止相量当作真实旋转向量。} 相量是去掉 \(e^{j\omega t}\)
+  后的复振幅；恢复瞬时值时使用的旋转峰值向量为
+  \(\sqrt2\widetilde A e^{j\omega t}\)。
+\item
+  \textbf{把异频量画在同一张静止相量图中。}
+  异频向量夹角随时间变化，必须逐频率处理。
+\item
+  \textbf{把有效值大小直接相加。} KCL、KVL
+  要求复数相量的有向和，而不是模的和。
+\item
+  \textbf{参考方向与正负号脱节。}
+  相量方程中的正负必须服从图中预先规定的支路和回路方向。
+\item
+  \textbf{任意改变单个相量的零相位。}
+  参考相量改变时，所有相量必须整体旋转相同角度。
+\item
+  \textbf{只用普通反正切而不判象限。} 应优先使用
+  \(\operatorname{atan2}(y,x)\)，或结合实部、虚部符号判断。
+\item
+  \textbf{用相量法求暂态。}
+  相量只给出特定频率的稳态特解，不能携带电容初始电压、电感初始电流等信息。
+\item
+  \textbf{把实际线圈当作纯电感。}
+  内阻使线圈电流既有有功分量又有无功分量，并改变并联谐振条件。
+\end{enumerate}
+
+\subsection{七、练习与解答}\label{m6:ux4e03ux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{作业一：合成相量与余弦定理〔T55-008〕}
+
+两个同频电压按同一正方向相加：
+\[u_1(t)=6\sqrt2\cos\omega t\,\mathrm V,\qquad
+u_2(t)=8\sqrt2\cos(\omega t+\pi/2)\,\mathrm V,\quad\omega>0.\]
+求总电压的有效值相量和时域表达式；写出两相量夹角，并用余弦定理独立检验总电压有效值。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-008.pdf}}
+\par\smallskip{\small 图 T55-008：作业一：直角合成与模长检验}
+\end{center}
+\end{minipage}\par
+
+图 T55-008 左侧两相量的夹角为 \(90^{\circ}\)，右侧三角形的直角在
+\(A\)。写成直角坐标得 \[\widetilde U_1=6,\quad\widetilde U_2=j8,\quad
+\widetilde U=6+j8=10\angle53.13^{\circ}\,\mathrm V.\] 以左图的同起点夹角
+\(90^{\circ}\) 代入合成公式，
+\[U^2=6^2+8^2+2\cdot6\cdot8\cos90^{\circ}=100\,\mathrm V^2.\] 因此
+\(U=10\,\mathrm V\)，与右图 \(OB\)
+的勾股结果相同；初相在第一象限。时域结果为
+\[\boxed{u(t)=10\sqrt2\cos(\omega t+0.92730)\,\mathrm V.}\]
+一般情形中，首尾三角形的内角是同起点夹角的补角；这里两者恰好都是
+\(90^{\circ}\)。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{作业二：节点闭合与时域检验〔T55-009〕}
+
+节点 \(N\) 处规定 \(i_1,i_2\) 流入，\(i_3\) 流出。已知同频稳态电流
+\[\widetilde I_1=4\angle0^{\circ}\,\mathrm A,\qquad
+\widetilde I_2=3\angle90^{\circ}\,\mathrm A,\quad\omega>0.\] 求
+\(\widetilde I_3\) 与 \(i_3(t)\)，并在 \(t=0\)
+时检验节点电流的瞬时守恒。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-009.pdf}}
+\par\smallskip{\small 图 T55-009：作业二：节点守恒与相量闭合}
+\end{center}
+\end{minipage}\par
+
+图 T55-009 中的节点方向确定
+\(\widetilde I_3=\widetilde I_1+\widetilde I_2\)。右图的三角形给出
+\[\widetilde I_3=4+j3=5\angle36.87^{\circ}\,\mathrm A,\]
+\[\boxed{i_3(t)=5\sqrt2\cos(\omega t+0.64350)\,\mathrm A.}\] 图
+T55-009-P 用 \(x=\omega t\) 展示三个电流。\(x=0\)
+时，\(i_1(0)=4\sqrt2\,\mathrm A\)，\(i_2(0)=0\)，且
+\[i_3(0)=5\sqrt2\cos(\arctan(3/4))=4\sqrt2\,\mathrm A.\] 故
+\(i_1(0)+i_2(0)=i_3(0)\)。事实上
+\(i_2(t)=-3\sqrt2\sin\omega t\)，所以等式对全部时刻成立。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-009-P.pdf}}
+\par\smallskip{\small 图 T55-009-P：作业二过程：瞬时节点电流守恒}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{作业三：由电压图求等效阻抗〔T55-010〕}
+
+理想串联 \(RLC\) 电路已进入正弦稳态。公共电流有效值
+\(I=2\,\mathrm A\)，取其相位为零；三个元件均采用关联参考方向，测得
+\[U_R=24\,\mathrm V,\quad U_L=20\,\mathrm V,\quad U_C=2\,\mathrm V.\]
+求端电压相量及有效值、电压与电流的相位差，并求总阻抗的电阻部分
+\(R_{\rm eq}\) 和电抗部分 \(X_{\rm eq}\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-010.pdf}}
+\par\smallskip{\small 图 T55-010：作业三：端电压与等效阻抗}
+\end{center}
+\end{minipage}\par
+
+图 T55-010 的 \(OA\) 是 \(24\,\mathrm V\)，\(AB\) 向上为
+\(20\,\mathrm V\)，\(BD\) 向下为 \(2\,\mathrm V\)。终点 \(D\) 的坐标为
+\((24,18)\,\mathrm V\)，所以
+\[\boxed{\widetilde U=24+j18=30\angle36.87^{\circ}\,\mathrm V.}\]
+端电压超前电流 \(36.87^{\circ}\)。由于
+\(\widetilde I=2\angle0^{\circ}\,\mathrm A\)，
+\[Z_{\rm eq}=\frac{\widetilde U}{\widetilde I}=12+j9\,\Omega,\]
+\[\boxed{R_{\rm eq}=12\,\Omega,\qquad X_{\rm eq}=9\,\Omega.}\] 其中
+\(X_L=20/2=10\,\Omega\)，\(X_C=-2/2=-1\,\Omega\)，相加确为
+\(9\,\Omega\)；图中向上的净分量说明总体呈感性。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{作业四：并联支路电流合成〔T55-011〕}
+
+理想 \(R,L,C\) 三支路并联，端电压为
+\(\widetilde U=U\angle0^{\circ}\)。各支路电流均从上端 \(A\) 指向下端
+\(B\)，其有效值为
+\[I_R=4\,\mathrm A,\qquad I_C=6\,\mathrm A,\qquad I_L=3\,\mathrm A.\]
+求干路电流的有效值相量、有效值和相对电压的相位差，解释为何不能把三个支路电流的有效值直接相加。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-011.pdf}}
+\par\smallskip{\small 图 T55-011：作业四：并联支路电流的合成}
+\end{center}
+\end{minipage}\par
+
+图 T55-011 中，电流 \(I_C\) 的相量向上，\(I_L\)
+的相量向下；两者正交于电阻电流。沿右图 \(O\to A_1\to B_1\to D_1\)
+合成，得 \[\widetilde I=4+j6-j3=4+j3\,\mathrm A.\] 于是
+\[\boxed{I=\sqrt{4^2+3^2}=5\,\mathrm A,\qquad
+\widetilde I=5\angle36.87^{\circ}\,\mathrm A.}\] 干路电流超前电压
+\(36.87^{\circ}\)，电路呈容性。KCL
+要求瞬时电流的代数和，变换到相量后要求复数的有向和；由于相位不同，\(4+6+3=13\,\mathrm A\)
+不是干路电流有效值。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{作业五：实际线圈与电容的并联谐振〔T55-012〕}
+
+实际线圈等效为内阻 \(r>0\) 与电感 \(L>0\) 串联，该支路与理想电容 \(C>0\)
+并联，接在理想正弦电压源上。端电压有效值为 \(U\)，角频率
+\(\omega>0\)，取
+\(\widetilde U=U\angle0^{\circ}\)；线圈、电容支路电流均从 \(A\) 流向
+\(B\)，干路电流流入
+\(A\)。本题把``并联谐振''定义为输入导纳虚部为零，即干路电流与端电压同相。
+
+（1）保持 \(r,L,\omega\) 不变，调节 \(C\)，求谐振条件。
+
+（2）求此时干路电流有效值与输入等效电阻，说明小损耗近似成立的条件。
+
+（3）保持 \(r,L,C\) 不变而改变频率，求正的谐振角频率及其存在条件。
+
+（4）当
+\(r=10\,\Omega\)、\(L=0.10\,\mathrm H\)、\(\omega=1000\,\mathrm{rad/s}\)、\(U=100\,\mathrm V\)
+时，求谐振电容、干路电流、线圈及电容支路电流相量，说明被抵消的是哪部分电流。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-012.pdf}}
+\par\smallskip{\small 图 T55-012：作业五：实际线圈与电容并联}
+\end{center}
+\end{minipage}\par
+
+\textbf{（1）列导纳。} 图 T55-012 左侧线圈支路含串联的
+\(r,L\)，右侧显示其电流不沿负虚轴。记 \(D=r^2+(\omega L)^2\)，则
+\[\widetilde I_L=\frac{U}{r+j\omega L}=\frac{Ur}{D}-j\frac{U\omega L}{D},\qquad
+\widetilde I_C=j\omega CU.\] 在节点 \(A\) 应用 KCL：
+\[\widetilde I=U\left\{\frac rD+j\left[\omega C-\frac{\omega L}{D}\right]\right\}.\]
+图中电容电流向上，补偿线圈电流向下的虚部。由
+\(\operatorname{Im}\widetilde I=0\)，且 \(\omega>0\)，得
+\[\boxed{C=\frac{L}{r^2+(\omega L)^2}.}\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-012-P.pdf}}
+\par\smallskip{\small 图 T55-012-P：数值谐振：干路只剩有功电流}
+\end{center}
+\end{minipage}\par
+
+\textbf{（2）保留有功分量。} 谐振时干路电流就是图 T55-012-P 中水平的
+\(OA\)，因此 \[\boxed{I=\frac{Ur}{r^2+(\omega L)^2},\qquad
+R_{\rm in}=\frac UI=\frac{r^2+(\omega L)^2}{r}=\frac{L}{rC}.}\]
+最后一个等号只在上述谐振条件下成立。若 \(r\ll\omega L\)，可近似为
+\[R_{\rm in}\simeq\frac{\omega^2L^2}{r},\qquad
+I\simeq\frac{Ur}{\omega^2L^2}.\] 小损耗条件不能省略；\(r=0\)
+的理想极限中，谐振输入电流为零，输入阻抗趋于无穷。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-012-Q.pdf}}
+\par\smallskip{\small 图 T55-012-Q：固定电容：正频率的同相条件}
+\end{center}
+\end{minipage}\par
+
+\textbf{（3）固定电容改变频率。} 将（1）改写为
+\[\omega_0^2=\frac1{LC}-\frac{r^2}{L^2},\]
+\[\boxed{\omega_0=\sqrt{\frac1{LC}-\left(\frac rL\right)^2},\qquad
+0<r<\sqrt{\frac LC}.}\] 图 T55-012-Q
+画出固定参数时电纳虚部的过零。只有严格满足 \(r^2<L/C\)
+才有正频率根；等号仅给出
+\(\omega_0=0\)，不属于本题的正弦谐振。这里求的是电流与电压同相的频率；有损电路的输入阻抗模取极大值的频率不必与它重合。
+
+\textbf{（4）数值。} \(\omega L=100\,\Omega\)，\(D=10100\,\Omega^2\)，故
+\[\boxed{C=9.90099\,\mu\mathrm F,\qquad I=0.0990099\,\mathrm A,\qquad R_{\rm in}=1010\,\Omega.}\]
+两个支路相量为 \[\widetilde I_L=(0.0990099-j0.990099)\,\mathrm A
+=0.995037\angle(-84.2894^{\circ})\,\mathrm A,\]
+\[\widetilde I_C=j0.990099\,\mathrm A.\] 图 T55-012-P
+中，\(\widetilde I_L\) 先到达第四象限的 \(B\)，再接竖直向上的
+\(BA\)，终点回到实轴上的 \(A\)。电容只抵消
+\(-j0.990099\,\mathrm A\)，有功分量 \(0.0990099\,\mathrm A\)
+留在干路中；不能把约 \(0.995\,\mathrm A\) 的线圈电流全部消掉。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{作业六：不同频率分别处理〔T55-013〕}
+
+某端口的电压为 \[u(t)=6\sqrt2\cos[(100\,\mathrm{rad/s})t]\,\mathrm V
++8\sqrt2\cos[(200\,\mathrm{rad/s})t+\pi/6]\,\mathrm V.\]
+判断能否把两项直接合并成一个静止相量，并说明理由；分别写出两项的角频率与有效值相量。如要求电路对该电压的稳态响应，应怎样使用相量法？假设电路为线性、时不变的集总参数电路。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-013.pdf}}
+\par\smallskip{\small 图 T55-013：作业六：不同频率的相量分开表示}
+\end{center}
+\end{minipage}\par
+
+图 T55-013 将两项放在各自频率的复平面中。第一项和第二项分别对应
+\[\omega_1=100\,\mathrm{rad/s},\quad\widetilde U_1=6\angle0^{\circ}\,\mathrm V;\]
+\[\omega_2=200\,\mathrm{rad/s},\quad\widetilde U_2=8\angle30^{\circ}\,\mathrm V.\]
+若把旋转向量画在同一平面，其瞬时夹角为
+\[\Delta\phi(t)=(\omega_2-\omega_1)t+\pi/6
+=(100\,\mathrm{rad/s})t+\pi/6,\]
+它随时间改变，不能像同频图那样保留一个固定三角形。因此不存在一个单独的、固定频率的静止相量代表原式全部电压。
+对线性时不变电路，应在 \(\omega_1\) 下使用 \(Z(\omega_1)\)
+求第一项响应，在 \(\omega_2\) 下使用 \(Z(\omega_2)\)
+求第二项响应，然后分别恢复时间因子，最后叠加时域响应。图 T55-013-P
+的总波形保留了两种频率，不能把其形状当作一个余弦波。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/T55-013-P.pdf}}
+\par\smallskip{\small 图 T55-013-P：作业六过程：异频叠加后的波形}
+\end{center}
+\end{minipage}\par
+
+\section{专题五十六：复数法与复阻抗网络（基础必讲与拔高选讲）}\label{m6:ux4e13ux9898ux4e94ux5341ux516dux590dux6570ux6cd5ux4e0eux590dux963bux6297ux7f51ux7edcux57faux7840ux5fc5ux8bb2ux4e0eux62d4ux9ad8ux9009ux8bb2}
+
+相量表示把同频正弦稳态问题化为复数问题；复阻抗法进一步把电阻、电感、电容以及线性二端网络统一为
+
+\[
+\boxed{\widetilde U=Z\widetilde I}.
+\]
+
+从此以后，直流电路中的串并联、节点法、网孔法、叠加定理和等效源仍然成立，只需把实电阻换成随频率而变的复阻抗。本节采用有效值相量、\(e^{j\omega t}\)
+约定和被动符号约定。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H01.pdf}}
+\par\smallskip{\small 图 M6-H01：复阻抗网络的建模、计算和检查}
+\end{center}
+\end{minipage}\par
+
+\subsection{一、复阻抗、复导纳与复数运算}\label{m6:ux4e00ux590dux963bux6297ux590dux5bfcux7eb3ux4e0eux590dux6570ux8fd0ux7b97}
+
+\subsubsection{1.
+必要的相量与元件阻抗回顾}\label{m6:ux5fc5ux8981ux7684ux76f8ux91cfux4e0eux5143ux4ef6ux963bux6297ux56deux987e}
+
+欧拉公式为
+
+\[
+e^{j\theta}=\cos\theta+j\sin\theta.
+\]
+
+对
+
+\[
+a(t)=\sqrt2A\cos(\omega t+\phi),
+\]
+
+定义有效值相量
+
+\[
+\widetilde A=Ae^{j\phi}=A\angle\phi.
+\]
+
+同频稳态中 \(d/dt\leftrightarrow j\omega\)，因此三个理想元件的阻抗为
+
+\[
+\boxed{Z_R=R},
+\qquad
+\boxed{Z_L=j\omega L},
+\qquad
+\boxed{Z_C=\frac1{j\omega C}=-\frac{j}{\omega C}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H02.pdf}}
+\par\smallskip{\small 图 M6-H02：以电流为参考时三类理想元件的电压相位和复阻抗}
+\end{center}
+\end{minipage}\par
+
+阻抗只连接同一频率下、同一参考方向约定下的电压和电流相量。不同频率必须分别建立网络。
+
+\subsubsection{2.
+直角形式与极坐标形式各有用途}\label{m6:ux76f4ux89d2ux5f62ux5f0fux4e0eux6781ux5750ux6807ux5f62ux5f0fux5404ux6709ux7528ux9014}
+
+任一阻抗可写成
+
+\[
+Z=R+jX=|Z|\angle\phi,
+\]
+
+其中
+
+\[
+|Z|=\sqrt{R^2+X^2},
+\qquad
+\phi=\operatorname{atan2}(X,R).
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  复数相加、相减时优先使用直角形式；
+\item
+  复数相乘、相除时优先使用极坐标形式；
+\item
+  最终判断感性或容性时回到实部、虚部和相角。
+\end{itemize}
+
+对被动元件，\(X>0\) 表示感性，\(X<0\)
+表示容性。含有受控源或有源器件的端口等效阻抗不一定满足
+\(\operatorname{Re}Z\ge0\)，不能再仅凭虚部判断全部物理性质。
+
+\subsubsection{3.
+导纳不是只把符号换一下}\label{m6:ux5bfcux7eb3ux4e0dux662fux53eaux628aux7b26ux53f7ux6362ux4e00ux4e0b}
+
+定义导纳
+
+\[
+Y=\frac1Z=G+jB,
+\]
+
+其中 \(G\) 称为电导，\(B\) 称为电纳。若 \(Z=R+jX\)，则
+
+\[
+Y=\frac{R-jX}{R^2+X^2},
+\]
+
+所以
+
+\[
+\boxed{G=\frac{R}{R^2+X^2}},
+\qquad
+\boxed{B=-\frac{X}{R^2+X^2}}.
+\]
+
+在极坐标形式下，
+
+\[
+\boxed{|Y|=\frac1{|Z|}},
+\qquad
+\boxed{\arg Y=-\arg Z}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H03.pdf}}
+\par\smallskip{\small 图 M6-H03：阻抗和导纳互为倒数时大小取倒数且辐角变号}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{阻抗与导纳的辐角〔M6-014〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+某线性二端网络（一对接线端）在给定正频率下的阻抗为
+\(Z=(3+j4)\,\Omega\)。采用有效值相量与被动符号约定，求导纳的直角形式、模和辐角，并判断电路的感性或容性。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-014.pdf}}
+\par\smallskip{\small 图 M6-014：阻抗与导纳的辐角}
+\end{center}
+\end{minipage}\par
+
+图 M6-014
+中，复平面中阻抗位于第一象限；求倒数时虚部变号，导纳应转入第四象限。
+
+若
+
+\[
+Z=3+j4=5\angle53.13^{\circ}\ \Omega,
+\]
+
+则
+
+\[
+Y=\frac{3-j4}{25}
+=0.12-j0.16
+=0.20\angle(-53.13^{\circ})\ \mathrm S.
+\]
+
+阻抗呈感性，导纳的虚部却为负；不能把 \(X\) 与 \(B\) 当成同号量。
+
+\subsubsection{4.
+频率极限必须同时检查阻抗与导纳}\label{m6:ux9891ux7387ux6781ux9650ux5fc5ux987bux540cux65f6ux68c0ux67e5ux963bux6297ux4e0eux5bfcux7eb3}
+
+三个理想元件在单频正弦稳态中满足
+
+\[
+\begin{array}{c|ccc}
+&R&L&C\\ \hline
+Z&R&j\omega L&\dfrac1{j\omega C}\\[4pt]
+Y&\dfrac1R&\dfrac1{j\omega L}&j\omega C
+\end{array}
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H04.pdf}}
+\par\smallskip{\small 图 M6-H04：电阻电容和电感的阻抗与导纳随角频率变化的趋势}
+\end{center}
+\end{minipage}\par
+
+因此，\(\omega\to0\)
+时理想电容趋于开路、理想电感趋于短路；\(\omega\to\infty\)
+时则相反。这里的``开路、短路''只是给定频率下的稳态极限，不能替代开关问题中的状态连续性。实际元件在足够高频时还会受绕组电阻、漏电、寄生电容和寄生电感限制，不能把理想趋势无限外推。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{频率变化与感抗、容抗〔M6-015〕}
+
+理想元件 \(L=0.10\,\mathrm H\)、\(C=100\,\mu\mathrm F\)
+分别接单频正弦电源。比较 \(\omega=100\) 与 \(1000\,\mathrm{rad/s}\) 时的
+\(X_L\) 和 \(|X_C|\)，说明两者随频率变化的趋势。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-015.pdf}}
+\par\smallskip{\small 图 M6-015：频率变化与感抗、容抗}
+\end{center}
+\end{minipage}\par
+
+图 M6-015
+中，蓝线表示电感感抗，绿线表示电容电抗的绝对值；不能把电容的负电抗与正的容抗大小混用。
+
+对 \(L=0.10\ \mathrm H\)、\(C=100\ \mu\mathrm F\)，当 \(\omega\) 从
+\(100\ \mathrm{rad/s}\) 增至 \(1000\ \mathrm{rad/s}\) 时，\(X_L\) 从
+\(10\ \Omega\) 增至 \(100\ \Omega\)，而 \(|X_C|\) 从 \(100\ \Omega\)
+降至 \(10\ \Omega\)；相应有符号电抗为 \(X_C=-1/(\omega C)\)，从
+\(-100\ \Omega\) 变为 \(-10\ \Omega\)。
+
+\subsection{二、串联、并联、分压与分流}\label{m6:ux4e8cux4e32ux8054ux5e76ux8054ux5206ux538bux4e0eux5206ux6d41}
+
+\subsubsection{1.
+串联网络加阻抗}\label{m6:ux4e32ux8054ux7f51ux7edcux52a0ux963bux6297}
+
+串联各元件流过同一电流。由 KVL，
+
+\[
+\widetilde U
+=\sum_k\widetilde U_k
+=\left(\sum_kZ_k\right)\widetilde I.
+\]
+
+因此
+
+\[
+\boxed{Z_{\mathrm s}=\sum_k Z_k}.
+\]
+
+两个阻抗串联时，复数分压公式为
+
+\[
+\boxed{
+\widetilde U_1
+=\widetilde U\frac{Z_1}{Z_1+Z_2}
+}.
+\]
+
+分压比通常是复数，既改变幅值也改变相位。
+
+\subsubsection{2.
+并联网络加导纳}\label{m6:ux5e76ux8054ux7f51ux7edcux52a0ux5bfcux7eb3}
+
+并联各支路承受同一电压。由 KCL，
+
+\[
+\widetilde I
+=\sum_k\widetilde I_k
+=\left(\sum_kY_k\right)\widetilde U.
+\]
+
+因此
+
+\[
+\boxed{Y_{\mathrm p}=\sum_kY_k},
+\qquad
+\boxed{Z_{\mathrm p}=\frac1{Y_{\mathrm p}}}.
+\]
+
+两个阻抗并联时，
+
+\[
+\boxed{Z_{\mathrm p}=\frac{Z_1Z_2}{Z_1+Z_2}}.
+\]
+
+支路电流为
+
+\[
+\boxed{
+\widetilde I_1
+=\widetilde I\frac{Y_1}{Y_1+Y_2}
+=\widetilde I\frac{Z_2}{Z_1+Z_2}
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H05.pdf}}
+\par\smallskip{\small 图 M6-H05：串联网络应相加阻抗而并联网络应相加导纳}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{并联阻抗与支路电流〔M6-016〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+阻抗 \(Z_1=10\,\Omega\) 与 \(Z_2=j10\,\Omega\) 并联，端电压有效值相量为
+\(\widetilde U=100\angle0^{\circ}\,\mathrm V\)。各电流从上节点A流向B。求输入阻抗、两个支路电流及干路电流有效值。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-016.pdf}}
+\par\smallskip{\small 图 M6-016：并联阻抗与支路电流}
+\end{center}
+\end{minipage}\par
+
+图 M6-016 中，节点A处两支路电流相加；电感支路电流滞后端电压90°。
+
+把 \(Z_1=10\ \Omega\) 与 \(Z_2=j10\ \Omega\) 并联，则
+
+\[
+Z_{\mathrm p}
+=\frac{10\cdot j10}{10+j10}
+=5+j5\ \Omega.
+\]
+
+若端电压为 \(\widetilde U=100\ \mathrm V\)，则
+
+\[
+\widetilde I_1=10\ \mathrm A,
+\qquad
+\widetilde I_2=-j10\ \mathrm A,
+\]
+
+\[
+\widetilde I=10-j10\ \mathrm A.
+\]
+
+总电流有效值为 \(10\sqrt2\ \mathrm A\)，不是两个支路有效值的算术和
+\(20\ \mathrm A\)。
+
+\subsubsection{3.
+化简顺序与桥式网络}\label{m6:ux5316ux7b80ux987aux5e8fux4e0eux6865ux5f0fux7f51ux7edc}
+
+只有真正共享同一电流的元件才是串联，只有真正连接在同一对节点之间的元件才是并联。桥式网络在不平衡时一般不能连续用串并联公式化简，应改用节点法、网孔法或等效变换。
+
+\subsection{三、复数节点法}\label{m6:ux4e09ux590dux6570ux8282ux70b9ux6cd5}
+
+节点法把节点电压作为未知量，天然适合并联支路多、理想电流源多的网络。
+
+对节点 \(m\) 与节点 \(n\) 之间的支路，若规定电流从 \(m\) 流向 \(n\)，则
+
+\[
+\boxed{
+\widetilde I_{mn}
+=(\widetilde V_m-\widetilde V_n)Y_{mn}
+}.
+\]
+
+在每个非参考节点写 KCL，即可得到复系数线性方程组。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H06.pdf}}
+\par\smallskip{\small 图 M6-H06：复数节点法把每条支路电流写成节点电压差乘支路导纳}
+\end{center}
+\end{minipage}\par
+
+对图示单节点模型，
+
+\[
+(\widetilde V-\widetilde V_1)Y_1
++(\widetilde V-\widetilde V_2)Y_2
++\widetilde VY_3=0,
+\]
+
+所以
+
+\[
+\boxed{
+\widetilde V
+=\frac{Y_1\widetilde V_1+Y_2\widetilde V_2}
+{Y_1+Y_2+Y_3}
+}.
+\]
+
+若有独立电流源，按参考方向把源电流移到方程右端即可。若理想电压源跨接两个未知节点，则应使用超节点，并补上一条电压约束方程。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{节点法与电流核对〔M6-017〕}
+
+在同一正频率的正弦稳态下，节点V经 \(4\,\Omega\) 电阻连接电压已知的节点
+\(\widetilde V_s=20\angle0^{\circ}\,\mathrm V\)，并经另一 \(4\,\Omega\)
+电阻和电容阻抗 \(-j4\,\Omega\)
+分别接地。求节点电压及三条支路电流，并检验KCL。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-017.pdf}}
+\par\smallskip{\small 图 M6-017：节点法与电流核对}
+\end{center}
+\end{minipage}\par
+
+图 M6-017
+中，从已知电源节点到V的支路使用电压差Vs−V，另外两支路的下端均为地。
+
+节点 \(V\) 经 \(4\ \Omega\) 电阻接到电压相量
+\(\widetilde V_s=20\ \mathrm V\) 的已知节点，又经 \(4\ \Omega\)
+电阻和阻抗 \(-j4\ \Omega\) 的电容分别接地。节点方程为
+
+\[
+\frac{\widetilde V-20}{4}
++\frac{\widetilde V}{4}
++\frac{\widetilde V}{-j4}=0.
+\]
+
+整理得
+
+\[
+\left(\frac12+\frac j4\right)\widetilde V=5,
+\]
+
+故
+
+\[
+\boxed{\widetilde V=8-j4\ \mathrm V}.
+\]
+
+流入节点的源支路电流为
+
+\[
+\frac{20-\widetilde V}{4}=3+j1\ \mathrm A,
+\]
+
+而流向地的两支路电流之和为
+
+\[
+\frac{\widetilde V}{4}+\frac{\widetilde V}{-j4}
+=(2-j1)+(1+j2)=3+j1\ \mathrm A,
+\]
+
+与 KCL 一致。
+
+\subsection{四、复数网孔法}\label{m6:ux56dbux590dux6570ux7f51ux5b54ux6cd5}
+
+网孔法以平面电路的网孔电流为未知量，适合串联支路多、理想电压源多的网络。
+
+对两个相邻网孔，若两个网孔电流都按顺时针方向定义，共有支路阻抗为
+\(Z_3\)，则公共支路中按网孔 1 方向的电流为
+
+\[
+\widetilde I_1-\widetilde I_2.
+\]
+
+相应网孔方程为
+
+\[
+\begin{bmatrix}
+Z_1+Z_3&-Z_3\\
+-Z_3&Z_2+Z_3
+\end{bmatrix}
+\begin{bmatrix}
+\widetilde I_1\\
+\widetilde I_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+\widetilde U_1\\
+\widetilde U_2
+\end{bmatrix}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H07.pdf}}
+\par\smallskip{\small 图 M6-H07：复数网孔法中公共支路电流等于两个同向网孔电流之差}
+\end{center}
+\end{minipage}\par
+
+矩阵的对角元是本网孔全部阻抗之和；非对角元是公共阻抗的负值。这个符号来自两个同向网孔电流在公共支路中方向相反，而不是来自阻抗本身。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{同向网孔的公共支路〔M6-018〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+两个相邻网孔的独有阻抗分别为
+\(Z_1=4\,\Omega\)、\(Z_2=6\,\Omega\)，公共支路为
+\(Z_3=j2\,\Omega\)。两个网孔电流均取顺时针，左网孔电源沿该方向的电压升为
+\(\widetilde U_1=10\angle0^{\circ}\,\mathrm V\)，右网孔电压源为零，故短接。求两网孔电流和公共支路向下的电流。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-018.pdf}}
+\par\smallskip{\small 图 M6-018：同向网孔的公共支路}
+\end{center}
+\end{minipage}\par
+
+图 M6-018
+中，公共支路中左网孔电流向下、右网孔电流向上，所以该支路电流取差。
+
+取
+
+\[
+Z_1=4\ \Omega,
+\quad Z_2=6\ \Omega,
+\quad Z_3=j2\ \Omega,
+\]
+
+\[
+\widetilde U_1=10\ \mathrm V,
+\qquad \widetilde U_2=0.
+\]
+
+方程为
+
+\[
+\begin{cases}
+(4+j2)\widetilde I_1-j2\widetilde I_2=10,\\
+-j2\widetilde I_1+(6+j2)\widetilde I_2=0.
+\end{cases}
+\]
+
+解得
+
+\[
+\widetilde I_1=1.885-j0.738\ \mathrm A,
+\]
+
+\[
+\widetilde I_2=0.410+j0.492\ \mathrm A.
+\]
+
+因此公共支路按网孔 1 方向的电流为
+
+\[
+\widetilde I_1-\widetilde I_2
+=1.475-j1.230\ \mathrm A.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-018-P1.pdf}}
+\par\smallskip{\small 图 M6-018-P1：公共支路电流的方向}
+\end{center}
+\end{minipage}\par
+
+图 M6-018-P1 中，两网孔在公共支路方向相反，电流相量先相减再取模。
+
+\subsection{五、叠加定理与等效源}\label{m6:ux4e94ux53e0ux52a0ux5b9aux7406ux4e0eux7b49ux6548ux6e90}
+
+\subsubsection{1.
+正弦稳态中的叠加定理}\label{m6:ux6b63ux5f26ux7a33ux6001ux4e2dux7684ux53e0ux52a0ux5b9aux7406}
+
+线性网络中，任一支路电压或电流等于各独立源单独作用时响应的相量和。关闭其他独立源时：
+
+\begin{itemize}
+\tightlist
+\item
+  理想独立电压源置零，等效为短路；
+\item
+  理想独立电流源置零，等效为开路；
+\item
+  受控源不能关闭；
+\item
+  同一频率的响应可以直接相加相量；
+\item
+  不同频率的响应必须分别求解后回到时域相加。
+\end{itemize}
+
+功率不是线性量，通常不能把各独立源单独作用时的功率相加得到总功率，因为总电压与总电流的乘积中包含交叉项。
+
+\subsubsection{2.
+戴维南与诺顿等效}\label{m6:ux6234ux7ef4ux5357ux4e0eux8bfaux987fux7b49ux6548}
+
+任一线性二端网络在给定频率下，可在端口等效为戴维南源：
+
+\[
+\boxed{\widetilde U_{\mathrm{th}}=\widetilde U_{\mathrm{oc}}},
+\]
+
+\[
+\boxed{Z_{\mathrm{th}}=\frac{\widetilde U_{\mathrm{oc}}}{\widetilde I_{\mathrm{sc}}}}.
+\]
+
+也可等效为诺顿源：
+
+\[
+\boxed{\widetilde I_{\mathrm N}=\frac{\widetilde U_{\mathrm{th}}}{Z_{\mathrm{th}}}},
+\qquad
+\boxed{Z_{\mathrm N}=Z_{\mathrm{th}}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H08.pdf}}
+\par\smallskip{\small 图 M6-H08：正弦稳态下戴维南与诺顿等效源的参数均为复数相量}
+\end{center}
+\end{minipage}\par
+
+求 \(Z_{\mathrm{th}}\)
+时也可关闭独立源后从端口向内看。若网络含受控源，受控源必须保留，并在端口加测试电压或测试电流，使用
+
+\[
+Z_{\mathrm{th}}=\frac{\widetilde U_{\mathrm{test}}}{\widetilde I_{\mathrm{test}}}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{戴维南源转为诺顿源〔M6-019〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+某端口的戴维南源为
+\(\widetilde U_{th}=12\angle0^{\circ}\,\mathrm V\)、\(Z_{th}=(3+j4)\,\Omega\)。AB中A为开路电压正端，求向A注入电流的诺顿等效源及并联阻抗。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-019.pdf}}
+\par\smallskip{\small 图 M6-019：戴维南源转为诺顿源}
+\end{center}
+\end{minipage}\par
+
+图 M6-019
+中，端口AB的开路电压为Uth，短路电流为Uth/Zth，等效内阻抗保持相同。
+
+戴维南源为
+
+\[
+\widetilde U_{\mathrm{th}}=12\ \mathrm V,
+\qquad
+Z_{\mathrm{th}}=3+j4\ \Omega.
+\]
+
+对应诺顿源电流为
+
+\[
+\widetilde I_{\mathrm N}
+=\frac{12}{3+j4}
+=1.44-j1.92
+=2.40\angle(-53.13^{\circ})\ \mathrm A.
+\]
+
+诺顿并联阻抗仍为 \(3+j4\ \Omega\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-019-P1.pdf}}
+\par\smallskip{\small 图 M6-019-P1：诺顿等效端口}
+\end{center}
+\end{minipage}\par
+
+图 M6-019-P1 中，电流源向上注入A端；接相同负载时AB端口关系不变。
+
+\subsection{六、交流电桥与谐振条件}\label{m6:ux516dux4ea4ux6d41ux7535ux6865ux4e0eux8c10ux632fux6761ux4ef6}
+
+\subsubsection{1.
+交流电桥平衡}\label{m6:ux4ea4ux6d41ux7535ux6865ux5e73ux8861}
+
+图 M6-H09 中电源接在 \(A,C\) 两端，检流支路接在 \(B,D\) 两点；桥臂依次为
+\(AB:Z_1\)、\(BC:Z_2\)、\(AD:Z_3\)、\(DC:Z_4\)。取
+\(\widetilde V_C=0\)、\(\widetilde V_A=\widetilde U\)。平衡时检流支路无电流，两条分压路径分别为
+\(A\to B\to C\) 和 \(A\to D\to C\)，所以
+
+\[
+\widetilde V_B=\widetilde U\frac{Z_2}{Z_1+Z_2},
+\qquad
+\widetilde V_D=\widetilde U\frac{Z_4}{Z_3+Z_4}.
+\]
+
+令 \(\widetilde V_B=\widetilde V_D\)，交叉相乘并消去两边共有的
+\(Z_2Z_4\)，得到
+
+\[
+\boxed{Z_1Z_4=Z_2Z_3}.
+\]
+
+这是一个复数方程，通常等价于实部、虚部两条实方程，因而可以同时测定两个未知参数。
+
+\subsubsection{2.
+并联谐振优先看导纳}\label{m6:ux5e76ux8054ux8c10ux632fux4f18ux5148ux770bux5bfcux7eb3}
+
+实际线圈 \(R+j\omega L\) 与理想电容并联时，
+
+\[
+\begin{aligned}
+Y_{\mathrm{tot}}
+&=\frac1{R+j\omega L}+j\omega C\\
+&=\frac{R}{R^2+(\omega L)^2}
++j\left[
+\omega C-\frac{\omega L}{R^2+(\omega L)^2}
+\right].
+\end{aligned}
+\]
+
+总电流与总电压同相等价于 \(\operatorname{Im}Y_{\mathrm{tot}}=0\)，故
+
+\[
+\boxed{
+\omega_0
+=\sqrt{\frac1{LC}-\left(\frac RL\right)^2}
+}.
+\]
+
+存在正实谐振频率要求
+
+\[
+\boxed{R<\sqrt{\frac LC}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H09.pdf}}
+\par\smallskip{\small 图 M6-H09：交流电桥平衡条件与复功率守恒可分别用于求解和总校验}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{交流电桥的平衡〔M6-020〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+交流电桥的四桥臂依次为AB、BC、AD、DC，对应
+\(Z_1,Z_2,Z_3,Z_4\)。电源接AC，检流计接BD，已调至BD电流为零。已知
+\(Z_1=100\,\Omega\)、\(Z_2=200\,\Omega\)、\(Z_3=(50-j50)\,\Omega\)；\(Z_4\)
+由未知电阻与电容串联，\(\omega=1000\,\mathrm{rad/s}\)。求 \(R_x,C_x\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-020.pdf}}
+\par\smallskip{\small 图 M6-020：交流电桥的平衡}
+\end{center}
+\end{minipage}\par
+
+图 M6-020
+中，桥臂AB/BC与AD/DC构成两条分压路径，B、D等势给出交叉乘积条件。
+
+在交流电桥中，若
+
+\[
+Z_1=100\ \Omega,
+\quad Z_2=200\ \Omega,
+\quad Z_3=50-j50\ \Omega,
+\]
+
+则平衡时
+
+\[
+Z_4=\frac{Z_2Z_3}{Z_1}=100-j100\ \Omega.
+\]
+
+若 \(Z_4\) 是电阻 \(R_x\) 与电容 \(C_x\) 串联，且
+\(\omega=1000\ \mathrm{rad/s}\)，则
+
+\[
+R_x=100\ \Omega,
+\qquad
+\frac1{\omega C_x}=100\ \Omega,
+\]
+
+\[
+\boxed{C_x=10\ \mu\mathrm F}.
+\]
+
+\subsection{七、最大平均功率与共轭匹配}\label{m6:ux4e03ux6700ux5927ux5e73ux5747ux529fux7387ux4e0eux5171ux8f6dux5339ux914d}
+
+设戴维南源为
+
+\[
+\widetilde U_{\mathrm{th}},
+\qquad
+Z_{\mathrm{th}}=R+jX,
+\]
+
+负载为
+
+\[
+Z_L=R_L+jX_L,
+\qquad R>0, R_L\ge0.
+\]
+
+电流为
+
+\[
+\widetilde I
+=\frac{\widetilde U_{\mathrm{th}}}{Z_{\mathrm{th}}+Z_L}.
+\]
+
+负载吸收的平均功率为
+
+\[
+P_L=|\widetilde I|^2R_L
+=\frac{|\widetilde U_{\mathrm{th}}|^2R_L}
+{(R+R_L)^2+(X+X_L)^2}.
+\]
+
+先令分母中的总电抗为零：
+
+\[
+X_L=-X.
+\]
+
+再最大化
+
+\[
+\frac{R_L}{(R+R_L)^2},
+\]
+
+得到 \(R_L=R\)。因此
+
+\[
+\boxed{Z_L=Z_{\mathrm{th}}^{*}},
+\]
+
+\[
+\boxed{P_{L,\max}=\frac{|\widetilde U_{\mathrm{th}}|^2}{4R}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H10.pdf}}
+\par\smallskip{\small 图 M6-H10：最大平均功率传输要求负载阻抗与戴维南阻抗共轭匹配}
+\end{center}
+\end{minipage}\par
+
+若负载被限制为纯电阻，即
+\(X_L=0\)，电抗不能另行抵消。此时直接对功率求导，
+
+\[
+\frac{dP_L}{dR_L}=
+\frac{|\widetilde U_{\mathrm{th}}|^2(R^2+X^2-R_L^2)}
+{[(R+R_L)^2+X^2]^2}.
+\]
+
+导数在 \(R_L<\sqrt{R^2+X^2}\) 时为正、越过该值后为负，所以最大值对应
+
+\[
+\boxed{R_L=|Z_{\mathrm{th}}|},
+\]
+
+这与可以自由调节复阻抗时的 \(R_L=R\) 不同。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{共轭匹配与纯电阻最优值〔M6-021〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+戴维南端口的有效值源为
+\(\widetilde U_{th}=20\angle0^{\circ}\,\mathrm V\)、内阻抗为
+\((3+j4)\,\Omega\)。分别在可调复负载与只能调纯电阻两种限制下，求最佳负载及其最大平均吸收功率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-021.pdf}}
+\par\smallskip{\small 图 M6-021：共轭匹配与纯电阻最优值}
+\end{center}
+\end{minipage}\par
+
+图 M6-021
+中，端口AB的可调负载先抵消内电抗再匹配内电阻；纯电阻约束下不能抵消电抗。
+
+若
+
+\[
+\widetilde U_{\mathrm{th}}=20\ \mathrm V,
+\qquad
+Z_{\mathrm{th}}=3+j4\ \Omega,
+\]
+
+则共轭匹配负载为
+
+\[
+Z_L=3-j4\ \Omega,
+\]
+
+最大平均功率为
+
+\[
+P_{L,\max}=\frac{20^2}{4\times3}
+=33.33\ \mathrm W.
+\]
+
+若负载只能是纯电阻，则最优值为 \(R_L=|Z_{\mathrm{th}}|=5\ \Omega\)，此时
+
+\[
+P_L=\frac{20^2\times5}{(3+5)^2+4^2}
+=25.0\ \mathrm W.
+\]
+
+\subsection{八、复功率与全网络校验}\label{m6:ux516bux590dux529fux7387ux4e0eux5168ux7f51ux7edcux6821ux9a8c}
+
+\subsubsection{1.
+从瞬时功率到平均功率}\label{m6:ux4eceux77acux65f6ux529fux7387ux5230ux5e73ux5747ux529fux7387}
+
+设
+
+\[
+u(t)=\sqrt2U\cos(\omega t+\phi_u),
+\qquad
+i(t)=\sqrt2I\cos(\omega t+\phi_i),
+\]
+
+并令 \(\phi=\phi_u-\phi_i\)。由积化和差公式，
+
+\[
+p(t)=u(t)i(t)
+=UI\cos\phi+UI\cos(2\omega t+\phi_u+\phi_i).
+\]
+
+第二项在一个周期内平均为零，故
+
+\[
+\boxed{P=\overline p=UI\cos\phi}.
+\]
+
+理想电阻的瞬时功率始终非负；理想电容和电感的瞬时功率以 \(2\omega\)
+交替取正、负值，一个周期内净值为零。这表示电场能、磁场能与外电路往返交换，而不是``任意时刻都没有功率''。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H11.pdf}}
+\par\smallskip{\small 图 M6-H11：电阻的瞬时功率始终非负而理想电容和电感的瞬时功率正负交替}
+\end{center}
+\end{minipage}\par
+
+若 \(U,I\) 为有效值，则
+
+\[
+W_{C,\max}=CU^2,
+\qquad
+W_{L,\max}=LI^2,
+\]
+
+而相应周期平均储能分别为 \(CU^2/2\) 与 \(LI^2/2\)。
+
+\subsubsection{2.
+复功率及其符号}\label{m6:ux590dux529fux7387ux53caux5176ux7b26ux53f7}
+
+采用有效值相量和被动符号约定，二端元件吸收的复功率为
+
+\[
+\boxed{\widetilde S=\widetilde U\widetilde I^{*}=P+jQ}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H12.pdf}}
+\par\smallskip{\small 图 M6-H12：有效值相量下有功功率无功功率和视在功率的几何关系}
+\end{center}
+\end{minipage}\par
+
+若 \(\widetilde U=Z\widetilde I\)，则
+
+\[
+\boxed{\widetilde S=|\widetilde I|^2Z},
+\]
+
+故对 \(Z=R+jX\)，
+
+\[
+P=|\widetilde I|^2R,
+\qquad
+Q=|\widetilde I|^2X.
+\]
+
+若 \(\widetilde I=Y\widetilde U\)，则
+
+\[
+\boxed{\widetilde S=|\widetilde U|^2Y^{*}},
+\]
+
+所以对 \(Y=G+jB\)，
+
+\[
+P=|\widetilde U|^2G,
+\qquad
+Q=-|\widetilde U|^2B.
+\]
+
+在线性集中参数网络中，所有元件按被动符号约定计算后，满足复功率守恒：
+
+\[
+\boxed{
+\sum \widetilde S_{\mathrm{\text{吸收}}}
+=\sum \widetilde S_{\mathrm{\text{提供}}}
+}.
+\]
+
+若功率不守恒，应优先检查：相量是否采用有效值、复功率是否使用电流共轭、源和负载参考方向是否一致、支路电流是否遗漏。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{并联电容补偿无功电流〔M6-022〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+一个感性负载在 \(U=200\,\mathrm V\)、\(\omega=100\pi\,\mathrm{rad/s}\)
+下吸收复功率
+\(\widetilde S_L=(800+j600)\,\mathrm{VA}\)。电流按流入电压正端规定。求原电流和功率因数；在端口并联理想电容使输入功率因数为1，求C及补偿后的干路电流。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-022.pdf}}
+\par\smallskip{\small 图 M6-022：并联电容补偿无功电流}
+\end{center}
+\end{minipage}\par
+
+图 M6-022
+中，电容支路与负载接在同一端口，节点A处电容的正虚部只补偿负载的负虚部。
+
+某感性负载在 \(U=200\ \mathrm V\)、\(\omega=100\pi\ \mathrm{rad/s}\)
+下吸收
+
+\[
+\widetilde S_L=800+j600\ \mathrm{VA}.
+\]
+
+若并联理想电容使总功率因数变为 \(1\)，要求
+
+\[
+Q_C=-\omega CU^2=-600\ \mathrm{var}.
+\]
+
+因此
+
+\[
+\boxed{
+C=\frac{600}{100\pi\times200^2}
+=47.75\ \mu\mathrm F
+}.
+\]
+
+补偿前负载电流为
+
+\[
+\widetilde I_L
+=\frac{\widetilde S_L^{*}}{U}
+=4-j3\ \mathrm A,
+\]
+
+补偿后电容电流为 \(j3\ \mathrm A\)，干路电流变为 \(4\ \mathrm A\)。
+
+补偿前负载的功率因数为 \(\cos\phi=4/\sqrt{4^2+3^2}=0.8\)，电流滞后电压。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-022-P1.pdf}}
+\par\smallskip{\small 图 M6-022-P1：补偿电流的首尾相接}
+\end{center}
+\end{minipage}\par
+
+图 M6-022-P1
+中，同一电流尺度，OA:AB=4:3；电容只抵消虚部，有功电流仍由电源提供。
+
+\subsection{九、复阻抗法的使用条件与常见错误}\label{m6:ux4e5dux590dux963bux6297ux6cd5ux7684ux4f7fux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux9519ux8bef}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{不同频率共用一套阻抗。} \(j\omega L\) 和 \(1/(j\omega C)\)
+  都依赖频率；每个频率必须单独建立网络。
+\item
+  \textbf{峰值相量与有效值相量混用。}
+  阻抗关系不受影响，但复功率公式会相差因子 \(2\)。
+\item
+  \textbf{并联支路直接相加阻抗。}
+  并联优先相加导纳；两个阻抗并联才可用乘积除以和。
+\item
+  \textbf{分压、分流只算大小。} 比值是复数，必须保留相位。
+\item
+  \textbf{把导纳虚部与阻抗虚部取同号。} \(B=-X/(R^2+X^2)\)。
+\item
+  \textbf{节点法凭感性、容性猜电流正负。}
+  应先定参考方向，再写电压差乘导纳。
+\item
+  \textbf{网孔公共支路误写成电流之和。}
+  两个同向网孔电流在公共支路中方向相反，故为差。
+\item
+  \textbf{求戴维南阻抗时关闭受控源。} 受控源必须保留，必要时加测试源。
+\item
+  \textbf{把各源单独作用的功率相加。}
+  叠加定理适用于电压和电流，不直接适用于功率。
+\item
+  \textbf{最大功率条件写成 \(Z_L=Z_{\mathrm{th}}\)。} 一般应为共轭匹配
+  \(Z_L=Z_{\mathrm{th}}^{*}\)。
+\item
+  \textbf{遗漏复功率中的共轭。}
+  \(\widetilde S=\widetilde U\widetilde I^{*}\)。
+\item
+  \textbf{把理想谐振的奇异结果当作有限稳态。}
+  若损耗完全为零，某些谐振网络不存在有界稳态，必须回到微分方程。
+\end{enumerate}
+
+\subsection{十、练习与解答}\label{m6:ux5341ux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{串并联网络的功率校验〔M6-023〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+电压源
+
+\[
+\widetilde U=100\angle0^{\circ}\ \mathrm V
+\]
+
+先串联一个 \(5\ \Omega\) 电阻，再接由 \(Z_1=10\ \Omega\) 与
+\(Z_2=j10\ \Omega\)
+组成的并联支路。求总阻抗、源电流、并联端电压、两支路电流和电源提供的复功率，并用元件功率之和校验。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-023.pdf}}
+\par\smallskip{\small 图 M6-023：串并联网络的功率校验}
+\end{center}
+\end{minipage}\par
+
+图 M6-023
+中，源电阻先分压，A、B之间的两支路再分流；源的复功率等于三元件吸收之和。
+
+并联部分为
+
+\[
+Z_{\mathrm p}=\frac{10\cdot j10}{10+j10}=5+j5\ \Omega.
+\]
+
+总阻抗为
+
+\[
+Z_{\mathrm{tot}}=5+Z_{\mathrm p}=10+j5\ \Omega.
+\]
+
+源电流为
+
+\[
+\widetilde I
+=\frac{100}{10+j5}
+=8-j4\ \mathrm A.
+\]
+
+并联端电压为
+
+\[
+\widetilde U_{\mathrm p}
+=\widetilde I(5+j5)
+=60+j20\ \mathrm V.
+\]
+
+两支路电流为
+
+\[
+\widetilde I_1=\frac{60+j20}{10}=6+j2\ \mathrm A,
+\]
+
+\[
+\widetilde I_2=\frac{60+j20}{j10}=2-j6\ \mathrm A.
+\]
+
+检验：
+
+\[
+\widetilde I_1+\widetilde I_2=8-j4=\widetilde I.
+\]
+
+电源提供的复功率为
+
+\[
+\widetilde S_{\mathrm{\text{源}}}
+=\widetilde U\widetilde I^{*}
+=100(8+j4)
+=800+j400\ \mathrm{VA}.
+\]
+
+串联电阻吸收
+
+\[
+P_s=|\widetilde I|^2\times5
+=(8^2+4^2)\times5=400\ \mathrm W.
+\]
+
+\(10\ \Omega\) 支路吸收
+
+\[
+P_1=|\widetilde I_1|^2\times10
+=(6^2+2^2)\times10=400\ \mathrm W.
+\]
+
+电感支路吸收无功功率
+
+\[
+Q_2=|\widetilde I_2|^2\times10
+=(2^2+6^2)\times10=400\ \mathrm{var}.
+\]
+
+故总吸收功率为 \(800+j400\ \mathrm{VA}\)，与电源提供功率一致。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-023-P1.pdf}}
+\par\smallskip{\small 图 M6-023-P1：源与元件复功率核对}
+\end{center}
+\end{minipage}\par
+
+图 M6-023-P1 中，功率三角形使用同一VA尺度；电感不耗平均有功。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{复数节点法〔M6-024〕}
+
+在同一正频率的正弦稳态下，节点V经 \(4\,\Omega\) 电阻连接电压已知的节点
+\(\widetilde V_s=20\angle0^{\circ}\,\mathrm V\)，并经另一 \(4\,\Omega\)
+电阻和电容阻抗 \(-j4\,\Omega\)
+分别接地。求节点电压及三条支路电流，并检验KCL。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-024.pdf}}
+\par\smallskip{\small 图 M6-024：复数节点法}
+\end{center}
+\end{minipage}\par
+
+图 M6-024
+中，图中地节点电位为零，电源节点的20V与未知节点V不能混为同一电位。
+
+取从节点 \(V\) 流出的电流为正，节点方程为
+
+\[
+\frac{\widetilde V-20}{4}
++\frac{\widetilde V}{4}
++\frac{\widetilde V}{-j4}=0.
+\]
+
+即
+
+\[
+\left(\frac12+\frac j4\right)\widetilde V=5.
+\]
+
+故
+
+\[
+\boxed{\widetilde V=8-j4\ \mathrm V}.
+\]
+
+从电源节点流向 \(V\) 的电流为
+
+\[
+\widetilde I_s=\frac{20-\widetilde V}{4}=3+j1\ \mathrm A.
+\]
+
+流向接地电阻的电流为
+
+\[
+\widetilde I_R=\frac{\widetilde V}{4}=2-j1\ \mathrm A.
+\]
+
+流向电容的电流为
+
+\[
+\widetilde I_C=\frac{\widetilde V}{-j4}=1+j2\ \mathrm A.
+\]
+
+于是
+
+\[
+\widetilde I_R+\widetilde I_C=3+j1=\widetilde I_s.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{复数网孔法〔M6-025〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+两个相邻网孔的独有阻抗分别为
+\(Z_1=4\,\Omega\)、\(Z_2=6\,\Omega\)，公共支路为
+\(Z_3=j2\,\Omega\)。两个网孔电流均取顺时针，左网孔电源沿该方向的电压升为
+\(\widetilde U_1=10\angle0^{\circ}\,\mathrm V\)，右网孔电压源为零，故短接。求两网孔电流和公共支路向下的电流。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-025.pdf}}
+\par\smallskip{\small 图 M6-025：复数网孔法}
+\end{center}
+\end{minipage}\par
+
+图 M6-025
+中，两网孔均顺时针，故公共支路对角外项为−Z3，公共支路电流向下取I1−I2。
+
+网孔方程为
+
+\[
+\begin{bmatrix}
+4+j2&-j2\\
+-j2&6+j2
+\end{bmatrix}
+\begin{bmatrix}
+\widetilde I_1\\
+\widetilde I_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+10\\0
+\end{bmatrix}.
+\]
+
+行列式为
+
+\[
+D=(4+j2)(6+j2)-(-j2)^2=24+j20.
+\]
+
+由克拉默法则，
+
+\[
+\widetilde I_1
+=\frac{10(6+j2)}{24+j20}
+=1.885-j0.738\ \mathrm A,
+\]
+
+\[
+\widetilde I_2
+=\frac{j20}{24+j20}
+=0.410+j0.492\ \mathrm A.
+\]
+
+公共支路向下电流为
+
+\[
+\boxed{
+\widetilde I_3
+=\widetilde I_1-\widetilde I_2
+=1.475-j1.230\ \mathrm A
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-025-P1.pdf}}
+\par\smallskip{\small 图 M6-025-P1：公共支路电流的方向}
+\end{center}
+\end{minipage}\par
+
+图 M6-025-P1 中，两网孔在公共支路方向相反，电流相量先相减再取模。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{最大功率的两种约束〔M6-026〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+某端口的戴维南等效参数为
+
+\[
+\widetilde U_{\mathrm{th}}=24\ \mathrm V,
+\qquad
+Z_{\mathrm{th}}=4+j3\ \Omega.
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  负载阻抗可任意调节时，求最大平均功率及对应负载。
+\item
+  负载只能是纯电阻时，求最佳电阻和最大平均功率。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-026.pdf}}
+\par\smallskip{\small 图 M6-026：最大功率的两种约束}
+\end{center}
+\end{minipage}\par
+
+图 M6-026 中，共轭匹配先使总电抗为零；负载只能是电阻时须另对RL求极值。
+
+负载可任意调节时采用共轭匹配：
+
+\[
+\boxed{Z_L=4-j3\ \Omega}.
+\]
+
+此时
+
+\[
+P_{L,\max}=\frac{24^2}{4\times4}=36\ \mathrm W.
+\]
+
+总阻抗为 \(8\ \Omega\)，电流为 \(3\ \mathrm A\)。负载复功率为
+
+\[
+\widetilde S_L=|\widetilde I|^2Z_L
+=9(4-j3)=36-j27\ \mathrm{VA}.
+\]
+
+若负载只能是纯电阻，则
+
+\[
+\boxed{R_L=|Z_{\mathrm{th}}|=5\ \Omega}.
+\]
+
+对应功率为
+
+\[
+P_L
+=\frac{24^2\times5}{(4+5)^2+3^2}
+=32\ \mathrm W.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{由平衡电桥测电容〔M6-027〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+交流电桥的四桥臂依次为AB、BC、AD、DC，对应
+\(Z_1,Z_2,Z_3,Z_4\)。电源接AC，检流计接BD，已调至BD电流为零。已知
+\(Z_1=100\,\Omega\)、\(Z_2=200\,\Omega\)、\(Z_3=(50-j50)\,\Omega\)；\(Z_4\)
+由未知电阻与电容串联，\(\omega=1000\,\mathrm{rad/s}\)。求 \(R_x,C_x\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-027.pdf}}
+\par\smallskip{\small 图 M6-027：由平衡电桥测电容}
+\end{center}
+\end{minipage}\par
+
+图 M6-027
+中，AB/BC与AD/DC两条分压路径在B、D处等势，分别比较Z4的实部和虚部。
+
+由平衡条件，
+
+\[
+Z_4=\frac{Z_2Z_3}{Z_1}
+=2(50-j50)
+=100-j100\ \Omega.
+\]
+
+另一方面，
+
+\[
+Z_4=R_x-\frac{j}{\omega C_x}.
+\]
+
+比较实部、虚部，
+
+\[
+\boxed{R_x=100\ \Omega},
+\]
+
+\[
+\frac1{1000C_x}=100,
+\]
+
+\[
+\boxed{C_x=10\ \mu\mathrm F}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{有损线圈的并联谐振〔M6-028〕}
+
+实际线圈等效为电阻 \(R\) 与电感 \(L\) 串联，再与理想电容 \(C\)
+并联，接在角频率为 \(\omega\) 的正弦恒压源上。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  求总导纳与总阻抗。
+\item
+  求总电流与总电压同相时的谐振角频率。
+\item
+  写出谐振存在条件，并说明 \(R\to0\) 时的极限。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-028.pdf}}
+\par\smallskip{\small 图 M6-028：有损线圈的并联谐振}
+\end{center}
+\end{minipage}\par
+
+图 M6-028 中，图中的R与L在同一支路串联；电容补偿该支路电流的无功分量。
+
+线圈支路导纳为
+
+\[
+Y_1=\frac1{R+j\omega L}
+=\frac{R-j\omega L}{R^2+(\omega L)^2}.
+\]
+
+电容支路导纳为
+
+\[
+Y_2=j\omega C.
+\]
+
+总导纳为
+
+\[
+\boxed{
+Y_{\mathrm{tot}}
+=\frac{R}{R^2+(\omega L)^2}
++j\left[
+\omega C-\frac{\omega L}{R^2+(\omega L)^2}
+\right]
+}.
+\]
+
+令
+
+\[
+G=\frac{R}{R^2+(\omega L)^2},
+\]
+
+\[
+B=\omega C-\frac{\omega L}{R^2+(\omega L)^2},
+\]
+
+则总阻抗为
+
+\[
+\boxed{
+Z_{\mathrm{tot}}=\frac1{G+jB}
+=\frac{G-jB}{G^2+B^2}
+}.
+\]
+
+谐振时 \(B=0\)：
+
+\[
+\omega_0C
+=\frac{\omega_0L}{R^2+(\omega_0L)^2}.
+\]
+
+对正频率约去 \(\omega_0\)，得到
+
+\[
+R^2+(\omega_0L)^2=\frac LC.
+\]
+
+因此
+
+\[
+\boxed{
+\omega_0
+=\sqrt{\frac1{LC}-\left(\frac RL\right)^2}
+}.
+\]
+
+存在正实谐振角频率要求
+
+\[
+\boxed{R<\sqrt{\frac LC}}.
+\]
+
+当 \(R\to0\) 时，
+
+\[
+\omega_0\to\frac1{\sqrt{LC}},
+\]
+
+退化为理想并联 \(LC\) 的谐振频率。若 \(R\)
+过大而不满足存在条件，就不存在正频率下总电流与总电压严格同相的状态。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{功率因数补偿〔M6-029〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+一个感性负载在 \(U=200\,\mathrm V\)、\(\omega=100\pi\,\mathrm{rad/s}\)
+下吸收复功率
+\(\widetilde S_L=(800+j600)\,\mathrm{VA}\)。电流按流入电压正端规定。求原电流和功率因数；在端口并联理想电容使输入功率因数为1，求C及补偿后的干路电流。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-029.pdf}}
+\par\smallskip{\small 图 M6-029：功率因数补偿}
+\end{center}
+\end{minipage}\par
+
+图 M6-029 中，两并联支路具有相同端电压，电容电流不改变负载有功分量。
+
+取电压为实数相量。由
+
+\[
+\widetilde S_L=\widetilde U\widetilde I_L^{*}
+\]
+
+得
+
+\[
+\widetilde I_L
+=\frac{\widetilde S_L^{*}}U
+=\frac{800-j600}{200}
+=4-j3\ \mathrm A.
+\]
+
+故
+
+\[
+I_L=5\ \mathrm A,
+\qquad
+\cos\phi=\frac{800}{\sqrt{800^2+600^2}}=0.8.
+\]
+
+电流滞后电压，功率因数为 \(0.8\)。
+
+补偿电容应提供
+
+\[
+Q_C=-600\ \mathrm{var}.
+\]
+
+由
+
+\[
+Q_C=-\omega CU^2
+\]
+
+得
+
+\[
+\boxed{
+C=\frac{600}{100\pi\times200^2}
+=47.75\ \mu\mathrm F
+}.
+\]
+
+电容电流为
+
+\[
+\widetilde I_C=j\omega CU=j3\ \mathrm A.
+\]
+
+因此补偿后的干路电流为
+
+\[
+\boxed{
+\widetilde I=\widetilde I_L+\widetilde I_C=4\ \mathrm A
+}.
+\]
+
+补偿不改变负载有功功率，只减小电源和输电线路承担的无功电流。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-029-P1.pdf}}
+\par\smallskip{\small 图 M6-029-P1：补偿电流的首尾相接}
+\end{center}
+\end{minipage}\par
+
+图 M6-029-P1
+中，同一电流尺度，OA:AB=4:3；电容只抵消虚部，有功电流仍由电源提供。
+
+\section{专题五十七：RLC
+电路的瞬态与稳态分析（基础必讲与拔高选讲）}\label{m6:ux4e13ux9898ux4e94ux5341ux4e03rlc-ux7535ux8defux7684ux77acux6001ux4e0eux7a33ux6001ux5206ux6790ux57faux7840ux5fc5ux8bb2ux4e0eux62d4ux9ad8ux9009ux8bb2}
+
+\begin{quote}
+阅读准备：特征根决定暂态形状
+二阶常系数方程先求齐次特征方程，再加一个由外源决定的特解。两个初始条件通常取电容电压和电感电流；特征根为两个负实根、重根或共轭复根时，分别对应过阻尼、临界阻尼和欠阻尼。
+\end{quote}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{复根的衰减与振荡〔M6-030〕}
+
+自由响应满足 \(x^{\prime\prime}+2\alpha x^{\prime}+\omega_0^2x=0\)，其中
+\(0<\alpha<\omega_0\)。求特征根并写出实通解，说明衰减和振荡分别由哪部分控制。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-030.pdf}}
+\par\smallskip{\small 图 M6-030：复根的衰减与振荡}
+\end{center}
+\end{minipage}\par
+
+图 M6-030
+中，根平面横坐标−α决定衰减，纵坐标±ωd决定振荡；这里的根平面不是电路空间。
+
+特征根为 \(s=-\alpha\pm j\omega_d\)，其中
+\(\omega_d=\sqrt{\omega_0^2-\alpha^2}\)。实通解为
+\(x=e^{-\alpha t}(A\cos\omega_dt+B\sin\omega_dt)\)，A、B由两项初态确定。
+
+\subsection{一、状态变量、输入和参考方向}\label{m6:ux4e00ux72b6ux6001ux53d8ux91cfux8f93ux5165ux548cux53c2ux8003ux65b9ux5411}
+
+串联 RLC 电路只有两个彼此独立的储能状态，可以选为电容电荷 \(q(t)\)
+与电感电流 \(i(t)\)，并规定
+
+\[
+i(t)=\dot q(t).
+\]
+
+在关联参考方向下，三个元件的端电压为
+
+\[
+u_R=Ri,\qquad u_L=L\dot i,\qquad u_C=\frac{q}{C}.
+\]
+
+因此，对任意外加电压 \(u_s(t)\)，基尔霍夫电压定律给出
+
+\[
+L\ddot q+R\dot q+\frac{q}{C}=u_s(t).
+\tag{57-1}
+\]
+
+也可以写成电流方程
+
+\[
+L\ddot i+R\dot i+\frac{i}{C}=\dot u_s(t),
+\tag{57-2}
+\]
+
+但式 (57-2) 是由式 (57-1)
+求导得到的，使用时必须另行保留原方程给出的一个初始约束；否则容易丢失直流分量。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H13.pdf}}
+\par\smallskip{\small 图 M6-H13：串联 RLC 电路的参考方向、状态方程与连续性条件}
+\end{center}
+\end{minipage}\par
+
+若开关动作前后不存在冲激电流或冲激电压，则
+
+\[
+q(0^+)=q(0^-),\qquad i(0^+)=i(0^-).
+\tag{57-3}
+\]
+
+第一式来自电容电压不能突变，第二式来自电感电流不能突变。本串联固定参数电路中，\(\dot q=i\)
+与电阻电压 \(Ri\) 也连续；\(\dot i\) 及电感电压 \(L\dot i\) 可以突变。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{电流连续与初始斜率〔M6-031〕}
+
+正参数R、L、C串联，开关接通前无储能；在 \(t=0\) 接入理想直流电压
+\(\mathcal E\)。规定i沿回路流入电容正极板。求
+\(q(0^+),i(0^+),\dot i(0^+)\)，解释连续性与非零斜率为何相容。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-031.pdf}}
+\par\smallskip{\small 图 M6-031：电流连续与初始斜率}
+\end{center}
+\end{minipage}\par
+
+图 M6-031
+中，接通瞬间电容电压与电感电流连续，R上压降为零，所以全部源电压先作用于电感。
+
+初始无储能的串联 RLC 电路突然接入恒压 \(\mathcal E\)。由式
+(57-3)，\(q(0^+)=i(0^+)=0\)；再把 \(t=0^+\) 代入式 (57-1)，立即得到
+
+\[
+\dot i(0^+)=\ddot q(0^+)=\frac{\mathcal E}{L}.
+\]
+
+这说明电感电流虽然不能跃变，其斜率却可立即变为非零。
+
+为统一描述，定义
+
+\[
+\alpha=\frac{R}{2L},\qquad
+\omega_0=\frac{1}{\sqrt{LC}},\qquad
+\zeta=\frac{\alpha}{\omega_0}=\frac{R}{2}\sqrt{\frac{C}{L}}.
+\tag{57-4}
+\]
+
+其中 \(\alpha\) 是振幅衰减尺度，\(\omega_0\)
+是无阻尼固有角频率，\(\zeta\) 是阻尼比。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-031-P1.pdf}}
+\par\smallskip{\small 图 M6-031-P1：初始电流斜率}
+\end{center}
+\end{minipage}\par
+
+图 M6-031-P1 中，示意取阻尼比0.3；电流从零连续建立，初始斜率不是零。
+
+\subsection{二、零输入响应：初始储能如何自行衰减}\label{m6:ux4e8cux96f6ux8f93ux5165ux54cdux5e94ux521dux59cbux50a8ux80fdux5982ux4f55ux81eaux884cux8870ux51cf}
+
+零输入响应是指 \(u_s(t)=0\)，但 \(q(0)=q_0\)、\(i(0)=i_0\)
+不一定为零。式 (57-1) 化为
+
+\[
+\ddot q+2\alpha\dot q+\omega_0^2q=0.
+\tag{57-5}
+\]
+
+特征方程为
+
+\[
+\lambda^2+2\alpha\lambda+\omega_0^2=0,
+\]
+
+特征根为
+
+\[
+\lambda_{1,2}=-\alpha\pm\sqrt{\alpha^2-\omega_0^2}.
+\tag{57-6}
+\]
+
+\subsubsection{\texorpdfstring{1.
+欠阻尼：\(\alpha<\omega_0\)}{1. 欠阻尼：\textbackslash alpha\textless\textbackslash omega\_0}}\label{m6:ux6b20ux963bux5c3calphaomega_0}
+
+令
+
+\[
+\omega_d=\sqrt{\omega_0^2-\alpha^2},
+\tag{57-7}
+\]
+
+则
+
+\[
+q(t)=e^{-\alpha t}\left(A\cos\omega_dt+B\sin\omega_dt\right).
+\]
+
+由 \(q(0)=q_0\)、\(\dot q(0)=i_0\) 得
+
+\[
+A=q_0,\qquad B=\frac{i_0+\alpha q_0}{\omega_d},
+\]
+
+所以
+
+\[
+\boxed{
+q(t)=e^{-\alpha t}
+\left[q_0\cos\omega_dt+
+\frac{i_0+\alpha q_0}{\omega_d}\sin\omega_dt\right].
+}
+\tag{57-8}
+\]
+
+这里 \(q_0\) 是初始电荷，不是振幅常数。振幅与初相必须由 \(q_0,i_0\)
+共同决定。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{自由振荡的初态不能省略〔M6-032〕}
+
+欠阻尼串联RLC零输入回路中，\(\alpha=R/(2L)\)、\(\omega_d=\sqrt{1/(LC)-\alpha^2}>0\)。已知电容初始电荷
+\(q_0\)、电流为零，求q(t)并检验初始斜率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-032.pdf}}
+\par\smallskip{\small 图 M6-032：自由振荡的初态不能省略}
+\end{center}
+\end{minipage}\par
+
+图 M6-032
+中，电源短接后的零输入回路从q0和零电流出发，初态约束同时决定余弦项与正弦项。
+
+若 \(i_0=0\)，则
+
+\[
+q(t)=q_0e^{-\alpha t}
+\left(\cos\omega_dt+\frac{\alpha}{\omega_d}\sin\omega_dt\right),
+\]
+
+而不是简单的 \(q_0e^{-\alpha t}\cos\omega_dt\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-032-P1.pdf}}
+\par\smallskip{\small 图 M6-032-P1：零初始电流的自由响应}
+\end{center}
+\end{minipage}\par
+
+图 M6-032-P1 中，图示取阻尼比0.3；曲线在起点为水平切线。
+
+\subsubsection{\texorpdfstring{2.
+临界阻尼：\(\alpha=\omega_0\)}{2. 临界阻尼：\textbackslash alpha=\textbackslash omega\_0}}\label{m6:ux4e34ux754cux963bux5c3calphaomega_0}
+
+此时特征根为二重根 \(-\alpha\)，通解为
+
+\[
+q(t)=(A+Bt)e^{-\alpha t}.
+\]
+
+代入初始条件得到
+
+\[
+\boxed{
+q(t)=\left[q_0+(i_0+\alpha q_0)t\right]e^{-\alpha t}.
+}
+\tag{57-9}
+\]
+
+临界阻尼是``振荡与不振荡''的分界。在给定模型、初态与评价量后，它常对应无振荡响应中较快的建立过程；不能脱离这些条件笼统地称为一切意义下的``最快''。
+
+\subsubsection{\texorpdfstring{3.
+过阻尼：\(\alpha>\omega_0\)}{3. 过阻尼：\textbackslash alpha\textgreater\textbackslash omega\_0}}\label{m6:ux8fc7ux963bux5c3calphaomega_0}
+
+令
+
+\[
+\beta=\sqrt{\alpha^2-\omega_0^2},\qquad
+\lambda_{\pm}=-\alpha\pm\beta,
+\]
+
+则
+
+\[
+q(t)=A_+e^{\lambda_+t}+A_-e^{\lambda_-t},
+\]
+
+其中
+
+\[
+A_+=\frac{i_0-\lambda_-q_0}{\lambda_+-\lambda_-},\qquad
+A_-=\frac{\lambda_+q_0-i_0}{\lambda_+-\lambda_-}.
+\tag{57-10}
+\]
+
+两个负实根对应两个衰减时间尺度；远期行为由绝对值较小的根控制。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H14.pdf}}
+\par\smallskip{\small 图 M6-H14：串联电阻电感电容零输入响应的三种阻尼情形}
+\end{center}
+\end{minipage}\par
+
+\textbf{机械类比}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+机械阻尼振子 & 串联 RLC 电路 & 作用 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+质量 \(m\) & 电感 \(L\) & 惯性项 \\
+阻尼系数 \(b\) & 电阻 \(R\) & 耗散项 \\
+弹性系数 \(k\) & \(1/C\) & 恢复项 \\
+位移 \(x\) & 电荷 \(q\) & 状态变量 \\
+速度 \(\dot x\) & 电流 \(i=\dot q\) & 状态变化率 \\
+\end{longtable}
+}
+
+这个类比不仅比较方程形式，还能帮助判断初始条件：给定初始电荷相当于给定位移，给定初始电流相当于给定速度。
+
+\subsection{三、能量观点：总能量单调下降，但一般不是严格单指数}\label{m6:ux4e09ux80fdux91cfux89c2ux70b9ux603bux80fdux91cfux5355ux8c03ux4e0bux964dux4f46ux4e00ux822cux4e0dux662fux4e25ux683cux5355ux6307ux6570}
+
+电容和电感中的总电磁能为
+
+\[
+W(t)=\frac{q^2}{2C}+\frac12Li^2.
+\tag{57-11}
+\]
+
+对时间求导，并利用零输入方程 \(L\dot i+Ri+q/C=0\)：
+
+\[
+\frac{dW}{dt}
+=\frac{q}{C}\dot q+Li\dot i
+=i\left(\frac{q}{C}+L\dot i\right)
+=-Ri^2\le0.
+\tag{57-12}
+\]
+
+因此，\(R>0\) 时总电磁能严格不增，减少的部分正是焦耳热。欠阻尼时
+\(q\)、\(i\) 的振幅含有 \(e^{-\alpha t}\)，所以能量具有
+\(e^{-2\alpha t}\) 的典型包络尺度；但 \(q^2/(2C)\) 与 \(Li^2/2\)
+的相位不同，总能量一般不是严格的单一指数函数。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H15.pdf}}
+\par\smallskip{\small 图 M6-H15：电容与电感之间的能量交换以及电阻耗散}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{无损LC的能量交换〔M6-033〕}
+
+理想闭合LC回路无外源、无损耗，\(q(0)=q_0\)、\(i(0)=0\)，并规定
+\(i=\dot q\)。求q、i及两种储能，证明总能量恒定。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-033.pdf}}
+\par\smallskip{\small 图 M6-033：无损LC的能量交换}
+\end{center}
+\end{minipage}\par
+
+图 M6-033
+中，无电阻的闭合LC回路中，电容能和磁场能互相转化；电流沿q增加方向取正。
+
+当 \(R=0\) 时，式 (57-12) 给出 \(dW/dt=0\)。若 \(q(0)=q_0,i(0)=0\)，则
+
+\[
+q=q_0\cos\omega_0t,\qquad
+i=-q_0\omega_0\sin\omega_0t,
+\]
+
+图 M6-033 的 \(q\)
+取电容上极板电荷，顺时针参考电流流入该极板；放电初期实际电流为负。记
+\(\omega_0=1/\sqrt{LC}\)、\(W_0=q_0^2/(2C)\)，则
+
+\[
+W_C=\frac{q^2}{2C}=W_0\cos^2\omega_0t,
+\qquad
+W_L=\frac{Li^2}{2}=W_0\sin^2\omega_0t.
+\]
+
+因此 \(W_C+W_L=W_0\) 恒定，图 M6-033-P1 的两条曲线在每个时刻相加都为1。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-033-P1.pdf}}
+\par\smallskip{\small 图 M6-033-P1：电容与电感的能量交换}
+\end{center}
+\end{minipage}\par
+
+图 M6-033-P1 中，\(W_0=q_0^2/(2C)\)；每个时刻两曲线之和均为1。
+
+\subsection{四、零状态阶跃响应：从无储能状态接入直流}\label{m6:ux56dbux96f6ux72b6ux6001ux9636ux8dc3ux54cdux5e94ux4eceux65e0ux50a8ux80fdux72b6ux6001ux63a5ux5165ux76f4ux6d41}
+
+设 \(t=0\) 接入恒压源 \(\mathcal E\)，且
+
+\[
+q(0)=0,\qquad i(0)=0.
+\]
+
+方程为
+
+\[
+\ddot q+2\alpha\dot q+\omega_0^2q=\frac{\mathcal E}{L}.
+\tag{57-13}
+\]
+
+稳态特解为 \(q_p=C\mathcal E\)。令
+
+\[
+x(t)=q(t)-C\mathcal E,
+\]
+
+则 \(x\) 满足零输入方程，而
+
+\[
+x(0)=-C\mathcal E,\qquad \dot x(0)=0.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H16.pdf}}
+\par\smallskip{\small 图 M6-H16：直流阶跃下三种阻尼情形的电荷建立过程与初末边界}
+\end{center}
+\end{minipage}\par
+
+\subsubsection{1.
+欠阻尼阶跃响应}\label{m6:ux6b20ux963bux5c3cux9636ux8dc3ux54cdux5e94}
+
+\[
+\boxed{
+q(t)=C\mathcal E\left[
+1-e^{-\alpha t}
+\left(\cos\omega_dt+\frac{\alpha}{\omega_d}\sin\omega_dt\right)
+\right]
+}
+\tag{57-14}
+\]
+
+\[
+\boxed{
+i(t)=\frac{\mathcal E}{L\omega_d}e^{-\alpha t}\sin\omega_dt.
+}
+\tag{57-15}
+\]
+
+\subsubsection{2.
+临界阻尼阶跃响应}\label{m6:ux4e34ux754cux963bux5c3cux9636ux8dc3ux54cdux5e94}
+
+\[
+\boxed{
+q(t)=C\mathcal E\left[1-(1+\alpha t)e^{-\alpha t}\right],
+\qquad
+i(t)=\frac{\mathcal E}{L}te^{-\alpha t}.
+}
+\tag{57-16}
+\]
+
+\subsubsection{3.
+过阻尼阶跃响应}\label{m6:ux8fc7ux963bux5c3cux9636ux8dc3ux54cdux5e94}
+
+令 \(\lambda_{\pm}=-\alpha\pm\sqrt{\alpha^2-\omega_0^2}\)，则
+
+\[
+\boxed{
+q(t)=C\mathcal E\left[
+1+\frac{\lambda_-e^{\lambda_+t}-\lambda_+e^{\lambda_-t}}
+{\lambda_+-\lambda_-}
+\right]
+}
+\tag{57-17}
+\]
+
+\[
+\boxed{
+i(t)=\frac{\mathcal E}{L(\lambda_+-\lambda_-)}
+\left(e^{\lambda_+t}-e^{\lambda_-t}\right).
+}
+\tag{57-18}
+\]
+
+三种情形都必须满足
+
+\[
+q(0)=0,\quad i(0)=0,\quad \dot i(0^+)=\frac{\mathcal E}{L},\quad
+q(\infty)=C\mathcal E,\quad i(\infty)=0.
+\tag{57-19}
+\]
+
+这些初值、终值与量纲检查，是发现符号错误的最快方法。
+
+\subsection{五、全响应与任意激励（拔高选讲）}\label{m6:ux4e94ux5168ux54cdux5e94ux4e0eux4efbux610fux6fc0ux52b1ux62d4ux9ad8ux9009ux8bb2}
+
+线性电路的全响应可以分解为
+
+\[
+\boxed{q(t)=q_{zi}(t)+q_{zs}(t),}
+\tag{57-20}
+\]
+
+其中 \(q_{zi}\) 是由初始储能产生的零输入响应，\(q_{zs}\)
+是零初态下由外加电压产生的零状态响应。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H17.pdf}}
+\par\smallskip{\small 图 M6-H17：串联电阻电感电容全响应由零输入响应和零状态响应叠加}
+\end{center}
+\end{minipage}\par
+
+这里先说明新符号的含义。单位阶跃 \(H(t)\) 在 \(t<0\) 时为0、\(t>0\)
+时为1，\(\mathcal E H(t)\)
+就是在0时刻接通并保持的电压。冲激是``持续时间趋零、面积保持有限''的脉冲理想化；冲激响应
+\(h_q\) 描述零初态电路对单位面积电压脉冲的电荷响应。
+
+把任意输入分成发生在各时刻 \(\tau\) 的短脉冲，每个脉冲面积为
+\(u_s(\tau)d\tau\)，到时刻 \(t\) 的贡献为
+\(h_q(t-\tau)u_s(\tau)d\tau\)。将过去的贡献相加，就得到下面的卷积积分；上限为
+\(t\) 表示未来的输入不会影响现在。它只给出零状态部分，初始储能仍由
+\(q_{zi}\) 单独保留。
+
+欠阻尼时，零状态冲激响应为
+
+\[
+h_q(t)=\frac{1}{L\omega_d}e^{-\alpha t}\sin\omega_dt\,H(t),
+\]
+
+故任意外加电压的零状态响应为
+
+\[
+q_{zs}(t)=\int_0^t h_q(t-\tau)u_s(\tau)\,d\tau.
+\tag{57-21}
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{从卷积还原阶跃响应〔M6-034〕}
+
+欠阻尼串联RLC电路初始无储能，其电荷对源电压的冲激响应为
+\(h_q(t)=H(t)e^{-\alpha t}\sin(\omega_dt)/(L\omega_d)\)。在t=0接入
+\(u_s=\mathcal E H(t)\)，由卷积积分求q(t)，并验证初末状态。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-034.pdf}}
+\par\smallskip{\small 图 M6-034：从卷积还原阶跃响应}
+\end{center}
+\end{minipage}\par
+
+图 M6-034 中，零初态回路接通恒压 \(\mathcal E\)
+后，电荷等于冲激响应从0到当前时刻的累计面积乘 \(\mathcal E\)。令
+\(\alpha=R/(2L)\)、\(\omega_d=\sqrt{1/(LC)-\alpha^2}\)；对 \(t\ge0\)
+换积分变量得
+
+\[
+q(t)=\mathcal E\int_0^t h_q(t-\tau)d\tau
+=\frac{\mathcal E}{L\omega_d}\int_0^t e^{-\alpha x}\sin(\omega_dx)dx.
+\]
+
+用分部积分两次，或对下式右端求导，可得
+
+\[
+\int_0^t e^{-\alpha x}\sin(\omega_dx)dx
+=\frac{\omega_d-e^{-\alpha t}[\alpha\sin(\omega_dt)+\omega_d\cos(\omega_dt)]}{\alpha^2+\omega_d^2}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-034-P2.pdf}}
+\par\smallskip{\small 图 M6-034-P2：响应核的面积怎样形成阶跃电荷}
+\end{center}
+\end{minipage}\par
+
+图 M6-034-P2 左侧阴影累计到虚线时刻
+\(t_*\)，正好给出右侧该时刻的归一化电荷；之后响应核变负时，累计电荷也会下降。使用
+\(\alpha^2+\omega_d^2=1/(LC)\) 化简为
+
+\[
+q(t)=C\mathcal E\left[1-e^{-\alpha t}\left(\cos\omega_dt+\frac\alpha{\omega_d}\sin\omega_dt\right)\right].
+\]
+
+求导得到
+\(i(t)=\mathcal E e^{-\alpha t}\sin(\omega_dt)/(L\omega_d)\)。代入可逐项验证
+\(q(0)=i(0)=0\)、\(\dot i(0)=\mathcal E/L\)，且 \(R>0\) 时
+\(q(\infty)=C\mathcal E\)、\(i(\infty)=0\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-034-P1.pdf}}
+\par\smallskip{\small 图 M6-034-P1：阶跃电荷响应的三种阻尼}
+\end{center}
+\end{minipage}\par
+
+图 M6-034-P1
+将本题欠阻尼曲线与临界、过阻尼情形作对照：它们使用相同的零初态和终值，蓝色欠阻尼曲线可越过终值后回落。
+
+\subsection{六、正弦交流稳态与串联谐振}\label{m6:ux516dux6b63ux5f26ux4ea4ux6d41ux7a33ux6001ux4e0eux4e32ux8054ux8c10ux632f}
+
+设外加电压为
+
+\[
+u_s(t)=\sqrt2U\cos\omega t,
+\]
+
+其中 \(U\) 为有效值。全文统一采用有效值相量与 \(e^{j\omega t}\)
+约定。在正弦稳态中，串联阻抗为
+
+\[
+Z=R+j\left(\omega L-\frac{1}{\omega C}\right).
+\tag{57-22}
+\]
+
+电流相量与时域表达式为
+
+\[
+\widetilde I=\frac{\widetilde U}{Z},
+\]
+
+\[
+i(t)=\sqrt2I\cos(\omega t-\varphi),
+\]
+
+其中
+
+\[
+I=\frac{U}{\sqrt{R^2+\left(\omega L-\frac1{\omega C}\right)^2}},
+\tag{57-23}
+\]
+
+\[
+\tan\varphi=\frac{\omega L-1/(\omega C)}{R}.
+\tag{57-24}
+\]
+
+当
+
+\[
+\omega=\omega_0=\frac1{\sqrt{LC}}
+\tag{57-25}
+\]
+
+时，电抗相消，\(Z=R\)，电流有效值达到最大值
+\(I_{\max}=U/R\)，电流与电源电压同相。这是\textbf{串联电流谐振}。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H18.pdf}}
+\par\smallskip{\small 图 M6-H18：串联RLC的谐振与自由振荡频率}
+\end{center}
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H19.pdf}}
+\par\smallskip{\small 图 M6-H19：串联电阻电感电容的阻抗三角形以及模和相位}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{串联谐振与电压放大〔M6-035〕}
+
+串联RLC电路中
+\(L=0.10\,\mathrm H\)、\(C=10\,\mu\mathrm F\)、\(R>0\)，源电压有效值U恒定。求电流谐振角频率，并说明为何谐振时
+\(U_L,U_C\) 可分别超过U而不违反KVL。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-035.pdf}}
+\par\smallskip{\small 图 M6-035：串联谐振与电压放大}
+\end{center}
+\end{minipage}\par
+
+图 M6-035
+中，串联公共电流在谐振时与源电压同相，电感与电容的电压反相相消。
+
+若 \(L=0.10\ \mathrm H\)、\(C=10\ \mu\mathrm F\)，则
+\(\omega_0=1000\ \mathrm{rad/s}\)。在该频率下，\(u_L\) 与 \(u_C\)
+的相量大小相等、方向相反，但二者可以分别远大于电源电压。
+
+平均功率为
+
+\[
+P=UI\cos\varphi
+=I^2R.
+\tag{57-26}
+\]
+
+半功率点 \(\omega_-,\omega_+\) 满足
+
+\[
+I=\frac{I_{\max}}{\sqrt2}
+\quad\Longleftrightarrow\quad
+\left|\omega L-\frac1{\omega C}\right|=R.
+\]
+
+精确解为
+
+\[
+\omega_{\pm}=\frac{\sqrt{R^2+4L/C}\pm R}{2L},
+\tag{57-27}
+\]
+
+并有
+
+\[
+\omega_+\omega_-=\omega_0^2,
+\qquad
+\Delta\omega=\omega_+-\omega_-=\frac RL.
+\tag{57-28}
+\]
+
+串联谐振的品质因数为
+
+\[
+\boxed{
+Q_s=\frac{\omega_0}{\Delta\omega}
+=\frac{\omega_0L}{R}
+=\frac{1}{\omega_0CR}.
+}
+\tag{57-29}
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-035-P1.pdf}}
+\par\smallskip{\small 图 M6-035-P1：谐振电流与两个半功率点}
+\end{center}
+\end{minipage}\par
+
+图 M6-035-P1
+中，示例品质因数Q=√10；两频率乘积为ω0²，不能把它们当作关于ω0算术对称。
+
+\subsubsection{无损共振为何不存在有界正弦稳态}\label{m6:ux65e0ux635fux5171ux632fux4e3aux4f55ux4e0dux5b58ux5728ux6709ux754cux6b63ux5f26ux7a33ux6001}
+
+若令 \(R=0\) 且驱动频率恰为 \(\omega_0\)，形式上得到
+\(Z(\omega_0)=0\)。这不是一个``无限大但仍为正弦稳态''的电流，而是有界稳态解不存在。以电容电荷为未知量，方程为
+
+\[
+L\ddot q+\frac qC=\sqrt2U\cos\omega_0t.
+\]
+
+一个共振特解为
+
+\[
+\boxed{
+q_p(t)=\frac{\sqrt2U}{2L\omega_0}
+t\sin\omega_0t},
+\]
+
+其电流 \(i_p=dq_p/dt\) 含有包络随 \(t\)
+线性增长的项。真实电路中的电阻、辐射、非线性和电源内阻会限制振幅；因此
+\(R\to0^+\) 的有损稳态极限不能直接当成 \(R=0\) 的长期解。
+
+\subsubsection{三种容易混淆的频率}\label{m6:ux4e09ux79cdux5bb9ux6613ux6df7ux6dc6ux7684ux9891ux7387}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  自由衰减振荡频率：
+\end{enumerate}
+
+\[
+\omega_d=\sqrt{\omega_0^2-\alpha^2}.
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  串联电流谐振频率：
+\end{enumerate}
+
+\[
+\omega_I=\omega_0.
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  电荷振幅或电容电压振幅的峰值频率：
+\end{enumerate}
+
+\[
+\omega_q=\sqrt{\omega_0^2-2\alpha^2},
+\tag{57-30}
+\]
+
+但只有当 \(\omega_0^2>2\alpha^2\)
+时，正频率范围内才存在该峰值。三者在弱阻尼极限下彼此接近，却不是同一个定义。
+
+\subsection{七、练习与解答}\label{m6:ux4e03ux7ec3ux4e60ux4e0eux89e3ux7b54-1}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{直流阶跃的欠阻尼电流〔M6-036〕}
+
+在一个串联 RLC 电路中，已知
+
+\[
+L=1\ \mathrm H,\qquad C=10^{-6}\ \mathrm F,\qquad R=200\ \Omega.
+\]
+
+电容初始不带电，电流为零。在 \(t=0\) 时突然接入直流恒压源
+\(V_0=100\ \mathrm V\)。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  判断阻尼状态；
+\item
+  求 \(t>0\) 时电流 \(i(t)\)。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-036.pdf}}
+\par\smallskip{\small 图 M6-036：直流阶跃的欠阻尼电流}
+\end{center}
+\end{minipage}\par
+
+图 M6-036
+中，接通前电容不带电，i为零；右侧参数给出欠阻尼自由部分，源电压决定初始斜率。
+
+\[
+\alpha=\frac{R}{2L}=100\ \mathrm{s^{-1}},
+\qquad
+\omega_0=\frac1{\sqrt{LC}}=1000\ \mathrm{rad/s}.
+\]
+
+因为 \(\alpha<\omega_0\)，所以电路欠阻尼。阻尼振荡角频率为
+
+\[
+\omega_d=\sqrt{\omega_0^2-\alpha^2}
+=\sqrt{990000}
+\approx994.987\ \mathrm{rad/s}.
+\]
+
+由式 (57-15)，
+
+\[
+i(t)=\frac{V_0}{L\omega_d}e^{-\alpha t}\sin\omega_dt,
+\]
+
+所以
+
+\[
+\boxed{
+i(t)\approx0.10050e^{-100t}\sin(994.987t)\ \mathrm A.
+}
+\]
+
+检查：\(i(0)=0\)，且
+\(\dot i(0^+)=0.10050\times994.987=100\ \mathrm{A/s}=V_0/L\)，正确。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-036-P1.pdf}}
+\par\smallskip{\small 图 M6-036-P1：给定参数的电流时间过程}
+\end{center}
+\end{minipage}\par
+
+图 M6-036-P1
+中，使用L=1H、C=1μF、R=200Ω、V0=100V的数值；峰值随时间衰减。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{交叉电容的对称暂态〔M6-037〕}
+
+三个阻值均为 \(r\) 的电阻依次串联，四个节点从左到右记为
+\(P_0,P_1,P_2,P_3\)。电容 \(C\) 分别跨接 \(P_0P_2\) 与
+\(P_1P_3\)，电源电动势为
+\(\mathcal E\)，内阻不计。两电容初始均不带电，\(t=0\)
+闭合开关。求单个电容的电荷 \(q(t)\) 与电源干路电流 \(I(t)\)。
+
+每只电容的q取左侧极板（P0或P1）的电荷，源电流I从P0流入电路。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-037.pdf}}
+\par\smallskip{\small 图 M6-037：交叉电容的对称暂态}
+\end{center}
+\end{minipage}\par
+
+图 M6-037
+中，上电容连接P0P2，下电容连接P1P3；依节点分流可得三段电阻电流，中段在接通初期可为负。
+
+由左右反演对称性，两电容在任意时刻电荷相等、充电电流相等。记单个电容的充电电流为
+
+\[
+i_C=\dot q.
+\]
+
+三段电阻电流依次为
+
+\[
+I-i_C,\qquad I-2i_C,\qquad I-i_C.
+\]
+
+外回路 KVL 给出
+
+\[
+\mathcal E=r(I-i_C)+r(I-2i_C)+r(I-i_C)
+=3Ir-4i_Cr,
+\]
+
+即
+
+\[
+I=\frac{\mathcal E}{3r}+\frac43i_C.
+\tag{57-31}
+\]
+
+对上方电容与前两段电阻构成的回路列 KVL：
+
+\[
+\frac qC=r(I-i_C)+r(I-2i_C)=2Ir-3i_Cr.
+\]
+
+代入式 (57-31)：
+
+\[
+\frac qC=\frac{2\mathcal E}{3}-\frac{r}{3}\dot q.
+\]
+
+故
+
+\[
+\dot q+\frac{3}{rC}q=\frac{2\mathcal E}{r}.
+\]
+
+结合 \(q(0)=0\)，得到
+
+\[
+\boxed{
+q(t)=\frac23C\mathcal E\left(1-e^{-3t/(rC)}\right).
+}
+\tag{57-32}
+\]
+
+于是
+
+\[
+i_C(t)=\dot q=\frac{2\mathcal E}{r}e^{-3t/(rC)},
+\]
+
+\[
+\boxed{
+I(t)=\frac{\mathcal E}{3r}
++\frac{8\mathcal E}{3r}e^{-3t/(rC)}.
+}
+\tag{57-33}
+\]
+
+极限检验：\(t=0^+\)
+时两电容相当于短路，三个电阻并联，\(I(0^+)=3\mathcal E/r\)；\(t\to\infty\)
+时两电容开路，三个电阻串联，\(I(\infty)=\mathcal E/(3r)\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-037-P1.pdf}}
+\par\smallskip{\small 图 M6-037-P1：电荷与电源电流的初末极限}
+\end{center}
+\end{minipage}\par
+
+图 M6-037-P1 中，单电容电荷从0升至 \(2C\mathcal E/3\)；源电流从
+\(3\mathcal E/r\) 降至 \(\mathcal E/(3r)\)。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{桥式RC与单电阻热量〔M6-038〕}
+
+桥式网络四个顶点依次记为 \(A,B,C,D\)。\(AB\) 与 \(DC\) 为电阻
+\(R\)，\(AD\) 与 \(BC\) 为电容 \(C\)，桥臂 \(BD\) 也是电容
+\(C\)。电动势为 \(\varepsilon\) 的理想电源接在 \(A,C\)
+之间。所有电容初始不带电，\(t=0\) 闭合开关。求电阻 \(AB\)
+中产生的总焦耳热。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-038.pdf}}
+\par\smallskip{\small 图 M6-038：桥式RC与单电阻热量}
+\end{center}
+\end{minipage}\par
+
+图 M6-038
+中，从A到C的纯电容路径A→D→B→C先建立冲激后的电位；AB电阻只计算随后有限电流的热量。
+
+闭合瞬间，\(AD,DB,BC\)
+三只电容构成串联纯电容路径。有限电阻支路在无穷短的冲激阶段传递的电荷可忽略，因此三只电容得到等量电荷
+\(C\varepsilon/3\)。取 \(V_A=\varepsilon,V_C=0\)，则
+
+\[
+V_D(0^+)=\frac{2\varepsilon}{3},\qquad
+V_B(0^+)=\frac{\varepsilon}{3}.
+\tag{57-34}
+\]
+
+设电源干路电流为 \(i\)，\(AD\) 与 \(BC\) 电容支路电流均为 \(i_1\)。桥臂
+\(BD\) 中自 \(D\) 向 \(B\) 的电流为 \(2i_1-i\)。对纯电容回路求导后的 KVL
+为
+
+\[
+i_1+(2i_1-i)+i_1=0,
+\]
+
+故
+
+\[
+i=4i_1.
+\tag{57-35}
+\]
+
+流过 \(AB\) 的电流为
+
+\[
+i_R=i-i_1=3i_1.
+\]
+
+对含两个电阻与桥臂电容的回路列 KVL，再求导，可得
+
+\[
+3RC\frac{di_1}{dt}+i_1=0.
+\]
+
+由式 (57-34)，初始时
+\(i_R(0^+)=[V_A(0^+)-V_B(0^+)]/R=2\varepsilon/(3R)\)，所以
+
+\[
+i_R(t)=\frac{2\varepsilon}{3R}e^{-t/(3RC)}.
+\]
+
+因此
+
+\[
+\Theta_R=\int_0^{\infty} i_R^2R\,dt
+=\frac{4\varepsilon^2}{9R}
+\int_0^{\infty} e^{-2t/(3RC)}dt,
+\]
+
+\[
+\boxed{
+\Theta_R=\frac23C\varepsilon^2.
+}
+\tag{57-36}
+\]
+
+理想电源、理想开关导致的冲激充电应理解为寄生电阻与寄生电感趋于零的极限；式
+(57-36) 计算的是随后有限电流暂态中电阻 \(AB\) 的热量。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-038-P1.pdf}}
+\par\smallskip{\small 图 M6-038-P1：电阻热量是电压---累计电荷面积}
+\end{center}
+\end{minipage}\par
+
+图 M6-038-P1
+中，q1从冲激阶段之后开始累计AB电阻传递的电荷；阴影面积给出该电阻热量。
+
+\textbf{解答二：电荷变量与面积法}
+
+设通过电阻 \(AB\) 的累计电荷为 \(q_1\)，其端电压为
+\(u_1=i_RR\)。由纯电容回路约束及节点电流关系，\(i_R=3i_1\)，电阻电压与累计电荷满足
+\(du_1/dq_1=-1/(3C)\)。结合 \(u_1(0^+)=2\varepsilon/3\)
+积分。由主回路电压关系可得
+
+\[
+u_1=\frac{2\varepsilon}{3}-\frac{q_1}{3C}.
+\tag{57-37}
+\]
+
+当 \(u_1=0\) 时，累计电荷达到 \(q_{1\infty}=2C\varepsilon\)。又因为
+\(dq_1=i_Rdt\)，
+
+\[
+\Theta_R=\int_0^{\infty} i_R^2Rdt
+=\int_0^{2C\varepsilon}u_1\,dq_1.
+\]
+
+它等于 \(u_1-q_1\) 图中直角三角形的面积：
+
+\[
+\Theta_R=\frac12\cdot\frac{2\varepsilon}{3}\cdot2C\varepsilon
+=\frac23C\varepsilon^2.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{零状态RLC的三种阻尼〔M6-039〕}
+
+电动势为 \(\mathcal E\) 的直流电源经开关与 \(R,L,C\) 串联。\(t=0\)
+闭合开关，且 \(q(0)=i(0)=0\)。求三种阻尼情形下的 \(q(t),i(t)\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-039.pdf}}
+\par\smallskip{\small 图 M6-039：零状态RLC的三种阻尼}
+\end{center}
+\end{minipage}\par
+
+图 M6-039
+中，所有阻尼情形都从q=i=0出发；按根型选择解，并用同一初末边界约束系数。
+
+方程为式 (57-13)，稳态特解为 \(C\mathcal E\)。令
+\(x=q-C\mathcal E\)，便把问题化为初态
+
+\[
+x(0)=-C\mathcal E,\qquad \dot x(0)=0
+\]
+
+的零输入问题。于是：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  过阻尼 \(R>2\sqrt{L/C}\)：由式 (57-17)、式 (57-18)；
+\item
+  临界阻尼 \(R=2\sqrt{L/C}\)：由式 (57-16)；
+\item
+  欠阻尼 \(R<2\sqrt{L/C}\)：由式 (57-14)、式 (57-15)。
+\end{enumerate}
+
+为使本题的解答自足，下面把三组结果完整写出。记
+
+\[
+\alpha=\frac{R}{2L},
+\qquad
+\omega_0=\frac1{\sqrt{LC}}.
+\]
+
+过阻尼时 \(\alpha>\omega_0\)。令
+
+\[
+\beta=\sqrt{\alpha^2-\omega_0^2},
+\qquad
+s_1=-\alpha+\beta,
+\qquad
+s_2=-\alpha-\beta,
+\]
+
+则
+
+\[
+\boxed{
+q(t)=C\mathcal E\left[
+1+\frac{s_2e^{s_1t}-s_1e^{s_2t}}{s_1-s_2}
+\right]},
+\]
+
+\[
+\boxed{
+i(t)=\frac{\mathcal E}{L}
+\frac{e^{s_1t}-e^{s_2t}}{s_1-s_2}}.
+\]
+
+临界阻尼时 \(\alpha=\omega_0\)，
+
+\[
+\boxed{
+q(t)=C\mathcal E\left[1-(1+\alpha t)e^{-\alpha t}\right]},
+\]
+
+\[
+\boxed{
+i(t)=\frac{\mathcal E}{L}t\,e^{-\alpha t}}.
+\]
+
+欠阻尼时 \(\alpha<\omega_0\)。令
+
+\[
+\omega_d=\sqrt{\omega_0^2-\alpha^2},
+\]
+
+则
+
+\[
+\boxed{
+q(t)=C\mathcal E\left[
+1-e^{-\alpha t}
+\left(
+\cos\omega_dt+\frac{\alpha}{\omega_d}\sin\omega_dt
+\right)
+\right]},
+\]
+
+\[
+\boxed{
+i(t)=\frac{\mathcal E}{L\omega_d}
+e^{-\alpha t}\sin\omega_dt}.
+\]
+
+这三组结果均已在第四节逐步推导。其共同物理边界是
+
+\[
+q(0)=i(0)=0,\qquad q(\infty)=C\mathcal E,\quad i(\infty)=0.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-039-P1.pdf}}
+\par\smallskip{\small 图 M6-039-P1：阶跃电荷响应的三种阻尼}
+\end{center}
+\end{minipage}\par
+
+图 M6-039-P1 中，蓝：欠阻尼；绿：临界阻尼；红：过阻尼。均从0趋于1。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{半功率角频率与精确带宽〔M6-040〕}
+
+串联RLC具有正参数R、L、C，正弦源电压有效值U在扫频过程中保持不变。求平均电阻功率降至谐振峰值一半时的两个正角频率，证明带宽R/L及两频率乘积1/(LC)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-040.pdf}}
+\par\smallskip{\small 图 M6-040：半功率角频率与精确带宽}
+\end{center}
+\end{minipage}\par
+
+图 M6-040
+中，源有效值保持不变，谐振电流为U/R；两侧半功率点对应相同的电流有效值下降比例。
+
+半功率时电流有效值 \(I=I_{\mathrm{res}}/\sqrt2\)，因此
+
+\[
+\left|\omega L-\frac1{\omega C}\right|=R.
+\]
+
+高频侧满足 \(L\omega^2-R\omega-1/C=0\)，低频侧满足
+\(L\omega^2+R\omega-1/C=0\)，取正根：
+
+\[
+\omega_+=\frac{\sqrt{R^2+4L/C}+R}{2L},
+\]
+
+\[
+\omega_-=\frac{\sqrt{R^2+4L/C}-R}{2L}.
+\]
+
+两式相减即得
+
+\[
+\boxed{\Delta\omega=\omega_+-\omega_-=\frac RL.}
+\]
+
+两式相乘还得到 \(\omega_+\omega_-=1/(LC)=\omega_0^2\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-040-P1.pdf}}
+\par\smallskip{\small 图 M6-040-P1：谐振电流与两个半功率点}
+\end{center}
+\end{minipage}\par
+
+图 M6-040-P1
+中，示例品质因数Q=√10；两频率乘积为ω0²，不能把它们当作关于ω0算术对称。
+
+\subsection{八、耦合 RLC
+与互感理论（拔高选讲）}\label{m6:ux516bux8026ux5408-rlc-ux4e0eux4e92ux611fux7406ux8bbaux62d4ux9ad8ux9009ux8bb2}
+
+这一部分把单回路 RLC
+推广到两个共享磁场的回路。相关内容也是理想变压器的理论入口。
+
+\subsubsection{1.
+自感、互感与同名端}\label{m6:ux81eaux611fux4e92ux611fux4e0eux540cux540dux7aef}
+
+对两个空间位置固定、介质线性且参数与时间无关的线圈，磁链可以写成
+
+\[
+\Psi_1=L_1i_1\pm Mi_2,
+\qquad
+\Psi_2=\pm Mi_1+L_2i_2.
+\tag{57-38}
+\]
+
+若两电流都流入同名端，并把两电压都定义为同名端相对非同名端的电压，则取正号：
+
+\[
+u_1=L_1\dot i_1+M\dot i_2,
+\qquad
+u_2=M\dot i_1+L_2\dot i_2.
+\tag{57-39}
+\]
+
+反转任一线圈的电流或电压参考方向，互感项的符号随之改变；\(M\)
+的几何大小并未改变。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H20.pdf}}
+\par\smallskip{\small 图 M6-H20：互感大小、同名端符号、磁场能量与耦合系数}
+\end{center}
+\end{minipage}\par
+
+磁场能量为
+
+\[
+W_m=\frac12L_1i_1^2+Mi_1i_2+\frac12L_2i_2^2.
+\tag{57-40}
+\]
+
+由于它对任意 \(i_1,i_2\) 都必须非负，电感矩阵
+
+\[
+\begin{pmatrix}L_1&M\\M&L_2\end{pmatrix}
+\]
+
+必须半正定，故
+
+\[
+\boxed{|M|\le\sqrt{L_1L_2}.}
+\tag{57-41}
+\]
+
+定义耦合系数
+
+\[
+k=\frac{|M|}{\sqrt{L_1L_2}},\qquad 0\le k\le1.
+\tag{57-42}
+\]
+
+严格地说，\(k=1\)
+的等号条件是两线圈分别产生的磁场在能量内积意义下处处成比例；``没有漏磁、磁通完全共享''是常用的几何直观。
+
+\subsubsection{2.
+法拉第定律与感应电动势}\label{m6:ux6cd5ux62c9ux7b2cux5b9aux5f8bux4e0eux611fux5e94ux7535ux52a8ux52bf}
+
+感应电动势为
+
+\[
+\mathcal E_{\mathrm{ind}}=-\frac{d\Psi}{dt}.
+\tag{57-43}
+\]
+
+若几何和材料参数固定，
+
+\[
+\mathcal E_L=-L\frac{di}{dt},
+\qquad
+\mathcal E_{21}=-M\frac{di_1}{dt}.
+\tag{57-44}
+\]
+
+若 \(L\) 随时间变化，则
+
+\[
+\mathcal E_L=-\frac{d(Li)}{dt}
+=-L\dot i-i\dot L.
+\tag{57-45}
+\]
+
+第二项来自磁链系数的变化。只有在明确几何运动、磁通规则和参考回路后，才能进一步把它解释为相应的机电感应贡献，不能在所有情形下不加条件地称为``动生电动势''。
+
+式 (57-43)
+中的负号描述感应电动势；电路方程中的端电压若采用关联参考方向，则有
+\(u=-\mathcal E_{\mathrm{ind}}\)，从而得到式 (57-39)。
+
+\subsubsection{3.
+诺伊曼互感公式的适用范围}\label{m6:ux8bfaux4f0aux66fcux4e92ux611fux516cux5f0fux7684ux9002ux7528ux8303ux56f4}
+
+在真空或空间充满均匀、线性、各向同性且磁导率为常数 \(\mu\)
+的介质中，细导线回路 \(C_1\) 产生的矢量磁位为
+
+\[
+\boldsymbol A_1(\boldsymbol r)
+=\frac{\mu I_1}{4\pi}
+\oint_{C_1}\frac{d\boldsymbol l_1}{|\boldsymbol r-\boldsymbol r_1|}.
+\]
+
+由斯托克斯定理，回路 \(C_2\) 的磁链为
+
+\[
+\Psi_{21}=\oint_{C_2}\boldsymbol A_1\cdot d\boldsymbol l_2,
+\]
+
+所以
+
+\[
+\boxed{
+M_{21}=\frac{\mu}{4\pi}
+\oint_{C_1}\oint_{C_2}
+\frac{d\boldsymbol l_1\cdot d\boldsymbol l_2}
+{|\boldsymbol r_2-\boldsymbol r_1|}.
+}
+\tag{57-46}
+\]
+
+交换两重积分不改变结果，因此
+
+\[
+M_{12}=M_{21}.
+\tag{57-47}
+\]
+
+若空间中存在形状有限、磁导率不均匀的磁芯，不能把真空公式中的 \(\mu_0\)
+简单替换为某个常数
+\(\mu\)；此时必须求解带介质边界条件的磁场或使用相应格林函数。
+
+形式上把两条回路取为同一回路会得到自感积分，但理想零半径细线在重合点处出现对数发散。实际自感必须计入导线有限截面与内部磁场。
+
+\subsection{九、两类可解析互感模型（拔高选讲）}\label{m6:ux4e5dux4e24ux7c7bux53efux89e3ux6790ux4e92ux611fux6a21ux578bux62d4ux9ad8ux9009ux8bb2}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H21.pdf}}
+\par\smallskip{\small 图 M6-H21：同轴长直螺线管的交链面积和环形磁芯的闭合磁路}
+\end{center}
+\end{minipage}\par
+
+\subsubsection{1.
+同轴密绕长直螺线管}\label{m6:ux540cux8f74ux5bc6ux7ed5ux957fux76f4ux87baux7ebfux7ba1}
+
+设两螺线管同轴、等长 \(l\)，内外截面积分别为 \(S_1,S_2\)，且
+\(S_1\le S_2\)；匝数为
+\(N_1,N_2\)。在理想长螺线管近似下忽略端部效应，内部磁场为
+
+\[
+B=\mu\frac{N}{l}I,
+\]
+
+外部磁场近似为零。因此
+
+\[
+L_1=\frac{\mu N_1^2S_1}{l},
+\qquad
+L_2=\frac{\mu N_2^2S_2}{l}.
+\tag{57-48}
+\]
+
+无论由内线圈还是外线圈激发，真正同时穿过两组线圈的有效面积都是
+\(S_1\)，故
+
+\[
+M_{12}=M_{21}=\frac{\mu N_1N_2S_1}{l}.
+\tag{57-49}
+\]
+
+于是
+
+\[
+k=\frac{M}{\sqrt{L_1L_2}}
+=\sqrt{\frac{S_1}{S_2}}.
+\tag{57-50}
+\]
+
+当 \(S_1=S_2\) 时达到该理想模型中的全耦合极限。
+
+\subsubsection{2.
+矩形截面闭合环形磁芯}\label{m6:ux77e9ux5f62ux622aux9762ux95edux5408ux73afux5f62ux78c1ux82af}
+
+设环形磁芯内、外半径为 \(a,b\)，轴向高度为
+\(h\)，材料为均匀线性介质，忽略漏磁。线圈 1 有 \(N_1\) 匝并通电流
+\(i_1\)。在半径 \(r\) 的圆形安培环路上
+
+\[
+H(r)\,2\pi r=N_1i_1,
+\]
+
+所以
+
+\[
+B(r)=\frac{\mu N_1i_1}{2\pi r}.
+\tag{57-51}
+\]
+
+单匝磁通为
+
+\[
+\Phi_1=\int_a^bB(r)h\,dr
+=\frac{\mu N_1i_1h}{2\pi}\ln\frac ba.
+\]
+
+故
+
+\[
+L_1=\frac{\mu N_1^2h}{2\pi}\ln\frac ba,
+\qquad
+L_2=\frac{\mu N_2^2h}{2\pi}\ln\frac ba,
+\tag{57-52}
+\]
+
+\[
+M=\frac{\mu N_1N_2h}{2\pi}\ln\frac ba.
+\tag{57-53}
+\]
+
+在无漏磁假设下
+
+\[
+M^2=L_1L_2,
+\]
+
+即
+\(k=1\)。这里磁场并不均匀，\(B\propto1/r\)；若把整个截面错误地当作匀强磁场，会漏掉对数因子。
+
+\subsection{十、变压器互感与理想耦合的推导}\label{m6:ux5341ux53d8ux538bux5668ux4e92ux611fux4e0eux7406ux60f3ux8026ux5408ux7684ux63a8ux5bfc}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{环形磁芯的互感与理想极限〔M6-X01〕}
+
+考虑矩形截面的闭合环形磁芯，内半径 \(a\)、外半径 \(b\)、高度
+\(h\)，磁导率为常数 \(\mu\)。磁芯上绕有 \(N_1,N_2\)
+匝线圈，忽略磁滞、饱和与漏磁。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  推导 \(L_1,L_2,M\)，并证明 \(M=\sqrt{L_1L_2}\)；
+\item
+  初级加 \(u_1(t)=\sqrt2U_1\cos\omega t\)，其中 \(U_1\)
+  为有效值；次级接纯电阻
+  \(R\)，线圈电阻忽略。只讨论磁通无直流偏置的正弦稳态，求 \(u_2(t)\) 与
+  \(i_1(t)\)；
+\item
+  讨论 \(\mu\to\infty\) 的理想变压器极限。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-X01.pdf}}
+\par\smallskip{\small 图 M6-X01：环形磁芯的互感与理想极限}
+\end{center}
+\end{minipage}\par
+
+图 M6-X01 中，沿半径 \(r\) 的安培环路求 \(B(r)\)，再在 \(a\) 到
+\(b\)、高度 \(h\)
+的截面上积分，得到自感与互感。电流的参考方向另见下面的图 M6-X01-P2。
+
+第一问已由式 (57-51) 至式 (57-53) 推出：
+
+\[
+L_1=\Gamma N_1^2,\qquad
+L_2=\Gamma N_2^2,\qquad
+M=\Gamma N_1N_2,
+\]
+
+其中
+
+\[
+\Gamma=\frac{\mu h}{2\pi}\ln\frac ba.
+\]
+
+所以 \(M^2=L_1L_2\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-X01-P2.pdf}}
+\par\smallskip{\small 图 M6-X01-P2：绕组参考方向与负载电流}
+\end{center}
+\end{minipage}\par
+
+图 M6-X01-P2 的两个绕组电流都流入上端黑点；负载电流从次级黑点流出，故为
+\(i_{out}=-i_2\)。本题无漏磁且
+\(Z_L=R\)。磁通平均值取零，排除了有限励磁电感中可另外保留的直流电流常数。
+
+规定 \(i_1,i_2\) 都流入同名端，\(u_1,u_2\) 都取同名端对非同名端电压，则
+
+\[
+u_1=L_1\dot i_1+M\dot i_2,
+\]
+
+\[
+u_2=M\dot i_1+L_2\dot i_2.
+\tag{57-54}
+\]
+
+负载电流从次级同名端流出，因此
+
+\[
+u_2=-Ri_2.
+\tag{57-55}
+\]
+
+相量形式为
+
+\[
+\widetilde U_1=j\omega L_1\widetilde I_1+j\omega M\widetilde I_2,
+\]
+
+\[
+\widetilde U_2=j\omega M\widetilde I_1+j\omega L_2\widetilde I_2,
+\qquad
+\widetilde I_2=-\frac{\widetilde U_2}{R}.
+\]
+
+由第一式解出 \(\widetilde I_1\) 并代入第二式：
+
+\[
+\widetilde U_2=\frac{M}{L_1}\widetilde U_1
++j\omega\left(L_2-\frac{M^2}{L_1}\right)\widetilde I_2.
+\]
+
+由于全耦合时 \(M^2=L_1L_2\)，第二项严格为零，故
+
+\[
+\boxed{
+\widetilde U_2=\frac{M}{L_1}\widetilde U_1
+=\frac{N_2}{N_1}\widetilde U_1.
+}
+\tag{57-56}
+\]
+
+因此
+
+\[
+\boxed{
+u_2(t)=\sqrt2\frac{N_2}{N_1}U_1\cos\omega t.
+}
+\tag{57-57}
+\]
+
+令 \(n=N_2/N_1\)。由 \(\widetilde I_2=-n\widetilde U_1/R\)
+代回初级方程：
+
+\[
+\boxed{
+\widetilde I_1=\frac{n^2\widetilde U_1}{R}+
+\frac{\widetilde U_1}{j\omega L_1}.
+}
+\tag{57-58}
+\]
+
+时域中
+
+\[
+\boxed{
+i_1(t)=\sqrt2\frac{n^2U_1}{R}\cos\omega t
++\sqrt2\frac{U_1}{\omega L_1}\sin\omega t.
+}
+\tag{57-59}
+\]
+
+第一项是与电压同相的负载分量，第二项是滞后电压 \(90^{\circ}\)
+的励磁分量。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-X01-P1.pdf}}
+\par\smallskip{\small 图 M6-X01-P1：全耦合但有限磁导率的输入电流}
+\end{center}
+\end{minipage}\par
+
+图 M6-X01-P1 中，折算负载与励磁电感并联；有限磁导率的励磁分量仍须保留。
+
+当 \(\mu\to\infty\)
+时，\(L_1\to\infty\)，励磁电流趋于零。若把次级负载电流定义为从同名端流出的
+\(I_{\mathrm{out}}=-I_2\)，则
+
+\[
+\frac{U_1}{U_2}=\frac{N_1}{N_2},
+\qquad
+\frac{I_1}{I_{\mathrm{out}}}=\frac{N_2}{N_1}.
+\tag{57-60}
+\]
+
+此时输入阻抗为
+
+\[
+Z_{\mathrm{in}}=\frac{R}{n^2}
+=R\left(\frac{N_1}{N_2}\right)^2.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{有限励磁支路与阻抗折算〔M6-041〕}
+
+全耦合、无绕组电阻变压器的匝数比为 \(N_1:N_2=5:1\)，初级自感 \(L_1\)
+有限，次级接 \(4\,\Omega\)
+电阻。给定角频率ω\textgreater0，求折算负载与输入阻抗，讨论忽略励磁电流的条件。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-041.pdf}}
+\par\smallskip{\small 图 M6-041：有限励磁支路与阻抗折算}
+\end{center}
+\end{minipage}\par
+
+图 M6-041 中，全耦合但有限磁导率时，折算负载与励磁电感并联；当
+\(\omega L_1\gg100\Omega\) 时可近似忽略励磁电流。
+
+若 \(N_1:N_2=5:1\)，次级接 \(4\ \Omega\) 电阻，则折算到初级的负载为
+\(4\times5^2=100\ \Omega\)；有限磁导率时还应并联励磁阻抗
+\(j\omega L_1\)。
+
+若只要求忽略励磁电流的近似条件，应比较两支路电流：\(|U_1/(\omega L_1)|\ll|U_1/100\Omega|\)，即
+\(\omega L_1\gg100\Omega\)。磁导率趋于无穷是励磁电流严格趋零的理想极限。
+
+\subsection{十一、结论边界与常见错误}\label{m6:ux5341ux4e00ux7ed3ux8bbaux8fb9ux754cux4e0eux5e38ux89c1ux9519ux8bef}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\omega_0\) 是无阻尼固有频率和串联电流谐振频率，\(\omega_d\)
+  是欠阻尼自由振荡频率，二者不能混用。
+\item
+  欠阻尼通解中的振幅由 \(q_0,i_0\)
+  共同决定，不能把初始电荷直接写成振幅而忽略相位。
+\item
+  \(dW/dt=-Ri^2\) 是严格结论；``能量按 \(e^{-2\alpha t}\)
+  衰减''通常只描述包络尺度。
+\item
+  对方程求导可能引入额外解或丢失直流约束，必须回代原 KVL。
+\item
+  临界阻尼是根型分界；``最快''必须说明固定的初态、终值和评价指标。
+\item
+  理想开关驱动纯电容路径会产生冲激电流，应理解为寄生参数趋于零的极限。
+\item
+  互感符号来自参考方向和同名端，耦合强弱由 \(|M|\) 或 \(k\) 表示。
+\item
+  诺伊曼公式的简单核只适用于真空或均匀常磁导率介质，不能直接套用于局部磁芯。
+\item
+  长螺线管的``外场为零''和环形磁芯的``无漏磁''都是理想模型近似。
+\item
+  全耦合但有限磁导率的模型仍有励磁电流；\(\mu\to\infty\)
+  后才进入励磁电流趋零的理想变压器极限。
+\end{enumerate}
+
+\section{模块六综合训练一：相量、阻抗、功率与串联谐振}\label{m6:ux6a21ux5757ux516dux7efcux5408ux8badux7ec3ux4e00ux76f8ux91cfux963bux6297ux529fux7387ux4e0eux4e32ux8054ux8c10ux632f}
+
+本组训练把相量表示、元件阻抗、复功率和串联谐振放在同一条计算链中。正文推导分别见专题五十五、五十六和五十七；这里不重复定义，只用七个数值检验建立量级与相位直觉，然后保留完整综合题和解答。
+
+\subsection{一、七个快速检验}\label{m6:ux4e00ux4e03ux4e2aux5febux901fux68c0ux9a8c}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{快速检验：有效值相量〔M6-K01〕}
+
+已知电压
+\(a(t)=6\sqrt2\cos(100\pi t-\pi/6)\,V\)。在余弦和有效值约定下写出相量，标明峰值与初相。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-K01.pdf}}
+\par\smallskip{\small 图 M6-K01：快速检验：有效值相量}
+\end{center}
+\end{minipage}\par
+
+图 M6-K01 的蓝箭头在第四象限，横、纵分量分别为
+\(6\cos30^{\circ}=3\sqrt3\) 与
+\(-6\sin30^{\circ}=-3\)；故有效值模为6、初相为
+\(-30^{\circ}\)，恢复时域峰值时再乘 \(\sqrt2\)。
+
+\(\widetilde A=6\angle(-30^{\circ})V\)，有效值6V、峰值\(6\sqrt2V\)。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{快速检验：正弦量求导〔M6-K02〕}
+
+已知电压
+\(a(t)=6\sqrt2\cos(100\pi t-\pi/6)\,V\)。求其时间导数的有效值复振幅、初相和量纲。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-K02.pdf}}
+\par\smallskip{\small 图 M6-K02：快速检验：正弦量求导}
+\end{center}
+\end{minipage}\par
+
+图 M6-K02 的蓝箭头初相为 \(-30^{\circ}\)，求导乘 \(j\omega\) 后旋转
+\(90^{\circ}\) 成为红色 \(60^{\circ}\) 箭头；模乘 \(100\pi\)，得到
+\(600\pi\,\mathrm{V/s}\)。两种量的单位不同，图中箭长只示方向，不能直接比大小。
+
+\(\widetilde {\dot a}=j(100\pi)\widetilde A=600\pi\angle60^{\circ}\,V/s\)。乘j使相位超前90°。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{快速检验：三类元件阻抗〔M6-K03〕}
+
+已知R=10Ω、L=20mH、C=100μF，在ω=500rad/s正弦稳态下分别求其阻抗并判断虚部符号。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-K03.pdf}}
+\par\smallskip{\small 图 M6-K03：快速检验：三类元件阻抗}
+\end{center}
+\end{minipage}\par
+
+图 M6-K03 标出三元件的 \(R,L,C\)；沿用 \(e^{j\omega t}\) 约定，\(R\)
+给正实阻抗，\(L\) 给正虚部，\(C\) 给负虚部，分别把
+\(\omega=500\,\mathrm{rad/s}\) 代入 \(R,j\omega L,-j/(\omega C)\)。
+
+\(Z_R=10\Omega\)、\(Z_L=j10\Omega\)、\(Z_C=-j20\Omega\)。电容负虚部来自\(1/j=-j\)。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{快速检验：复功率三角形〔M6-K04〕}
+
+某被动负载的电压有效值100V、电流有效值2A，电流滞后电压60°。求P、Q、视在功率和功率因数。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-K04.pdf}}
+\par\smallskip{\small 图 M6-K04：快速检验：复功率三角形}
+\end{center}
+\end{minipage}\par
+
+图 M6-K04 的功率矢量位于第一象限：横边为
+\(P=UI\cos60^{\circ}=100\,\mathrm W\)，竖边为
+\(Q=UI\sin60^{\circ}=100\sqrt3\,\mathrm{var}\)，斜边模为
+\(UI=200\,\mathrm{VA}\)；横边与斜边的比值就是功率因数0.5。
+
+\(S=UIe^{j60^{\circ}}=100+j100\sqrt3\,VA\)，视在功率200VA、功率因数0.5滞后。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{快速检验：频率趋势〔M6-K05〕}
+
+L=0.10H、C=100μF。将角频率从100增至1000rad/s，比较感抗和容抗的大小，说明变化倍率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-K05.pdf}}
+\par\smallskip{\small 图 M6-K05：快速检验：频率趋势}
+\end{center}
+\end{minipage}\par
+
+图 M6-K05 的蓝色直线上升，对应 \(X_L=\omega L\)
+随频率增大10倍；绿色双曲线下降，对应 \(|X_C|=1/(\omega C)\)
+变为原来的1/10。两曲线分别从10升到100、从100降到10，单位均为
+\(\Omega\)。
+
+\(X_L:10\to100\Omega\)，增为10倍；\(|X_C|:100\to10\Omega\)，减为1/10。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{快速检验：串联RLC的容性相位〔M6-K06〕}
+
+串联RLC中R=20Ω、L=0.20H、C=50μF、ω=200rad/s。取公共电流为参考，求总阻抗、阻抗相角及电路性质。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-K06.pdf}}
+\par\smallskip{\small 图 M6-K06：快速检验：串联RLC的容性相位}
+\end{center}
+\end{minipage}\par
+
+图 M6-K06 的端点横投影为 \(R=20\,\Omega\)，纵投影为
+\(X=40-100=-60\,\Omega\)，所以合阻抗在第四象限，\(\arg Z=\arctan(-60/20)=-71.57^{\circ}\)。电流为参考时，端电压按该角度滞后电流。
+
+\(Z=20+j40-j100=20-j60\Omega\)，\(\phi=\operatorname{atan2}(-60,20)=-71.565^{\circ}\)，呈容性。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{快速检验：谐振、带宽、品质因数〔M6-K07〕}
+
+串联RLC中R=20Ω、L=0.20H、C=50μF。保持元件参数不变，求电流谐振角频率、品质因数与半功率带宽。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-K07.pdf}}
+\par\smallskip{\small 图 M6-K07：快速检验：谐振、带宽、品质因数}
+\end{center}
+\end{minipage}\par
+
+图 M6-K07 的串联电路使用同一电流：\(\omega L=1/(\omega C)\)
+时两个无功压降抵消，给出 \(\omega_0=1/\sqrt{LC}\)。把图中 \(R,L\) 代入
+\(\Delta\omega=R/L\)，再由 \(Q=\omega_0/\Delta\omega\) 得到品质因数。
+
+\(\omega_0=1/\sqrt{LC}=316.228rad/s\)，\(Q=\omega_0L/R=3.16228\)，\(\Delta\omega=R/L=100rad/s\)。
+
+\subsection{二、综合练习与解答}\label{m6:ux4e8cux7efcux5408ux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{相位差决定复功率〔M6-042〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+某二端负载两端的电压和流入正端的电流为
+
+\[
+u(t)=120\sqrt2\cos(100\pi t+\pi/9)\ \mathrm V,
+\]
+
+\[
+i(t)=3\sqrt2\cos(100\pi t-2\pi/9)\ \mathrm A.
+\]
+
+求电压、电流相量，负载阻抗，有功功率、无功功率、视在功率和功率因数，并判断负载性质。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-042.pdf}}
+\par\smallskip{\small 图 M6-042：相位差决定复功率}
+\end{center}
+\end{minipage}\par
+
+图 M6-042
+中，阻抗位于第一象限，电压相位减电流相位为60°；复功率采用电流的共轭。
+
+有效值相量为
+
+\[
+\widetilde U=120\angle20^{\circ}\ \mathrm V,
+\qquad
+\widetilde I=3\angle(-40^{\circ})\ \mathrm A.
+\]
+
+因此
+
+\[
+Z=\frac{\widetilde U}{\widetilde I}
+=40\angle60^{\circ}
+=20+j20\sqrt3\ \Omega.
+\]
+
+复功率为
+
+\[
+\widetilde S=\widetilde U\widetilde I^*
+=360\angle60^{\circ}
+=180+j180\sqrt3\ \mathrm{VA}.
+\]
+
+故
+
+\[
+P=180\ \mathrm W,
+\qquad
+Q=180\sqrt3\ \mathrm{var}\approx311.8\ \mathrm{var},
+\]
+
+\[
+|\widetilde S|=360\ \mathrm{VA},
+\qquad
+\cos\phi=0.5.
+\]
+
+\(Q>0\) 且电流滞后电压 \(60^{\circ}\)，负载呈感性。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{三元件电压的有向和〔M6-043〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+把 \(R=10\ \Omega\)、\(L=20\ \mathrm{mH}\)、\(C=100\ \mu\mathrm F\)
+串联，角频率为 \(500\ \mathrm{rad/s}\)，电流相量为
+\(\widetilde I=2\angle0^{\circ}\ \mathrm A\)。求各元件电压、总电压、平均功率和无功功率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-043.pdf}}
+\par\smallskip{\small 图 M6-043：三元件电压的有向和}
+\end{center}
+\end{minipage}\par
+
+图 M6-043
+中，电感和电容电压先在虚轴相减，净电压在第四象限，不能把三项电压的模相加。
+
+由本题给出的元件参数，
+
+\[
+Z_R=10,
+\qquad Z_L=j10,
+\qquad Z_C=-j20\quad(\Omega).
+\]
+
+各元件电压为
+
+\[
+\widetilde U_R=20,
+\qquad
+\widetilde U_L=j20,
+\qquad
+\widetilde U_C=-j40\quad(\mathrm V).
+\]
+
+总阻抗与总电压为
+
+\[
+Z=10-j10=10\sqrt2\angle(-45^{\circ})\ \Omega,
+\]
+
+\[
+\widetilde U=Z\widetilde I
+=20-j20
+=20\sqrt2\angle(-45^{\circ})\ \mathrm V.
+\]
+
+总电压不是三个电压有效值的算术和，而是三个相量的和。功率为
+
+\[
+P=I^2R=40\ \mathrm W,
+\qquad
+Q=I^2(\omega L-1/(\omega C))=-40\ \mathrm{var}.
+\]
+
+电路整体呈容性，电流超前总电压 \(45^{\circ}\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-043-P1.pdf}}
+\par\smallskip{\small 图 M6-043-P1：电容电压大于电感电压}
+\end{center}
+\end{minipage}\par
+
+图 M6-043-P1 中，实轴以公共电流为参考，终点位于第四象限。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{谐振电流、电压与带宽〔M6-044〕}
+
+电路已进入给定正频率的正弦稳态，采用有效值相量和 \(e^{j\omega t}\)
+约定。
+
+串联电路参数为
+
+\[
+R=20\ \Omega,
+\qquad L=0.20\ \mathrm H,
+\qquad C=50\ \mu\mathrm F,
+\]
+
+电源电压有效值恒为
+\(120\ \mathrm V\)。求谐振角频率、品质因数、半功率角频率、带宽、谐振电流以及谐振时电感和电容两端的电压。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-044.pdf}}
+\par\smallskip{\small 图 M6-044：谐振电流、电压与带宽}
+\end{center}
+\end{minipage}\par
+
+图 M6-044
+中，电阻功率峰值位于电抗相消处，两只无功元件虽有大电压，其相量互相抵消。
+
+谐振角频率为
+
+\[
+\omega_0=\frac1{\sqrt{LC}}
+=\frac1{\sqrt{0.20\times50\times10^{-6}}}
+=316.2\ \mathrm{rad/s}.
+\]
+
+品质因数和带宽为
+
+\[
+Q=\frac{\omega_0L}{R}=3.16,
+\qquad
+\Delta\omega=\frac RL=100\ \mathrm{rad/s}.
+\]
+
+半功率角频率为
+
+\[
+\omega_1=\frac{\sqrt{R^2+4L/C}-R}{2L}
+=270.2\ \mathrm{rad/s},
+\]
+
+\[
+\omega_2=\frac{\sqrt{R^2+4L/C}+R}{2L}
+=370.2\ \mathrm{rad/s}.
+\]
+
+检验：\(\omega_1\omega_2=\omega_0^2\)，\(\omega_2-\omega_1=100\ \mathrm{rad/s}\)。
+
+谐振时
+
+\[
+I_{\max}=\frac UR=6.00\ \mathrm A,
+\]
+
+\[
+U_L=U_C=QU=379.5\ \mathrm V.
+\]
+
+两无功元件的端电压均大于电源电压，但二者反相，故其相量和为零。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-044-P1.pdf}}
+\par\smallskip{\small 图 M6-044-P1：谐振电流与两个半功率点}
+\end{center}
+\end{minipage}\par
+
+图 M6-044-P1
+中，示例品质因数Q=√10；两频率乘积为ω0²，不能把它们当作关于ω0算术对称。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{理想无功元件的瞬时功率〔M6-045〕}
+
+分别将理想电容C、理想电感L接在 \(u(t)=\sqrt2U\cos\omega t\)
+的正弦端电压下，采用流入电压正端为正的电流方向。求两者的稳态电流与瞬时功率，证明平均功率为零，并解释正负功率对应的储能变化。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-045.pdf}}
+\par\smallskip{\small 图 M6-045：理想无功元件的瞬时功率}
+\end{center}
+\end{minipage}\par
+
+图 M6-045
+中，分开考察单个理想C或L的端口，两种瞬时功率均围绕零上下交替，平均耗散为零。
+
+设
+
+\[
+u(t)=\sqrt2U\cos\omega t.
+\]
+
+对电容，
+
+\[
+i_C(t)=C\frac{du}{dt}
+=-\sqrt2\omega CU\sin\omega t.
+\]
+
+因此
+
+\[
+p_C(t)=u i_C
+=-\omega CU^2\sin2\omega t.
+\]
+
+对一个完整周期积分，\(\sin2\omega t\) 的平均值为零，故
+\(\overline P_C=0\)。
+
+对电感，由 \(u=L\,di/dt\) 得稳态电流
+
+\[
+i_L(t)=\frac{\sqrt2U}{\omega L}\sin\omega t.
+\]
+
+于是
+
+\[
+p_L(t)=u i_L
+=\frac{U^2}{\omega L}\sin2\omega t,
+\]
+
+同样有
+\(\overline P_L=0\)。正功率阶段表示元件从电源吸收并储存场能，负功率阶段表示元件把场能送回电源；它们没有净耗散。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-045-P1.pdf}}
+\par\smallskip{\small 图 M6-045-P1：瞬时无功功率的正负交替}
+\end{center}
+\end{minipage}\par
+
+图 M6-045-P1
+中，两个独立元件均用被动参考方向；正区吸收场能，负区返还能量，整周期积分为零。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{RC的直流与两频稳态〔M6-046〕}
+
+串联 \(RC\) 电路中 \(R=100\ \Omega\)、\(C=10\ \mu\mathrm F\)，外加电压
+
+\[
+u(t)=10+10\sqrt2\cos1000t+5\sqrt2\cos2000t\ \mathrm V.
+\]
+
+求稳态电流。忽略电容漏电。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-046.pdf}}
+\par\smallskip{\small 图 M6-046：RC的直流与两频稳态}
+\end{center}
+\end{minipage}\par
+
+图 M6-046
+中，同一RC回路对两频率有不同阻抗；直流分量只给电容建立电压，稳态干路电流为零。
+
+直流稳态时电容开路，所以直流电流为零。对
+\(\omega_1=1000\ \mathrm{rad/s}\)，
+
+\[
+Z_1=100-j\frac1{1000\times10^{-5}}
+=100-j100
+=100\sqrt2\angle(-45^{\circ})\ \Omega.
+\]
+
+因此
+
+\[
+\widetilde I_1=\frac{10\angle0^{\circ}}{Z_1}
+=0.0707\angle45^{\circ}\ \mathrm A.
+\]
+
+对 \(\omega_2=2000\ \mathrm{rad/s}\)，
+
+\[
+Z_2=100-j50
+=50\sqrt5\angle(-26.6^{\circ})\ \Omega,
+\]
+
+\[
+\widetilde I_2=\frac{5\angle0^{\circ}}{Z_2}
+=0.0447\angle26.6^{\circ}\ \mathrm A.
+\]
+
+回到时域后相加：
+
+\[
+\boxed{
+i(t)=0.100\cos(1000t+\pi/4)
++0.0632\cos(2000t+0.46365)\ \mathrm A
+}.
+\]
+
+两个不同频率的相量不能先相加；只有恢复为时域函数后才能叠加。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{无损谐振的增长响应〔M6-047〕}
+
+理想串联 \(LC\) 电路由峰值为 \(U_m\)、角频率为 \(\omega_0=1/\sqrt{LC}\)
+的正弦电源驱动。证明不存在有界的正弦稳态，并写出一个共振特解。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-047.pdf}}
+\par\smallskip{\small 图 M6-047：无损谐振的增长响应}
+\end{center}
+\end{minipage}\par
+
+图 M6-047
+中，无电阻回路每周期持续吸收能量，响应包络随时间增长；相量法的稳态前提在谐振处失效。
+
+以电容电荷 \(q\) 为未知量，电路方程为
+
+\[
+L\ddot q+\frac qC=U_m\cos\omega_0t,
+\]
+
+即
+
+\[
+\ddot q+\omega_0^2q=\frac{U_m}{L}\cos\omega_0t.
+\]
+
+驱动项与齐次解同频，通常的定幅余弦特解不再适用。取
+
+\[
+q_p(t)=\frac{U_m}{2L\omega_0}t\sin\omega_0t,
+\]
+
+代回可验证其满足方程。相应电流为
+
+\[
+i_p(t)=\frac{dq_p}{dt}
+=\frac{U_m}{2L\omega_0}\sin\omega_0t
++\frac{U_m}{2L}t\cos\omega_0t.
+\]
+
+第二项的包络与 \(t\) 成正比，故不存在有界正弦稳态。形式上的 \(Z=0\)
+是相量稳态假设失效的信号，而不是``有限时间内产生无限电流''。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-047-P1.pdf}}
+\par\smallskip{\small 图 M6-047-P1：无损共振特解的增长包络}
+\end{center}
+\end{minipage}\par
+
+图 M6-047-P1
+中，\(K=U_m/(2L\omega_0^2)\)；这是共振特解，不是有界稳态相量。
+
+\section{专题五十八：理想变压器（基础必讲）}\label{m6:ux4e13ux9898ux4e94ux5341ux516bux7406ux60f3ux53d8ux538bux5668ux57faux7840ux5fc5ux8bb2}
+
+理想变压器忽略损耗、漏磁和励磁电流，只保留两个端口之间的无损耦合关系。它同时变换电压、电流和阻抗。
+
+\subsection{一、理想模型、同名端与参考方向}\label{m6:ux4e00ux7406ux60f3ux6a21ux578bux540cux540dux7aefux4e0eux53c2ux8003ux65b9ux5411}
+
+理想变压器建立在以下极限假设上：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{完全耦合：} 两绕组的每一匝都交链同一铁芯磁通
+  \(\Phi(t)\)，忽略漏磁通。
+\item
+  \textbf{绕组无损：} 绕组电阻为零，不存在铜损。
+\item
+  \textbf{铁芯理想：} 铁芯磁导率
+  \(\mu\to\infty\)，且无磁滞损耗、涡流损耗。
+\item
+  \textbf{无寄生效应：} 忽略绕组间电容、传播延迟以及其他高频寄生参数。
+\end{enumerate}
+
+第三条尤其重要。若铁芯中的 \(B\) 保持有限，由
+
+\[
+B=\mu H
+\]
+
+可知 \(\mu\to\infty\) 时
+\(H\to 0\)。因此理想变压器不需要有限的励磁电流来建立有限磁通；实际变压器则一定需要励磁电流。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H22.pdf}}
+\par\smallskip{\small 图 M6-H22：理想变压器的四项极限假设与统一参考方向}
+\end{center}
+\end{minipage}\par
+
+设匝数比
+
+\[
+a\equiv\frac{N_1}{N_2}>0.
+\]
+
+此后统一采用图中的约定：
+
+\begin{itemize}
+\tightlist
+\item
+  两个绕组的同名端均标在上端；
+\item
+  \(u_1,u_2\) 都取``同名端相对非同名端''的电压；
+\item
+  \(i_1,i_2\) 都取流入同名端为正，即两个端口都采用关联参考方向；
+\item
+  若讨论向负载流出的次级电流，则记为 \(i_{\mathrm{out}}\)，且
+\end{itemize}
+
+\[
+i_{\mathrm{out}}=-i_2.
+\]
+
+固定这些方向以后，公式中的正负号才有确定含义。只写``电压同相''或``电流反相''，却不说明同名端和参考方向，是不完整的。
+
+\subsection{二、电压变换关系}\label{m6:ux4e8cux7535ux538bux53d8ux6362ux5173ux7cfb}
+
+\subsubsection{1.
+从法拉第定律推导}\label{m6:ux4eceux6cd5ux62c9ux7b2cux5b9aux5f8bux63a8ux5bfc}
+
+取铁芯中的共同磁通为 \(\Phi(t)\)，并选择其正方向，使图中两端口电压满足
+
+\[
+u_1=N_1\frac{d\Phi}{dt},
+\qquad
+u_2=N_2\frac{d\Phi}{dt}.
+\]
+
+两式相除得
+
+\[
+\boxed{\frac{u_1}{u_2}=\frac{N_1}{N_2}=a}.
+\]
+
+这一关系对任意可微波形的瞬时值都成立，不只对正弦交流成立。对于同频正弦稳态，其峰值、有效值和相量也分别满足
+
+\[
+\boxed{\frac{U_1}{U_2}
+=\frac{U_{1m}}{U_{2m}}
+=\frac{\widetilde U_1}{\widetilde U_2}
+=a}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H23.pdf}}
+\par\smallskip{\small 图 M6-H23：共同磁通变化率与两个绕组电压的关系}
+\end{center}
+\end{minipage}\par
+
+若将某一个电压的参考方向反转，对应公式右端要增加负号；变压器本身的物理规律并没有改变。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{理想变压器的电压比〔M6-048〕}
+
+理想单相变压器匝数为
+\(N_1=1000,N_2=200\)，初级接有效值220V的正弦电源，次级开路。求次级有效值电压和电压比，说明升压或降压性质。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-048.pdf}}
+\par\smallskip{\small 图 M6-048：理想变压器的电压比}
+\end{center}
+\end{minipage}\par
+
+图 M6-048
+中，同名端对应同相电压，两绕组电压均来自同一主磁通变化率，电压比等于匝数比。
+
+\(N_1=1000\)，\(N_2=200\)，初级有效值电压为 \(220\ \mathrm V\)。由
+
+\[
+U_2=U_1\frac{N_2}{N_1}
+=220\times\frac{200}{1000}
+=44\ \mathrm V.
+\]
+
+所以这是一个 \(5:1\) 的降压变压器。
+
+\subsubsection{2.
+电压决定的是磁通变化率}\label{m6:ux7535ux538bux51b3ux5b9aux7684ux662fux78c1ux901aux53d8ux5316ux7387}
+
+由
+
+\[
+u_1=N_1\frac{d\Phi}{dt}
+\]
+
+积分得
+
+\[
+\boxed{\Phi(t)-\Phi(t_0)
+=\frac{1}{N_1}\int_{t_0}^{t}u_1(\tau)\,d\tau}.
+\]
+
+因此，电压波形的时间积分决定磁通，而不是电流直接决定磁通。若要形成周期为
+\(T\) 的稳态磁通，必须满足伏秒平衡：
+
+\[
+\boxed{\int_{t_0}^{t_0+T}u_1(t)\,dt=0}.
+\]
+
+这也是判断某个外加电压能否长期加在变压器绕组上的第一道检查。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H24.pdf}}
+\par\smallskip{\small 图 M6-H24：周期电压的伏秒平衡与直流电压造成的磁通漂移}
+\end{center}
+\end{minipage}\par
+
+对于正弦磁通
+
+\[
+\Phi(t)=\Phi_m\sin\omega t,
+\]
+
+有
+
+\[
+u(t)=N\omega\Phi_m\cos\omega t.
+\]
+
+所以电压峰值和有效值分别为
+
+\[
+U_m=\omega N\Phi_m,
+\]
+
+\[
+\boxed{U=\frac{U_m}{\sqrt2}
+=\frac{2\pi}{\sqrt2}fN\Phi_m
+\approx4.44fN\Phi_m}.
+\]
+
+若磁通近似均匀分布在截面积为 \(A_c\) 的铁芯中，\(\Phi_m=B_mA_c\)，于是
+
+\[
+\boxed{U\approx4.44fNA_cB_m}.
+\]
+
+这说明在匝数和铁芯截面积不变时，降低频率却保持有效值电压不变，会增大磁通幅值并使实际铁芯更容易饱和。
+
+对于幅值为 \(U\)、正负半周对称的方波，半个周期内磁通从 \(-\Phi_m\) 变到
+\(+\Phi_m\)，故
+
+\[
+2\Phi_m=\frac{U}{N}\frac{T}{2},
+\]
+
+从而
+
+\[
+\boxed{\Phi_m=\frac{U}{4fN}}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{方波积分与直流偏磁〔M6-049〕}
+
+理想绕组匝数N=500，接峰值100V、频率500Hz的对称正负方波，稳态磁通关于零对称。求磁通峰值。若改接非零恒定直流电压U0，给出磁通随时间变化并判断能否有有界稳态。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-049.pdf}}
+\par\smallskip{\small 图 M6-049：方波积分与直流偏磁}
+\end{center}
+\end{minipage}\par
+
+图 M6-049
+中，绕组端电压等于N倍磁通变化率；半周期方波面积决定峰峰磁通，直流电压则使磁通单向漂移。
+
+\(N=500\) 的绕组接入幅值为 \(100\ \mathrm V\)、频率为
+\(500\ \mathrm{Hz}\) 的对称方波，则
+
+\[
+\Phi_m=\frac{100}{4\times500\times500}
+=1.0\times10^{-4}\ \mathrm{Wb}.
+\]
+
+若改接恒定直流电压 \(U_0\)，则
+
+\[
+\Phi(t)=\Phi(0)+\frac{U_0}{N}t,
+\]
+
+磁通将持续单向漂移，因而不存在有界的直流稳态。实际铁芯会很快进入饱和区，电流受绕组电阻和漏感限制而急剧增大。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-049-P1.pdf}}
+\par\smallskip{\small 图 M6-049-P1：方波电压积分得到三角磁通}
+\end{center}
+\end{minipage}\par
+
+图 M6-049-P1
+中，蓝色电压为±U，绿色磁通为±Φm；每半周期磁通单调变化，周期净伏秒为零。
+
+\subsection{三、电流变换关系}\label{m6:ux4e09ux7535ux6d41ux53d8ux6362ux5173ux7cfb}
+
+\subsubsection{1.
+从安培环路定理推导}\label{m6:ux4eceux5b89ux57f9ux73afux8defux5b9aux7406ux63a8ux5bfc}
+
+先使用便于描述负载的电流
+\(i_{\mathrm{out}}\)：它从次级同名端流向负载。沿铁芯取安培环路，有
+
+\[
+\oint_{\Gamma}\mathbf H\cdot d\mathbf l
+=N_1i_1-N_2i_{\mathrm{out}}.
+\]
+
+理想铁芯满足 \(\mu\to\infty\)，而 \(B\) 有限，因此
+\(\mathbf H\to0\)，从而
+
+\[
+N_1i_1-N_2i_{\mathrm{out}}=0.
+\]
+
+于是
+
+\[
+\boxed{\frac{i_1}{i_{\mathrm{out}}}
+=\frac{N_2}{N_1}
+=\frac1a}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H25.pdf}}
+\par\smallskip{\small 图 M6-H25：次级去磁磁动势与初级补偿磁动势的平衡}
+\end{center}
+\end{minipage}\par
+
+若两个端口电流都按照``流入同名端为正''的关联参考方向定义，则
+\(i_{\mathrm{out}}=-i_2\)，上式等价于
+
+\[
+\boxed{N_1i_1+N_2i_2=0},
+\]
+
+\[
+\boxed{\frac{i_1}{i_2}=-\frac{N_2}{N_1}=-\frac1a}.
+\]
+
+负号不是额外的物理效应，而是由两个电流都取流入同名端所产生的方向关系。
+
+在正弦稳态中，相量同样满足
+
+\[
+\frac{\widetilde I_1}{\widetilde I_{\mathrm{out}}}
+=\frac{N_2}{N_1}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{降压时的电流比〔M6-050〕}
+
+理想变压器的
+\(N_1:N_2=5:1\)，正弦稳态下次级向负载输出的电流有效值为4.0A。求初级电流有效值，并写明两绕组电流的参考方向与安匝关系。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-050.pdf}}
+\par\smallskip{\small 图 M6-050：降压时的电流比}
+\end{center}
+\end{minipage}\par
+
+图 M6-050
+中，图中初级电流流入同名端，次级电流流出同名端，安匝平衡给出大小的反比关系。
+
+一个 \(N_1:N_2=5:1\) 的理想变压器，次级向负载输出 \(4.0\ \mathrm A\)，则
+
+\[
+I_1=4.0\times\frac15=0.80\ \mathrm A.
+\]
+
+这就是``降压必升流''的定量含义。
+
+\subsubsection{2.
+负载变化时为什么初级电流随之变化}\label{m6:ux8d1fux8f7dux53d8ux5316ux65f6ux4e3aux4ec0ux4e48ux521dux7ea7ux7535ux6d41ux968fux4e4bux53d8ux5316}
+
+在初级电压波形给定时，
+
+\[
+\frac{d\Phi}{dt}=\frac{u_1}{N_1}
+\]
+
+已经由电压决定。接入负载后，次级电流产生去磁磁动势
+\(N_2i_{\mathrm{out}}\)；为了仍满足理想铁芯中的
+\(\oint\mathbf H\cdot d\mathbf l=0\)，初级电源必须提供满足
+
+\[
+N_1i_1=N_2i_{\mathrm{out}}
+\]
+
+的补偿电流。因而负载电流增大时，初级电流按匝数比同步增大。
+
+理想变压器次级开路时 \(i_{\mathrm{out}}=0\)，所以
+\(i_1=0\)。实际变压器即使空载，也仍有建立磁通所需的励磁电流及补偿铁损的有功分量。
+
+\subsection{四、功率与能量传递}\label{m6:ux56dbux529fux7387ux4e0eux80fdux91cfux4f20ux9012}
+
+用关联参考方向定义两个端口吸收的瞬时功率：
+
+\[
+p_1=u_1i_1,
+\qquad
+p_2=u_2i_2.
+\]
+
+代入电压关系可得
+
+\[
+p_1+p_2
+=\frac{d\Phi}{dt}\left(N_1i_1+N_2i_2\right)
+=0.
+\]
+
+因此一个端口吸收的功率，恰好等于另一个端口输出的功率：
+
+\[
+\boxed{p_{\mathrm{in}}=p_{\mathrm{out}}}.
+\]
+
+正弦稳态下，若相量均取有效值，则
+
+\[
+\boxed{\widetilde S_{\mathrm{in}}
+=\widetilde S_{\mathrm{out}}},
+\]
+
+即
+
+\[
+\boxed{P_{\mathrm{in}}=P_{\mathrm{out}}},
+\qquad
+\boxed{Q_{\mathrm{in}}=Q_{\mathrm{out}}}.
+\]
+
+所以理想变压器不仅保持有功功率，也保持负载的功率因数和阻抗角。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H26.pdf}}
+\par\smallskip{\small 图 M6-H26：理想变压器的瞬时功率与复功率关系}
+\end{center}
+\end{minipage}\par
+
+需要区分两个概念：
+
+\begin{itemize}
+\tightlist
+\item
+  共同磁通 \(\Phi\) 是推导端口约束的耦合变量；
+\item
+  电磁能的空间传输由坡印廷矢量
+\end{itemize}
+
+\[
+\mathbf S=\mathbf E\times\mathbf H
+\]
+
+描述。
+
+因此不能把磁通本身说成一条装载能量的``管道''。在真实装置中，能量通过导体、绝缘区域和铁芯周围的电磁场从输入端输送到输出端；理想变压器模型只把这一过程压缩成无损的端口约束。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{变压器保留负载功率因数〔M6-051〕}
+
+理想变压器次级感性负载吸收
+\((100+j75)\,\mathrm{VA}\)，初级电流采用流入电压正端的方向。求输入复功率、视在功率和功率因数，判断变压器是否改变负载性质。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-051.pdf}}
+\par\smallskip{\small 图 M6-051：变压器保留负载功率因数}
+\end{center}
+\end{minipage}\par
+
+图 M6-051
+中，理想变压器两侧端口复功率相等，同相的电压缩放与反比的电流缩放保持负载功率因数。
+
+若某感性负载吸收
+
+\[
+\widetilde S_{\mathrm{out}}
+=100+j75\ \mathrm{VA},
+\]
+
+则理想变压器输入端同样吸收
+
+\[
+\widetilde S_{\mathrm{in}}
+=100+j75\ \mathrm{VA}.
+\]
+
+其视在功率为 \(125\ \mathrm{VA}\)，功率因数为
+\(100/125=0.8\)，变压器不会把感性负载``变成''纯电阻负载。
+
+\subsection{五、复阻抗的平方折算}\label{m6:ux4e94ux590dux963bux6297ux7684ux5e73ux65b9ux6298ux7b97}
+
+设次级接负载
+
+\[
+\widetilde Z_L
+=\frac{\widetilde U_2}{\widetilde I_{\mathrm{out}}}.
+\]
+
+由
+
+\[
+\widetilde U_1=a\widetilde U_2,
+\qquad
+\widetilde I_1=\frac{\widetilde I_{\mathrm{out}}}{a},
+\]
+
+得到初级端等效输入阻抗
+
+\[
+\widetilde Z_{\mathrm{in}}
+=\frac{\widetilde U_1}{\widetilde I_1}
+=a^2\frac{\widetilde U_2}{\widetilde I_{\mathrm{out}}}.
+\]
+
+因此
+
+\[
+\boxed{\widetilde Z_{\mathrm{in}}
+=\left(\frac{N_1}{N_2}\right)^2\widetilde Z_L
+=a^2\widetilde Z_L}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H27.pdf}}
+\par\smallskip{\small 图 M6-H27：复阻抗经匝数比平方折算到初级}
+\end{center}
+\end{minipage}\par
+
+若
+
+\[
+\widetilde Z_L=R_L+jX_L,
+\]
+
+则
+
+\[
+\widetilde Z_{\mathrm{in}}
+=a^2R_L+ja^2X_L.
+\]
+
+电阻和电抗都乘以
+\(a^2\)，但阻抗角不变。反过来，把初级侧阻抗折算到次级，应除以 \(a^2\)：
+
+\[
+\boxed{\widetilde Z_{\text{初}\to\text{次}}
+=\frac{\widetilde Z_{\text{初}}}{a^2}}.
+\]
+
+在同一角频率下：
+
+\[
+L_{\mathrm{in}}=a^2L_L,
+\qquad
+C_{\mathrm{in}}=\frac{C_L}{a^2}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{复阻抗按匝数比平方折算〔M6-052〕}
+
+理想变压器匝数比a=N1/N2=5，次级接 \((4+j3)\,\Omega\)
+负载。求初级输入阻抗的直角形式和模，比较折算前后的阻抗角。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-052.pdf}}
+\par\smallskip{\small 图 M6-052：复阻抗按匝数比平方折算}
+\end{center}
+\end{minipage}\par
+
+图 M6-052
+中，输出侧电压除以a，输出电流乘以a，所以输入端的阻抗为a²倍负载，辐角保持不变。
+
+\(a=5\)，次级负载为
+
+\[
+\widetilde Z_L=(4+j3)\ \Omega,
+\]
+
+则
+
+\[
+\widetilde Z_{\mathrm{in}}
+=25(4+j3)
+=(100+j75)\ \Omega.
+\]
+
+其阻抗模由 \(5\ \Omega\) 变为 \(125\ \Omega\)，阻抗角仍为
+
+\[
+\arctan\frac34.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-052-P1.pdf}}
+\par\smallskip{\small 图 M6-052-P1：折算后在初级端口求解}
+\end{center}
+\end{minipage}\par
+
+图 M6-052-P1
+中，图中的0表示理想源无内阻；同一折算侧计算完毕再换回真实次级量。
+
+\subsection{六、三个必须单独检查的边界}\label{m6:ux516dux4e09ux4e2aux5fc5ux987bux5355ux72ecux68c0ux67e5ux7684ux8fb9ux754c}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H28.pdf}}
+\par\smallskip{\small 图 M6-H28：理想变压器的开路、短路与直流边界}
+\end{center}
+\end{minipage}\par
+
+\subsubsection{1. 次级开路}\label{m6:ux6b21ux7ea7ux5f00ux8def}
+
+若 \(\widetilde Z_L\to\infty\)，则
+
+\[
+\widetilde Z_{\mathrm{in}}=a^2\widetilde Z_L\to\infty.
+\]
+
+于是
+
+\[
+I_2=I_1=0,
+\]
+
+但次级仍有
+
+\[
+U_2=\frac{U_1}{a}.
+\]
+
+这与实际变压器空载时仍有小的励磁电流不同。
+
+\subsubsection{2. 次级短路}\label{m6:ux6b21ux7ea7ux77edux8def}
+
+若 \(\widetilde Z_L=0\)，则
+
+\[
+\widetilde Z_{\mathrm{in}}=0.
+\]
+
+把理想变压器的初级直接接在非零理想电压源上、同时将次级理想短路，会导致``非零端电压''和``零输入阻抗''同时出现，有限电流解不存在。实际短路电流由绕组电阻、漏感和电源内阻限制。
+
+\subsubsection{3. 初级加直流}\label{m6:ux521dux7ea7ux52a0ux76f4ux6d41}
+
+非零恒定电压会使磁通线性漂移：
+
+\[
+\frac{d\Phi}{dt}=\frac{U_0}{N_1}.
+\]
+
+因此不能把交流稳态变比公式机械地理解为``变压器可以长期变换直流电压''。真实铁芯饱和以后，绕组近似成为低电阻支路，可能造成过流和发热。
+
+\subsection{七、使用条件与常见错误}\label{m6:ux4e03ux4f7fux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux9519ux8bef}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{先定同名端，再写正负号。} 只记
+  \(\dfrac{U_1}{U_2}=\dfrac{N_1}{N_2}\) 和
+  \(\dfrac{I_1}{I_2}=\dfrac{N_2}{N_1}\)，不足以处理相位与瞬时功率问题。
+\item
+  \textbf{电压决定 \(d\Phi/dt\)，不是直接决定 \(\Phi\)。}
+  判断饱和必须看电压的时间积分、频率、匝数和铁芯截面积。
+\item
+  \textbf{阻抗按匝数比平方折算。} 电压按 \(a\) 变换，电流按 \(1/a\)
+  变换，两者相除才得到 \(a^2\)。
+\item
+  \textbf{复阻抗整体折算。} 不能只折算电阻而漏掉电抗。
+\item
+  \textbf{理想空载电流为零。}
+  实际空载电流不为零，不能把实际现象反过来硬塞进理想模型。
+\item
+  \textbf{理想短路往往没有有限解。}
+  遇到短路电流题，必须检查是否给出了漏感、电阻或电源内阻。
+\item
+  \textbf{功率相等不等于电压、电流分别相等。}
+  降压时电流按反比增大，二者乘积保持不变。
+\item
+  \textbf{磁通是耦合变量，不是能量管道。}
+  能量流的局域描述应使用坡印廷矢量。
+\end{enumerate}
+
+\subsection{八、多绕组理想变压器}\label{m6:ux516bux591aux7ed5ux7ec4ux7406ux60f3ux53d8ux538bux5668}
+
+若同一理想铁芯上有 \(m\) 个绕组，所有绕组交链同一主磁通
+\(\Phi(t)\)。以下统一规定：\(u_k\) 都由同名端量向非同名端，\(i_k\)
+都以流入同名端为正。按这一组配套参考方向，各绕组电压满足
+
+\[
+\boxed{u_k=N_k\frac{d\Phi}{dt}},
+\qquad
+\boxed{\frac{u_j}{u_k}=\frac{N_j}{N_k}}.
+\]
+
+理想铁芯磁导率趋于无穷大，建立有限磁通不需要净磁动势，因此安匝平衡为
+
+\[
+\boxed{\sum_{k=1}^m N_ki_k=0}.
+\]
+
+与上述端口参考方向配套后，有
+
+\[
+\boxed{\sum_{k=1}^m u_ki_k=0}.
+\]
+
+若题图中的电流箭头不是统一流入同名端，应先令
+\(\widetilde i_k=s_ki_k\)（\(s_k=\pm1\)），把它换成上述有符号电流后再代入，不能在同一公式中混用两套参考方向。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H29.pdf}}
+\par\smallskip{\small 图 M6-H29：多绕组理想变压器共享主磁通并满足安匝平衡}
+\end{center}
+\end{minipage}\par
+
+若绕组 1 为输入端，其余绕组分别接负载 \(Z_k\)，则折算到绕组 1
+的总输入导纳为
+
+\[
+\boxed{
+Y_{\rm in}
+=\sum_{k=2}^m\left(\frac{N_k}{N_1}\right)^2\frac1{Z_k}}.
+\]
+
+因此
+
+\[
+\boxed{Z_{\rm in}=\frac1{Y_{\rm in}}}.
+\]
+
+多个负载不是先在各自次级侧直接串并联，而是先分别按匝数比平方折算成初级导纳，再相加。
+
+\subsection{九、练习与解答}\label{m6:ux4e5dux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{电压、电流、功率交叉验证〔M6-053〕}
+
+一理想变压器初级线圈匝数 \(N_1=1000\) 匝，次级线圈匝数 \(N_2=200\)
+匝。初级端连接有效值为 \(U_1=220\ \mathrm V\)
+的理想交流恒压源。次级端连接一纯电阻负载 \(R=10\ \Omega\)。求：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  次级输出电压 \(U_2\) 的有效值；
+\item
+  初级电流 \(I_1\) 与次级电流 \(I_2\) 的有效值；
+\item
+  从初级电源看进去的等效阻抗
+  \(Z_{\mathrm{in}}\)，并验证输入功率与输出功率相等。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-053.pdf}}
+\par\smallskip{\small 图 M6-053：电压、电流、功率交叉验证}
+\end{center}
+\end{minipage}\par
+
+图 M6-053
+中，次级电流从同名端流向负载，折算到初级时同时检查电压比、电流反比和复功率。
+
+匝数比为
+
+\[
+a=\frac{N_1}{N_2}
+=\frac{1000}{200}
+=5.
+\]
+
+由电压比，
+
+\[
+\frac{U_1}{U_2}=a,
+\]
+
+所以
+
+\[
+\boxed{U_2=\frac{U_1}{a}
+=\frac{220}{5}
+=44\ \mathrm V}.
+\]
+
+次级电流为
+
+\[
+\boxed{I_2=\frac{U_2}{R}
+=\frac{44}{10}
+=4.4\ \mathrm A}.
+\]
+
+由电流比，
+
+\[
+\frac{I_1}{I_2}=\frac1a,
+\]
+
+得到
+
+\[
+\boxed{I_1=\frac{I_2}{a}
+=\frac{4.4}{5}
+=0.88\ \mathrm A}.
+\]
+
+从初级看进去的等效阻抗为
+
+\[
+\boxed{Z_{\mathrm{in}}
+=a^2R
+=5^2\times10
+=250\ \Omega}.
+\]
+
+也可以直接验证：
+
+\[
+\frac{U_1}{I_1}
+=\frac{220}{0.88}
+=250\ \Omega.
+\]
+
+输入功率为
+
+\[
+P_{\mathrm{in}}
+=U_1I_1
+=220\times0.88
+=193.6\ \mathrm W,
+\]
+
+输出功率为
+
+\[
+P_{\mathrm{out}}
+=U_2I_2
+=44\times4.4
+=193.6\ \mathrm W.
+\]
+
+因此
+
+\[
+\boxed{P_{\mathrm{in}}=P_{\mathrm{out}}=193.6\ \mathrm W}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{伏秒不平衡与磁通漂移〔M6-054〕}
+
+一个理想变压器的初级匝数为 \(N_1=400\)，输入电压是在 \(+80\ \mathrm V\)
+与 \(-80\ \mathrm V\) 之间交替的对称方波，频率为
+\(1.0\ \mathrm{kHz}\)。已知稳态磁通关于零对称。求：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  铁芯磁通的峰值 \(\Phi_m\)；
+\item
+  若把负半周改为
+  \(-60\ \mathrm V\)，但正、负半周持续时间仍相等，能否形成周期稳态？
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-054.pdf}}
+\par\smallskip{\small 图 M6-054：伏秒不平衡与磁通漂移}
+\end{center}
+\end{minipage}\par
+
+图 M6-054
+中，正、负半周期的电压面积只有相等时才有周期磁通；面积差逐周期累加。
+
+对称方波满足
+
+\[
+\Phi_m=\frac{U}{4fN_1}.
+\]
+
+代入数据：
+
+\[
+\boxed{\Phi_m
+=\frac{80}{4\times10^3\times400}
+=5.0\times10^{-5}\ \mathrm{Wb}}.
+\]
+
+第二问中，一个周期内的电压积分为
+
+\[
+\int_0^T u(t)\,dt
+=80\frac{T}{2}-60\frac{T}{2}
+=10T\ne0.
+\]
+
+于是每经过一个周期，磁通增加
+
+\[
+\Delta\Phi_{\mathrm{\text{每周期}}}
+=\frac{1}{N_1}\int_0^T u(t)\,dt
+=\frac{10T}{400}.
+\]
+
+因为该增量不为零，磁通会逐周期漂移，故
+
+\[
+\boxed{\text{不能形成有界的周期稳态}}.
+\]
+
+这说明``正负电压都出现''并不自动保证伏秒平衡；必须比较两个电压脉冲的面积。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-054-P1.pdf}}
+\par\smallskip{\small 图 M6-054-P1：对称方波与伏秒不平衡的磁通过程}
+\end{center}
+\end{minipage}\par
+
+图 M6-054-P1 左图的对称电压使磁通每周期回到原值；右图负半周改为
+\(-60\,\mathrm V\) 后，每周期增加
+\(10T/N_1=25\,\mu\mathrm{Wb}\)。两图取同一初始磁通作比较，右图不再有周期稳态峰值。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{复负载的输入电流〔M6-055〕}
+
+某理想变压器的匝数比为 \(N_1:N_2=4:1\)。次级接负载
+
+\[
+\widetilde Z_L=(3+j4)\ \Omega,
+\]
+
+初级接有效值相量
+
+\[
+\widetilde U_1=120\angle0^{\circ}\ \mathrm V.
+\]
+
+求初级等效输入阻抗、初级电流以及负载吸收的复功率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-055.pdf}}
+\par\smallskip{\small 图 M6-055：复负载的输入电流}
+\end{center}
+\end{minipage}\par
+
+图 M6-055
+中，次级电流从同名端流向负载，折算到初级时同时检查电压比、电流反比和复功率。
+
+匝数比为
+
+\[
+a=4.
+\]
+
+初级等效输入阻抗：
+
+\[
+\boxed{\widetilde Z_{\mathrm{in}}
+=a^2\widetilde Z_L
+=16(3+j4)
+=(48+j64)\ \Omega}.
+\]
+
+其极坐标形式为
+
+\[
+\widetilde Z_{\mathrm{in}}
+=80\angle53.13^{\circ}\ \Omega.
+\]
+
+因此初级电流为
+
+\[
+\widetilde I_1
+=\frac{\widetilde U_1}{\widetilde Z_{\mathrm{in}}}
+=\frac{120\angle0^{\circ}}{80\angle53.13^{\circ}},
+\]
+
+即
+
+\[
+\boxed{\widetilde I_1
+=1.5\angle(-53.13^{\circ})\ \mathrm A}.
+\]
+
+输入复功率为
+
+\[
+\widetilde S_{\mathrm{in}}
+=\widetilde U_1\widetilde I_1^{\,*}
+=120\angle0^{\circ}
+\times1.5\angle53.13^{\circ}.
+\]
+
+所以
+
+\[
+\widetilde S_{\mathrm{in}}
+=180\angle53.13^{\circ}\ \mathrm{VA}
+=(108+j144)\ \mathrm{VA}.
+\]
+
+理想变压器无损，故负载吸收的复功率为
+
+\[
+\boxed{\widetilde S_L
+=(108+j144)\ \mathrm{VA}}.
+\]
+
+也可由次级量复核。次级电压为
+
+\[
+\widetilde U_2=\frac{\widetilde U_1}{a}
+=30\angle0^{\circ}\ \mathrm V,
+\]
+
+次级负载电流为
+
+\[
+\widetilde I_{\mathrm{out}}
+=\frac{30\angle0^{\circ}}{5\angle53.13^{\circ}}
+=6\angle(-53.13^{\circ})\ \mathrm A.
+\]
+
+于是
+
+\[
+\widetilde U_2\widetilde I_{\mathrm{out}}^{\,*}
+=30\times6\angle53.13^{\circ}
+=(108+j144)\ \mathrm{VA},
+\]
+
+与初级计算完全一致。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-055-P1.pdf}}
+\par\smallskip{\small 图 M6-055-P1：折算后在初级端口求解}
+\end{center}
+\end{minipage}\par
+
+图 M6-055-P1
+中，图中的0表示理想源无内阻；同一折算侧计算完毕再换回真实次级量。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{三绕组的并联折算〔M6-056〕}
+
+一个理想三绕组变压器满足
+
+\[
+N_1:N_2:N_3=10:2:1.
+\]
+
+绕组 2 接 \(8\ \Omega\) 电阻，绕组 3 接 \(2\ \Omega\)
+电阻。求初级输入等效电阻；若初级有效值电压为
+\(100\ \mathrm V\)，求三个绕组电流的大小。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-056.pdf}}
+\par\smallskip{\small 图 M6-056：三绕组的并联折算}
+\end{center}
+\end{minipage}\par
+
+图 M6-056
+中，两个次级负载共享同一初级端口电压，折算后并联；初级安匝供给两个负载电流的合计。
+
+两个负载折算到初级的电阻分别为
+
+\[
+R_2'=\left(\frac{N_1}{N_2}\right)^2R_2
+=5^2\times8=200\ \Omega,
+\]
+
+\[
+R_3'=\left(\frac{N_1}{N_3}\right)^2R_3
+=10^2\times2=200\ \Omega.
+\]
+
+它们在初级端口表现为并联负载，所以
+
+\[
+\boxed{R_{\rm in}=200\parallel200=100\ \Omega}.
+\]
+
+初级电流为
+
+\[
+\boxed{I_1=\frac{100}{100}=1.0\ \mathrm A}.
+\]
+
+次级电压为
+
+\[
+U_2=100\frac2{10}=20\ \mathrm V,
+\qquad
+U_3=100\frac1{10}=10\ \mathrm V.
+\]
+
+故
+
+\[
+\boxed{I_2=\frac{20}{8}=2.5\ \mathrm A},
+\qquad
+\boxed{I_3=\frac{10}{2}=5.0\ \mathrm A}.
+\]
+
+安匝检验为
+
+\[
+N_1I_1=N_2I_2+N_3I_3
+=2\times2.5+1\times5=10,
+\]
+
+与 \(N_1I_1=10\) 一致；输入功率 \(100\ \mathrm W\) 也等于两个负载功率
+\(50\ \mathrm W+50\ \mathrm W\)。
+
+这里 \(I_1,I_2,I_3\)
+写的是大小；按本专题统一的有符号约定，初级电流流入同名端，而两个向负载供能的次级电流流出同名端。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-056-P1.pdf}}
+\par\smallskip{\small 图 M6-056-P1：多负载分别折算后并联}
+\end{center}
+\end{minipage}\par
+
+图 M6-056-P1
+中，输入源为U1=100V；两条折算支路分别承担0.5A，不是串联相加。
+
+\section{专题五十八附录：非理想变压器的推导与等效分析（拔高选讲）}\label{m6:ux4e13ux9898ux4e94ux5341ux516bux9644ux5f55ux975eux7406ux60f3ux53d8ux538bux5668ux7684ux63a8ux5bfcux4e0eux7b49ux6548ux5206ux6790ux62d4ux9ad8ux9009ux8bb2}
+
+理想变压器只保留匝数约束；实际变压器还会出现绕组发热、漏磁、励磁电流和铁芯损耗。在线性、正弦稳态且频率不过高的范围内，可以把这些效应分别等效为电阻、电抗和并联励磁支路，从而把电磁耦合问题化为普通交流电路问题。
+
+本附录中的相量均取有效值，并沿用上一专题的约定：
+
+\begin{itemize}
+\tightlist
+\item
+  \(a=N_1/N_2>0\)；
+\item
+  \(\widetilde U_1,\widetilde U_2\) 都取同名端相对非同名端的电压；
+\item
+  \(\widetilde I_1\) 流入初级同名端；
+\item
+  \(\widetilde I_2\) 从次级同名端流向负载。
+\end{itemize}
+
+\subsection{一、四类非理想效应及其等效参数}\label{m6:ux4e00ux56dbux7c7bux975eux7406ux60f3ux6548ux5e94ux53caux5176ux7b49ux6548ux53c2ux6570}
+
+\subsubsection{1.
+绕组电阻与铜损}\label{m6:ux7ed5ux7ec4ux7535ux963bux4e0eux94dcux635f}
+
+初、次级绕组电阻分别记为 \(R_1,R_2\)。其平均功率损耗为
+
+\[
+\boxed{P_{\mathrm{cu}}
+=I_1^2R_1+I_2^2R_2}.
+\]
+
+这部分功率最终转化为焦耳热。
+
+\subsubsection{2.
+漏磁通与漏电抗}\label{m6:ux6f0fux78c1ux901aux4e0eux6f0fux7535ux6297}
+
+主磁通同时交链两个绕组；漏磁通只交链其中一个绕组。初、次级漏电感分别记为
+
+\[
+L_{\sigma1},\qquad L_{\sigma2},
+\]
+
+在角频率 \(\omega\) 下对应
+
+\[
+\boxed{X_{\sigma1}=\omega L_{\sigma1}},
+\qquad
+\boxed{X_{\sigma2}=\omega L_{\sigma2}}.
+\]
+
+漏电抗不直接消耗平均功率，但会产生与电流相差 \(90^{\circ}\)
+的内部电压降。
+
+\subsubsection{3.
+有限磁导率与励磁电抗}\label{m6:ux6709ux9650ux78c1ux5bfcux7387ux4e0eux52b1ux78c1ux7535ux6297}
+
+实际铁芯磁导率有限。要建立主磁通，必须有磁化电流。在线性近似下用励磁电感
+\(L_m\) 表示，对应
+
+\[
+\boxed{X_m=\omega L_m}.
+\]
+
+\subsubsection{4.
+磁滞、涡流与铁损电阻}\label{m6:ux78c1ux6edeux6da1ux6d41ux4e0eux94c1ux635fux7535ux963b}
+
+磁滞和涡流会吸收平均功率。常用并联电阻 \(R_c\) 表示铁损，使
+
+\[
+\boxed{P_{\mathrm{fe}}\approx\frac{|E_1|^2}{R_c}}.
+\]
+
+有些资料把这个参数写成 \(R_{\mathrm{fe}}\) 或 \(R_0\)。本附录统一使用
+\(R_c\)，避免与励磁电抗 \(X_m\) 混淆。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H30.pdf}}
+\par\smallskip{\small 图 M6-H30：非理想效应与绕组电阻、漏电抗、励磁电抗和铁损电阻的对应关系}
+\end{center}
+\end{minipage}\par
+
+这些参数都是某一频率和工作点附近的等效参数。进入饱和区、强非线性区或高频区以后，不能把它们一概视为常数。
+
+\subsection{二、主磁通、漏磁通与端口方程}\label{m6:ux4e8cux4e3bux78c1ux901aux6f0fux78c1ux901aux4e0eux7aefux53e3ux65b9ux7a0b}
+
+\subsubsection{1.
+主磁通产生内部感应电压}\label{m6:ux4e3bux78c1ux901aux4ea7ux751fux5185ux90e8ux611fux5e94ux7535ux538b}
+
+取主磁通相量为 \(\widetilde\Phi_m\)，并选择正方向使
+
+\[
+\boxed{\widetilde E_1=j\omega N_1\widetilde\Phi_m},
+\]
+
+\[
+\boxed{\widetilde E_2=j\omega N_2\widetilde\Phi_m}.
+\]
+
+因此内部感应电压仍严格满足
+
+\[
+\boxed{\frac{\widetilde E_1}{\widetilde E_2}
+=\frac{N_1}{N_2}
+=a}.
+\]
+
+注意：非理想变压器中严格服从匝数比的是内部感应电压
+\(\widetilde E_1,\widetilde E_2\)，而不是带有绕组压降后的端口电压
+\(\widetilde U_1,\widetilde U_2\)。
+
+\subsubsection{2.
+两侧电压方程}\label{m6:ux4e24ux4fa7ux7535ux538bux65b9ux7a0b}
+
+定义
+
+\[
+\widetilde Z_1=R_1+jX_{\sigma1},
+\qquad
+\widetilde Z_2=R_2+jX_{\sigma2}.
+\]
+
+初级输入电压要同时平衡内部感应电压和初级串联压降：
+
+\[
+\boxed{\widetilde U_1
+=\widetilde E_1+\widetilde I_1\widetilde Z_1}.
+\]
+
+次级内部感应电压要同时提供输出端电压和次级串联压降：
+
+\[
+\boxed{\widetilde E_2
+=\widetilde U_2+\widetilde I_2\widetilde Z_2}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H31.pdf}}
+\par\smallskip{\small 图 M6-H31：统一参考方向下非理想变压器的内部感应电压与端口方程}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{次级内部压降的相量〔M6-057〕}
+
+某变压器次级绕组串联内阻抗为 \((0.10+j0.20)\,\Omega\)，输出电流为
+\(10\angle(-30^{\circ})\,\mathrm A\)，流向负载。求内部压降的直角形式与极坐标形式，解释为何不能只减电压有效值。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-057.pdf}}
+\par\smallskip{\small 图 M6-057：次级内部压降的相量}
+\end{center}
+\end{minipage}\par
+
+图 M6-057 左侧画的是阻抗 \(Z_2\)
+的复平面矢量，横分量0.10、纵分量0.20，辐角为
+\(63.435^{\circ}\)。把它与电流相量相乘，压降辐角应再加上电流的
+\(-30^{\circ}\)，得到右框的 \(33.435^{\circ}\)。
+
+某次级绕组
+
+\[
+\widetilde Z_2=(0.10+j0.20)\ \Omega,
+\qquad
+\widetilde I_2=10\angle(-30^{\circ})\ \mathrm A.
+\]
+
+则次级内部压降为
+
+\[
+\widetilde I_2\widetilde Z_2
+=10\angle(-30^{\circ})\times0.224\angle63.4^{\circ}
+=2.24\angle33.4^{\circ}\ \mathrm V.
+\]
+
+它一般既不与电流同相，也不与输出电压同相，不能用标量直接相减。
+
+按题设电流的复数形式 \(\widetilde I_2=5\sqrt3-j5\)，压降的直角形式为
+\(\widetilde I_2\widetilde Z_2=(1.866+j1.232)\,V\)，与上面的极坐标形式一致。
+
+\subsubsection{3. 电流分解}\label{m6:ux7535ux6d41ux5206ux89e3}
+
+把次级负载电流折算到初级后，记为
+
+\[
+\widetilde I_2'=\frac{\widetilde I_2}{a}.
+\]
+
+初级电流分成负载分量和空载励磁分量：
+
+\[
+\boxed{\widetilde I_1
+=\widetilde I_2'+\widetilde I_0}.
+\]
+
+这里 \(\widetilde I_0\) 是励磁支路的端口电流。它又可分成铁损分量
+\(\widetilde I_c\) 与磁化分量 \(\widetilde I_m\)：
+
+\[
+\boxed{\widetilde I_0
+=\widetilde I_c+\widetilde I_m}.
+\]
+
+磁化分量提供建立主磁通所需的磁动势；铁损分量表示磁滞和涡流所吸收的有功功率。不能把整个
+\(\widetilde I_0\) 都解释为``直接建立磁通的电流''。
+
+\subsection{三、励磁支路与空载相量}\label{m6:ux4e09ux52b1ux78c1ux652fux8defux4e0eux7a7aux8f7dux76f8ux91cf}
+
+把铁损电阻和励磁电抗并联在内部感应电压 \(\widetilde E_1\) 两端，则
+
+\[
+\widetilde I_c=\frac{\widetilde E_1}{R_c},
+\]
+
+\[
+\widetilde I_m=\frac{\widetilde E_1}{jX_m}
+=-j\frac{\widetilde E_1}{X_m}.
+\]
+
+所以
+
+\[
+\boxed{\widetilde I_0
+=\widetilde E_1
+\left(\frac1{R_c}+\frac1{jX_m}\right)}.
+\]
+
+为避免把乘法与分式看混，也可写成
+
+\[
+\boxed{\widetilde I_0
+=\widetilde E_1\widetilde Y_0},
+\qquad
+\boxed{\widetilde Y_0
+=\frac1{R_c}+\frac1{jX_m}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H32.pdf}}
+\par\smallskip{\small 图 M6-H32：励磁支路中铁损分量、磁化分量和空载电流的相量合成}
+\end{center}
+\end{minipage}\par
+
+其中：
+
+\begin{itemize}
+\tightlist
+\item
+  \(\widetilde I_c\) 与 \(\widetilde E_1\) 同相；
+\item
+  \(\widetilde I_m\) 在理想电感近似下滞后 \(\widetilde E_1\) 约
+  \(90^{\circ}\)；
+\item
+  \(\widetilde I_0\) 是两者的相量和，通常明显滞后于
+  \(\widetilde E_1\)，但滞后角小于 \(90^{\circ}\)。
+\end{itemize}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{励磁电流的两个分量〔M6-058〕}
+
+变压器的励磁支路由 \(R_c=1000\,\Omega\) 与 \(jX_m=j500\,\Omega\)
+并联，内部有效值电压为
+\(E_1=200\angle0^{\circ}\,\mathrm V\)。忽略该例的串联压降，求铁损与磁化电流、空载电流模及滞后角、铁损功率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-058.pdf}}
+\par\smallskip{\small 图 M6-058：励磁电流的两个分量}
+\end{center}
+\end{minipage}\par
+
+图 M6-058
+中，铁损电阻与励磁电感并联在内部电压E1上，前者同相，后者滞后90°。
+
+若
+
+\[
+E_1=200\ \mathrm V,
+\qquad
+R_c=1000\ \Omega,
+\qquad
+X_m=500\ \Omega,
+\]
+
+则
+
+\[
+\widetilde I_c=0.20\ \mathrm A,
+\qquad
+\widetilde I_m=-j0.40\ \mathrm A,
+\]
+
+\[
+\boxed{\widetilde I_0
+=0.20-j0.40\ \mathrm A}.
+\]
+
+其大小为
+
+\[
+I_0=\sqrt{0.20^2+0.40^2}
+=0.447\ \mathrm A,
+\]
+
+滞后角为
+
+\[
+\arctan\frac{0.40}{0.20}
+=63.4^{\circ}.
+\]
+
+铁损为
+
+\[
+\boxed{P_{\mathrm{fe}}
+=\frac{200^2}{1000}
+=40\ \mathrm W}.
+\]
+
+\subsection{四、参数折算与精确 T
+型等效电路}\label{m6:ux56dbux53c2ux6570ux6298ux7b97ux4e0eux7cbeux786e-t-ux578bux7b49ux6548ux7535ux8def}
+
+\subsubsection{1. 折算规则}\label{m6:ux6298ux7b97ux89c4ux5219}
+
+把次级量折算到初级，定义
+
+\[
+\boxed{\widetilde U_2'=a\widetilde U_2},
+\]
+
+\[
+\boxed{\widetilde I_2'=\frac{\widetilde I_2}{a}}.
+\]
+
+折算后的复功率保持不变：
+
+\[
+\widetilde U_2'\widetilde I_2'^{\,*}
+=a\widetilde U_2
+\left(\frac{\widetilde I_2}{a}\right)^*
+=\widetilde U_2\widetilde I_2^{\,*}.
+\]
+
+所以任意次级阻抗都按匝数比平方折算：
+
+\[
+\boxed{\widetilde Z_2'=a^2\widetilde Z_2}.
+\]
+
+特别地，
+
+\[
+\boxed{R_2'=a^2R_2},
+\]
+
+\[
+\boxed{X_{\sigma2}'=a^2X_{\sigma2}},
+\]
+
+\[
+\boxed{\widetilde Z_L'=a^2\widetilde Z_L}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{次级串联参数一并折算〔M6-059〕}
+
+匝数比a=N1/N2=5，次级绕组
+\(R_2=0.08\,\Omega\)、\(X_{\sigma2}=0.12\,\Omega\)，外接负载
+\((4+j3)\,\Omega\)。将这三项全部折算到初级，分别给出结果。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-059.pdf}}
+\par\smallskip{\small 图 M6-059：次级串联参数一并折算}
+\end{center}
+\end{minipage}\par
+
+图 M6-059
+中，次级串联的绕组电阻、漏电抗与负载都乘相同的a²，不能只折算负载而漏掉内阻抗。
+
+\(a=5\)，且
+
+\[
+R_2=0.08\ \Omega,
+\quad
+X_{\sigma2}=0.12\ \Omega,
+\quad
+\widetilde Z_L=(4+j3)\ \Omega.
+\]
+
+折算到初级后：
+
+\[
+\boxed{R_2'=2.0\ \Omega},
+\]
+
+\[
+\boxed{X_{\sigma2}'=3.0\ \Omega},
+\]
+
+\[
+\boxed{\widetilde Z_L'=(100+j75)\ \Omega}.
+\]
+
+阻抗模被放大 \(a^2=25\) 倍，而阻抗角保持不变。
+
+\subsubsection{2. 精确 T
+型方程}\label{m6:ux7cbeux786e-t-ux578bux65b9ux7a0b}
+
+在本附录采用的线性正弦稳态集中参数模型内，折算后的精确方程为
+
+\[
+\boxed{\widetilde U_1
+=\widetilde E_1+\widetilde I_1\widetilde Z_1},
+\]
+
+\[
+\boxed{\widetilde E_1
+=\widetilde U_2'+\widetilde I_2'\widetilde Z_2'},
+\]
+
+\[
+\boxed{\widetilde I_1
+=\widetilde I_0+\widetilde I_2'},
+\]
+
+\[
+\boxed{\widetilde I_0
+=\widetilde E_1\widetilde Y_0}.
+\]
+
+这四式对应精确 T 型等效电路：
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H33.pdf}}
+\par\smallskip{\small 图 M6-H33：次级参数折算到初级后的精确 T 型等效电路}
+\end{center}
+\end{minipage}\par
+
+励磁支路接在内部感应电压节点，而不是直接接在输入端。初级串联压降
+\(\widetilde I_1\widetilde Z_1\)
+位于输入端与励磁节点之间，这一点在空载精密计算时不能省略。
+
+\subsection{五、常用近似等效电路及其条件}\label{m6:ux4e94ux5e38ux7528ux8fd1ux4f3cux7b49ux6548ux7535ux8defux53caux5176ux6761ux4ef6}
+
+实际工频变压器在额定工作附近常满足
+
+\[
+|\widetilde I_0|\ll|\widetilde I_1|,
+\]
+
+并且
+
+\[
+|\widetilde I_1\widetilde Z_1|
+\ll|\widetilde U_1|.
+\]
+
+于是可作两步近似：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  用 \(\widetilde U_1\) 代替励磁支路实际承受的 \(\widetilde E_1\)；
+\item
+  在负载支路中用 \(\widetilde I_2'\)
+  近似串联支路电流，并合并两侧串联参数。
+\end{enumerate}
+
+定义
+
+\[
+\boxed{\widetilde Z_{\mathrm{eq}}
+=\widetilde Z_1+\widetilde Z_2'
+=R_{\mathrm{eq}}+jX_{\mathrm{eq}}},
+\]
+
+其中
+
+\[
+\boxed{R_{\mathrm{eq}}=R_1+R_2'},
+\]
+
+\[
+\boxed{X_{\mathrm{eq}}
+=X_{\sigma1}+X_{\sigma2}'}.
+\]
+
+近似负载支路满足
+
+\[
+\boxed{\widetilde I_2'
+\approx\frac{\widetilde U_1}
+{\widetilde Z_{\mathrm{eq}}+\widetilde Z_L'}}.
+\]
+
+输入电流为
+
+\[
+\boxed{\widetilde I_1
+\approx\widetilde I_0+\widetilde I_2'},
+\]
+
+其中
+
+\[
+\boxed{\widetilde I_0
+\approx\widetilde U_1
+\left(\frac1{R_c}+\frac1{jX_m}\right)}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H34.pdf}}
+\par\smallskip{\small 图 M6-H34：精确 T 型模型与常用近似模型的结构和适用条件}
+\end{center}
+\end{minipage}\par
+
+近似模型适合额定附近的负载、电压调整率和效率估算；以下情况应回到精确模型：
+
+\begin{itemize}
+\tightlist
+\item
+  空载电流相对较大；
+\item
+  小容量变压器的绕组压降不可忽略；
+\item
+  需要精确求内部感应电压或空载电流；
+\item
+  负载很轻，而励磁支路对输入电流的影响已不能忽略。
+\end{itemize}
+
+\subsection{六、开路实验与短路实验}\label{m6:ux516dux5f00ux8defux5b9eux9a8cux4e0eux77edux8defux5b9eux9a8c}
+
+\subsubsection{1.
+开路实验：确定励磁支路}\label{m6:ux5f00ux8defux5b9eux9a8cux786eux5b9aux52b1ux78c1ux652fux8def}
+
+通常将次级开路，在所选测量侧加额定频率、接近额定值的电压，测量
+
+\[
+U_0,\qquad I_0,\qquad P_0.
+\]
+
+由于空载电流较小，绕组铜损通常远小于铁损，且初级串联压降较小，于是
+
+\[
+\widetilde E_1\approx\widetilde U_0,
+\]
+
+\[
+P_{\mathrm{fe}}\approx P_0.
+\]
+
+铁损电流分量为
+
+\[
+\boxed{I_c\approx\frac{P_0}{U_0}}.
+\]
+
+磁化电流分量为
+
+\[
+\boxed{I_m\approx
+\sqrt{I_0^2-I_c^2}}.
+\]
+
+因此
+
+\[
+\boxed{R_c\approx\frac{U_0^2}{P_0}},
+\]
+
+\[
+\boxed{X_m\approx\frac{U_0}{I_m}}.
+\]
+
+若空载铜损不能忽略，则应先从 \(P_0\) 中扣除 \(I_0^2R_1\)，并用
+
+\[
+\widetilde E_1
+=\widetilde U_0-\widetilde I_0\widetilde Z_1
+\]
+
+修正励磁支路电压。
+
+\subsubsection{2.
+短路实验：确定串联支路}\label{m6:ux77edux8defux5b9eux9a8cux786eux5b9aux4e32ux8054ux652fux8def}
+
+将次级短路，在初级只施加能使短路电流达到规定值的低电压，测量
+
+\[
+U_{\mathrm{sc}},
+\qquad
+I_{\mathrm{sc}},
+\qquad
+P_{\mathrm{sc}}.
+\]
+
+由于短路实验电压远低于额定电压，主磁通较小，励磁电流和铁损通常可忽略。因此
+
+\[
+\boxed{Z_{\mathrm{eq}}
+\approx\frac{U_{\mathrm{sc}}}{I_{\mathrm{sc}}}},
+\]
+
+\[
+\boxed{R_{\mathrm{eq}}
+\approx\frac{P_{\mathrm{sc}}}{I_{\mathrm{sc}}^2}},
+\]
+
+\[
+\boxed{X_{\mathrm{eq}}
+\approx\sqrt{Z_{\mathrm{eq}}^2-R_{\mathrm{eq}}^2}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H35.pdf}}
+\par\smallskip{\small 图 M6-H35：开路实验与短路实验所确定的等效参数及其近似条件}
+\end{center}
+\end{minipage}\par
+
+两项实验通常只能确定
+
+\[
+R_1+R_2',
+\qquad
+X_{\sigma1}+X_{\sigma2}'.
+\]
+
+若没有直流电阻测量、设计数据或附加试验，不能把两侧串联参数分别唯一拆开。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{开路与短路实验的参数〔M6-060〕}
+
+某单相变压器的试验数据均折算到初级侧：开路U0=200V、I0=1.0A、P0=120W；短路Usc=20V、Isc=10A、Psc=120W。忽略开路铜损、短路铁损，求Rc、Xm、Req、Xeq。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-060.pdf}}
+\par\smallskip{\small 图 M6-060：开路与短路实验的参数}
+\end{center}
+\end{minipage}\par
+
+图 M6-060
+中，开路近似只保留并联励磁支路，短路低压近似只保留串联内阻抗；两组实验都须在同一侧解释。
+
+某变压器的开路实验数据为
+
+\[
+U_0=200\ \mathrm V,
+\quad
+I_0=1.0\ \mathrm A,
+\quad
+P_0=120\ \mathrm W.
+\]
+
+则
+
+\[
+I_c=\frac{120}{200}=0.60\ \mathrm A,
+\]
+
+\[
+I_m=\sqrt{1.0^2-0.60^2}
+=0.80\ \mathrm A,
+\]
+
+\[
+\boxed{R_c\approx333\ \Omega},
+\qquad
+\boxed{X_m\approx250\ \Omega}.
+\]
+
+若短路实验数据为
+
+\[
+U_{\mathrm{sc}}=20\ \mathrm V,
+\quad
+I_{\mathrm{sc}}=10\ \mathrm A,
+\quad
+P_{\mathrm{sc}}=120\ \mathrm W,
+\]
+
+则
+
+\[
+Z_{\mathrm{eq}}=2.0\ \Omega,
+\]
+
+\[
+R_{\mathrm{eq}}=1.2\ \Omega,
+\]
+
+\[
+\boxed{X_{\mathrm{eq}}
+=\sqrt{2.0^2-1.2^2}
+=1.6\ \Omega}.
+\]
+
+\subsection{七、电压调整率与负载相位}\label{m6:ux4e03ux7535ux538bux8c03ux6574ux7387ux4e0eux8d1fux8f7dux76f8ux4f4d}
+
+设额定一次电压不变，次级空载电压为 \(U_{20}\)，规定负载下的端电压为
+\(U_2\)。一种常用定义为
+
+\[
+\boxed{\varepsilon_U
+=\frac{U_{20}-U_2}{U_2}\times100\%}.
+\]
+
+有些资料分母取额定电压 \(U_{2N}\)；使用公式前必须先确认定义。
+
+图 M6-H36 使用折算到初级侧、忽略励磁电流的一阶近似。这里
+\(Z_{\mathrm{eq}}=Z_1+Z_2'\) 包含两绕组的总串联阻抗，所以两端电压关系是
+
+\[
+\boxed{\widetilde U_1
+\approx\widetilde U_2'
++\widetilde I_2'\widetilde Z_{\mathrm{eq}}}.
+\]
+
+红色合矢量对应输入
+\(\widetilde U_1\)，也近似等于空载次级电压的初级折算值；内部
+\(\widetilde E_1\) 位于初级串联压降之后，不能与它混用。
+
+若负载电流滞后输出电压 \(\varphi\)，沿输出电压方向的一阶压降为
+
+\[
+\boxed{\Delta U'
+\approx I_2'
+\left(R_{\mathrm{eq}}\cos\varphi
++X_{\mathrm{eq}}\sin\varphi\right)}.
+\]
+
+若负载电流超前输出电压 \(\varphi\)，则
+
+\[
+\boxed{\Delta U'
+\approx I_2'
+\left(R_{\mathrm{eq}}\cos\varphi
+-X_{\mathrm{eq}}\sin\varphi\right)}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H36.pdf}}
+\par\smallskip{\small 图 M6-H36：滞后负载与超前负载下串联阻抗压降的相量方向}
+\end{center}
+\end{minipage}\par
+
+所以：
+
+\begin{itemize}
+\tightlist
+\item
+  电阻性负载主要受 \(R_{\mathrm{eq}}\) 影响；
+\item
+  感性负载的电阻压降和漏抗压降通常同向增加电压降；
+\item
+  容性负载的漏抗压降投影可能与电阻压降相抵；
+\item
+  当
+\end{itemize}
+
+\[
+X_{\mathrm{eq}}\sin\varphi
+>R_{\mathrm{eq}}\cos\varphi
+\]
+
+时，近似调整率可为负，即负载端电压可能高于空载基准下的简单预期。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{负载相位改变电压调整〔M6-061〕}
+
+在初级折算侧，串联内阻为1.2Ω、漏抗为1.6Ω、负载电流有效值为10A。分别对功率因数0.8的滞后与超前负载，用小压降近似求纵向电压降，说明正负号来源。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-061.pdf}}
+\par\smallskip{\small 图 M6-061：负载相位改变电压调整}
+\end{center}
+\end{minipage}\par
+
+图 M6-061
+中，折算负载端电压作为实轴，滞后和超前电流使漏抗压降的实轴投影取不同符号。
+
+若
+
+\[
+R_{\mathrm{eq}}=1.2\ \Omega,
+\quad
+X_{\mathrm{eq}}=1.6\ \Omega,
+\quad
+I_2'=10\ \mathrm A,
+\quad
+\cos\varphi=0.8,
+\]
+
+则 \(\sin\varphi=0.6\)。对滞后负载，
+
+\[
+\Delta U'
+\approx10(1.2\times0.8+1.6\times0.6)
+=19.2\ \mathrm V.
+\]
+
+对同功率因数的超前负载，
+
+\[
+\Delta U'
+\approx10(1.2\times0.8-1.6\times0.6)
+=0.
+\]
+
+这说明仅知道电流大小还不够，必须知道负载相位。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-061-P1.pdf}}
+\par\smallskip{\small 图 M6-061-P1：滞后与超前负载的压降投影}
+\end{center}
+\end{minipage}\par
+
+图 M6-061-P1
+中，R与漏抗引起的压降分别与电流同相、超前90°，取实轴投影得到一阶调整近似。
+
+\subsection{八、损耗、效率与最大效率条件}\label{m6:ux516bux635fux8017ux6548ux7387ux4e0eux6700ux5927ux6548ux7387ux6761ux4ef6}
+
+忽略杂散损耗时，
+
+\[
+\boxed{P_{\mathrm{in}}
+=P_{\mathrm{out}}+P_{\mathrm{cu}}+P_{\mathrm{fe}}}.
+\]
+
+效率为
+
+\[
+\boxed{\eta
+=\frac{P_{\mathrm{out}}}
+{P_{\mathrm{out}}+P_{\mathrm{cu}}+P_{\mathrm{fe}}}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H37.pdf}}
+\par\smallskip{\small 图 M6-H37：非理想变压器的功率去向、损耗组成和最大效率条件}
+\end{center}
+\end{minipage}\par
+
+在额定电压、额定频率和功率因数近似不变的条件下，设负载电流为额定电流的
+\(x\) 倍，则
+
+\[
+P_{\mathrm{cu}}=x^2P_{\mathrm{cu},N},
+\]
+
+而铁损近似为常量：
+
+\[
+P_{\mathrm{fe}}\approx\text{常量}.
+\]
+
+又因为输出功率近似正比于 \(x\)，可写为
+
+\[
+P_{\mathrm{out}}=xP_N.
+\]
+
+于是
+
+\[
+\eta(x)
+=\frac{xP_N}
+{xP_N+x^2P_{\mathrm{cu},N}+P_{\mathrm{fe}}}.
+\]
+
+令 \(d\eta/dx=0\)，化简得
+
+\[
+P_{\mathrm{fe}}
+-x^2P_{\mathrm{cu},N}=0.
+\]
+
+因此最大效率条件为
+
+\[
+\boxed{P_{\mathrm{cu}}=P_{\mathrm{fe}}}.
+\]
+
+相应的最佳负载系数为
+
+\[
+\boxed{x_{\mathrm{opt}}
+=\sqrt{\frac{P_{\mathrm{fe}}}
+{P_{\mathrm{cu},N}}}}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{最大效率的损耗条件〔M6-062〕}
+
+某变压器在额定电压、频率下铁损近似恒为100W，额定电流时铜损400W。负载电流为额定值的x倍，并保持负载功率因数固定。忽略附加损耗，求效率最大时的x，并说明成立条件。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-062.pdf}}
+\par\smallskip{\small 图 M6-062：最大效率的损耗条件}
+\end{center}
+\end{minipage}\par
+
+图 M6-062
+中，在端电压、频率和负载功率因数固定时，铁损近似恒定，铜损随负载电流平方增长。
+
+若额定铜损为 \(400\ \mathrm W\)，额定电压与频率下铁损为
+\(100\ \mathrm W\)，则
+
+\[
+x_{\mathrm{opt}}
+=\sqrt{\frac{100}{400}}
+=0.50.
+\]
+
+即半额定电流附近效率最高，而不一定在额定负载时最高。
+
+\subsection{九、非理想变压器模型的使用条件}\label{m6:ux4e5dux975eux7406ux60f3ux53d8ux538bux5668ux6a21ux578bux7684ux4f7fux7528ux6761ux4ef6}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{内部感应电压按匝数比变换，端口电压不一定。}
+  绕组电阻与漏电抗会造成端口压降。
+\item
+  \textbf{铁损分量不等于磁化分量。} \(\widetilde I_c\)
+  表示有功耗散，\(\widetilde I_m\) 才直接对应建立主磁通的磁动势。
+\item
+  \textbf{励磁支路在精确模型中接于内部感应电压节点。}
+  把它移到输入端是一种有条件的近似。
+\item
+  \textbf{开路实验公式忽略空载铜损和初级串联压降。}
+  小容量装置或精密测量中需要修正。
+\item
+  \textbf{短路实验必须用低电压。}
+  若直接加额定电压，电流可能远超安全范围。
+\item
+  \textbf{开路、短路实验只能给出组合参数。}
+  没有附加信息时，不能唯一分出两侧漏抗。
+\item
+  \textbf{电压调整率取决于功率因数的超前或滞后。} 不能只代入
+  \(\cos\varphi\) 而忽略 \(\sin\varphi\) 的符号。
+\item
+  \textbf{最大效率不等于最大输出功率。}
+  最大效率条件是可变铜损等于近似恒定的铁损。
+\item
+  \textbf{相量模型不能直接处理直流和开关瞬态。}
+  此时应回到微分方程，并考虑磁通初值、饱和与寄生电容。
+\item
+  \textbf{\(R_c,X_m\) 不是永远不变的材料常数。}
+  它们是特定频率、电压和工作点附近的等效参数。
+\end{enumerate}
+
+\subsection{十、附录练习与解答}\label{m6:ux5341ux9644ux5f55ux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{试验反求等效参数〔M6-063〕}
+
+某单相变压器的所有试验数据均折算到初级侧。开路实验测得
+
+\[
+U_0=240\ \mathrm V,
+\qquad
+I_0=1.25\ \mathrm A,
+\qquad
+P_0=180\ \mathrm W.
+\]
+
+短路实验测得
+
+\[
+U_{\mathrm{sc}}=24\ \mathrm V,
+\qquad
+I_{\mathrm{sc}}=12\ \mathrm A,
+\qquad
+P_{\mathrm{sc}}=216\ \mathrm W.
+\]
+
+忽略开路铜损与短路铁损，求 \(R_c,X_m,R_{\mathrm{eq}},X_{\mathrm{eq}}\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-063.pdf}}
+\par\smallskip{\small 图 M6-063：试验反求等效参数}
+\end{center}
+\end{minipage}\par
+
+图 M6-063
+中，开路实验用正交分量分解I0；短路实验从阻抗模中扣除电阻分量求漏抗。
+
+铁损电流分量为
+
+\[
+I_c=\frac{P_0}{U_0}
+=\frac{180}{240}
+=0.75\ \mathrm A.
+\]
+
+磁化电流分量为
+
+\[
+I_m=\sqrt{I_0^2-I_c^2}
+=\sqrt{1.25^2-0.75^2}
+=1.00\ \mathrm A.
+\]
+
+所以
+
+\[
+\boxed{R_c
+=\frac{U_0}{I_c}
+=\frac{240}{0.75}
+=320\ \Omega},
+\]
+
+\[
+\boxed{X_m
+=\frac{U_0}{I_m}
+=240\ \Omega}.
+\]
+
+短路等效阻抗为
+
+\[
+Z_{\mathrm{eq}}
+=\frac{U_{\mathrm{sc}}}{I_{\mathrm{sc}}}
+=\frac{24}{12}
+=2.00\ \Omega.
+\]
+
+等效电阻为
+
+\[
+\boxed{R_{\mathrm{eq}}
+=\frac{P_{\mathrm{sc}}}{I_{\mathrm{sc}}^2}
+=\frac{216}{12^2}
+=1.50\ \Omega}.
+\]
+
+等效漏抗为
+
+\[
+\boxed{X_{\mathrm{eq}}
+=\sqrt{Z_{\mathrm{eq}}^2-R_{\mathrm{eq}}^2}
+=\sqrt{2.00^2-1.50^2}
+=1.323\ \Omega}.
+\]
+
+最后检查：
+
+\[
+\sqrt{1.50^2+1.323^2}
+\approx2.00\ \Omega,
+\]
+
+与短路阻抗一致。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-063-P1.pdf}}
+\par\smallskip{\small 图 M6-063-P1：两种试验隔离不同参数}
+\end{center}
+\end{minipage}\par
+
+图 M6-063-P1 中，开路时I2=0，短路试验使用低电压；对应的忽略项不同。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{非理想变压器的完整运行〔M6-064〕}
+
+某非理想变压器的匝数比为
+
+\[
+a=\frac{N_1}{N_2}=2.
+\]
+
+所有初级侧等效参数为
+
+\[
+R_c=500\ \Omega,
+\qquad
+X_m=250\ \Omega,
+\]
+
+\[
+\widetilde Z_{\mathrm{eq}}
+=(8+j4)\ \Omega.
+\]
+
+初级电压为
+
+\[
+\widetilde U_1=100\angle0^{\circ}\ \mathrm V,
+\]
+
+次级负载为
+
+\[
+\widetilde Z_L=(10+j15)\ \Omega.
+\]
+
+采用常用近似等效电路，求：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  折算负载与负载分量 \(\widetilde I_2'\)；
+\item
+  励磁电流 \(\widetilde I_0\) 与输入电流 \(\widetilde I_1\)；
+\item
+  次级端电压 \(\widetilde U_2\) 和次级电流 \(\widetilde I_2\)；
+\item
+  输入、输出复功率及效率；
+\item
+  以 \(U_{20}\approx U_1/a\) 为空载电压时的电压调整率。
+\end{enumerate}
+
+励磁支路跨输入U1，Zeq与折算负载串联后构成另一支路；该模型的U2′为负载端电压。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-064.pdf}}
+\par\smallskip{\small 图 M6-064：非理想变压器的完整运行}
+\end{center}
+\end{minipage}\par
+
+图 M6-064
+中，本题近似模型将励磁支路移到输入端；负载支路串联Zeq与折算负载，电流不可混同。
+
+次级负载折算到初级：
+
+\[
+\widetilde Z_L'
+=a^2\widetilde Z_L
+=4(10+j15)
+=(40+j60)\ \Omega.
+\]
+
+负载支路总阻抗为
+
+\[
+\widetilde Z_{\mathrm{eq}}+\widetilde Z_L'
+=(8+j4)+(40+j60)
+=(48+j64)\ \Omega.
+\]
+
+因此
+
+\[
+\widetilde I_2'
+=\frac{100}{48+j64}
+=\frac{100(48-j64)}{48^2+64^2},
+\]
+
+即
+
+\[
+\boxed{\widetilde I_2'
+=(0.75-j1.00)\ \mathrm A}.
+\]
+
+励磁电流为
+
+\[
+\widetilde I_0
+=\frac{100}{500}+\frac{100}{j250}
+=0.20-j0.40\ \mathrm A.
+\]
+
+所以输入电流
+
+\[
+\boxed{\widetilde I_1
+=\widetilde I_0+\widetilde I_2'
+=(0.95-j1.40)\ \mathrm A}.
+\]
+
+折算后的负载端电压为
+
+\[
+\widetilde U_2'
+=\widetilde I_2'\widetilde Z_L'
+=(0.75-j1.00)(40+j60).
+\]
+
+展开得
+
+\[
+\widetilde U_2'
+=90+j5\ \mathrm V.
+\]
+
+故实际次级端电压为
+
+\[
+\boxed{\widetilde U_2
+=\frac{\widetilde U_2'}a
+=(45+j2.5)\ \mathrm V}.
+\]
+
+其大小为
+
+\[
+U_2=\sqrt{45^2+2.5^2}
+=45.07\ \mathrm V.
+\]
+
+次级电流为
+
+\[
+\boxed{\widetilde I_2
+=a\widetilde I_2'
+=(1.50-j2.00)\ \mathrm A}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-064-P1.pdf}}
+\par\smallskip{\small 图 M6-064-P1：输入有功的去向}
+\end{center}
+\end{minipage}\par
+
+图 M6-064-P1
+中，负载62.5W、铁损20W、铜损12.5W；无功分量另按电抗与励磁支路核对。
+
+输入复功率：
+
+\[
+\widetilde S_{\mathrm{in}}
+=\widetilde U_1\widetilde I_1^{\,*}
+=100(0.95+j1.40),
+\]
+
+所以
+
+\[
+\boxed{\widetilde S_{\mathrm{in}}
+=(95+j140)\ \mathrm{VA}}.
+\]
+
+输出复功率：
+
+\[
+\widetilde S_{\mathrm{out}}
+=\widetilde U_2\widetilde I_2^{\,*}
+=(45+j2.5)(1.50+j2.00),
+\]
+
+所以
+
+\[
+\boxed{\widetilde S_{\mathrm{out}}
+=(62.5+j93.75)\ \mathrm{VA}}.
+\]
+
+铁损为
+
+\[
+P_{\mathrm{fe}}
+=\frac{U_1^2}{R_c}
+=\frac{100^2}{500}
+=20\ \mathrm W.
+\]
+
+串联等效铜损为
+
+\[
+P_{\mathrm{cu}}
+=|\widetilde I_2'|^2R_{\mathrm{eq}}
+=(0.75^2+1.00^2)\times8
+=12.5\ \mathrm W.
+\]
+
+功率核对：
+
+\[
+P_{\mathrm{out}}+P_{\mathrm{fe}}+P_{\mathrm{cu}}
+=62.5+20+12.5
+=95\ \mathrm W
+=P_{\mathrm{in}}.
+\]
+
+因此效率为
+
+\[
+\boxed{\eta
+=\frac{62.5}{95}
+=65.8\%}.
+\]
+
+近似空载次级电压为
+
+\[
+U_{20}\approx\frac{U_1}{a}
+=50.0\ \mathrm V.
+\]
+
+按本附录采用的调整率定义，
+
+\[
+\varepsilon_U
+=\frac{U_{20}-U_2}{U_2}\times100\%,
+\]
+
+得到
+
+\[
+\boxed{\varepsilon_U
+=\frac{50.0-45.07}{45.07}\times100\%
+\approx10.9\%}.
+\]
+
+本题参数为便于完整演算而设置；其损耗比例不代表大型电力变压器的典型水平。
+
+\section{专题五十九：整流、滤波与稳压电路（基础必讲与拔高选讲）}\label{m6:ux4e13ux9898ux4e94ux5341ux4e5dux6574ux6d41ux6ee4ux6ce2ux4e0eux7a33ux538bux7535ux8defux57faux7840ux5fc5ux8bb2ux4e0eux62d4ux9ad8ux9009ux8bb2}
+
+正弦电源经过非线性器件后会产生直流分量和新的谐波，因此不能再把整个电路只用一个同频相量表示。计算时按导通状态分段，再求平均值、有效值、纹波和器件应力。
+
+\subsection{一、从二极管状态到输出波形}\label{m6:ux4e00ux4eceux4e8cux6781ux7ba1ux72b6ux6001ux5230ux8f93ux51faux6ce2ux5f62}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H38.pdf}}
+\par\smallskip{\small 图 M6-H38：理想二极管和恒压降二极管在正反偏下的分段状态}
+\end{center}
+\end{minipage}\par
+
+若题目采用理想二极管，导通时视为短路、截止时视为开路。若采用恒压降模型，导通支路还要扣除经过的二极管压降总和。标准步骤为：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  按输入电压极性假设导通组合；
+\item
+  画出该时间段的线性等效电路；
+\item
+  求电流和输出电压；
+\item
+  检查每只二极管的电流与端电压是否支持原假设。
+\end{enumerate}
+
+\subsection{二、半波整流}\label{m6:ux4e8cux534aux6ce2ux6574ux6d41}
+
+输入为
+
+\[
+u_s=U_m\sin\omega t.
+\]
+
+理想二极管和纯电阻负载下，输出只保留正半周：
+
+\[
+u_o=
+\begin{cases}
+U_m\sin\omega t,&0<\omega t<\pi,\\
+0,&\pi<\omega t<2\pi.
+\end{cases}
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H39.pdf}}
+\par\smallskip{\small 图 M6-H39：半波整流电路与输入、输出波形}
+\end{center}
+\end{minipage}\par
+
+一周期平均值和有效值为
+
+\[
+\boxed{U_{\mathrm{dc}}=\frac{U_m}{\pi}},
+\qquad
+\boxed{U_{\mathrm{rms}}=\frac{U_m}{2}}.
+\]
+
+二者分别描述直流分量和产生相同热功率的等效直流值，不能混用。
+
+\subsection{三、全波桥式整流}\label{m6:ux4e09ux5168ux6ce2ux6865ux5f0fux6574ux6d41}
+
+桥式整流在两个半周分别由一对二极管导通，使负载电流方向保持不变。理想情况下
+
+\[
+u_o=|U_m\sin\omega t|.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H40.pdf}}
+\par\smallskip{\small 图 M6-H40：桥式整流在正负半周的两组导通路径}
+\end{center}
+\end{minipage}\par
+
+因此
+
+\[
+\boxed{U_{\mathrm{dc}}=\frac{2U_m}{\pi}},
+\qquad
+\boxed{U_{\mathrm{rms}}=\frac{U_m}{\sqrt2}}.
+\]
+
+输出脉动频率为输入频率的两倍。恒压降模型中每次有两只二极管串联导通，峰值输出近似为
+\(U_m-2U_F\)，但靠近过零点时还存在短暂截止区。
+
+\subsection{四、平均值、有效值与纹波}\label{m6:ux56dbux5e73ux5747ux503cux6709ux6548ux503cux4e0eux7eb9ux6ce2}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H41.pdf}}
+\par\smallskip{\small 图 M6-H41：整流波形的平均值、有效值和峰峰纹波分别描述不同性质}
+\end{center}
+\end{minipage}\par
+
+对周期量 \(u(t)\)，
+
+\[
+U_{\mathrm{dc}}=\frac1T\int_0^T u(t)\,dt,
+\qquad
+U_{\mathrm{rms}}=\sqrt{\frac1T\int_0^T u^2(t)\,dt}.
+\]
+
+纹波是输出相对平均值的周期变化。峰峰纹波
+\(\Delta U_{\mathrm{pp}}=U_{\max}-U_{\min}\)
+与纹波有效值不是同一个量，题目未说明时必须写清采用哪一种定义。
+
+\subsection{五、电容输入滤波}\label{m6:ux4e94ux7535ux5bb9ux8f93ux5165ux6ee4ux6ce2}
+
+电容并联在负载两端时，整流电压接近峰值便给电容快速充电；其余时间二极管截止，电容通过负载缓慢放电。若纹波较小，可把负载电流近似为常量
+\(I_L\)，得到
+
+\[
+\boxed{\Delta U_{\mathrm{pp}}\simeq\frac{I_L}{f_rC}},
+\]
+
+其中 \(f_r\) 是纹波频率：半波整流取 \(f_r=f\)，全波整流取 \(f_r=2f\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H42.pdf}}
+\par\smallskip{\small 图 M6-H42：电容滤波中峰值附近充电和两峰之间放电形成纹波}
+\end{center}
+\end{minipage}\par
+
+小纹波时还可估计
+
+\[
+U_{\mathrm{dc}}\simeq U_p-\frac{\Delta U_{\mathrm{pp}}}{2}.
+\]
+
+该近似要求
+\(R_LC\gg1/f_r\)，且未计变压器内阻、二极管动态电阻和充电尖峰。
+
+\subsection{六、稳压管并联稳压}\label{m6:ux516dux7a33ux538bux7ba1ux5e76ux8054ux7a33ux538b}
+
+稳压管反向工作在击穿区，串联电阻 \(R_s\)
+同时负责限流和吸收输入电压变化。若输出近似为 \(U_Z\)，
+
+\[
+\frac{U_s-U_Z}{R_s}=I_L+I_Z.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H43.pdf}}
+\par\smallskip{\small 图 M6-H43：稳压管并联稳压电路中的串联电流、负载电流和稳压管电流}
+\end{center}
+\end{minipage}\par
+
+必须在输入电压和负载电流的全部范围内检查
+
+\[
+I_{Z,\min}\le I_Z\le I_{Z,\max},
+\qquad
+P_Z=U_ZI_Z\le P_{Z,\max}.
+\]
+
+稳压管不是理想电压源；精细分析还要计入动态电阻。
+
+\subsection{七、使用条件与常见错误}\label{m6:ux4e03ux4f7fux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux9519ux8bef-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  整流后波形含直流和多次谐波，不能用单一输入频率相量贯穿全电路。
+\item
+  半波与全波的纹波频率不同，滤波电容公式中的 \(f_r\)
+  不能都写成电源频率。
+\item
+  电容滤波会产生窄而高的充电电流，平均负载电流不能代表二极管峰值电流。
+\item
+  桥式整流每次有两只二极管导通，恒压降需扣除两次。
+\item
+  稳压设计必须同时检查最低输入、最大负载和最高输入、最小负载两个极端。
+\end{enumerate}
+
+\subsection{八、练习与解答}\label{m6:ux516bux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{半波整流的平均值与热功率〔M6-065〕}
+
+有效值为 \(12.0\ \mathrm V\) 的正弦电源经理想二极管向 \(R=120\ \Omega\)
+负载作半波整流。求输出电压平均值、负载电流平均值、负载电流有效值和平均功率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-065.pdf}}
+\par\smallskip{\small 图 M6-065：半波整流的平均值与热功率}
+\end{center}
+\end{minipage}\par
+
+图 M6-065
+中，只有源正半周导通，负半周负载电压为零；发热用有效值，平均电流用波形面积。
+
+输入峰值为
+
+\[
+U_m=\sqrt2\times12.0=16.97\ \mathrm V.
+\]
+
+因此
+
+\[
+U_{\mathrm{dc}}=\frac{U_m}{\pi}=5.40\ \mathrm V,
+\qquad
+I_{\mathrm{dc}}=\frac{U_{\mathrm{dc}}}{R}=45.0\ \mathrm{mA}.
+\]
+
+电流有效值为
+
+\[
+I_{\mathrm{rms}}=\frac{U_m}{2R}=70.7\ \mathrm{mA},
+\]
+
+负载平均功率
+
+\[
+\boxed{P=I_{\mathrm{rms}}^2R=0.600\ \mathrm W}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-065-P1.pdf}}
+\par\smallskip{\small 图 M6-065-P1：半波输出与正弦输入}
+\end{center}
+\end{minipage}\par
+
+图 M6-065-P1
+中，正半周两曲线重合，负半周输出为零；平均值与有效值使用不同积分。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{桥式全波与反向峰值〔M6-066〕}
+
+同一只 \(12.0\ \mathrm V\) 有效值正弦电源经理想桥式整流器接
+\(120\ \Omega\)
+负载。求负载电压平均值、负载电流平均值与有效值，并给出每只二极管承受的反向峰值。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-066.pdf}}
+\par\smallskip{\small 图 M6-066：桥式全波与反向峰值}
+\end{center}
+\end{minipage}\par
+
+图 M6-066
+中，A电位较高时D1、D4构成通路；B较高时换成D2、D3，负载电流始终从上到下。
+
+峰值仍为 \(U_m=16.97\ \mathrm V\)。全波整流给出
+
+\[
+U_{\mathrm{dc}}=\frac{2U_m}{\pi}=10.8\ \mathrm V,
+\]
+
+\[
+I_{\mathrm{dc}}=\frac{10.8}{120}=90.0\ \mathrm{mA},
+\qquad
+I_{\mathrm{rms}}=\frac{12.0}{120}=100\ \mathrm{mA}.
+\]
+
+理想桥式结构中，每只截止二极管承受的反向峰值为
+
+\[
+\boxed{U_{\mathrm{PIV}}=U_m=16.97\ \mathrm V}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-066-P1.pdf}}
+\par\smallskip{\small 图 M6-066-P1：两半周的实际导通路径}
+\end{center}
+\end{minipage}\par
+
+图 M6-066-P1 中，左A电位高：A→D1→负载→D4→B；右B电位高：B→D2→负载→D3→A。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{滤波纹波的自洽计算〔M6-067〕}
+
+全波整流器的纹波频率为 \(100\ \mathrm{Hz}\)，滤波电容
+\(C=1000\ \mu\mathrm F\)，负载 \(R_L=500\ \Omega\)，充电峰值近似为
+\(U_p=15.0\ \mathrm V\)。用小纹波近似自洽求平均输出和峰峰纹波。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-067.pdf}}
+\par\smallskip{\small 图 M6-067：滤波纹波的自洽计算}
+\end{center}
+\end{minipage}\par
+
+图 M6-067
+中，峰值附近二极管给C充电，两峰之间桥截止，由C给负载放电；平均负载电流须用未知平均输出求。
+
+近似有
+
+\[
+\Delta U_{\mathrm{pp}}\simeq\frac{I_L}{f_rC}
+=\frac{U_{\mathrm{dc}}}{R_Lf_rC},
+\]
+
+以及
+
+\[
+U_{\mathrm{dc}}\simeq U_p-\frac{\Delta U_{\mathrm{pp}}}{2}.
+\]
+
+因为 \(R_Lf_rC=500\times100\times10^{-3}=50\)，所以
+
+\[
+U_{\mathrm{dc}}=15.0-\frac{U_{\mathrm{dc}}}{100}.
+\]
+
+解得
+
+\[
+\boxed{U_{\mathrm{dc}}=14.85\ \mathrm V},
+\qquad
+\boxed{\Delta U_{\mathrm{pp}}=0.297\ \mathrm V}.
+\]
+
+纹波约占平均值 \(2.0\%\)，与小纹波假设相容。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-067-P1.pdf}}
+\par\smallskip{\small 图 M6-067-P1：两充电峰之间由电容供电}
+\end{center}
+\end{minipage}\par
+
+图 M6-067-P1
+中，归一化示例RL·fr·C=50；绿色为线性小纹波近似，蓝色为理想化瞬时补充充电后的指数放电。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{反向稳压管的电流范围〔M6-068〕}
+
+稳压管电压 \(U_Z=6.00\ \mathrm V\)，串联电阻 \(R_s=200\ \Omega\)，负载
+\(R_L=600\ \Omega\)。输入电压在 \(10.0\) 至 \(14.0\ \mathrm V\)
+之间变化。求稳压管电流范围和最大耗散功率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-068.pdf}}
+\par\smallskip{\small 图 M6-068：反向稳压管的电流范围}
+\end{center}
+\end{minipage}\par
+
+图 M6-068
+中，串联电阻电流在上节点分成负载电流与反向稳压电流，IZ必须保持在稳压模型的工作区。
+
+负载电流为
+
+\[
+I_L=\frac{6.00}{600}=10.0\ \mathrm{mA}.
+\]
+
+最低输入时
+
+\[
+I_Z=\frac{10.0-6.00}{200}-10.0\ \mathrm{mA}=10.0\ \mathrm{mA}.
+\]
+
+最高输入时
+
+\[
+I_Z=\frac{14.0-6.00}{200}-10.0\ \mathrm{mA}=30.0\ \mathrm{mA}.
+\]
+
+最大功率为
+
+\[
+\boxed{P_{Z,\max}=6.00\times30.0\ \mathrm{mA}=0.180\ \mathrm W}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{降压与桥式器件电压应力〔M6-069〕}
+
+理想变压器初级接 \(220\ \mathrm V\) 有效值正弦电源，匝数比
+\(N_1:N_2=11:1\)。次级接桥式整流器，每只二极管恒压降
+\(0.800\ \mathrm V\)，后接大电容。忽略负载引起的跌落，求电容充电峰值和每只二极管至少应承受的反向峰值数量级。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-069.pdf}}
+\par\smallskip{\small 图 M6-069：降压与桥式器件电压应力}
+\end{center}
+\end{minipage}\par
+
+图 M6-069
+中，将变压器次级看作图中的交流端口，任一充电路径均经过两只二极管。
+
+次级有效值为
+
+\[
+U_2=220\times\frac1{11}=20.0\ \mathrm V,
+\]
+
+峰值为
+\(U_{2m}=20.0\sqrt2=28.3\ \mathrm V\)。充电路径经过两只二极管，因此
+
+\[
+\boxed{U_C\simeq28.3-2\times0.800=26.7\ \mathrm V}.
+\]
+
+桥式结构中单只二极管反向峰值与次级峰值同量级，理想估算约为
+
+\[
+\boxed{U_{\mathrm{PIV}}\simeq28.3\ \mathrm V}.
+\]
+
+实际选型还必须留出电网波动、漏感尖峰和安全裕量。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-069-P1.pdf}}
+\par\smallskip{\small 图 M6-069-P1：峰值附近充电与峰间电容供电}
+\end{center}
+\end{minipage}\par
+
+图 M6-069-P1 左图保留了滤波电容：正半周只在 \(u_2>u_C+2U_D\)
+的峰值附近，经 \(D_1,D_4\) 给电容和负载供电；负半周峰值则换为
+\(D_2,D_3\)。右图是 \(|u_2|<u_C+2U_D\)
+的峰间截止区，桥不供电，由电容向负载放电。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{由允许纹波确定电容〔M6-070〕}
+
+\(50.0\ \mathrm{Hz}\) 电源经全波整流后给负载提供近似恒定的
+\(0.200\ \mathrm A\) 电流。若允许峰峰纹波不超过
+\(1.00\ \mathrm V\)，估算滤波电容的最小值。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-070.pdf}}
+\par\smallskip{\small 图 M6-070：由允许纹波确定电容}
+\end{center}
+\end{minipage}\par
+
+图 M6-070
+中，相邻充电峰间隔约1/fr，恒流负载从C取走电荷IL/fr，对应允许电压下降。
+
+全波纹波频率为
+
+\[
+f_r=2f=100\ \mathrm{Hz}.
+\]
+
+由
+
+\[
+\Delta U_{\mathrm{pp}}\simeq\frac{I_L}{f_rC}
+\]
+
+得到
+
+\[
+C\ge\frac{0.200}{100\times1.00}
+=2.00\times10^{-3}\ \mathrm F.
+\]
+
+因此
+
+\[
+\boxed{C_{\min}\simeq2000\ \mu\mathrm F}.
+\]
+
+实际电容还应考虑容差、温升、纹波电流额定值和输入低谷。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-070-P1.pdf}}
+\par\smallskip{\small 图 M6-070-P1：恒流负载使电容电压线性下降}
+\end{center}
+\end{minipage}\par
+
+图 M6-070-P1
+中，恒流负载：\(du_C/dt=-I_L/C\)；峰间下降为直线，\(\Delta U_{pp}=I_L/(f_rC)\)。图示下降幅度归一化为\(2\%\)。
+
+\section{专题六十：三相交流、远距离输电与感应电动机（基础必讲与决赛拓展）}\label{m6:ux4e13ux9898ux516dux5341ux4e09ux76f8ux4ea4ux6d41ux8fdcux8dddux79bbux8f93ux7535ux4e0eux611fux5e94ux7535ux52a8ux673aux57faux7840ux5fc5ux8bb2ux4e0eux51b3ux8d5bux62d3ux5c55}
+
+三相系统用三个等幅、同频、相位依次相差 \(120^{\circ}\)
+的电源同时传递能量。平衡三相的瞬时总功率不随时间脉动，并可产生旋转磁场。以下均采用有效值相量。
+
+\subsection{一、对称三相电源}\label{m6:ux4e00ux5bf9ux79f0ux4e09ux76f8ux7535ux6e90}
+
+取相序为 A、B、C，三相相电压写成
+
+\[
+\widetilde U_A=U_p\angle0^{\circ},
+\quad
+\widetilde U_B=U_p\angle-120^{\circ},
+\quad
+\widetilde U_C=U_p\angle120^{\circ}.
+\]
+
+它们满足
+
+\[
+\boxed{\widetilde U_A+\widetilde U_B+\widetilde U_C=0}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H44.pdf}}
+\par\smallskip{\small 图 M6-H44：对称三相电压的三个相量等幅并相差一百二十度}
+\end{center}
+\end{minipage}\par
+
+三相名称中的相序不是装饰。交换任意两相会把相序反转，并使旋转磁场方向反转。
+
+\subsection{二、星形连接的线量与相量}\label{m6:ux4e8cux661fux5f62ux8fdeux63a5ux7684ux7ebfux91cfux4e0eux76f8ux91cf}
+
+星形连接中三相负载的一端汇合为中性点。平衡时中性线电流为零。线电压是两个相电压之差，例如
+
+\[
+\widetilde U_{AB}=\widetilde U_A-\widetilde U_B.
+\]
+
+几何作差得到
+
+\[
+\boxed{U_L=\sqrt3U_p},
+\qquad
+\boxed{I_L=I_p}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H45.pdf}}
+\par\smallskip{\small 图 M6-H45：星形连接中线电压是两相电压之差且超前相电压三十度}
+\end{center}
+\end{minipage}\par
+
+线电压与相电压还相差
+\(30^{\circ}\)，所以只写大小关系不足以处理相量方向题。
+
+\subsection{三、三角形连接的线量与相量}\label{m6:ux4e09ux4e09ux89d2ux5f62ux8fdeux63a5ux7684ux7ebfux91cfux4e0eux76f8ux91cf}
+
+三角形连接中每相负载直接接在线线电压上，因此
+
+\[
+\boxed{U_L=U_p}.
+\]
+
+线电流是相邻两支路电流的相量差，平衡时
+
+\[
+\boxed{I_L=\sqrt3I_p}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H46.pdf}}
+\par\smallskip{\small 图 M6-H46：三角形连接中线电流由相邻两支路电流作相量差}
+\end{center}
+\end{minipage}\par
+
+星形与三角形公式只适用于对称电源和平衡负载。负载不平衡且没有中性线时，中性点会漂移，必须重新列节点方程。
+
+\subsection{四、平衡三相功率}\label{m6:ux56dbux5e73ux8861ux4e09ux76f8ux529fux7387}
+
+若每相负载阻抗角为 \(\varphi\)，三相总有功、无功和视在功率为
+
+\[
+\boxed{P=\sqrt3U_LI_L\cos\varphi},
+\]
+
+\[
+\boxed{Q=\sqrt3U_LI_L\sin\varphi},
+\qquad
+\boxed{S=\sqrt3U_LI_L}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H47.pdf}}
+\par\smallskip{\small 图 M6-H47：平衡三相系统的相功率相加为总有功、无功与视在功率}
+\end{center}
+\end{minipage}\par
+
+这三个公式对平衡星形和三角形都成立，因为线量与相量关系中的 \(\sqrt3\)
+恰好重组为同一结果。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{功率因数与线路损耗〔M6-071〕}
+
+平衡三相线路输送相同有功功率，线电压与每根线电阻保持不变。将负载功率因数从0.8滞后提高到1，求线电流与总焦耳损耗相对原值的比例。
+
+题中有功功率、线电压和功率因数均取输电线路受端（负载端），三根导线的焦耳损耗另行相加。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-071.pdf}}
+\par\smallskip{\small 图 M6-071：功率因数与线路损耗}
+\end{center}
+\end{minipage}\par
+
+图 M6-071
+中，传输有功功率、线电压和线阻均不变，提高功率因数先减小线电流，再按平方关系减小损耗。
+
+同样的有功功率和线电压下，功率因数从 \(0.8\) 提高到
+\(1\)，线电流降为原来的 \(0.8\)，线路焦耳损耗降为原来的 \(0.64\)。
+
+\subsection{五、远距离输电与功率因数}\label{m6:ux4e94ux8fdcux8dddux79bbux8f93ux7535ux4e0eux529fux7387ux56e0ux6570}
+
+平衡三相输送有功功率 \(P\) 时，
+
+\[
+I_L=\frac{P}{\sqrt3U_L\cos\varphi}.
+\]
+
+若每根输电线电阻为 \(r\)，总线路损耗为
+
+\[
+\boxed{P_{\mathrm{loss}}=3I_L^2r}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H48.pdf}}
+\par\smallskip{\small 图 M6-H48：升高线电压与提高功率因数都通过减小线电流降低输电损耗}
+\end{center}
+\end{minipage}\par
+
+固定 \(P\) 和功率因数时，电压提高 \(n\) 倍，电流降为 \(1/n\)，线损降为
+\(1/n^2\)。实际系统还受绝缘、电晕、设备造价和稳定性约束，不能无限提高电压。
+
+\subsection{六、三相绕组产生旋转磁场}\label{m6:ux516dux4e09ux76f8ux7ed5ux7ec4ux4ea7ux751fux65cbux8f6cux78c1ux573a}
+
+三组空间轴线彼此相差 \(120^{\circ}\)
+的绕组中，通入同相序三相电流。在线性近似下，每组磁场沿本绕组轴线并与电流成正比。令轴向单位矢量为
+\(\mathbf e_A,\mathbf e_B,\mathbf e_C\)，则
+
+\[
+\mathbf B=B_m\bigl[
+\cos\omega t\,\mathbf e_A
++\cos(\omega t-2\pi/3)\mathbf e_B
++\cos(\omega t+2\pi/3)\mathbf e_C
+\bigr].
+\]
+
+取
+
+\[
+\mathbf e_A=(1,0),\qquad
+\mathbf e_B=\left(-\frac12,\frac{\sqrt3}{2}\right),\qquad
+\mathbf e_C=\left(-\frac12,-\frac{\sqrt3}{2}\right).
+\]
+
+令 \(\theta=\omega t\)。合成场的两个分量为
+
+\[
+\begin{aligned}
+B_x
+&=B_m\left[\cos\theta-\frac12\cos(\theta-120^{\circ})
+-\frac12\cos(\theta+120^{\circ})\right]
+=\frac32B_m\cos\theta,\\
+B_y
+&=\frac{\sqrt3}{2}B_m\left[\cos(\theta-120^{\circ})
+-\cos(\theta+120^{\circ})\right]
+=\frac32B_m\sin\theta.
+\end{aligned}
+\]
+
+因此
+
+\[
+\boxed{\mathbf B=\frac32B_m
+\left(\cos\omega t\,\mathbf e_x+\sin\omega t\,\mathbf e_y\right)}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H49.pdf}}
+\par\smallskip{\small 图 M6-H49：三组空间相差一百二十度的绕组合成等幅旋转磁场}
+\end{center}
+\end{minipage}\par
+
+合成场大小恒为 \(3B_m/2\)，方向以角速度 \(\omega\)
+转动。交换任意两相均使旋转方向反转；例如交换B、C两相且保留A相基准时，余弦项不变而正弦项反号。
+
+\subsection{七、感应电动机的同步速度与滑差}\label{m6:ux4e03ux611fux5e94ux7535ux52a8ux673aux7684ux540cux6b65ux901fux5ea6ux4e0eux6ed1ux5dee}
+
+具有 \(P\) 个磁极的三相定子在频率 \(f\) 下产生同步转速
+
+\[
+\boxed{n_s=\frac{120f}{P}}
+\]
+
+，单位为每分钟转数。若用磁极对数 \(p=P/2\)，同一公式写成 \(n_s=60f/p\)。
+
+转子机械转速为 \(n\) 时，滑差为
+
+\[
+\boxed{s=\frac{n_s-n}{n_s}},
+\qquad
+\boxed{f_r=sf},
+\]
+
+其中 \(f_r\) 是转子电流频率。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-H50.pdf}}
+\par\smallskip{\small 图 M6-H50：旋转磁场、转子转速、同步速度和滑差的关系}
+\end{center}
+\end{minipage}\par
+
+当 \(n=n_s\)
+时，转子与磁场相对静止，理想模型中不再产生感应电流和电磁转矩。因此感应电动机带负载运行必须保持非零滑差。启动时
+\(s=1\)；电动运行通常 \(0<s<1\)。
+
+\subsection{八、使用条件与常见错误}\label{m6:ux516bux4f7fux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux9519ux8bef}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  星形关系是 \(U_L=\sqrt3U_p\)，三角形关系是
+  \(I_L=\sqrt3I_p\)，两者不能对调。
+\item
+  线量之间的 \(30^{\circ}\) 相位关系在方向题和继电保护题中不可省略。
+\item
+  \(\sqrt3U_LI_L\cos\varphi\) 只直接适用于平衡三相。
+\item
+  输电线损按三根线路相加，单根电阻不能漏掉因子 \(3\)。
+\item
+  同步速度公式中的 \(P\) 是磁极数；若使用极对数，分母公式随之改变。
+\item
+  感应电动机转子不能在有转矩时严格达到同步速度。
+\end{enumerate}
+
+\subsection{九、练习与解答}\label{m6:ux4e5dux7ec3ux4e60ux4e0eux89e3ux7b54-1}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{平衡星形负载〔M6-072〕}
+
+线电压 \(U_L=380\ \mathrm V\) 的对称三相电源连接平衡星形负载，每相阻抗为
+\(Z=8+j6\ \Omega\)。求线电流、有功功率和无功功率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-072.pdf}}
+\par\smallskip{\small 图 M6-072：平衡星形负载}
+\end{center}
+\end{minipage}\par
+
+图 M6-072
+中，三支路共用中性点N，平衡时每相承受线电压的1/√3，线电流等于该相支路电流。
+
+相电压为
+
+\[
+U_p=\frac{380}{\sqrt3}=219.4\ \mathrm V.
+\]
+
+\(|Z|=10\ \Omega\)，\(\cos\varphi=0.8\)、\(\sin\varphi=0.6\)。星形连接中
+
+\[
+I_L=I_p=\frac{219.4}{10}=21.94\ \mathrm A.
+\]
+
+于是
+
+\[
+P=\sqrt3\times380\times21.94\times0.8=11.55\ \mathrm{kW},
+\]
+
+\[
+Q=\sqrt3\times380\times21.94\times0.6=8.66\ \mathrm{kvar}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{平衡三角形负载〔M6-073〕}
+
+线电压为 \(220\ \mathrm V\) 的三相电源接平衡三角形负载，每相阻抗为
+\(12\angle30^{\circ}\ \Omega\)。求相电流、线电流和总有功功率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-073.pdf}}
+\par\smallskip{\small 图 M6-073：平衡三角形负载}
+\end{center}
+\end{minipage}\par
+
+图 M6-073
+中，三角形每边接两根相线，线电流是该顶点相邻两支路电流的有向差。
+
+三角形连接中 \(U_p=U_L=220\ \mathrm V\)，故
+
+\[
+I_p=\frac{220}{12}=18.33\ \mathrm A,
+\qquad
+I_L=\sqrt3I_p=31.75\ \mathrm A.
+\]
+
+总有功功率为
+
+\[
+P=3U_pI_p\cos30^{\circ}
+=3\times220\times18.33\times0.866
+=10.48\ \mathrm{kW}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{升压与三根线的焦耳损耗〔M6-074〕}
+
+平衡三相线路输送有功功率 \(P=1.00\ \mathrm{MW}\)，线电压
+\(10.0\ \mathrm{kV}\)，功率因数 \(0.800\)，每根输电线电阻
+\(r=2.00\ \Omega\)。求线路电流和总线损；若线电压升为
+\(20.0\ \mathrm{kV}\)，其他条件不变，再求线损。
+
+题中有功功率、线电压和功率因数均取输电线路受端（负载端），三根导线的焦耳损耗另行相加。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-074.pdf}}
+\par\smallskip{\small 图 M6-074：升压与三根线的焦耳损耗}
+\end{center}
+\end{minipage}\par
+
+图 M6-074
+中，图中的每根输电线均有电阻r，三根线损应相加；提高线电压只在相同有功功率条件下比较。
+
+在 \(10.0\ \mathrm{kV}\) 时
+
+\[
+I_L=\frac{10^6}{\sqrt3\times10^4\times0.800}=72.2\ \mathrm A.
+\]
+
+总线损为
+
+\[
+P_{\mathrm{loss}}=3I_L^2r
+=3\times(72.2)^2\times2.00
+=31.3\ \mathrm{kW}.
+\]
+
+电压加倍后电流减半，线损变为四分之一：
+
+\[
+\boxed{P'_{\mathrm{loss}}=7.81\ \mathrm{kW}}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{三角形电容组补偿〔M6-075〕}
+
+某平衡三相负载有功功率为 \(30.0\ \mathrm{kW}\)，线电压
+\(380\ \mathrm V\)，频率 \(50.0\ \mathrm{Hz}\)，原功率因数为 \(0.750\)
+滞后。现用三角形连接的理想电容器把功率因数提高到 \(0.950\)
+滞后。求每相电容。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-075.pdf}}
+\par\smallskip{\small 图 M6-075：三角形电容组补偿}
+\end{center}
+\end{minipage}\par
+
+图 M6-075 中，每只电容跨接两相线，承受线电压；三只电容的无功补偿量相加。
+
+所需补偿无功功率为
+
+\[
+Q_C=P(\tan\varphi_1-\tan\varphi_2).
+\]
+
+\(\cos\varphi_1=0.750\) 给出
+\(\tan\varphi_1=0.882\)；\(\cos\varphi_2=0.950\) 给出
+\(\tan\varphi_2=0.329\)。因此
+
+\[
+Q_C=30.0\times(0.882-0.329)=16.6\ \mathrm{kvar}.
+\]
+
+三角形连接中每只电容承受线电压，
+
+\[
+Q_C=3\omega CU_L^2.
+\]
+
+故
+
+\[
+\boxed{C=\frac{16.6\times10^3}
+{3\times2\pi\times50.0\times380^2}
+=1.22\times10^{-4}\ \mathrm F
+=122\ \mu\mathrm F}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-075-P1.pdf}}
+\par\smallskip{\small 图 M6-075-P1：补偿前后的功率三角形}
+\end{center}
+\end{minipage}\par
+
+图 M6-075-P1
+中，蓝色为补偿前，绿色为补偿后；有功30kW保持不变，补偿后仍滞后。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{空间绕组与旋转磁场〔M6-076〕}
+
+三组绕组轴线依次相差 \(120^{\circ}\)，每组在单位电流下产生轴向磁场系数
+\(B_m/I_m\)。电流为
+
+\[
+i_A=I_m\cos\omega t,
+\quad
+i_B=I_m\cos(\omega t-2\pi/3),
+\quad
+i_C=I_m\cos(\omega t+2\pi/3).
+\]
+
+求 \(t=0\) 和 \(t=T/6\) 时的合成磁场，并说明旋转角度。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-076.pdf}}
+\par\smallskip{\small 图 M6-076：空间绕组与旋转磁场}
+\end{center}
+\end{minipage}\par
+
+图 M6-076
+中，空间轴eB相对eA逆时针120°，eC顺时针120°；各磁场沿对应轴按瞬时电流带符号相加。
+
+取 \(\mathbf e_A\) 沿 \(x\) 轴，三个轴向单位矢量满足
+
+\[
+\mathbf e_A+\mathbf e_B+\mathbf e_C=0.
+\]
+
+\(t=0\) 时，电流比为 \(1,-1/2,-1/2\)，故
+
+\[
+\mathbf B(0)=B_m\left(\mathbf e_A-\frac12\mathbf e_B-\frac12\mathbf e_C\right)
+=\frac32B_m\mathbf e_A.
+\]
+
+\(t=T/6\) 时 \(\omega t=60^{\circ}\)。由一般结果
+
+\[
+\mathbf B(t)=\frac32B_m(\cos\omega t\,\mathbf e_x+\sin\omega t\,\mathbf e_y),
+\]
+
+得到
+
+\[
+\boxed{\mathbf B(T/6)=\frac32B_m
+(\cos60^{\circ}\,\mathbf e_x+\sin60^{\circ}\,\mathbf e_y)}.
+\]
+
+场的大小不变，方向在六分之一周期内转过 \(60^{\circ}\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-076-P1.pdf}}
+\par\smallskip{\small 图 M6-076-P1：两个时刻的空间合磁场}
+\end{center}
+\end{minipage}\par
+
+图 M6-076-P1
+中，三条彩色细矢量为各相瞬时磁场，红色为合场；共用长度尺度，合场大小恒为3Bm/2。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{同步转速与滑差〔M6-077〕}
+
+一台四极感应电动机接 \(50.0\ \mathrm{Hz}\) 三相电源，转子转速为
+\(1440\ \mathrm{r/min}\)。求同步转速、滑差和转子电流频率。若交换任意两根相线，会发生什么变化？
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-077.pdf}}
+\par\smallskip{\small 图 M6-077：同步转速与滑差}
+\end{center}
+\end{minipage}\par
+
+图 M6-077
+中，同步磁场比转子快，转子电流频率由相对转速确定；交换两相先改变磁场方向，转子需经历动态过程。
+
+四极即 \(P=4\)，同步转速为
+
+\[
+n_s=\frac{120f}{P}=\frac{120\times50.0}{4}=1500\ \mathrm{r/min}.
+\]
+
+滑差为
+
+\[
+s=\frac{1500-1440}{1500}=0.0400.
+\]
+
+转子电流频率为
+
+\[
+\boxed{f_r=sf=2.00\ \mathrm{Hz}}.
+\]
+
+交换任意两相会反转相序，因此旋转磁场立即反转；转子受惯性影响先经历制动过程，不能认为转速瞬间变号。在允许反转的运行条件下最终可反转。同步转速大小仍为
+\(1500\ \mathrm{r/min}\)。
+
+\section{模块六小结}\label{m6:ux6a21ux5757ux516dux5c0fux7ed3}
+
+检验问题 \textbar{} 结论或判断 \textbar{} 回看位置 \textbar{}
+
+相量能否直接描述开关瞬间？ \textbar{} 不能，只描述同频正弦稳态
+\textbar{} 专题五十五至五十七 \textbar{}\\
+电容和电感阻抗的虚部符号如何核对？ \textbar{} 由 \(d/dt\to j\omega\)
+推出 \textbar{} 专题五十六 \textbar{}\\
+RLC 暂态由什么决定？ \textbar{} 特征根和初始条件 \textbar{} 专题五十七
+\textbar{}\\
+变压器阻抗折算为何平方变比？ \textbar{} 电压和电流分别按互逆变比变化
+\textbar{} 专题五十八 \textbar{}\\
+滤波电容越大是否总越好？ \textbar{} 还受浪涌电流与器件额定值限制
+\textbar{} 专题五十九 \textbar{}\\
+三相线量与相量能否混用？ \textbar{} 必须先确认星形或三角形连接
+\textbar{} 专题六十 \textbar{}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{综合题：变压器与复阻抗〔M6-078〕}
+
+理想变压器的匝数比为 \(N_1:N_2=2:1\)。次级接串联负载
+
+\[
+Z_L=6+j8\ \Omega.
+\]
+
+初级外加有效值相量
+\(\widetilde U_1=100\angle0^{\circ}\ \mathrm V\)。求输入阻抗、初级与次级电流相量，以及电源输出的有功功率和无功功率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-078.pdf}}
+\par\smallskip{\small 图 M6-078：综合题：变压器与复阻抗}
+\end{center}
+\end{minipage}\par
+
+图 M6-078
+中，次级电流从同名端流向负载，折算到初级时同时检查电压比、电流反比和复功率。
+
+理想变压器将次级阻抗折算到初级侧：
+
+\[
+Z_{\mathrm{in}}
+=\left(\frac{N_1}{N_2}\right)^2Z_L
+=4(6+j8)=24+j32\ \Omega.
+\]
+
+因此
+
+\[
+\widetilde I_1
+=\frac{\widetilde U_1}{Z_{\mathrm{in}}}
+=\frac{100}{24+j32}
+=1.5-j2.0\ \mathrm A.
+\]
+
+初级电流的模为 \(2.5\ \mathrm A\)，相位为 \(-53.13^{\circ}\)。次级电压为
+
+\[
+\widetilde U_2=\frac{N_2}{N_1}\widetilde U_1=50\angle0^{\circ}\ \mathrm V,
+\]
+
+故
+
+\[
+\widetilde I_{\mathrm{out}}
+=\frac{\widetilde U_2}{Z_L}=3-j4\ \mathrm A,
+\]
+
+这里把次级电流规定为从同名端流向负载，故与
+\(\widetilde I_1=\widetilde I_{\mathrm{out}}/2\)
+一致；若把两个绕组电流都规定为流入同名端，次级绕组电流应再带一个负号。复功率为
+
+\[
+\widetilde S
+=\widetilde U_1\widetilde I_1^*
+=150+j200\ \mathrm{VA}.
+\]
+
+所以电源输出有功功率 \(P=150\ \mathrm W\)、无功功率
+\(Q=200\ \mathrm{var}\)。正的 \(Q\) 表明负载整体呈感性；也可由
+\(X_L=8>0\) 直接预判。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-06/M6-078-P1.pdf}}
+\par\smallskip{\small 图 M6-078-P1：折算后在初级端口求解}
+\end{center}
+\end{minipage}\par
+
+图 M6-078-P1
+中，图中的0表示理想源无内阻；同一折算侧计算完毕再换回真实次级量。
+\clearpage
+\endgroup

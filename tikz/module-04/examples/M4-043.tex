@@ -1,0 +1,52 @@
+% 图契约：端口测量辨识电源黑箱；沿用可恢复原图的真实变量及结构，图号由正文图注统一给定。\n% 图契约：保留原稿的物理与电路拓扑，启用中文字体及中文断行，逐图检查标注。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,decorations.pathmorphing,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\definecolor{softpurple}{RGB}{245,240,255}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  wire/.style={draw=linegray,line width=1.05pt},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange},
+  purplebox/.style={box,draw=purplefield,fill=softpurple}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {作业六：开路和带载两个状态辨识有源黑箱};
+\begin{scope}[shift={(-5.4,-.15)}]
+  \node[box,text width=3cm,minimum height=2.4cm] (b) at (-1.2,.6) {有源黑箱\\$\mathcal E,r$};
+  \draw[wire] (b.east)+(0,.55)--(2.7,1.15); \draw[wire] (b.east)+(0,-.55)--(2.7,.05);
+  \node[orangebox,text width=2.2cm] at (2.1,2.1) {开路\\$I=0$};
+  \node[bluebox,text width=2.2cm] at (2.1,-1.1) {负载\\$R$};
+  \draw[arrow,greenfield] (-2.9,-2.3)--(2.5,-2.3) node[midway,below] {两个工作点确定两项未知量};
+  \end{scope}
+
+\begin{scope}[shift={(4.55,-.15)}]
+  \node[bluebox,text width=7.0cm,minimum height=2.15cm] at (0,1.25) {$\ell_0=80.0\,\mathrm{cm}$\\$R=10.0\,\Omega$};
+  \node[greenbox,text width=7.0cm,minimum height=2.15cm] at (0,-1.55) {$\ell=64.0\,\mathrm{cm}$\\$U/\mathcal E=R/(R+r)$};
+\end{scope}
+\end{tikzpicture}
+\end{document}

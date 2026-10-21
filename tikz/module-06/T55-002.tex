@@ -1,0 +1,42 @@
+% 核心结论：例1：第四象限的电压相量
+% 图原型：纯几何／对比；按本题相位与电路拓扑绘制。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[font=\fontsize{11}{14}\selectfont\bfseries] at (0.00000,3.04000) {例1：第四象限的电压相量};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.50000,0.00000) -- (2.60000,0.00000);
+\draw[axis] (0.00000,-2.05000) -- (0.00000,2.25000);
+\node[] at (2.58000,-0.26000) {$\operatorname{Re}$};
+\node[] at (-0.33000,2.20000) {$\operatorname{Im}$};
+\node[] at (-0.18000,-0.20000) {$O$};
+\draw[v,red] (0.00000,0.00000) -- (2.16670,-1.81808);
+\draw[v,blue] (0.00000,0.00000) -- (1.53209,-1.28558);
+\node[lab,text=blue] at (1.80000,-1.10000) {$P$};
+\node[lab,text=red] at (2.15000,-2.38000) {$Q\;(U_m=24\sqrt2)$};
+\draw[green] (.65,0) arc[start angle=0,end angle=-40,radius=.65];
+\node[lab,text=green] at (1.20000,-0.24000) {$-40^\circ$};
+\draw[aux] (2.16670,-1.81808) -- (2.16670,0.00000);
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.10000) {$\widetilde U=24\angle(-40^\circ)\,\mathrm V$\\[4pt]$OP$：静止有效值相量。};
+\node[card] at (0.00000,-1.00000) {$OQ=\sqrt2\,OP$\\[4pt]$t=0$ 时，峰值向量投影为 $u(0)$。};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {蓝色长度表示有效值；红色外端对应峰值。角度均从正实轴起算。};
+\end{tikzpicture}
+\end{document}

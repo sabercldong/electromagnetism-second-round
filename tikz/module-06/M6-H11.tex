@@ -1,0 +1,54 @@
+% 核心结论：电阻的瞬时功率始终非负而理想电容和电感的瞬时功率正负交替
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-H11　电阻的瞬时功率始终非负而理想电容和电感的瞬时功率正负交替};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.50000,-0.51176) -- (2.72000,-0.51176);
+\draw[axis] (-2.50000,-1.85000) -- (-2.50000,1.97000);
+\node[] at (2.60000,-2.55000) {$\omega t$};
+\node[] at (-2.25000,2.12000) {$p/(UI)$};
+\draw[blue,thick] plot[domain=0:6.28,samples=250] ({-2.5+0.8121019108280254*(\x-0)},{-1.8+1.0735294117647058*((2*cos(deg(\x))^2)-(-1.2))});
+\draw[green,thick] plot[domain=0:6.28,samples=250] ({-2.5+0.8121019108280254*(\x-0)},{-1.8+1.0735294117647058*((-sin(deg(2*\x)))-(-1.2))});
+\draw[red,thick] plot[domain=0:6.28,samples=250] ({-2.5+0.8121019108280254*(\x-0)},{-1.8+1.0735294117647058*((sin(deg(2*\x)))-(-1.2))});
+\draw[ink] (-2.50000,-0.57176) -- (-2.50000,-0.45176);
+\node[] at (-2.50000,-2.20000) {$0$};
+\draw[ink] (0.05000,-0.57176) -- (0.05000,-0.45176);
+\node[] at (0.05000,-2.20000) {$3.14$};
+\draw[ink] (2.60000,-0.57176) -- (2.60000,-0.45176);
+\node[] at (2.60000,-2.20000) {$6.28$};
+\draw[ink] (-2.56000,-1.80000) -- (-2.44000,-1.80000);
+\node[anchor=east] at (-2.72000,-1.80000) {$-1.2$};
+\draw[ink] (-2.56000,-0.51176) -- (-2.44000,-0.51176);
+\node[anchor=east] at (-2.72000,-0.51176) {$0$};
+\draw[ink] (-2.56000,1.85000) -- (-2.44000,1.85000);
+\node[anchor=east] at (-2.72000,1.85000) {$2.2$};
+\node[text=blue] at (-1.70000,2.55000) {$p_R$};
+\node[text=green] at (-0.30000,2.55000) {$p_C$};
+\node[text=red] at (1.10000,2.55000) {$p_L$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$\overline P_R=I^2R$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$\overline P_L=\overline P_C=0$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {复平面与实际电路分区；相量统一采用有效值和 $e^{j\omega t}$。};
+
+\end{tikzpicture}\end{document}

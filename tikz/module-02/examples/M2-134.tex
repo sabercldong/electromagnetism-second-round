@@ -1,0 +1,49 @@
+% 对应题号 M2-134，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {二维对数势：原点外调和，小圆通量揭示隐藏的线源};
+\begin{scope}[shift={(-4.8,-.15)}]
+\draw[bluefield,line width=1pt] (0,0) circle(1.8); \fill[redfield] (0,0) circle(.1) node[below right] {线源};
+\foreach \a in {0,45,...,315}{\draw[arrow,orangefield] ({.4*cos(\a)},{.4*sin(\a)})--({1.55*cos(\a)},{1.55*sin(\a)});}
+\node[bluefield] at (0,-2.45) {高斯小圆};
+\node[orangefield] at (0,2.45) {$\lambda_\ell>0$ 时电场向外};
+\end{scope}
+\begin{scope}[shift={(4.65,-.1)}]
+\node[bluebox,text width=6.9cm] at (0,1.65) {$\rho\ne0:\quad \nabla^2(B\ln\rho)=0$};
+\node[greenbox,text width=6.9cm] at (0,0) {$\displaystyle \oint\nabla\varphi\cdot\mathbf n\,dl=2\pi B\Rightarrow\nabla^2\varphi=2\pi B\,\delta^{(2)}(\boldsymbol\rho)$};
+\node[orangebox,text width=6.9cm] at (0,-1.7) {$\displaystyle B=-\frac{\lambda_\ell}{2\pi\varepsilon_0}$};
+\end{scope}
+\end{tikzpicture}
+\end{document}

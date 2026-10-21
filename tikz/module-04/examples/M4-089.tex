@@ -1,0 +1,79 @@
+% 图契约：有限梯形的同侧端口；沿用可恢复原图的真实变量及结构，图号由正文图注统一给定。\n% 图契约：保留原稿的物理与电路拓扑，启用中文字体及中文断行，逐图检查标注。
+
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathreplacing,bending}
+\IfFontExistsTF{Heiti SC}{
+  \IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}
+  \IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}
+}{
+  \IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}
+  \IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}
+}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{238,132,20}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{105,72,170}
+\definecolor{linegray}{RGB}{62,69,78}
+\definecolor{softgray}{RGB}{247,248,250}
+\definecolor{lightblue}{RGB}{232,239,255}
+\definecolor{lightred}{RGB}{255,237,234}
+\definecolor{lightgreen}{RGB}{232,248,240}
+\definecolor{lightorange}{RGB}{255,244,229}
+\tikzset{
+  arr/.style={-{Latex[length=3.0mm,width=1.9mm]},line width=1.05pt},
+  smallarr/.style={-{Latex[length=2.2mm,width=1.4mm]},line width=.82pt},
+  wire/.style={line width=1.0pt,linegray},
+  heavywire/.style={line width=1.55pt,linegray},
+  faintwire/.style={line width=.68pt,linegray!55},
+  nodept/.style={circle,fill=linegray,inner sep=1.65pt},
+  terminal/.style={circle,draw=linegray,fill=white,line width=.9pt,minimum size=7mm,inner sep=0pt},
+  card/.style={draw=linegray,rounded corners=4pt,fill=white,line width=.8pt,align=center,inner sep=6pt},
+  box/.style={draw=linegray,rounded corners=4pt,fill=softgray,line width=.78pt,align=center,inner sep=5pt},
+  formula/.style={draw=linegray,rounded corners=4pt,fill=white,line width=.78pt,align=center,inner sep=5pt,font=\large},
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \fill[white] (-9.8,-4.7) rectangle (9.8,4.8);
+  \node[font=\Large\bfseries] at (0,4.35) {有限方形梯形：剥去第一格即可递推};
+
+  \begin{scope}[shift={(-4.6,.65)}]
+    \foreach \i in {0,...,6} {
+      \draw[wire] (1.2*\i,0)--(1.2*\i,2.2);
+      \node[nodept] at (1.2*\i,0) {}; \node[nodept] at (1.2*\i,2.2) {};
+    }
+    \foreach \i in {0,...,5} {
+      \draw[wire] (1.2*\i,0)--(1.2*\i+1.2,0);
+      \draw[wire] (1.2*\i,2.2)--(1.2*\i+1.2,2.2);
+    }
+    \fill[lightblue,opacity=.75] (0,0) rectangle (1.2,2.2);
+    \draw[bluefield,line width=1.7pt] (0,0)--(0,2.2);
+    \node[terminal] at (0,2.2) {$A$}; \node[terminal] at (0,0) {$B$};
+    \node[font=\small,bluefield] at (.6,2.62) {第一格};
+    \draw[decorate,decoration={brace,mirror,amplitude=5pt},linegray] (1.25,-.55)--(7.15,-.55)
+      node[midway,below=6pt,text width=4.5cm,align=center] {余下 $N-1$ 格\\端口等效为 $R_{N-1}$};
+    \node[font=\small] at (3.6,1.1) {每条边均为 $r$};
+  \end{scope}
+
+  \begin{scope}[shift={(5.35,.65)}]
+    \node[font=\bfseries,greenfield] at (0,2.95) {从 $A,B$ 看入的两条支路};
+    \node[terminal] (a) at (-2.8,1.3) {$A$}; \node[terminal] (b) at (-2.8,-1.3) {$B$};
+    \draw[heavywire] (a)--(-1.3,1.3)--(-1.3,-1.3)--(b);
+    \node[font=\small] at (-1.02,0) {$r$};
+    \draw[heavywire] (a)--(0.25,1.3)--(1.6,1.3);
+    \draw[heavywire] (b)--(.25,-1.3)--(1.6,-1.3);
+    \draw[heavywire] (1.6,1.3)--(1.6,-1.3);
+    \node[font=\small] at (-.15,1.68) {$r$}; \node[font=\small] at (-.15,-1.68) {$r$};
+    \node[font=\small] at (2.25,0) {$R_{N-1}$};
+    \node[formula,draw=bluefield,text width=6.4cm] at (0,-3.0)
+      {$\displaystyle R_N=r\parallel(2r+R_{N-1}),\qquad R_0=r$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

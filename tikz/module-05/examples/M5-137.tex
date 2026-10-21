@@ -1,0 +1,54 @@
+% 2026-10-20用户反馈复核；图号、参考方向、数据与本题解答同步。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.3}{12.5}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.8mm,width=1.1mm]},ink!70,line width=.6pt},
+aux/.style={ink!40,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-3.6) rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{14}\selectfont,text width=15cm,align=center] at (0,3.23) {M5-137　两并联磁支路与共同回磁通};
+\draw[ink,line width=.8pt] (-6.9,1.5)--(-2.2,1.5);
+\draw[ink,line width=.8pt] (-6.9,-1.5)--(-2.2,-1.5);
+\draw[ink,line width=.8pt] (-6.9,1.5)--(-6.9,0.35);
+\draw[ink,line width=.8pt] (-6.9,-0.35)--(-6.9,-1.5);
+\draw[ink](-6.9,0)circle(.35);
+\node[] at (-6.9,0.21) {$+$};
+\node[] at (-6.9,-0.21) {$-$};
+\node[anchor=west] at (-6.65,0) {$NI$};
+\draw[ink,line width=.8pt] (-4.6,1.5)--(-4.6,0.26);
+\draw[ink,line width=.8pt] (-4.6,-0.26)--(-4.6,-1.5);
+\draw[ink,fill=white] (-4.72,-0.26) rectangle(-4.4799999999999995,0.26);
+\node[lab] at (-3.9499999999999997,0.0) {$\mathcal R_1$};
+\draw[ink,line width=.8pt] (-2.2,1.5)--(-2.2,0.26);
+\draw[ink,line width=.8pt] (-2.2,-0.26)--(-2.2,-1.5);
+\draw[ink,fill=white] (-2.3200000000000003,-0.26) rectangle(-2.08,0.26);
+\node[lab] at (-1.5500000000000003,0.0) {$\mathcal R_2$};
+\draw[v,blue] (-5.2,0.85)--(-5.2,0.05);
+\node[] at (-5.35,-0.25) {$\Phi_1$};
+\draw[v,green] (-2.8,0.85)--(-2.8,0.05);
+\node[] at (-2.95,-0.25) {$\Phi_2$};
+\draw[v,purple] (-7.5,-0.6)--(-7.5,0.65);
+\node[] at (-7.6,-1.0) {$\Phi$};
+\fill[ink](-4.6,1.5)circle(1.4pt);
+\node[] at (-4.6,1.8) {$A$};
+\fill[ink](-4.6,-1.5)circle(1.4pt);
+\node[] at (-4.6,-1.8) {$B$};
+\node[] at (-4.6,2.3) {$\mathcal F_A-\mathcal F_B=NI$};
+\node[] at (-4.6,-2.35) {共同回磁通 $\Phi=\Phi_1+\Phi_2$};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,1.65) {$\mathcal R_1=\ell/(\mu S)$\\[3pt]$\mathcal R_2=3\ell/(\mu S)$};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,0.05) {$\Phi_1=NI/\mathcal R_1$\\[3pt]$\Phi_2=NI/\mathcal R_2$};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,-1.65) {$\Phi_1/\Phi_2=3$\\[3pt]$\mathcal R_{\rm eq}=3\ell/(4\mu S)$};
+\node[text width=15cm,align=center] at (0,-3.12) {左侧为不另计磁阻的共同激励、返回支路；圆圈表示磁动势源，线条表示磁路等效连接。};
+\end{tikzpicture}\end{document}

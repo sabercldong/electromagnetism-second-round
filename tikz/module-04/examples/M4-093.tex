@@ -1,0 +1,69 @@
+% 核心结论：消除端口距离括号压标题和右侧公式框遮住网格的问题
+% 草图：[真实几何与节点 | 条件、推导、结论]；17cm印宽，最小字号8pt。
+% 图契约：三排条带：同一外排的0列与n列端口；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {M4-093\quad 三排条带：同一外排的0列与n列端口};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[wire,draw=ink](-2.1,1.2)--(-1.6749999999999998,1.2) (-1.125,1.2)--(-0.7,1.2);\begin{scope}[shift={(-1.4,1.2)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](-0.7,1.2)--(-0.275,1.2) (0.275,1.2)--(0.7,1.2);\begin{scope}[shift={(0.0,1.2)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](0.7,1.2)--(1.125,1.2) (1.6749999999999998,1.2)--(2.1,1.2);\begin{scope}[shift={(1.4,1.2)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[guide](-2.1,1.2)--(-2.8,1.2)(2.1,1.2)--(2.8,1.2);\draw[wire,draw=ink](-2.1,0)--(-1.6749999999999998,0.0) (-1.125,0.0)--(-0.7,0);\begin{scope}[shift={(-1.4,0.0)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](-0.7,0)--(-0.275,0.0) (0.275,0.0)--(0.7,0);\begin{scope}[shift={(0.0,0.0)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](0.7,0)--(1.125,0.0) (1.6749999999999998,0.0)--(2.1,0);\begin{scope}[shift={(1.4,0.0)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[guide](-2.1,0)--(-2.8,0)(2.1,0)--(2.8,0);\draw[wire,draw=ink](-2.1,-1.2)--(-1.6749999999999998,-1.2) (-1.125,-1.2)--(-0.7,-1.2);\begin{scope}[shift={(-1.4,-1.2)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](-0.7,-1.2)--(-0.275,-1.2) (0.275,-1.2)--(0.7,-1.2);\begin{scope}[shift={(0.0,-1.2)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](0.7,-1.2)--(1.125,-1.2) (1.6749999999999998,-1.2)--(2.1,-1.2);\begin{scope}[shift={(1.4,-1.2)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[guide](-2.1,-1.2)--(-2.8,-1.2)(2.1,-1.2)--(2.8,-1.2);\draw[wire,draw=ink](-2.1,1.2)--(-2.1,0.852) (-2.1,0.348)--(-2.1,0);\begin{scope}[shift={(-2.1,0.6)},rotate=-90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.252,-.085)rectangle(0.252,.085);\end{scope}
+\draw[wire,draw=ink](-2.1,0)--(-2.1,-0.348) (-2.1,-0.852)--(-2.1,-1.2);\begin{scope}[shift={(-2.1,-0.6)},rotate=-90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.252,-.085)rectangle(0.252,.085);\end{scope}
+\fill[ink] (-2.1,1.2)circle(2pt);
+\fill[ink] (-2.1,0)circle(2pt);
+\fill[ink] (-2.1,-1.2)circle(2pt);
+\draw[wire,draw=ink](-0.7,1.2)--(-0.7,0.852) (-0.7,0.348)--(-0.7,0);\begin{scope}[shift={(-0.7,0.6)},rotate=-90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.252,-.085)rectangle(0.252,.085);\end{scope}
+\draw[wire,draw=ink](-0.7,0)--(-0.7,-0.348) (-0.7,-0.852)--(-0.7,-1.2);\begin{scope}[shift={(-0.7,-0.6)},rotate=-90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.252,-.085)rectangle(0.252,.085);\end{scope}
+\fill[ink] (-0.7,1.2)circle(2pt);
+\fill[ink] (-0.7,0)circle(2pt);
+\fill[ink] (-0.7,-1.2)circle(2pt);
+\draw[wire,draw=ink](0.7,1.2)--(0.7,0.852) (0.7,0.348)--(0.7,0);\begin{scope}[shift={(0.7,0.6)},rotate=-90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.252,-.085)rectangle(0.252,.085);\end{scope}
+\draw[wire,draw=ink](0.7,0)--(0.7,-0.348) (0.7,-0.852)--(0.7,-1.2);\begin{scope}[shift={(0.7,-0.6)},rotate=-90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.252,-.085)rectangle(0.252,.085);\end{scope}
+\fill[ink] (0.7,1.2)circle(2pt);
+\fill[ink] (0.7,0)circle(2pt);
+\fill[ink] (0.7,-1.2)circle(2pt);
+\draw[wire,draw=ink](2.1,1.2)--(2.1,0.852) (2.1,0.348)--(2.1,0);\begin{scope}[shift={(2.1,0.6)},rotate=-90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.252,-.085)rectangle(0.252,.085);\end{scope}
+\draw[wire,draw=ink](2.1,0)--(2.1,-0.348) (2.1,-0.852)--(2.1,-1.2);\begin{scope}[shift={(2.1,-0.6)},rotate=-90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.252,-.085)rectangle(0.252,.085);\end{scope}
+\fill[ink] (2.1,1.2)circle(2pt);
+\fill[ink] (2.1,0)circle(2pt);
+\fill[ink] (2.1,-1.2)circle(2pt);
+\fill[green] (-2.1,1.2)circle(2pt);\node[below left=4pt] at(-2.1,1.2){$A$};
+\fill[red] (0.7,1.2)circle(2pt);\node[below right=4pt] at(0.7,1.2){$B$};
+\draw[vec,green](-2.1,2.25)--(-2.1,1.3)node[pos=0,left]{$I$};\draw[vec,red](0.7,1.3)--(0.7,2.25)node[pos=1,right]{$I$};\node[label]at(-2.1,2.55){$j=0$};\node[label]at(0.7,2.55){$j=n$};\node[note]at(0,-2.8){每条实线支路含一只r；左右两端都向无穷延伸};\end{scope}
+\node[card,text width=6.5cm,draw=blue!65,fill=blue!4]at(3.9,1.8){$\mu_0=0,\quad u_0=(1,1,1)^{\mathsf T}/\sqrt3$\\零模贡献 $nr/3$};
+\node[card,text width=6.5cm,draw=green!65,fill=green!4]at(3.9,0){$\mu_1=1,\quad u_1=(1,0,-1)^{\mathsf T}/\sqrt2$\\$\rho_1=(3-\sqrt5)/2$};
+\node[card,text width=6.5cm,draw=orange!65,fill=orange!4]at(3.9,-1.8){$\mu_2=3,\quad u_2=(1,-2,1)^{\mathsf T}/\sqrt6$\\$\rho_2=(5-\sqrt{21})/2$};
+
+\end{tikzpicture}\end{document}

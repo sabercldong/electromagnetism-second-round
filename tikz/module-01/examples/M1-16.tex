@@ -1,0 +1,39 @@
+% 对应题号 M1-16；图与本题条件、推导、结论逐项对应。
+% 图契约：印刷宽16cm；最小字号8.4pt；几何/场或曲线在左，计算关系在右。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.6cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.4}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.4) rectangle(8,3.4);
+\node[title] at (0,3) {M1-16\quad 偶极子的场点、极角与两个检验方向};
+\begin{scope}[shift={(-4,0)}]
+
+\draw[axis] (0,-2)--(0,2.3) node[above] {$z$};
+\draw[axis] (-2.6,0)--(2.6,0) node[right] {$x$};
+\draw[vec,purple] (0,-.6)--(0,.9) node[left] {$\mathbf p$};
+\draw[vec] (0,0)--(1.8,1.5) node[above right] {$P(\mathbf r)$};
+\draw[orange] (0,.8) arc[start angle=90,end angle=40,radius=.8];\node[orange] at (.55,1.1) {$\theta$};
+\draw[vec,green] (0,1.65)--(0,2.35);\draw[vec,red] (1.9,0)--(1.9,-1.1);
+\node[label] at (0,-2.6) {轴线电场与 $\mathbf p$ 同向；赤道电场与 $\mathbf p$ 反向};
+
+\end{scope}\node[card,draw=blue!65,fill=blue!4] at (3.95,1.8) {$\displaystyle\varphi=\frac{\mathbf p\cdot\mathbf r}{4\pi\varepsilon_0r^3}$};
+\node[card,draw=green!65,fill=green!4] at (3.95,.15) {$\displaystyle\mathbf E=\frac{3(\mathbf p\cdot\hat{\mathbf r})\hat{\mathbf r}-\mathbf p}{4\pi\varepsilon_0r^3}$};
+\node[card,draw=orange!65,fill=orange!4] at (3.95,-1.9) {$\displaystyle\mathbf E_{\rm axis}=\frac{2\mathbf p}{4\pi\varepsilon_0r^3}$\\[6pt]$\displaystyle\mathbf E_{\rm eq}=-\frac{\mathbf p}{4\pi\varepsilon_0r^3}$};
+\end{tikzpicture}\end{document}

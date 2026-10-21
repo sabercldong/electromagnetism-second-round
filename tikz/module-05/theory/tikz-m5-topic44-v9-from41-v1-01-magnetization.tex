@@ -1,0 +1,69 @@
+\documentclass[tikz,border=0pt,multi]{standalone}
+\usepackage[fontset=none]{ctex}
+\usepackage{amsmath,amssymb,bm}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.markings}
+
+\definecolor{ink}{HTML}{263238}
+\definecolor{muted}{HTML}{64748B}
+\definecolor{blue}{HTML}{245BFF}
+\definecolor{green}{HTML}{07865F}
+\definecolor{red}{HTML}{E53E32}
+\definecolor{orange}{HTML}{E87900}
+\definecolor{purple}{HTML}{7147E8}
+\definecolor{paleBlue}{HTML}{EDF3FF}
+\definecolor{paleGreen}{HTML}{EAF8F2}
+\definecolor{paleOrange}{HTML}{FFF4E5}
+\definecolor{palePurple}{HTML}{F2EEFF}
+
+\tikzset{
+  >={Latex[length=3mm,width=2mm]},
+  title/.style={font=\fontsize{17}{21}\selectfont\bfseries,text=ink},
+  subtitle/.style={font=\fontsize{11.5}{14}\selectfont\bfseries,text=ink},
+  body/.style={font=\fontsize{9.5}{12}\selectfont,text=ink},
+  small/.style={font=\fontsize{8.2}{10.3}\selectfont,text=ink},
+  box/.style={draw=muted,rounded corners=2pt,line width=.8pt,align=center,
+    inner sep=5pt,font=\fontsize{9.2}{11.6}\selectfont,text=ink},
+  vec/.style={-{Latex[length=3mm,width=2mm]},line width=1.5pt},
+  flow/.style={postaction={decorate},decoration={markings,
+    mark=at position .55 with {\arrow{Latex[length=2.8mm,width=1.9mm]}}}}
+}
+\newcommand{\canvas}[1]{%
+  \path[use as bounding box] (0,0) rectangle (16,8);
+  \fill[white] (0,0) rectangle (16,8);
+  \node[title] at (8,7.45) {#1};
+}
+\usepackage{fontspec,xeCJK}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\usetikzlibrary{bending}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \canvas{磁化强度：大量微观磁偶极矩的体积平均}
+  \node[subtitle,blue] at (3.2,6.55) {未磁化或弱磁化};
+  \draw[muted,line width=1pt,rounded corners=2pt] (.7,1.35) rectangle (5.7,5.95);
+  \foreach \x/\y/\a in {1.3/2.0/35,2.4/2.2/145,3.6/1.9/80,4.8/2.3/215,
+                         1.5/3.3/120,2.8/3.5/330,4.0/3.2/25,5.0/3.6/170,
+                         1.2/4.8/260,2.5/4.7/15,3.8/4.9/200,5.0/4.8/100}{
+    \draw[blue,vec] (\x,\y)--++({.62*cos(\a)},{.62*sin(\a)});
+    \node[small,blue] at (\x+.13,\y+.28) {$\mathbf m_i$};
+  }
+  \node[box,fill=paleBlue,text width=4.2cm] at (3.2,.72)
+    {$\displaystyle \sum\mathbf m_i\approx\mathbf0$};
+
+  \draw[orange,vec] (6.25,3.65)--(7.6,3.65);
+  \node[small,orange,above] at (6.92,3.65) {外场使取向偏置};
+
+  \node[subtitle,green] at (11.3,6.55) {宏观磁化};
+  \draw[muted,line width=1pt,rounded corners=2pt] (8.8,1.35) rectangle (13.8,5.95);
+  \foreach \x/\y/\a in {9.4/2.0/78,10.5/2.2/92,11.7/1.9/82,12.9/2.3/97,
+                         9.6/3.3/88,10.9/3.5/75,12.1/3.2/95,13.1/3.6/84,
+                         9.3/4.8/91,10.6/4.7/79,11.9/4.9/87,13.0/4.8/94}{
+    \draw[green,vec] (\x,\y)--++({.62*cos(\a)},{.62*sin(\a)});
+  }
+  \draw[purple,vec,line width=2.4pt] (14.65,2.0)--(14.65,5.15);
+  \node[body,purple,right] at (14.65,3.62) {$\mathbf M$};
+  \node[box,fill=paleGreen,text width=5.7cm] at (11.35,.72)
+    {$\displaystyle \mathbf M=\lim_{\Delta V\to0}
+      \frac{\sum_{\Delta V}\mathbf m_i}{\Delta V}$};
+\end{tikzpicture}
+\end{document}

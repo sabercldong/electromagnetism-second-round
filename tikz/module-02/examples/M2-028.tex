@@ -1,0 +1,35 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M2-028\quad 截断界控制绝对误差尺度};
+\begin{scope}[shift={(-4,0)}]
+
+\filldraw[draw=ink!40,fill=blue!5](0,0)circle(.6);\node at(0,0){源区};\draw[guide](0,0)--(2,1.2)node[midway,above]{$r$};
+\fill[red](2,1.2)circle(2pt)node[right]{$P$};\node[label]at(0,-1){半径 $a$};\draw[guide](0,0)circle(2.33);
+\node[note] at (0,-2.85) {圆的大小只示意 $r>a$；误差界不是总势的相对误差。};
+\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$\eta=a/r=0.1$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\displaystyle\frac{\eta^3}{1-\eta}=\frac1{900}$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {$\displaystyle|\Delta\varphi|\le\frac1{900}\frac{Q_{\text{绝}}}{4\pi\varepsilon_0r}$};
+\end{tikzpicture}\end{document}

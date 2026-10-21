@@ -1,0 +1,34 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M3-019\quad 同轴电容器中的介质界面};
+\begin{scope}[shift={(-4,0)}]
+\begin{scope}\clip (0,0)circle(1.8);\fill[green!6] (-2,-2) rectangle(2,2);\fill[blue!8] (-2,-2) rectangle(0,2);\draw[ink!60] (0,-1.8)--(0,1.8);\end{scope}\draw[ink,thick] (0,0)circle(1.8);\filldraw[draw=ink!65,fill=ink!12](0,0)circle(.6);
+\node at(0,0){$O$};\node[label] at(-1.2,.5){$\varepsilon_1$};\node[label] at(1.3,.5){$\varepsilon_2$};
+\draw[guide] (0,0)--(265:.6) node[below right] {$R_1$};\node[label] at(-1.4,-1.5){$R_2$};
+\node[label] at(0,2.25){同轴圆柱的横截面；轴向长度 $L$};\foreach \a in {40,140,220,320}{\draw[vec] (\a:.75)--(\a:1.65);}\node[label] at(0,-2.3){界面过 $O$，$\mathbf E$ 沿界面切向};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {过轴界面：$E_n=D_n=0$\\$\displaystyle E_r=\frac{U}{r\ln(R_2/R_1)}$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\displaystyle C=\frac{\pi L(\varepsilon_1+\varepsilon_2)}{\ln(R_2/R_1)}$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {偏置界面：须重新求解场\\纯径向候选场一般不满足 $D_n$ 连续};
+\end{tikzpicture}\end{document}

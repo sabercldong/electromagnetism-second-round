@@ -1,0 +1,48 @@
+% 对应题号 M2-147，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {接地平面完整物理量：像电荷给场，真实系统能量只取相互作用的一半};
+\begin{scope}[shift={(-4.8,-.15)}]
+\draw[linegray,line width=1.2pt] (-3,0)--(3,0); \fill[redfield] (0,1.55) circle(.11) node[right] {$q$}; \fill[bluefield] (0,-1.55) circle(.11) node[right] {$-q$ 像};
+\foreach \x in {-2.5,-1.8,...,2.5}{\node[bluefield] at (\x,.2) {$-$};}
+\draw[arrow,orangefield] (0,1.3)--(0,.55) node[right] {$\mathbf F$}; \node[greenfield] at (2.1,-.45) {$\varphi=0$};
+\end{scope}
+\begin{scope}[shift={(4.65,-.1)}]
+\node[bluebox,text width=6.9cm] at (0,2.05) {$\displaystyle \varphi=kq\left(\frac1{r_+}-\frac1{r_-}\right),\quad \sigma(s)=-\frac{qd}{2\pi(s^2+d^2)^{3/2}}$};
+\node[greenbox,text width=6.9cm] at (0,-.05) {$Q_{\rm 感}=-q,\qquad \displaystyle \mathbf F=-\frac{kq^2}{4d^2}\mathbf e_z$};
+\node[orangebox,text width=6.9cm] at (0,-1.75) {$\displaystyle U=\frac12q\varphi_{\rm 像}(\mathbf r_q)=-\frac{kq^2}{4d}$};
+\end{scope}
+\end{tikzpicture}
+\end{document}

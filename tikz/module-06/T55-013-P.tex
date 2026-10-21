@@ -1,0 +1,46 @@
+% 核心结论：作业六过程：异频叠加后的波形
+% 图原型：纯几何／对比；按本题相位与电路拓扑绘制。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[font=\fontsize{11}{14}\selectfont\bfseries] at (0.00000,3.04000) {作业六过程：异频叠加后的波形};
+\draw[axis] (-6.70000,0.00000) -- (6.80000,0.00000);
+\draw[axis] (-6.70000,-2.10000) -- (-6.70000,2.30000);
+\node[] at (-6.40000,2.55000) {$\text{瞬时值}/\mathrm{V}$};
+\node[] at (6.70000,-0.35000) {$x=\omega_1 t$};
+\draw[ink] (-6.70000,-0.07000) -- (-6.70000,0.07000);
+\node[] at (-6.70000,-2.35000) {$0$};
+\draw[ink] (-3.45000,-0.07000) -- (-3.45000,0.07000);
+\node[] at (-3.45000,-2.35000) {$\pi/2$};
+\draw[ink] (-0.20000,-0.07000) -- (-0.20000,0.07000);
+\node[] at (-0.20000,-2.35000) {$\pi$};
+\draw[ink] (3.05000,-0.07000) -- (3.05000,0.07000);
+\node[] at (3.05000,-2.35000) {$3\pi/2$};
+\draw[ink] (6.30000,-0.07000) -- (6.30000,0.07000);
+\node[] at (6.30000,-2.35000) {$2\pi$};
+\draw[blue,thick] plot[domain=0:2*pi,samples=240] ({-6.7+13*\x/(2*pi)},{0.09848987309384055*(6*sqrt(2)*cos(deg(\x)))});
+\draw[green,thick] plot[domain=0:2*pi,samples=240] ({-6.7+13*\x/(2*pi)},{0.09848987309384055*(8*sqrt(2)*cos(2*deg(\x)+30))});
+\draw[red,thick] plot[domain=0:2*pi,samples=240] ({-6.7+13*\x/(2*pi)},{0.09848987309384055*((6*sqrt(2)*cos(deg(\x)))+(8*sqrt(2)*cos(2*deg(\x)+30)))});
+\node[] at (-7.08000,-1.00000) {$-10.2$};
+\node[] at (-7.08000,1.00000) {$10.2$};
+\node[lab,text=blue] at (-3.60000,2.25000) {$u_1$};
+\node[lab,text=green] at (0.00000,2.25000) {$u_2$};
+\node[lab,text=red] at (3.60000,2.25000) {$u$};
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {各曲线使用相同纵轴尺度；红线在每个时刻等于蓝线与绿线的代数和。};
+\end{tikzpicture}
+\end{document}

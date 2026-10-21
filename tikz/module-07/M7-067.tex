@@ -1,0 +1,44 @@
+% 图契约：题 3　阻性薄片的反射、透射与最大吸收；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-067　题 3　阻性薄片的反射、透射与最大吸收};
+\begin{scope}[shift={(-4,0)}]
+\fill[blue!5](.2,-2.2)rectangle(2.8,2.2);
+\draw[ink,line width=1.1pt](0.20000,-2.20000)--(0.20000,2.20000);
+\draw[v,blue](-2.50000,0.70000)--(0.00000,0.70000);
+\draw[v,red](0.00000,-0.70000)--(-2.50000,-0.70000);
+\draw[v,green](0.40000,0.70000)--(2.50000,0.70000);
+\node[text=blue]at(-0.50000,0.35000){$k_i$};
+\node[text=red]at(-0.50000,-0.35000){$k_r$};
+\node[text=green]at(2.00000,0.35000){$k_t$};
+\draw[v,blue](-1.60000,0.70000)--(-1.60000,1.50000);
+\node[text=blue]at(-2.20000,1.40000){$E_i$};
+\draw[v,red](-1.60000,-0.70000)--(-1.60000,-1.50000);
+\node[text=red]at(-2.20000,-1.40000){$E_r$};
+\draw[v,green](1.10000,0.70000)--(1.10000,1.50000);
+\node[text=green]at(1.80000,1.40000){$E_t$};
+\node[]at(-1.40000,2.00000){$n_1$};
+\node[]at(1.50000,2.00000){$n_2$};
+\node[]at(0.20000,-2.50000){界面 $z=0$；图示 $r<0$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$g=Z_0G,\quad r=-g/(2+g)$};
+\node[card]at(4.00000,-1.05000){$t=2/(2+g),\quad K_x=GtE_0$};
+\node[text width=15.2cm,align=center]at(0.00000,-3.20000){薄片两侧均真空；$G>0$ 为实数，界面电场连续。};
+\end{tikzpicture}\end{document}

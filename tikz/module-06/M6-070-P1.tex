@@ -1,0 +1,40 @@
+% 核心结论：恒流负载使电容电压线性下降
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-070-P1　恒流负载使电容电压线性下降};
+\draw[axis] (-6.60000,-1.80000) -- (6.72000,-1.80000);
+\draw[axis] (-6.60000,-1.85000) -- (-6.60000,1.97000);
+\node[] at (6.60000,-2.55000) {$f_rt$};
+\node[] at (-6.35000,2.12000) {$u_C/U_p$};
+\draw[blue,thick] plot[domain=0:3,samples=250] ({-6.6+4.3999999999999995*(\x-0)},{-1.8+125.86206896551714*((1-.02*mod(\x,1))-(0.975))});
+\draw[ink] (-2.20000,-1.86000) -- (-2.20000,-1.74000);
+\node[] at (-2.20000,-2.20000) {$1$};
+\draw[ink] (2.20000,-1.86000) -- (2.20000,-1.74000);
+\node[] at (2.20000,-2.20000) {$2$};
+\draw[ink] (6.60000,-1.86000) -- (6.60000,-1.74000);
+\node[] at (6.60000,-2.20000) {$3$};
+\draw[ink] (-6.66000,-1.80000) -- (-6.54000,-1.80000);
+\node[anchor=east] at (-6.82000,-1.80000) {$0.975$};
+\draw[ink] (-6.66000,1.85000) -- (-6.54000,1.85000);
+\node[anchor=east] at (-6.82000,1.85000) {$1.004$};
+\node[text=blue] at (-5.80000,2.55000) {$u_C/U_p$};
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {恒流负载：$du_C/dt=-I_L/C$；峰间下降为直线，$\Delta U_{pp}=I_L/(f_rC)$。图示下降幅度归一化为$2\%$。};
+
+\end{tikzpicture}\end{document}

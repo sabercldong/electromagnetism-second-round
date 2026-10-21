@@ -1,0 +1,39 @@
+% 图契约：低辐射长同轴线是否可以集总；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-064　低辐射长同轴线是否可以集总};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,line width=.8pt](-2.50000,0.50000)--(2.00000,0.50000);
+\draw[ink,line width=.8pt](-2.50000,-0.50000)--(2.00000,-0.50000);
+\draw[ink,line width=.8pt](2.00000,0.50000)--(2.00000,0.40000);
+\draw[ink,line width=.8pt](2.00000,-0.40000)--(2.00000,-0.50000);
+\draw[ink,fill=white](1.85,-0.4)rectangle(2.15,0.4);
+\node[lab]at(2.60000,0.00000){$Z_0$};
+\draw[v,blue](-2.00000,1.20000)--(0.60000,1.20000);
+\node[text=blue]at(-0.80000,1.60000){$V_+,I_+$};
+\node[lab]at(-0.60000,0.00000){$Z_0$};
+\draw[{Latex[length=1.3mm]}-{Latex[length=1.3mm]},ink!65,line width=.5pt](-2.50000,-2.20000)--(2.00000,-2.20000);
+\node[lab]at(-0.25000,-2.45000){$L=30\,\mathrm m$};
+\node[text=green]at(-0.80000,-1.30000){$\Gamma_L=0,\quad V_-=0$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$\lambda_{\rm line}=20\,\mathrm m,\quad kL=3\pi$};
+\node[card]at(4.00000,-1.05000){$\tau_p=150\,\mathrm{ns}=1.5T$};
+\node[text width=15.2cm,align=center]at(0.00000,-3.20000){屏蔽与匹配不消除线路内部传播相位；应使用传输线模型。};
+\end{tikzpicture}\end{document}

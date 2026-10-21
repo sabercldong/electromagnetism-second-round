@@ -1,0 +1,33 @@
+% 图契约：传导与位移电流的幅值比，选模型还需结构信息；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-H49　传导与位移电流的幅值比，选模型还需结构信息};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis](-2.50000,-1.50000)--(2.70000,-1.50000);
+\fill[blue!35](-2.0,-1.5)rectangle(-1.2000000000000002,1.2000000000000002);
+\node[]at(-1.60000,-1.90000){$J_c$};
+\fill[green!35](0.29999999999999993,-1.5)rectangle(1.1,-0.8);
+\node[]at(0.70000,-1.90000){$J_d$};
+\node[]at(0.00000,2.00000){同一电场下比较幅值};
+\node[]at(0.00000,-2.50000){$\chi=|J_d|/|J_c|$；图示 $\chi<1$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$\chi\ll1:\text{传导占优}$};
+\node[card]at(4.00000,-1.05000){$\chi\gg1:\text{位移占优}$};
+\end{tikzpicture}\end{document}

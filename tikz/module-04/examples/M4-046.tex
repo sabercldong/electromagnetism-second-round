@@ -1,0 +1,45 @@
+% 图契约：一端口等效与负载功率；沿用可恢复原图的真实变量及结构，图号由正文图注统一给定。\n% 图契约：保留原稿的物理与电路拓扑，启用中文字体及中文断行，逐图检查标注。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,decorations.pathmorphing,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{224,116,10}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\definecolor{softpurple}{RGB}{247,242,255}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  fieldline/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=1pt,draw=bluefield},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange},
+  purplebox/.style={box,draw=purplefield,fill=softpurple}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.4cm,align=center] at (0,4.05) {一端口等效：开路电压、短路电流和等效内阻互相约束};
+\node[bluebox,text width=4.4cm] (b) at (-6.5,.4) {线性含源网络\\端口 $a,b$};
+\node[greenbox,text width=4.4cm] (v) at (-.7,1.65) {开路\\$U_{\rm oc}=U_{\rm Th}$};
+\node[orangebox,text width=4.4cm] (i) at (-.7,-1.45) {短路\\$I_{\rm sc}=I_{\rm N}$};
+\node[purplebox,text width=5.0cm] (r) at (6,.05) {$R_{\rm eq}=U_{\rm oc}/I_{\rm sc}$\\接负载后再求电流与功率};
+\draw[arrow,greenfield] (b)--(v); \draw[arrow,orangefield] (b)--(i); \draw[arrow,purplefield] (v)--(r); \draw[arrow,purplefield] (i)--(r);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,54 @@
+% 对应题号 M1-59，复用已核对的本题几何图。
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {旋转场的环量：边界切向与曲面法向必须成对定向};
+\begin{scope}[shift={(-4.7,-.15)}]
+\fill[softblue] (0,0) circle(2.15); \draw[linegray] (0,0) circle(2.15);
+\draw[arrow,redfield,line width=1.2pt] (2.15,0) arc[start angle=0,end angle=285,radius=2.15];
+\foreach \a in {20,80,...,320}{
+  \draw[thinarr,bluefield] ({1.35*cos(\a)},{1.35*sin(\a)})--({1.35*cos(\a)-.58*sin(\a)},{1.35*sin(\a)+.58*cos(\a)});
+}
+\node[greenfield,font=\Large] at (0,0) {$\odot$};
+\node[greenfield] at (0,.55) {$\nabla\times\mathbf A=2\mathbf e_z$};
+\node[redfield] at (0,-2.8) {$C$ 从 $+z$ 看逆时针};
+\end{scope}
+\begin{scope}[shift={(4.6,-.1)}]
+\node[bluebox,text width=6.7cm] at (0,1.65) {$\mathbf A=(-y,x,0)$ 在圆周上沿正切向，$|\mathbf A|=R$};
+\node[greenbox,text width=6.7cm] at (0,0) {$\displaystyle \oint_C\mathbf A\cdot d\mathbf l=2\pi R^2$};
+\node[orangebox,text width=6.7cm] at (0,-1.7) {$\displaystyle \int_S(\nabla\times\mathbf A)\cdot d\mathbf S=2\,\pi R^2$};
+\end{scope}
+\end{tikzpicture}
+\end{document}

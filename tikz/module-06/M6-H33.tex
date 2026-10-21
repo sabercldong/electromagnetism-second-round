@@ -1,0 +1,70 @@
+% 核心结论：次级参数折算到初级后的精确 T 型等效电路
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-H33　次级参数折算到初级后的精确 T 型等效电路};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-2.60000,1.50000) -- (-2.60000,0.40000);
+\draw[ink,thick] (-2.60000,-0.40000) -- (-2.60000,-1.50000);
+\draw[ink,thick] (-2.6,0) circle (.4);
+\node[] at (-2.60000,0.00000) {$\sim$};
+\node[] at (-3.22000,0.00000) {$U_1$};
+\draw[ink,thick] (-2.60000,1.50000) -- (-1.92000,1.50000);
+\draw[ink,thick] (-1.08000,1.50000) -- (-0.40000,1.50000);
+\begin{scope}[shift={(-1.50000,1.50000)},rotate=0.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab] at (-1.50000,1.92000) {$Z_1$};
+\draw[ink,thick] (-2.60000,-1.50000) -- (2.80000,-1.50000);
+\draw[ink,thick] (-0.40000,1.50000) -- (-0.40000,0.42000);
+\draw[ink,thick] (-0.40000,-0.42000) -- (-0.40000,-1.50000);
+\begin{scope}[shift={(-0.40000,0.00000)},rotate=-90.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab,anchor=west] at (-0.12000,0.00000) {$R_c$};
+\draw[ink,thick] (-0.40000,1.50000) -- (0.55000,1.50000);
+\draw[ink,thick] (0.55000,1.50000) -- (0.55000,0.42000);
+\draw[ink,thick] (0.55000,-0.42000) -- (0.55000,-1.50000);
+\begin{scope}[shift={(0.55000,0.00000)},rotate=-90.0]
+\draw[ink,thick] plot[domain=-0.42:0.42,samples=70] (\x,{.20*abs(sin(720*(\x+0.42)/0.84))});
+\end{scope}
+\node[lab,anchor=west] at (0.97000,0.00000) {$jX_m$};
+\draw[ink,thick] (0.55000,1.50000) -- (1.25500,1.50000);
+\draw[ink,thick] (2.09500,1.50000) -- (2.80000,1.50000);
+\begin{scope}[shift={(1.67500,1.50000)},rotate=0.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab] at (1.67500,1.92000) {$Z_2'$};
+\draw[ink,thick] (2.80000,1.50000) -- (2.80000,0.42000);
+\draw[ink,thick] (2.80000,-0.42000) -- (2.80000,-1.50000);
+\begin{scope}[shift={(2.80000,0.00000)},rotate=-90.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab,anchor=east] at (2.38000,0.00000) {$Z_L'$};
+\node[] at (0.00000,-2.40000) {折算至初级：全部电压、电流与阻抗取同一侧。};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$Z_2^{\prime}=a^2Z_2$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$\text{精确：励磁支路跨 }E_1$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {同名端、电流方向与折算侧统一；有限励磁和损耗不能混入理想模型。};
+
+\end{tikzpicture}\end{document}

@@ -1,0 +1,36 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M3-007\quad 有限长方体的非均匀极化};
+\begin{scope}[shift={(-4,0)}]
+\filldraw[draw=ink!60,fill=blue!5] (-1.5,-1) rectangle(1.1,1.25);
+\draw[ink!60] (-1.5,1.25)--(-.8,1.8)--(1.8,1.8)--(1.1,1.25) (1.8,1.8)--(1.8,-.45)--(1.1,-1);
+\draw[vec,green] (-.8,.1)--(.4,.1) node[midway,below] {$\mathbf P_c$};
+\draw[vec,green] (.35,1.0)--(1.0,1.22) node[above left] {$\mathbf P_e$};
+\fill[ink](-.8,.1)circle(1.4pt) node[above]{$C$};\fill[ink](.35,1)circle(1.4pt) node[below left]{$A$};
+\draw[vec] (-2.2,-1.9)--(1.9,-1.9) node[midway,below] {$\mathbf E_0$};
+\node[note] at(0,-2.6){箭头仅示意中心与边缘的差异，非数值场解};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.1) {$\mathbf P_c=\varepsilon_0\chi_e\mathbf E(C)$};
+\node[card,draw=green!65,fill=green!4] at (3.9,-1.1) {$\mathbf P_e=\varepsilon_0\chi_e\mathbf E(A)$\\边缘的大小、方向可与中心不同};
+\end{tikzpicture}\end{document}

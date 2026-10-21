@@ -1,0 +1,46 @@
+% 核心结论：无损共振特解的增长包络
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-047-P1　无损共振特解的增长包络};
+\draw[axis] (-6.60000,0.02500) -- (6.72000,0.02500);
+\draw[axis] (-6.60000,-1.85000) -- (-6.60000,1.97000);
+\node[] at (6.60000,-2.55000) {$\omega_0t$};
+\node[] at (-6.35000,2.12000) {$q_p/K$};
+\draw[blue,thick] plot[domain=0:18.85,samples=250] ({-6.6+0.7002652519893898*(\x-0)},{-1.8+0.09125000000000001*((\x*sin(deg(\x)))-(-20))});
+\draw[green,thick] plot[domain=0:18.85,samples=250] ({-6.6+0.7002652519893898*(\x-0)},{-1.8+0.09125000000000001*((\x)-(-20))});
+\draw[red,thick] plot[domain=0:18.85,samples=250] ({-6.6+0.7002652519893898*(\x-0)},{-1.8+0.09125000000000001*((-\x)-(-20))});
+\draw[ink] (-6.60000,-0.03500) -- (-6.60000,0.08500);
+\node[] at (-6.60000,-2.20000) {$0$};
+\draw[ink] (0.00000,-0.03500) -- (0.00000,0.08500);
+\node[] at (0.00000,-2.20000) {$9.425$};
+\draw[ink] (6.60000,-0.03500) -- (6.60000,0.08500);
+\node[] at (6.60000,-2.20000) {$18.85$};
+\draw[ink] (-6.66000,-1.80000) -- (-6.54000,-1.80000);
+\node[anchor=east] at (-6.82000,-1.80000) {$-20$};
+\draw[ink] (-6.66000,0.02500) -- (-6.54000,0.02500);
+\node[anchor=east] at (-6.82000,0.02500) {$0$};
+\draw[ink] (-6.66000,1.85000) -- (-6.54000,1.85000);
+\node[anchor=east] at (-6.82000,1.85000) {$20$};
+\node[text=blue] at (-5.80000,2.55000) {$q_p/K$};
+\node[text=green] at (-3.30000,2.55000) {$+\omega_0t$};
+\node[text=red] at (-0.80000,2.55000) {$-\omega_0t$};
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {$K=U_m/(2L\omega_0^2)$；这是共振特解，不是有界稳态相量。};
+
+\end{tikzpicture}\end{document}

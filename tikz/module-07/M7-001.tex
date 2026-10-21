@@ -1,0 +1,40 @@
+% 图契约：平行板电容器的场能；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-001　平行板电容器的场能};
+\begin{scope}[shift={(-4,0)}]
+\fill[blue!6](-2,-1.5)rectangle(2,1.5);
+\draw[ink,line width=1.6pt](-2.00000,-1.50000)--(-2.00000,1.50000);
+\node[]at(-2.00000,1.85000){$+$};
+\draw[ink,line width=1.6pt](2.00000,-1.50000)--(2.00000,1.50000);
+\node[]at(2.00000,1.85000){$-$};
+\draw[v,blue](-1.70000,-1.00000)--(1.70000,-1.00000);
+\draw[v,blue](-1.70000,-0.33000)--(1.70000,-0.33000);
+\draw[v,blue](-1.70000,0.33000)--(1.70000,0.33000);
+\draw[v,blue](-1.70000,1.00000)--(1.70000,1.00000);
+\node[lab,text=blue]at(0.00000,0.60000){$\mathbf E$};
+\draw[{Latex[length=1.3mm]}-{Latex[length=1.3mm]},ink!65,line width=.5pt](-2.00000,-2.00000)--(2.00000,-2.00000);
+\node[lab]at(0.00000,-2.25000){$d$};
+\node[]at(0.00000,2.35000){板面积 $A$，介质 $\varepsilon$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$u_E=\frac12\varepsilon E^2,\quad E=V/d$};
+\node[card]at(4.00000,-1.05000){$U_E=u_EAd=\frac12CV^2$};
+\node[text width=15.2cm,align=center]at(0.00000,-3.20000){忽略边缘效应；阴影为积分体积 $Ad$。};
+\end{tikzpicture}\end{document}

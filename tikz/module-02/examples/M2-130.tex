@@ -1,0 +1,32 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M2-130\quad 劈形可以容许非整数角向阶数};
+\begin{scope}[shift={(-4,0)}]
+\begin{scope}[shift={(-1.2,-1)}]\fill[blue!5] (0,0)--(3,0) arc(0:120:3)--cycle;\draw[ink,thick](0,0)--(3,0) node[right]{$0$};\draw[ink,thick](0,0)--(120:3) node[above]{$0$};\draw[orange](.65,0) arc(0:120:.65);\node[label] at(60.0:1){$\alpha=120^\circ$};\end{scope}
+\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$\nu_1=\pi/\alpha=3/2$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\varphi\propto\rho^{3/2}\sin(3\phi/2)$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {劈形内部合法；\\不是完整圆周上的单值周期函数。};
+\end{tikzpicture}\end{document}

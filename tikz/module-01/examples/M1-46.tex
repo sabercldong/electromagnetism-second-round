@@ -1,0 +1,52 @@
+% 对应题号 M1-46，复用已核对的本题几何图。
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,decorations.pathmorphing}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{224,116,10}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\definecolor{softpurple}{RGB}{247,242,255}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  fieldline/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=1pt,draw=bluefield},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange},
+  purplebox/.style={box,draw=purplefield,fill=softpurple}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.4cm,align=center] at (0,4.05) {例：刚体旋转处处有旋，势涡的旋度集中在奇点};
+\begin{scope}[shift={(-5.2,-.3)}]
+  \foreach \r in {1,1.8,2.6}{\draw[bluefield,line width=.9pt,-{Latex[length=2.2mm]}] (\r,0) arc[start angle=0,end angle=300,radius=\r];}
+  \node[redfield,font=\Large] at (0,0) {$\odot$};\node[redfield] at (0,3.05) {$\nabla\times\mathbf v=2\boldsymbol\Omega$（指向纸外）};
+  \node at (0,-3.05) {$\mathbf v=\boldsymbol\Omega\times\mathbf r$};
+\end{scope}
+\begin{scope}[shift={(5.2,-.3)}]
+  \fill[redfield] (0,0) circle(.11) node[below right] {轴线奇点};
+  \foreach \r in {1,1.8,2.6}{\draw[greenfield,line width=.9pt,-{Latex[length=2.2mm]}] (\r,0) arc[start angle=0,end angle=300,radius=\r];}
+  \node[greenbox,text width=5.7cm] at (0,-3.65) {$\mathbf v=\Gamma(2\pi r)^{-1}\mathbf e_\phi$\\$r>0$ 处旋度为零，但环量为 $\Gamma$};
+\end{scope}
+\end{tikzpicture}
+\end{document}

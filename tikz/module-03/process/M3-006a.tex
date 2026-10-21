@@ -1,0 +1,42 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M3-006a\quad 内、外界面的法向投影};
+\begin{scope}[shift={(-4,0)}]
+
+\fill[blue!6] (-1.6,-1.5) rectangle(1.6,1.5);
+\draw[ink!60,thick] (-1.6,-1.5)--(-1.6,1.5) (1.6,-1.5)--(1.6,1.5);
+\draw[vec,green] (-1.3,.7)--(-.3,.7) node[midway,above] {$\mathbf P(a^+)$};
+\draw[vec,green] (.25,.7)--(1.15,.7) node[midway,above] {$\mathbf P(b^-)$};
+\draw[vec,orange] (-1.6,-.2)--(-2.3,-.2) node[below] {$\mathbf n_a$};
+\draw[vec,orange] (1.6,-.2)--(2.3,-.2) node[below] {$\mathbf n_b$};
+\node[label] at(-1.6,-1.85){$r=a$};\node[label] at(1.6,-1.85){$r=b$};
+\draw[axis] (-1,-2.4)--(1,-2.4) node[right] {$+\mathbf e_r$};
+\node[label] at(0,2){同一径向射线上的局部展开};
+\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$\sigma_{b,a}=-P_r(a^+)$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\sigma_{b,b}=+P_r(b^-)$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {$4\pi a^2\sigma_{b,a}+4\pi b^2\sigma_{b,b}=0$};
+\node[label,text width=15cm] at(0,-3.05){箭头示 $Q>0,\ \varepsilon_r>1$；改变极化符号时，法向不变，$\mathbf P$ 与束缚电荷反号。};
+\end{tikzpicture}\end{document}

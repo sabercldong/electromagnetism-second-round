@@ -1,0 +1,34 @@
+% 核心结论：叉乘场的散度中两项符号不同，需按交替指标的顺序确认。
+% 图契约：物理竞赛讲义；印刷宽16cm，最小字号8.5pt；几何示意与公式分区。
+% 布局：[几何/曲线 7cm] [定义/结果 7cm]；实线主量，虚线辅助；无装饰数据。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,positioning,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{
+ every node/.style={font=\fontsize{9.5}{13}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!60,fill=blue!4,
+   align=center,text width=6.8cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{11}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.5}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[title] at (0,2.95) {复合乘积：展开后再按分量重组};
+
+\node[card,text width=13.9cm] at (0,1.55) {$\displaystyle [\nabla(\mathbf A\cdot\mathbf B)]_i=\partial_i(A_jB_j)$\\$=(\partial_iA_j)B_j+A_j(\partial_iB_j)$};
+\node[card,text width=13.9cm,draw=green!65,fill=green!4] at (0,-.1) {$\displaystyle \nabla\cdot(\mathbf A\times\mathbf B)=\partial_i(\varepsilon_{ijk}A_jB_k)$\\$=\varepsilon_{ijk}(\partial_iA_j)B_k+\varepsilon_{ijk}A_j(\partial_iB_k)$};
+\node[card,text width=13.9cm,draw=orange!65,fill=orange!4] at (0,-1.8) {$\nabla\cdot(\mathbf A\times\mathbf B)=\mathbf B\cdot(\nabla\times\mathbf A)-\mathbf A\cdot(\nabla\times\mathbf B)$\\负号来自交替指标的交换。};
+
+\end{tikzpicture}\end{document}

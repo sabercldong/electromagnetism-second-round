@@ -1,0 +1,49 @@
+% 对应题号 M2-163，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {半无限接地圆筒的单一本征模：底面选中第二个零点对应的径向模态};
+\begin{scope}[shift={(-4.8,-.15)}]
+\draw[linegray] (-1.7,-2.2)--(-1.7,2.2); \draw[linegray] (1.7,-2.2)--(1.7,2.2); \draw[linegray] (-1.7,-2.2) arc[start angle=180,end angle=360,x radius=1.7,y radius=.45];
+\draw[guide](-1.7,-2.2)--(1.7,-2.2);\draw[redfield,line width=1.1pt]plot coordinates {(-1.7000,-2.20000) (-1.6757,-2.21755) (-1.6514,-2.23524) (-1.6271,-2.25298) (-1.6029,-2.27065) (-1.5786,-2.28815) (-1.5543,-2.30537) (-1.5300,-2.32220) (-1.5057,-2.33853) (-1.4814,-2.35426) (-1.4571,-2.36929) (-1.4329,-2.38350) (-1.4086,-2.39681) (-1.3843,-2.40911) (-1.3600,-2.42033) (-1.3357,-2.43036) (-1.3114,-2.43913) (-1.2871,-2.44656) (-1.2629,-2.45259) (-1.2386,-2.45715) (-1.2143,-2.46019) (-1.1900,-2.46166) (-1.1657,-2.46151) (-1.1414,-2.45972) (-1.1171,-2.45625) (-1.0929,-2.45110) (-1.0686,-2.44426) (-1.0443,-2.43572) (-1.0200,-2.42550) (-0.9957,-2.41362) (-0.9714,-2.40009) (-0.9471,-2.38497) (-0.9229,-2.36829) (-0.8986,-2.35010) (-0.8743,-2.33047) (-0.8500,-2.30946) (-0.8257,-2.28716) (-0.8014,-2.26363) (-0.7771,-2.23899) (-0.7529,-2.21331) (-0.7286,-2.18671) (-0.7043,-2.15929) (-0.6800,-2.13116) (-0.6557,-2.10245) (-0.6314,-2.07327) (-0.6071,-2.04375) (-0.5829,-2.01402) (-0.5586,-1.98420) (-0.5343,-1.95443) (-0.5100,-1.92483) (-0.4857,-1.89555) (-0.4614,-1.86670) (-0.4371,-1.83842) (-0.4129,-1.81083) (-0.3886,-1.78407) (-0.3643,-1.75824) (-0.3400,-1.73348) (-0.3157,-1.70988) (-0.2914,-1.68757) (-0.2671,-1.66664) (-0.2429,-1.64719) (-0.2186,-1.62931) (-0.1943,-1.61308) (-0.1700,-1.59858) (-0.1457,-1.58587) (-0.1214,-1.57502) (-0.0971,-1.56607) (-0.0729,-1.55906) (-0.0486,-1.55404) (-0.0243,-1.55101) (0.0000,-1.55000) (0.0243,-1.55101) (0.0486,-1.55404) (0.0729,-1.55906) (0.0971,-1.56607) (0.1214,-1.57502) (0.1457,-1.58587) (0.1700,-1.59858) (0.1943,-1.61308) (0.2186,-1.62931) (0.2429,-1.64719) (0.2671,-1.66664) (0.2914,-1.68757) (0.3157,-1.70988) (0.3400,-1.73348) (0.3643,-1.75824) (0.3886,-1.78407) (0.4129,-1.81083) (0.4371,-1.83842) (0.4614,-1.86670) (0.4857,-1.89555) (0.5100,-1.92483) (0.5343,-1.95443) (0.5586,-1.98420) (0.5829,-2.01402) (0.6071,-2.04375) (0.6314,-2.07327) (0.6557,-2.10245) (0.6800,-2.13116) (0.7043,-2.15929) (0.7286,-2.18671) (0.7529,-2.21331) (0.7771,-2.23899) (0.8014,-2.26363) (0.8257,-2.28716) (0.8500,-2.30946) (0.8743,-2.33047) (0.8986,-2.35010) (0.9229,-2.36829) (0.9471,-2.38497) (0.9714,-2.40009) (0.9957,-2.41362) (1.0200,-2.42550) (1.0443,-2.43572) (1.0686,-2.44426) (1.0929,-2.45110) (1.1171,-2.45625) (1.1414,-2.45972) (1.1657,-2.46151) (1.1900,-2.46166) (1.2143,-2.46019) (1.2386,-2.45715) (1.2629,-2.45259) (1.2871,-2.44656) (1.3114,-2.43913) (1.3357,-2.43036) (1.3600,-2.42033) (1.3843,-2.40911) (1.4086,-2.39681) (1.4329,-2.38350) (1.4571,-2.36929) (1.4814,-2.35426) (1.5057,-2.33853) (1.5300,-2.32220) (1.5543,-2.30537) (1.5786,-2.28815) (1.6029,-2.27065) (1.6271,-2.25298) (1.6514,-2.23524) (1.6757,-2.21755) (1.7000,-2.20000)};
+\foreach \z in {-1.2,-.2,.8,1.8}{\draw[bluefield!65] (-1.5,\z) arc[start angle=180,end angle=360,x radius=1.5,y radius=.28];}
+\node[greenfield] at (0,-3) {侧壁接地，场随 $z$ 指数衰减};
+\end{scope}
+\begin{scope}[shift={(4.65,-.1)}]
+\node[bluebox,text width=6.9cm] at (0,1.65) {$J_0(j_{02})=0$，故该径向函数自动满足 $\rho=a$ 的接地边界。};
+\node[greenbox,text width=6.9cm] at (0,0) {$\displaystyle \varphi=V_0J_0\left(\frac{j_{02}\rho}{a}\right)e^{-j_{02}z/a}$};
+\node[orangebox,text width=6.4cm,align=center] at (0,-1.7) {底面数据与单一本征函数完全相同；\\由正交性，其余径向模态系数均为零。};
+\end{scope}
+\end{tikzpicture}
+\end{document}

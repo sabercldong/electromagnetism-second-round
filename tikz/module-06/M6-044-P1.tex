@@ -1,0 +1,42 @@
+% 核心结论：谐振电流与两个半功率点
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-044-P1　谐振电流与两个半功率点};
+\draw[axis] (-6.60000,-1.80000) -- (6.72000,-1.80000);
+\draw[axis] (-6.60000,-1.85000) -- (-6.60000,1.97000);
+\node[] at (6.60000,-2.55000) {$\omega/\omega_0$};
+\node[] at (-6.35000,2.12000) {$I/I_{res}$};
+\draw[blue,thick] plot[domain=0:2.1,samples=250] ({-6.6+6.285714285714285*(\x-0)},{-1.8+3.1739130434782616*((\x/sqrt(\x^2+10*(\x^2-1)^2))-(0))});
+\draw[green,thick] plot[domain=0:2.1,samples=250] ({-6.6+6.285714285714285*(\x-0)},{-1.8+3.1739130434782616*((1/sqrt(2))-(0))});
+\draw[ink] (-1.23011,-1.86000) -- (-1.23011,-1.74000);
+\node[] at (-1.23011,-2.20000) {$.8543$};
+\draw[ink] (-0.31429,-1.86000) -- (-0.31429,-1.74000);
+\node[] at (-0.31429,-2.20000) {$1$};
+\draw[ink] (0.75743,-1.86000) -- (0.75743,-1.74000);
+\node[] at (0.75743,-2.20000) {$1.1705$};
+\draw[ink] (-6.66000,-1.80000) -- (-6.54000,-1.80000);
+\node[anchor=east] at (-6.82000,-1.80000) {$0$};
+\draw[ink] (-6.66000,1.85000) -- (-6.54000,1.85000);
+\node[anchor=east] at (-6.82000,1.85000) {$1.15$};
+\node[text=blue] at (-5.80000,2.55000) {$I/I_{res}$};
+\node[text=green] at (-3.30000,2.55000) {$1/\sqrt2$};
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {示例品质因数Q=√10；两频率乘积为ω0²，不能把它们当作关于ω0算术对称。};
+
+\end{tikzpicture}\end{document}

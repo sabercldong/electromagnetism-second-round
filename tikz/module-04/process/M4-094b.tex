@@ -1,0 +1,49 @@
+% 2026-10-20用户反馈复核；图号、参考方向、数据与本题解答同步。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.3}{12.5}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.8mm,width=1.1mm]},ink!70,line width=.6pt},
+aux/.style={ink!40,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-1.95) rectangle(8,2.15);
+\node[font=\bfseries\fontsize{10.5}{14}\selectfont,text width=15cm,align=center] at (0,1.75) {M4-094b　零圆周模式对应一条轴向商链};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[ink,line width=.8pt] (-2.5,0)--(-1.91,0.0);
+\draw[ink,line width=.8pt] (-1.39,0.0)--(-0.8,0);
+\draw[ink,fill=white] (-1.91,-0.12) rectangle(-1.39,0.12);
+\node[lab] at (-1.65,0.35) {$r/m$};
+\draw[ink,line width=.8pt] (0.9,0)--(1.44,0.0);
+\draw[ink,line width=.8pt] (1.96,0.0)--(2.5,0);
+\draw[ink,fill=white] (1.44,-0.12) rectangle(1.96,0.12);
+\node[lab] at (1.7,0.35) {$r/m$};
+\draw[aux] (-0.8,0)--(0.9,0);
+\node[] at (0.05,0.2) {$\cdots$};
+\node[] at (0,-0.95) {同层等势节点合并；每步电阻并联};
+\end{scope}
+\fill[ink](-6.55,0)circle(1.4pt);
+\node[] at (-6.55,-0.3) {$0$};
+\fill[ink](-4.85,0)circle(1.4pt);
+\node[] at (-4.85,-0.3) {$1$};
+\fill[ink](-3.15,0)circle(1.4pt);
+\node[] at (-3.15,-0.3) {$n-1$};
+\fill[ink](-1.55,0)circle(1.4pt);
+\node[] at (-1.55,-0.3) {$n$};
+\node[] at (-6.55,0.6) {$A$};
+\node[] at (-1.55,0.6) {$B$};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,0.9) {$q=0:\quad r_{\text{每步}}=r/m$};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,0) {$A$在第0层，$B$在第$n$层};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,-0.9) {$R_{0\text{模}}=nr/m$};
+\node[text width=15cm,align=center] at (0,-1.65) {每步的m只电阻r并联；虚线仅表示略去的中间段，圆周支路在零模式中没有电流。};
+\end{tikzpicture}\end{document}

@@ -1,0 +1,43 @@
+% 对应题号 M1-53；图与本题条件、推导、结论逐项对应。
+% 图契约：印刷宽16cm；最小字号8.4pt；几何/场或曲线在左，计算关系在右。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.6cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.4}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.4) rectangle(8,3.4);
+\node[title] at (0,3) {M1-53\quad 球面通量核对散度的体积分};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink!45,fill=blue!3] (0,0) circle(1.65);
+\fill[red] (0,0) circle(2pt);\node[below=3pt] at (0,0) {$O$};
+\draw[vec] (0:0.7)--(0:2.1);
+\draw[vec] (45:0.7)--(45:2.1);
+\draw[vec] (90:0.7)--(90:2.1);
+\draw[vec] (135:0.7)--(135:2.1);
+\draw[vec] (180:0.7)--(180:2.1);
+\draw[vec] (225:0.7)--(225:2.1);
+\draw[vec] (270:0.7)--(270:2.1);
+\draw[vec] (315:0.7)--(315:2.1);
+
+\draw[guide] (0,0)--(1.65,0) node[midway,below] {$R$};\node[label] at (0,-2.6) {$\mathbf A=\mathbf r$；球面外法向为 $\mathbf e_r$};
+
+\end{scope}\node[card,draw=blue!65,fill=blue!4] at (3.95,1.65) {$\nabla\cdot\mathbf r=1+1+1=3$};
+\node[card,draw=green!65,fill=green!4] at (3.95,0) {$\displaystyle\Phi=4\pi R^2\cdot R=4\pi R^3$};
+\node[card,draw=orange!65,fill=orange!4] at (3.95,-1.65) {$\displaystyle\int_V3\,dV=3\frac{4\pi R^3}{3}=4\pi R^3$\\任意光滑闭区域也满足 $\Phi=3V$。};
+\end{tikzpicture}\end{document}

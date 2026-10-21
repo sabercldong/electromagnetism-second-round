@@ -1,0 +1,53 @@
+% 2026-10-20用户反馈复核；图号、参考方向、数据与本题解答同步。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.3}{12.5}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.8mm,width=1.1mm]},ink!70,line width=.6pt},
+aux/.style={ink!40,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-3.6) rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{14}\selectfont,text width=15cm,align=center] at (0,3.23) {偶对称并联、奇对称取半电路};
+\node[font=\bfseries,text=blue] at (-4,2.5) {偶对称：镜像支路并联};
+\node[font=\bfseries,text=red] at (4,2.5) {奇对称：取零势半电路};
+\draw[ink,line width=.8pt] (-7,1.4)--(-5.26,1.4);
+\draw[ink,line width=.8pt] (-4.74,1.4)--(-3,1.4);
+\draw[ink,fill=white] (-5.26,1.2799999999999998) rectangle(-4.74,1.52);
+\node[lab] at (-5.0,1.75) {$R$};
+\draw[ink,line width=.8pt] (-7,-0.2)--(-5.26,-0.2);
+\draw[ink,line width=.8pt] (-4.74,-0.2)--(-3,-0.2);
+\draw[ink,fill=white] (-5.26,-0.32) rectangle(-4.74,-0.08000000000000002);
+\node[lab] at (-5.0,-0.55) {$R$};
+\draw[ink,line width=.8pt] (-7,1.4)--(-7,-0.2);
+\draw[ink,line width=.8pt] (-3,1.4)--(-3,-0.2);
+\draw[v,purple] (-2.8,0.6)--(-2.15,0.6);
+\node[] at (-1.5,0.6) {$R/2$};
+\node[box,fill=blue!3,text width=6.4cm] at (-4,-1.75) {成对支路电压相同、电流相加。\\[5pt]镜像等势节点间的电阻没有电流。};
+\draw[ink,line width=.8pt] (1.1,1.5)--(2.29,1.5);
+\draw[ink,line width=.8pt] (2.8099999999999996,1.5)--(4,1.5);
+\draw[ink,fill=white] (2.29,1.38) rectangle(2.8099999999999996,1.62);
+\node[lab] at (2.55,1.85) {$R_{1/2}$};
+\draw[ink,line width=.8pt] (4,1.5)--(5.19,1.5);
+\draw[ink,line width=.8pt] (5.71,1.5)--(6.9,1.5);
+\draw[ink,fill=white] (5.19,1.38) rectangle(5.71,1.62);
+\node[lab] at (5.45,1.85) {$R_{1/2}$};
+\node[] at (1.1,1.05) {$A:+V$};
+\node[] at (6.9,1.05) {$B:-V$};
+\fill[ink](4,1.5)circle(1.4pt);
+\draw[aux] (4,1.5)--(4,-0.05);
+\node[] at (4,-0.35) {零势对称面};
+\node[lab] at (4,0.75) {$0$};
+\node[box,fill=red!3,text width=6.4cm] at (4,-1.75) {$I=V/R_{1/2}=2V/R_{AB}$\\[5pt]$\boxed{R_{AB}=2R_{1/2}}$};
+\node[text width=15cm,align=center] at (0,-3.12) {图中奇对称例的均匀电阻在中点取半；一般网络应先确认对称条件，再设置零势边界。};
+\end{tikzpicture}\end{document}

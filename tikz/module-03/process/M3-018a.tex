@@ -1,0 +1,40 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M3-018a\quad 水平等势面假设导致的通量矛盾};
+\begin{scope}[shift={(-4,0)}]
+\fill[green!7] (-2,0) rectangle(2,1.4);
+\fill[blue!7] (-2,-1.4) rectangle(0,0);\fill[orange!8] (0,-1.4) rectangle(2,0);
+\draw[ink!60] (-2,0)--(2,0) (0,-1.4)--(0,0);
+\draw[ink,line width=2pt] (-2,1.4)--(2,1.4) (-2,-1.4)--(2,-1.4);
+\node at(0,.85){$\varepsilon_{r3}$};\node at(-1,-.75){$\varepsilon_{r1},S$};\node at(1,-.75){$\varepsilon_{r2},S$};
+\draw[guide] (0,0)--(0,1.4);
+\draw[red,dashed] (-.35,-1.35) rectangle(.35,1.35);
+\node[label] at(0,1.95){$\varphi=U$；总面积 $2S$};\node[label] at(0,-1.95){$\varphi=0$；红框为交界附近区域};
+\draw[<->,orange] (2.3,0)--(2.3,1.4) node[midway,right] {$d$};
+\draw[<->,orange] (2.3,-1.4)--(2.3,0) node[midway,right] {$d$};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {模型一：假设水平界面等势\\$E_1=E_2=E_{\rm low}$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$D_{1n}=\varepsilon_0\varepsilon_{r1}E_{\rm low}$\\$D_{2n}=\varepsilon_0\varepsilon_{r2}E_{\rm low}$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {上层均匀 $D_{3n}$ 无法同时匹配\\$D_{1n}\ne D_{2n}$（非零加压）};
+\end{tikzpicture}\end{document}

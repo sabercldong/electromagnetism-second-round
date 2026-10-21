@@ -1,0 +1,40 @@
+% 核心结论：电阻热量是电压—累计电荷面积
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-038-P1　电阻热量是电压—累计电荷面积};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.00000,-1.30000) -- (2.60000,-1.30000);
+\draw[axis] (-2.00000,-1.30000) -- (-2.00000,2.20000);
+\fill[blue!12] (-2,-1.3)--(-2,1.7)--(2.2,-1.3)--cycle;
+\draw[blue,thick] (-2.00000,1.70000) -- (2.20000,-1.30000);
+\node[anchor=east] at (-2.20000,1.80000) {$2\varepsilon/3$};
+\node[] at (2.20000,-1.65000) {$2C\varepsilon$};
+\node[] at (2.60000,-0.90000) {$q_1$};
+\node[] at (-1.60000,2.35000) {$u_1$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$u_1=2\varepsilon/3-q_1/(3C)$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$\Theta_R=\int u_1dq_1=2C\varepsilon^2/3$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {q1从冲激阶段之后开始累计AB电阻传递的电荷；阴影面积给出该电阻热量。};
+
+\end{tikzpicture}\end{document}

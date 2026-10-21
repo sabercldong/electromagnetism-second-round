@@ -1,0 +1,64 @@
+% 对应题号 M1-06，复用已核对的本题几何图。
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {定轴转动质点的角动量：一般不平行于转轴，特殊横截面内才同向};
+\begin{scope}[shift={(-5.2,-.2)}]
+\draw[axis] (0,-2.7)--(0,3.1) node[above] {$\boldsymbol\omega$};
+\fill[linegray] (0,-1.8) circle(.08) node[left] {$O$};
+\fill[redfield] (2.3,1.5) circle(.1) node[right] {$P$};
+\draw[arrow,bluefield] (0,-1.8)--(2.3,1.5) node[midway,above left] {$\mathbf r$};
+\draw[arrow,greenfield] (0,1.5)--(2.3,1.5) node[midway,above] {$\mathbf r_\perp$};
+\draw[guide] (0,-1.8)--(0,1.5);
+\node[text=linegray] at (0,-3.25) {含轴向分量时，$\mathbf L$ 一般有横向分量};
+\end{scope}
+\begin{scope}[shift={(0.1,-.2)}]
+\draw[linegray] (0,0) circle(1.8); \fill[linegray] (0,0) circle(.08);
+\fill[redfield] (1.8,0) circle(.1);
+\draw[arrow,greenfield] (0,0)--(1.8,0) node[midway,below] {$\mathbf r_\perp$};
+\draw[arrow,orangefield] (1.8,0)--(1.8,1.7) ;\node[orangefield,font=\small] at (0,2.55) {$\mathbf v=\boldsymbol\omega\times\mathbf r$};
+\node[text=linegray] at (0,-2.55) {垂直转轴观察的横截面};
+\end{scope}
+\begin{scope}[shift={(5.4,-.15)}]
+\node[bluebox,text width=6.4cm] at (0,1.65)
+  {$\mathbf L=\mathbf r\times m(\boldsymbol\omega\times\mathbf r)$};
+\node[greenbox,text width=6.4cm] at (0,0)
+  {$\mathbf L=m[r^2\boldsymbol\omega-(\mathbf r\cdot\boldsymbol\omega)\mathbf r]$};
+\node[orangebox,text width=6.4cm] at (0,-1.75)
+  {$\mathbf r\perp\boldsymbol\omega\Rightarrow\mathbf L=mr^2\boldsymbol\omega$；\\
+   $r=0$ 或 $\omega=0$ 时 $\mathbf L=\mathbf0$，无“同向”可言。};
+\end{scope}
+\end{tikzpicture}
+\end{document}

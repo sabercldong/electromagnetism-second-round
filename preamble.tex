@@ -1,0 +1,125 @@
+% 共用版式；缺字体时使用TeX Live自带字体。
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{space}{xeCJK}
+\documentclass[
+  10pt,
+  fontset=none,oneside,openany]{ctexbook}
+\usepackage{xcolor}
+\usepackage[a4paper,left=21mm,right=19mm,top=20mm,bottom=20mm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \IfFontExistsTF{Times New Roman}{\setmainfont[]{Times New Roman}}{\setmainfont[]{TeX Gyre Termes}}
+  \IfFontExistsTF{Heiti SC}{\setsansfont[]{Heiti SC}}{\setsansfont[]{TeX Gyre Heros}}
+  \IfFontExistsTF{Menlo}{\setmonofont[]{Menlo}}{\setmonofont[]{Latin Modern Mono}}
+  \IfFontExistsTF{STIX Two Math}{\setmathfont[]{STIX Two Math}}{\setmathfont[]{Latin Modern Math}}
+  \ifXeTeX
+    \usepackage{xeCJK}
+    \IfFontExistsTF{Songti SC}{\setCJKmainfont[]{Songti SC}}{\setCJKmainfont[]{FandolSong-Regular}}
+    \IfFontExistsTF{Heiti SC}{\setCJKsansfont[]{Heiti SC}}{\setCJKsansfont[]{FandolHei-Regular}}
+  \fi
+  \ifLuaTeX
+    \usepackage[]{luatexja-fontspec}
+    \IfFontExistsTF{Songti SC}{\setmainjfont[]{Songti SC}}{\setmainjfont[]{FandolSong-Regular}}
+  \fi
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xcolor,fancyhdr,enumitem,etoolbox}
+\definecolor{Heading}{HTML}{203D50}
+\definecolor{Accent}{HTML}{236F78}
+\ctexset{chapter={format=\sffamily\bfseries\LARGE\color{Heading},beforeskip=0pt,afterskip=20pt},
+section={format=\sffamily\bfseries\large\color{Heading}},
+subsection={format=\sffamily\bfseries\normalsize\color{Accent}},
+subsubsection={format=\sffamily\bfseries\normalsize\color{Heading}}}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{.2em}
+\setlength{\emergencystretch}{3em}
+\setlist{nosep,leftmargin=2em}
+\AtBeginEnvironment{longtable}{\small\setlength{\tabcolsep}{4pt}}
+\renewcommand{\arraystretch}{1.2}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small 电磁学二轮讲义}
+\fancyhead[R]{\small 七模块合订版}
+\fancyfoot[C]{\small\thepage}
+\setlength{\headheight}{15pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\thepage}\renewcommand{\headrulewidth}{0pt}}
+\AtBeginDocument{\hypersetup{colorlinks=true,linkcolor=Heading,urlcolor=Accent,pdfauthor={},pdftitle={电磁学二轮讲义·七模块合订版}}}
+\setcounter{secnumdepth}{-1}
+\setcounter{tocdepth}{1}
+\sloppy\raggedbottom
+% Reserve only remaining page space; no stretchable placeholder survives a center environment.
+\makeatletter
+\newcommand{\ReserveFigureSpace}[1]{\par\begingroup
+\dimen@=\pagegoal
+\ifdim\dimen@=\maxdimen\dimen@=\textheight\fi
+\advance\dimen@ by -\pagetotal
+\ifdim\pagetotal>\z@
+  \ifdim\dimen@<#1\relax\newpage\fi
+\fi\endgroup}
+\makeatother
+
+\IfFontExistsTF{Songti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Songti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolSong-Regular}}
+
+
+
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+
+\renewcommand*{\contentsname}{总目录}
+\makeatletter
+\renewcommand{\@pnumwidth}{2.8em}
+\renewcommand{\@tocrmarg}{3.8em}
+\makeatother

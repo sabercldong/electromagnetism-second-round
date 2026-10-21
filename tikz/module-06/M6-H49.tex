@@ -1,0 +1,45 @@
+% 核心结论：三组空间相差一百二十度的绕组合成等幅旋转磁场
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-H49　三组空间相差一百二十度的绕组合成等幅旋转磁场};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.50000,0.00000) -- (2.60000,0.00000);
+\draw[axis] (0.00000,-2.05000) -- (0.00000,2.25000);
+\node[] at (2.58000,-0.26000) {$x$};
+\node[] at (-0.33000,2.20000) {$y$};
+\node[] at (-0.40000,-0.20000) {$O$};
+\draw[v,blue] (0.00000,0.00000) -- (1.90000,0.00000);
+\node[text=blue] at (2.30000,0.28000) {$\mathbf e_A$};
+\draw[v,green] (0.00000,0.00000) -- (-0.95000,1.64545);
+\node[text=green] at (-1.15000,1.99186) {$\mathbf e_B$};
+\draw[v,purple] (0.00000,0.00000) -- (-0.95000,-1.64545);
+\node[text=purple] at (-1.15000,-1.99186) {$\mathbf e_C$};
+\draw[v,red] (0.00000,0.00000) -- (1.20000,2.07846);
+\node[text=red] at (0.90635,2.49019) {$\mathbf B$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$\mathbf B=\dfrac32B_m(\cos\omega t,\sin\omega t)$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$n_s=120f/P\quad(P\text{为极数})$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {对称正相序与平衡负载；空间磁场矢量和复平面相量分别解释。};
+
+\end{tikzpicture}\end{document}

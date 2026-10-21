@@ -1,0 +1,42 @@
+% 核心结论：复根的衰减与振荡
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-030　复根的衰减与振荡};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.50000,0.00000) -- (2.40000,0.00000);
+\draw[axis] (0.00000,-2.00000) -- (0.00000,2.20000);
+\node[] at (2.20000,-0.30000) {$\operatorname{Re}s$};
+\node[] at (0.10000,2.45000) {$\operatorname{Im}s$};
+\fill[ink] (-1.40000,1.40000) circle (1.6pt);
+\draw[aux] (-1.40000,1.40000) -- (-1.40000,0.00000);
+\node[lab] at (-1.40000,1.90000) {$-\alpha+j\omega_d$};
+\fill[ink] (-1.40000,-1.40000) circle (1.6pt);
+\draw[aux] (-1.40000,-1.40000) -- (-1.40000,0.00000);
+\node[lab] at (-1.40000,-1.90000) {$-\alpha-j\omega_d$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$s=-\alpha\pm j\omega_d$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$\omega_d=\sqrt{\omega_0^2-\alpha^2}$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {根平面横坐标−α决定衰减，纵坐标±ωd决定振荡；这里的根平面不是电路空间。};
+
+\end{tikzpicture}\end{document}

@@ -1,0 +1,31 @@
+% 图契约：磁介质界面的法向与切向条件；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {理论图\quad 磁介质界面的法向与切向条件};
+\begin{scope}[shift={(-4.05,0)}]\fill[blue!4](-2.7,-1.8)rectangle(2.7,0);\draw[ink](-2.7,0)--(2.7,0);\node[red,fill=white]at(-1.7,0){$\odot$};\node[red]at(-1.7,.55){$\mathbf K_f$ 向纸外};\draw[vec,green](-1.2,-1)--(1.1,-1)node[midway,below]{$\mathbf H_{1t}$};\draw[vec,green](-.2,1)--(.8,1)node[midway,above]{$\mathbf H_{2t}$};\draw[vec,orange](2.1,-.3)--(2.1,1.6)node[right]{$\mathbf n_{12}$};\node[left]at(-2.1,-1.3){$\mu_1$};\node[left]at(-2.1,1.3){$\mu_2$};\end{scope}\node[card,draw=blue!65,fill=blue!4]at(3.9,1.8){$B_{2n}=B_{1n}$};\node[card,draw=green!65,fill=green!4]at(3.9,0){$\mathbf n_{12}\times(\mathbf H_2-\mathbf H_1)=\mathbf K_f$};\node[card,draw=orange!65,fill=orange!4]at(3.9,-1.8){$K_f=0\Rightarrow H_{2t}=H_{1t}$};
+\end{tikzpicture}\end{document}

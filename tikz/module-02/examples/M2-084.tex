@@ -1,0 +1,49 @@
+% 对应题号 M2-084，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {退化调和平衡点：电场和黑塞矩阵同时为零，仍不能推出稳定};
+\begin{scope}[shift={(-4.8,-.15)}]
+\draw[axis] (-2.8,0)--(2.8,0) node[right] {$x$}; \draw[axis] (0,-2.6)--(0,2.7) node[above] {$y$};
+\foreach \a in {0,120,240}{\fill[redfield,opacity=.22] (0,0)--({2.4*cos(\a-25)},{2.4*sin(\a-25)})--({2.4*cos(\a+25)},{2.4*sin(\a+25)})--cycle;}
+\foreach \a in {60,180,300}{\fill[bluefield,opacity=.18] (0,0)--({2.4*cos(\a-25)},{2.4*sin(\a-25)})--({2.4*cos(\a+25)},{2.4*sin(\a+25)})--cycle;}
+\node[redfield] at (1.8,.3) {$\varphi>0$}; \node[bluefield] at (-1.7,.3) {$\varphi<0$};
+\end{scope}
+\begin{scope}[shift={(4.65,-.1)}]
+\node[bluebox,text width=6.9cm] at (0,1.65) {$\varphi=B\,\mathrm{Re}(x+iy)^3,\qquad \nabla^2\varphi=0$};
+\node[greenbox,text width=6.9cm] at (0,0) {$\mathbf E(0)=\mathbf0,\qquad H_\varphi(0)=0$};
+\node[orangebox,text width=6.4cm,align=center] at (0,-1.7) {任意小邻域内电势都有正负两类方向；\\原点不是局部极值，因而不是稳定平衡。};
+\end{scope}
+\end{tikzpicture}
+\end{document}

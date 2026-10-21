@@ -1,0 +1,43 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M3-006\quad 介质球壳中的场量、极化电荷与电容};
+\begin{scope}[shift={(-4,0)}]
+\filldraw[draw=ink!55,fill=blue!7] (0,0)circle(1.8);
+\filldraw[draw=ink!55,fill=white] (0,0)circle(.9);
+\fill[ink!10] (0,0)circle(.86);
+\draw[guide] (0,0)--(110:.9) node[pos=.8,left] {$a$};
+\draw[guide] (0,0)--(40:1.8) node[pos=.8,above left] {$b$};
+\node[label] at(0,1.4){$\varepsilon_r$};\node[label] at(-1.9,2){真空};
+\draw[vec,green] (0:.95)--(0:1.65) node[midway,above] {$\mathbf P$};
+\draw[vec,orange] (180:.9)--(180:.4);
+\node[label,orange] at(-1.05,.28){$\mathbf n_a$};
+\draw[vec,orange] (20:1.8)--(20:2.35) node[above] {$\mathbf n_b$};
+\node[label,blue] at(-1.65,-.6){$\sigma_{b,a}<0$};
+\node[label,red] at(1.4,-1.9){$\sigma_{b,b}>0$};
+\node[label] at(.12,-.35){导体\strut\\$Q,\ E=0$};\node[label] at(0,-2.55){符号示意取 $Q>0,\ \varepsilon_r>1$};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$a<r<b$：$D_r=Q/(4\pi r^2)$\\$E_r=D_r/(\varepsilon_0\varepsilon_r)$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\mathbf n_a=-\mathbf e_r,\quad\mathbf n_b=\mathbf e_r$\\$q_{b,a}=-Q\alpha,\ q_{b,b}=Q\alpha$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {$\displaystyle\alpha=1-1/\varepsilon_r$\\介质体内 $\rho_b=0$};
+\end{tikzpicture}\end{document}

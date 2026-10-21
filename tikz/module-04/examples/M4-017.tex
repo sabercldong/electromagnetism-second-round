@@ -1,0 +1,51 @@
+% 图契约：二极管串联限流；沿用可恢复原图的真实变量及结构，图号由正文图注统一给定。\n% 图契约：保留原稿的物理与电路拓扑，启用中文字体及中文断行，逐图检查标注。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,decorations.pathmorphing,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\definecolor{softpurple}{RGB}{245,240,255}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  wire/.style={draw=linegray,line width=1.05pt},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange},
+  purplebox/.style={box,draw=purplefield,fill=softpurple}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {作业三：串联二极管先假设状态再检查电流符号};
+\begin{scope}[shift={(-5.4,-.25)}]
+  \draw[axis] (-2.8,0)--(2.8,0) node[right] {$U_D$}; \draw[axis] (0,-2.2)--(0,2.45) node[above] {$I_D$};
+  \draw[redfield,line width=1.3pt] (-2.4,-.15)--(0,-.15) .. controls (1.0,-.1) and (1.2,.25) .. (1.55,2.15);
+  \draw[bluefield,line width=1.1pt] (1.0,-2)--(1.0,2.1); \node[bluefield,below] at (1.0,-2.05) {$U_F$};
+  \node[text=linegray] at (-1.35,1.25) {反向截止}; \node[text=linegray] at (1.75,1.45) {正向导通};
+  \end{scope}
+
+\begin{scope}[shift={(4.55,-.15)}]
+  \node[bluebox,text width=7.0cm,minimum height=2.15cm] at (0,1.25) {$5.00\,\mathrm V,\ R=1.00\,\mathrm{k}\Omega$};
+  \node[greenbox,text width=7.0cm,minimum height=2.15cm] at (0,-1.55) {正接：扣除 $0.700\,\mathrm V$\\反接且未击穿：$I\simeq0$};
+\end{scope}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,37 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M2-003\quad 不同路径具有相同的端点功};
+\begin{scope}[shift={(-4,0)}]
+\coordinate(A) at (-2,-1.2);\coordinate(B) at (1.8,1.1);
+\draw[vec,green] (A)..controls(-2,2) and(.6,2.2)..(B);
+\draw[vec,orange] (A)..controls(.3,-2.2) and(2.3,-1)..(B);
+\draw[guide] (A)--(B);
+\fill[ink] (-2,-1.2) circle(2.3pt) node[below=3pt] {$A$};
+\fill[ink] (1.8,1.1) circle(2.3pt) node[right=3pt] {$B$};
+\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$\displaystyle\varphi_B-\varphi_A=-\int_A^B\mathbf E\cdot d\mathbf l$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$W_{A\to B}=q_0(\varphi_A-\varphi_B)$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {绿色、橙色路径的功相同；\\符号还由 $q_0$ 与电势差共同决定。};
+\end{tikzpicture}\end{document}

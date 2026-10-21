@@ -1,0 +1,49 @@
+% 对应题号 M2-148，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {接地平面半球凸起：平面反射与球面反演组成四电荷构造};
+\begin{scope}[shift={(-4.8,-.15)}]
+\draw[linegray,line width=1.2pt] (-3,0)--(3,0); \draw[linegray,line width=1.3pt] (-1.4,0) arc[start angle=180,end angle=0,radius=1.4];
+\fill[redfield] (0,2.7) circle(.11) node[right] {$Q$}; \fill[bluefield] (0,-2.7) circle(.1) node[right] {$-Q$};
+\fill[bluefield](0,.73)circle(.1);\draw[bluefield](-1.6,1.1)--(-.1,.73);\node[bluefield,above left]at(-1.6,1.1){$-QR/d$}; \fill[redfield] (0,-.73) circle(.1) node[right] {$+QR/d$};
+\draw[guide] (0,-3.2)--(0,3.2); \node[greenfield,fill=white,inner sep=2pt] at (0,-3.5) {平面与半球均为零势};
+\end{scope}
+\begin{scope}[shift={(4.65,-.1)}]
+\node[bluebox,text width=6.9cm] at (0,1.65) {实电荷：$(Q,d)$；平面镜像：$(-Q,-d)$。};
+\node[greenbox,text width=6.9cm] at (0,0) {球内像：$(-QR/d,R^2/d)$ 与 $(+QR/d,-R^2/d)$。};
+\node[orangebox,text width=6.4cm,align=center] at (0,-1.7) {每一对关于平面异号对称；\\每一外部电荷与其反演像又使整球面为零势。};
+\end{scope}
+\end{tikzpicture}
+\end{document}

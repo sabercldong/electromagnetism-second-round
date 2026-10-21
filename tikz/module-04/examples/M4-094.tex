@@ -1,0 +1,60 @@
+% 图契约：半无限圆柱网格：端面、节点与周期连接；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {M4-094\quad 半无限圆柱网格：端面、节点与周期连接};
+\begin{scope}[shift={(-4.4,.25)}]\draw[ink!55](-2.4,0)ellipse(.35 and 1.6);\draw[ink!55](-1.2,0)ellipse(.35 and 1.6);\draw[ink!55](0,0)ellipse(.35 and 1.6);\draw[ink!55](1.2,0)ellipse(.35 and 1.6);\draw[ink!55](2.4,0)ellipse(.35 and 1.6);\draw[wire](-2.4,-1.6)--(2.4,-1.6);\draw[wire](-2.4,1.6)--(2.4,1.6);\fill[green] (-2.4,1.6)circle(2pt);\node[above=4pt] at(-2.4,1.6){$A$};
+\fill[red](0,-1.6)circle(2pt);\node[below=4pt]at(0,-1.6){$B$};
+\draw[guide](2.4,1.6)--(3,1.6)(2.4,-1.6)--(3,-1.6);\node[note]at(0,-2.6){A在自由端面；B在第n层的真实交点};\end{scope}\begin{scope}[shift={(4.3,.25)}]\draw[wire](-2.3,-1.6)--(-2.3,1.6);\draw[wire](-1.15,-1.6)--(-1.15,1.6);\draw[wire](0,-1.6)--(0,1.6);\draw[wire](1.15,-1.6)--(1.15,1.6);\draw[wire](2.3,-1.6)--(2.3,1.6);\draw[wire](-2.3,-1.6)--(2.3,-1.6);\draw[guide](2.3,-1.6)--(2.9,-1.6);\fill[ink] (-2.3,-1.6)circle(2pt);
+\fill[ink] (-1.15,-1.6)circle(2pt);
+\fill[ink] (0,-1.6)circle(2pt);
+\fill[ink] (1.15,-1.6)circle(2pt);
+\fill[ink] (2.3,-1.6)circle(2pt);
+\draw[wire](-2.3,-0.8)--(2.3,-0.8);\draw[guide](2.3,-0.8)--(2.9,-0.8);\fill[ink] (-2.3,-0.8)circle(2pt);
+\fill[ink] (-1.15,-0.8)circle(2pt);
+\fill[ink] (0,-0.8)circle(2pt);
+\fill[ink] (1.15,-0.8)circle(2pt);
+\fill[ink] (2.3,-0.8)circle(2pt);
+\draw[wire](-2.3,0)--(2.3,0);\draw[guide](2.3,0)--(2.9,0);\fill[ink] (-2.3,0)circle(2pt);
+\fill[ink] (-1.15,0)circle(2pt);
+\fill[ink] (0,0)circle(2pt);
+\fill[ink] (1.15,0)circle(2pt);
+\fill[ink] (2.3,0)circle(2pt);
+\draw[wire](-2.3,0.8)--(2.3,0.8);\draw[guide](2.3,0.8)--(2.9,0.8);\fill[ink] (-2.3,0.8)circle(2pt);
+\fill[ink] (-1.15,0.8)circle(2pt);
+\fill[ink] (0,0.8)circle(2pt);
+\fill[ink] (1.15,0.8)circle(2pt);
+\fill[ink] (2.3,0.8)circle(2pt);
+\draw[wire](-2.3,1.6)--(2.3,1.6);\draw[guide](2.3,1.6)--(2.9,1.6);\fill[ink] (-2.3,1.6)circle(2pt);
+\fill[ink] (-1.15,1.6)circle(2pt);
+\fill[ink] (0,1.6)circle(2pt);
+\fill[ink] (1.15,1.6)circle(2pt);
+\fill[ink] (2.3,1.6)circle(2pt);
+\fill[green] (-2.3,1.6)circle(2pt);\node[above left=4pt] at(-2.3,1.6){$A$};
+\fill[red] (0,0)circle(2pt);\node[below right=4pt] at(0,0){$B$};
+\draw[<->,purple](2.8,-1.6)--(2.8,1.6);\node[label]at(1.1,2.25){上下边逐点识别：$p+m\equiv p$};\draw[<->,orange](-2.3,-2.1)--(0,-2.1)node[midway,below]{轴向相隔n层};\node[note]at(0,-3){每个黑点为节点；每条网格边均为r};\end{scope}
+\end{tikzpicture}\end{document}

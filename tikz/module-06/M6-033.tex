@@ -1,0 +1,59 @@
+% 核心结论：无损LC的能量交换
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-033　无损LC的能量交换};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-2.60000,1.50000) -- (-2.60000,0.40000);
+\draw[ink,thick] (-2.60000,-0.40000) -- (-2.60000,-1.50000);
+
+
+
+\draw[ink,thick] (-2.60000,1.50000) -- (-0.52000,1.50000);
+\draw[ink,thick] (0.32000,1.50000) -- (2.40000,1.50000);
+\begin{scope}[shift={(-0.10000,1.50000)},rotate=0.0]
+\draw[ink,thick] plot[domain=-0.42:0.42,samples=70] (\x,{.20*abs(sin(720*(\x+0.42)/0.84))});
+\end{scope}
+\node[lab] at (-0.10000,1.92000) {$L$};
+\draw[ink,thick] (2.40000,1.50000) -- (2.40000,0.42000);
+\draw[ink,thick] (2.40000,-0.42000) -- (2.40000,-1.50000);
+\begin{scope}[shift={(2.40000,0.00000)},rotate=-90.0]
+\draw[ink,thick] (-0.09000,-0.30000) -- (-0.09000,0.30000);
+\draw[ink,thick] (0.09000,-0.30000) -- (0.09000,0.30000);
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.09000,0.00000);
+\draw[ink,thick] (0.09000,0.00000) -- (0.42000,0.00000);
+\end{scope}
+\node[lab,anchor=east] at (1.98000,0.00000) {$C$};
+\draw[ink,thick] (2.40000,-1.50000) -- (-2.60000,-1.50000);
+\draw[v,blue] (-0.20000,-1.50000) -- (-1.10000,-1.50000);
+\node[lab,text=blue,anchor=center] at (-0.65000,-1.82000) {$i$};
+\node[] at (0.00000,-2.40000) {闭合串联回路；元件采用被动符号约定。};
+\draw[ink,thick](-2.6,0.4)--(-2.6,-0.4);
+\node[] at(2.95,0.4){$+q$};
+\node[] at(2.95,-0.4){$-q$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$q=q_0\cos\omega_0t$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$W_C+W_L=q_0^2/(2C)$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {无电阻的闭合LC回路中，电容能和磁场能互相转化；电流沿q增加方向取正。};
+
+\end{tikzpicture}\end{document}

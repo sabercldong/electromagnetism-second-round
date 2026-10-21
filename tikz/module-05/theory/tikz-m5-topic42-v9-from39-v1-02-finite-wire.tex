@@ -1,0 +1,69 @@
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage[fontset=none]{ctex}
+\usepackage{amsmath,amssymb,bm}
+\usetikzlibrary{arrows.meta,calc,positioning,angles,quotes}
+
+\definecolor{ink}{HTML}{263238}
+\definecolor{muted}{HTML}{6B7780}
+\definecolor{blue}{HTML}{245BFF}
+\definecolor{green}{HTML}{087F5B}
+\definecolor{orange}{HTML}{E67700}
+\definecolor{red}{HTML}{E03131}
+\definecolor{purple}{HTML}{7048E8}
+\definecolor{paleBlue}{HTML}{EDF3FF}
+\definecolor{paleGreen}{HTML}{EAF8F3}
+\definecolor{paleOrange}{HTML}{FFF4E6}
+\definecolor{palePurple}{HTML}{F3F0FF}
+
+\tikzset{
+  title/.style={font=\fontsize{18}{22}\selectfont\bfseries,text=ink,align=center},
+  subtitle/.style={font=\fontsize{12.5}{16}\selectfont\bfseries,text=ink,align=center},
+  body/.style={font=\fontsize{10.5}{14}\selectfont,text=ink,align=center},
+  small/.style={font=\fontsize{8.8}{11.5}\selectfont,text=ink,align=center},
+  box/.style={draw=muted,line width=.8pt,rounded corners=2pt,inner sep=6pt,body},
+  vec/.style={-{Latex[length=3.2mm,width=2.3mm]},line width=1.35pt},
+  patharrow/.style={-{Latex[length=2.8mm,width=2mm]},line width=1.25pt},
+  nodept/.style={circle,fill=ink,minimum size=5pt,inner sep=0pt}
+}
+
+\usepackage{fontspec,xeCJK}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\usetikzlibrary{bending}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \path[use as bounding box] (0,0) rectangle (16,8); \fill[white] (0,0) rectangle (16,8);
+  \node[title] at (8,7.45) {有限长直导线：端点张角决定磁场大小};
+  \draw[muted,line width=.8pt] (8,1.0)--(8,6.75);
+  \node[subtitle,blue] at (4,6.35) {场点到导线的垂足位于两端之间};
+  \coordinate (A) at (2.6,5.65); \coordinate (B) at (2.6,2.45);
+  \coordinate (O) at (2.6,3.85); \coordinate (P) at (6.55,3.85);
+  \draw[red,line width=2.0pt] (B)--(A);
+  \draw[red,vec] (2.6,2.85)--(2.6,4.45); \node[small,red,left] at (2.45,3.55) {$I$};
+  \fill[ink] (A) circle (.07); \fill[ink] (B) circle (.07); \fill[ink] (O) circle (.07); \fill[ink] (P) circle (.09);
+  \node[small,left] at (A) {上端}; \node[small,left] at (B) {下端}; \node[small,below left] at (O) {$O$}; \node[small,right] at (P) {$P$};
+  \draw[blue,line width=1.25pt] (P)--(A); \draw[blue,line width=1.25pt] (P)--(B);
+  \draw[green,<->,line width=1.1pt] (O)--(P); \node[small,green,above] at (4.55,3.88) {$a$};
+  \draw[muted,dashed,line width=.9pt] (P)--(O);
+  \draw[orange,line width=1.2pt] ($(P)+(-1.0,0)$) arc[start angle=180,end angle=153,radius=1.0];
+  \draw[orange,line width=1.2pt] ($(P)+(-1.15,0)$) arc[start angle=180,end angle=206,radius=1.15];
+  \node[small,orange] at (5.55,4.25) {$\alpha_+$}; \node[small,orange] at (5.45,3.42) {$\alpha_-$};
+  \draw[purple,line width=1.35pt] (6.74,4.74)--(7.06,5.06);
+  \draw[purple,line width=1.35pt] (6.74,5.06)--(7.06,4.74); \draw[purple] (6.9,4.9) circle (.22);
+  \node[small,purple,left] at (6.6,4.9) {$\bm B$};
+  \node[box,fill=paleBlue,text width=5.6cm] at (4,1.25)
+    {图示电流向上且 $P$ 在导线右侧，磁场垂直纸面向内；反转电流时方向反向};
+
+  \node[subtitle,green] at (12,6.35) {先写有符号端点式，再代入特殊极限};
+  \node[box,fill=paleGreen,text width=5.8cm] at (12,5.0)
+    {$\displaystyle B=\frac{\mu_0I}{4\pi a}
+      \left[\frac{z}{\sqrt{a^2+z^2}}\right]_{z_-}^{z_+}$};
+  \node[box,fill=paleBlue,text width=5.8cm] at (12,3.45)
+    {垂足在两端之间时\\[3pt]
+     $\displaystyle B=\frac{\mu_0I}{4\pi a}
+      (\sin\alpha_++\sin\alpha_-)$};
+  \node[box,fill=paleOrange,text width=5.8cm] at (12,1.55)
+    {半无限长：$B=\mu_0I/(4\pi a)$\qquad
+     无限长：$B=\mu_0I/(2\pi a)$};
+\end{tikzpicture}
+\end{document}

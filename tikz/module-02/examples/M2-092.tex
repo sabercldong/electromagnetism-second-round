@@ -1,0 +1,48 @@
+% 对应题号 M2-092，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {均匀带电平板层：线性边界势与体电荷抛物项共同决定零场点};
+\begin{scope}[shift={(-4.8,-.2)}]
+\fill[softblue] (0,-2.2) rectangle (4.5,2.2); \draw[linegray,line width=1.1pt] (0,-2.2)--(0,2.2) node[above] {$0$}; \draw[linegray,line width=1.1pt] (4.5,-2.2)--(4.5,2.2) node[above] {$V_0$};
+\foreach \x in {.5,1.2,...,4.1}{\node[redfield] at (\x,0) {$+$};}
+\draw[axis] (-.3,-2.7)--(4.9,-2.7) node[right] {$x$}; \fill[greenfield] (2.8,-2.7) circle(.08) node[below] {$x_*$};
+\end{scope}
+\begin{scope}[shift={(4.7,-.1)}]
+\node[bluebox,text width=6.8cm] at (0,1.65) {$\displaystyle \varphi=\frac{V_0x}{L}+\frac{\rho_0}{2\varepsilon_0}x(L-x)$};
+\node[greenbox,text width=6.8cm] at (0,0) {$\displaystyle E_x=\frac{\rho_0}{\varepsilon_0}\left(x-\frac L2\right)-\frac{V_0}{L}$};
+\node[orangebox,text width=6.8cm] at (0,-1.7) {$\displaystyle x_*=\frac L2+\frac{\varepsilon_0V_0}{\rho_0L}$；仅当 $0<x_*<L$ 时零场点位于层内。};
+\end{scope}
+\end{tikzpicture}
+\end{document}

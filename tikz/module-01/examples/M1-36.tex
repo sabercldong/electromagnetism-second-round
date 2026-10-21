@@ -1,0 +1,51 @@
+% 对应题号 M1-36，复用已核对的本题几何图。
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {球对称稳恒流：每个球面通过相同总流率};
+\begin{scope}[shift={(-4.7,-.2)}]
+\foreach \r in {1.1,2.15}{\draw[linegray!65] (0,0) circle(\r);}
+\foreach \a in {0,30,...,330}{\draw[arrow,bluefield] ({.45*cos(\a)},{.45*sin(\a)})--({2.4*cos(\a)},{2.4*sin(\a)});}
+\node[redfield,font=\small,fill=white,inner sep=1pt] at (0,0) {$Q$};
+\node[greenfield] at (0,2.85) {$4\pi r^2J(r)=Q$};
+\end{scope}
+\begin{scope}[shift={(4.6,-.15)}]
+\node[bluebox,text width=6.6cm] at (0,1.65) {$\displaystyle J(r)=\frac{Q}{4\pi r^2}$，$r>0$};
+\node[greenbox,text width=6.6cm] at (0,0) {$\nabla\cdot\mathbf j=0$ 只在原点外成立};
+\node[orangebox,text width=6.6cm] at (0,-1.7) {$\displaystyle \nabla\cdot\mathbf j=Q\,\delta^{(3)}(\mathbf r)$\\分布项恢复穿过任意包围球面的总流率。};
+\end{scope}
+\node[font=\small,text width=18cm,align=center] at (0,-4.1) {箭头示意 $Q>0$；$Q<0$ 时径向箭头反转。};
+\end{tikzpicture}
+\end{document}

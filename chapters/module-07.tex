@@ -1,0 +1,8746 @@
+% 来自2026-10-21统一复核稿；题号、图号和解答保留。
+\clearpage
+\begingroup
+\fancyhead[R]{\small 模块七：麦克斯韦方程组与电磁波}
+\clubpenalty=10000\widowpenalty=10000\displaywidowpenalty=10000
+\chapter{模块七：麦克斯韦方程组与电磁波}\label{m7:ux6a21ux5757ux4e03ux9ea6ux514bux65afux97e6ux65b9ux7a0bux7ec4ux4e0eux7535ux78c1ux6ce2}
+
+本模块用麦克斯韦方程组讨论能量流、位移电流、平面波和界面条件。系统尺寸大到必须计及传播时间时，还要使用传输线和辐射模型；洛伦兹变换列为选讲。
+
+LC
+振荡和赫兹实验说明振荡源怎样产生电磁波，无线电收发部分再讨论调谐与选频。相对论、传输线和迟滞辐射放在选讲内容中。
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+层级
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+内容
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+阅读定位
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+基础必讲 & 坡印廷定理、麦克斯韦方程组、位移电流、平面电磁波、LC
+振荡、调谐、无线电发射与接收、界面反射折射 &
+时变场的局域守恒、传播和接收 \\
+拔高选讲与决赛拓展 &
+洛伦兹变换、导体中的传播、传输线、迟滞、辐射、集总参数失效与位移电流检验
+& 处理传播时延、耗散、阻抗匹配和开放空间问题 \\
+\end{longtable}
+}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H00.pdf}}
+\par\smallskip{\small 图 M7-H00：模块七由麦克斯韦方程连接能流、传播和辐射尺度}
+\end{center}
+\end{minipage}\par
+
+\section{专题六十一：电磁场能量、坡印廷定理与电路功率（基础必讲）}\label{m7:ux4e13ux9898ux516dux5341ux4e00ux7535ux78c1ux573aux80fdux91cfux5761ux5370ux5ef7ux5b9aux7406ux4e0eux7535ux8defux529fux7387ux57faux7840ux5fc5ux8bb2}
+
+电动力学中的能量守恒是局域关系：场能的变化、流经边界的电磁能以及场对物质所做的功满足逐点、逐体积的平衡。集中参数电路中的
+
+\[
+P=VI,\qquad
+P_R=I^2R,\qquad
+U_C=\frac12CV^2,\qquad
+U_L=\frac12LI^2
+\]
+
+正是这条场能守恒定律在低频、小尺寸极限下的端口表达。
+
+\subsection{适用范围}\label{m7:ux9002ux7528ux8303ux56f4}
+
+以下结论分为三个层次：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{真空中的微观表达式}
+
+  \[
+  u=\frac12\varepsilon_0E^2+\frac{B^2}{2\mu_0},
+  \qquad
+  \mathbf S=\frac1{\mu_0}\mathbf E\times\mathbf B
+  \]
+
+  可直接使用。
+\item
+  \textbf{线性、各向同性、无色散、无耗散且参数不随时间变化的介质}
+
+  \[
+  u=\frac12\mathbf E\cdot\mathbf D
+  +\frac12\mathbf B\cdot\mathbf H,
+  \qquad
+  \mathbf S=\mathbf E\times\mathbf H.
+  \]
+\item
+  \textbf{显著色散、磁滞、非线性或耗散介质}
+
+  麦克斯韦方程和坡印廷恒等式仍然成立，但
+
+  \[
+  \mathbf E\cdot\frac{\partial\mathbf D}{\partial t},
+  \qquad
+  \mathbf H\cdot\frac{\partial\mathbf B}{\partial t}
+  \]
+
+  未必能简单写成某个瞬时可恢复场能密度的时间导数。此时必须结合具体本构关系区分可恢复储能、材料内能和耗散。
+\end{enumerate}
+
+\subsection{一、电场能量}\label{m7:ux4e00ux7535ux573aux80fdux91cf}
+
+\subsubsection{1.
+从组装电荷出发}\label{m7:ux4eceux7ec4ux88c5ux7535ux8377ux51faux53d1}
+
+把电荷从无穷远缓慢搬运到既定分布。由于每一对电荷的相互作用在组装过程中会被计数两次，静电能为
+
+\[
+\boxed{U_E
+=\frac12\int_V\rho\varphi\,dV}.
+\]
+
+在真空中，
+
+\[
+\rho=\varepsilon_0\nabla\cdot\mathbf E,
+\qquad
+\mathbf E=-\nabla\varphi.
+\]
+
+于是
+
+\[
+U_E
+=\frac{\varepsilon_0}{2}
+\int_V\varphi\,\nabla\cdot\mathbf E\,dV.
+\]
+
+使用恒等式
+
+\[
+\nabla\cdot(\varphi\mathbf E)
+=\varphi\nabla\cdot\mathbf E
++\mathbf E\cdot\nabla\varphi
+\]
+
+以及 \(\nabla\varphi=-\mathbf E\)，得到
+
+\[
+\varphi\nabla\cdot\mathbf E
+=\nabla\cdot(\varphi\mathbf E)+E^2.
+\]
+
+因此对有限体积 \(V\)，
+
+\[
+\boxed{
+U_E
+=\frac{\varepsilon_0}{2}
+\oint_{\partial V}\varphi\mathbf E\cdot\mathbf n\,da
++\frac{\varepsilon_0}{2}\int_VE^2\,dV
+}.
+\]
+
+若积分区域取整个空间，并且远处的场衰减得足够快，则无穷远表面项为零：
+
+\[
+\boxed{U_E
+=\frac{\varepsilon_0}{2}\int_{\text{全空间}}E^2\,dV}.
+\]
+
+所以真空电场能量密度为
+
+\[
+\boxed{u_E=\frac12\varepsilon_0E^2}.
+\]
+
+\subsubsection{2.
+介质中的一般写法}\label{m7:ux4ecbux8d28ux4e2dux7684ux4e00ux822cux5199ux6cd5}
+
+对于局域、可逆的准静态建场过程，更一般地有
+
+\[
+\boxed{
+u_E(\mathbf D)
+=\int_{\mathbf0}^{\mathbf D}
+\mathbf E(\mathbf D')\cdot d\mathbf D'
+}.
+\]
+
+若介质线性、无色散、无耗散，\(\mathbf D=\boldsymbol\varepsilon\mathbf E\)，并且介电张量满足互易性条件，则
+
+\[
+\boxed{u_E=\frac12\mathbf E\cdot\mathbf D}.
+\]
+
+各向同性介质中进一步化为
+
+\[
+u_E=\frac12\varepsilon E^2.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H01.pdf}}
+\par\smallskip{\small 图 M7-H01：电场能量密度和磁场能量密度在空间中的分布}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{平行板电容器的场能〔M7-001〕}
+
+\textbf{层级：} 基础
+
+两平行导体板面积均为 \(A\)、间距为
+\(d\)，板间充满均匀、线性、无耗且无色散的介质，介电常数为
+\(\varepsilon\)。两板电势差为
+\(V\)。忽略边缘效应，从电场能量密度求储能，并与电容公式核对。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-001.pdf}}
+\par\smallskip{\small 图 M7-001：平行板电容器的场能}
+\end{center}
+\end{minipage}\par
+
+图 M7-001 的浅色区域是积分体积 \(Ad\)；沿板间箭头积分有
+\(V=Ed\)，场能积分因此化为均匀密度乘体积。
+
+忽略边缘效应，极板面积为 \(A\)、间距为 \(d\)，极板间填充介电常数为
+\(\varepsilon\) 的线性介质。场强
+
+\[
+E=\frac{V}{d},
+\]
+
+所以场能为
+
+\[
+U_E
+=u_EAd
+=\frac12\varepsilon\left(\frac{V}{d}\right)^2Ad.
+\]
+
+利用
+
+\[
+C=\frac{\varepsilon A}{d},
+\]
+
+得到
+
+\[
+\boxed{U_E=\frac12CV^2}.
+\]
+
+这说明电容器的能量储存在极板之间及边缘区域的电场中，而不是``储存在电荷本身内部''。
+
+\subsection{二、磁场能量}\label{m7:ux4e8cux78c1ux573aux80fdux91cf}
+
+\subsubsection{1.
+从建立电流出发}\label{m7:ux4eceux5efaux7acbux7535ux6d41ux51faux53d1}
+
+设线圈磁链为 \(\lambda\)。端电压满足
+
+\[
+v=\frac{d\lambda}{dt}.
+\]
+
+电源在时间 \(dt\) 内输入的功为
+
+\[
+dU_B=vi\,dt=i\,d\lambda.
+\]
+
+因此一般磁路的储能为
+
+\[
+\boxed{U_B=\int_0^{\lambda} i(\lambda')\,d\lambda'}.
+\]
+
+若电感为线性元件，
+
+\[
+\lambda=Li,
+\]
+
+则
+
+\[
+U_B
+=\int_0^I iL\,di,
+\]
+
+从而
+
+\[
+\boxed{U_B=\frac12LI^2}.
+\]
+
+\subsubsection{2.
+空间场的写法}\label{m7:ux7a7aux95f4ux573aux7684ux5199ux6cd5}
+
+对局域、可逆的准静态建场过程，磁场能量密度为
+
+\[
+\boxed{
+u_B(\mathbf B)
+=\int_{\mathbf0}^{\mathbf B}
+\mathbf H(\mathbf B')\cdot d\mathbf B'
+}.
+\]
+
+若介质线性、无色散、无耗散，并且磁导张量满足互易性条件，
+
+\[
+\boxed{u_B=\frac12\mathbf B\cdot\mathbf H}.
+\]
+
+真空中
+
+\[
+\boxed{u_B=\frac{B^2}{2\mu_0}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H02.pdf}}
+\par\smallskip{\small 图 M7-H02：静电能和磁场能分别来自逐步建立电荷分布与电流}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{长螺线管的磁场能〔M7-002〕}
+
+\textbf{层级：} 基础
+
+长螺线管长度 \(\ell\)、横截面积 \(A\)、总匝数 \(N\)，通稳恒电流
+\(I\)；内部均匀线性介质的磁导率为
+\(\mu\)，忽略漏磁和端部效应。从磁场能量密度求总储能，并导出其自感
+\(L\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-002.pdf}}
+\par\smallskip{\small 图 M7-002：长螺线管的磁场能}
+\end{center}
+\end{minipage}\par
+
+图 M7-002 的轴向磁场主要位于横截面 \(A\)、长度 \(\ell\)
+的内部；积分区域取 \(A\ell\)，而安培环路给出 \(B=\mu NI/\ell\)。
+
+长为 \(\ell\)、横截面积为 \(A\)、总匝数为 \(N\) 的长螺线管中，
+
+\[
+B=\mu\frac{N}{\ell}I.
+\]
+
+磁场主要集中在体积 \(A\ell\) 内，因此
+
+\[
+U_B
+=\frac{B^2}{2\mu}A\ell
+=\frac12
+\left(\frac{\mu N^2A}{\ell}\right)I^2.
+\]
+
+由
+
+\[
+L=\frac{\mu N^2A}{\ell},
+\]
+
+得到
+
+\[
+\boxed{U_B=\frac12LI^2}.
+\]
+
+场的积分与电路的电感公式给出完全相同的结果。
+
+\subsubsection{3.
+非线性磁介质的提醒}\label{m7:ux975eux7ebfux6027ux78c1ux4ecbux8d28ux7684ux63d0ux9192}
+
+在非线性、无磁滞的介质中，场能密度
+
+\[
+u_B=\int_0^B H(B')\,dB'
+\]
+
+和磁共能密度
+
+\[
+u_B'=\int_0^H B(H')\,dH'
+\]
+
+一般不相等；只有在线性介质中二者都等于
+
+\[
+\frac12BH.
+\]
+
+若存在磁滞，闭合磁化回线所围面积对应每周期单位体积耗散，不能再把全部输入功都理解为可恢复磁场能。
+
+\subsection{三、坡印廷定理的局域形式}\label{m7:ux4e09ux5761ux5370ux5ef7ux5b9aux7406ux7684ux5c40ux57dfux5f62ux5f0f}
+
+\subsubsection{1.
+从两条旋度方程推导}\label{m7:ux4eceux4e24ux6761ux65cbux5ea6ux65b9ux7a0bux63a8ux5bfc}
+
+在线性、无色散、无耗散且本构参数不随时间变化的互易介质中，从
+
+\[
+\nabla\times\mathbf E
+=-\frac{\partial\mathbf B}{\partial t}
+\]
+
+和
+
+\[
+\nabla\times\mathbf H
+=\mathbf J_f+\frac{\partial\mathbf D}{\partial t}
+\]
+
+出发。使用恒等式
+
+\[
+\nabla\cdot(\mathbf E\times\mathbf H)
+=\mathbf H\cdot(\nabla\times\mathbf E)
+-\mathbf E\cdot(\nabla\times\mathbf H).
+\]
+
+代入麦克斯韦方程：
+
+\[
+\nabla\cdot(\mathbf E\times\mathbf H)
+=-\mathbf H\cdot\frac{\partial\mathbf B}{\partial t}
+-\mathbf J_f\cdot\mathbf E
+-\mathbf E\cdot\frac{\partial\mathbf D}{\partial t}.
+\]
+
+在上述条件下，
+
+\[
+\mathbf E\cdot\frac{\partial\mathbf D}{\partial t}
+=\frac{\partial}{\partial t}
+\left(\frac12\mathbf E\cdot\mathbf D\right),
+\]
+
+\[
+\mathbf H\cdot\frac{\partial\mathbf B}{\partial t}
+=\frac{\partial}{\partial t}
+\left(\frac12\mathbf B\cdot\mathbf H\right).
+\]
+
+定义总场能量密度
+
+\[
+\boxed{
+u=\frac12\mathbf E\cdot\mathbf D
++\frac12\mathbf B\cdot\mathbf H
+}
+\]
+
+和坡印廷矢量
+
+\[
+\boxed{\mathbf S=\mathbf E\times\mathbf H}.
+\]
+
+于是得到局域坡印廷定理：
+
+\[
+\boxed{
+\frac{\partial u}{\partial t}
++\nabla\cdot\mathbf S
+=-\mathbf J_f\cdot\mathbf E
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H03.pdf}}
+\par\smallskip{\small 图 M7-H03：从两条旋度方程到坡印廷定理局域形式的推导链}
+\end{center}
+\end{minipage}\par
+
+\subsubsection{2.
+三项的物理意义和量纲}\label{m7:ux4e09ux9879ux7684ux7269ux7406ux610fux4e49ux548cux91cfux7eb2}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\partial u/\partial t\)：单位体积内场能的增加率，单位为
+  \(\mathrm{W/m^3}\)；
+\item
+  \(\nabla\cdot\mathbf S\)：单位体积的净向外能流，单位为
+  \(\mathrm{W/m^3}\)；
+\item
+  \(\mathbf J_f\cdot\mathbf E\)：场对自由电流做功的功率密度，单位为
+  \(\mathrm{W/m^3}\)；
+\item
+  \(\mathbf S\)：单位面积、单位时间通过的电磁能，单位为
+  \(\mathrm{W/m^2}\)。
+\end{itemize}
+
+若
+
+\[
+\mathbf J_f\cdot\mathbf E>0,
+\]
+
+场向物质交付能量，可能转化为热能、机械能或化学能。若
+
+\[
+\mathbf J_f\cdot\mathbf E<0,
+\]
+
+则有源物质向电磁场提供能量，例如电池或发电机内部的非静电作用维持电流。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{欧姆导体的局域耗散〔M7-003〕}
+
+\textbf{层级：} 基础
+
+均匀各向同性欧姆导体的电导率为 \(\sigma>0\)，某处电场为
+\(\mathbf E\)，传导电流密度为
+\(\mathbf J=\sigma\mathbf E\)。求电磁场每单位时间、每单位体积对物质做的功，用
+\(E\) 和 \(J\) 分别表示，并解释其正负号。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-003.pdf}}
+\par\smallskip{\small 图 M7-003：欧姆导体的局域耗散}
+\end{center}
+\end{minipage}\par
+
+图 M7-003 中 \(\mathbf J\) 与 \(\mathbf E\)
+同向，夹角为零；两者点积为正，表示场能转化为导体内能。
+
+若
+
+\[
+\mathbf J=\sigma\mathbf E,
+\]
+
+则
+
+\[
+\boxed{\mathbf J\cdot\mathbf E
+=\sigma E^2
+=\frac{J^2}{\sigma}\ge0}.
+\]
+
+它就是局域焦耳热功率密度。 只有非零电场处才严格大于零。
+
+\subsection{四、积分形式与能流正负号}\label{m7:ux56dbux79efux5206ux5f62ux5f0fux4e0eux80fdux6d41ux6b63ux8d1fux53f7}
+
+对固定控制体积 \(V\) 积分，并使用散度定理：
+
+\[
+\frac{d}{dt}\int_Vu\,dV
++\oint_{\partial V}\mathbf S\cdot\mathbf n\,da
+=-\int_V\mathbf J_f\cdot\mathbf E\,dV.
+\]
+
+定义
+
+\[
+U_{\mathrm{\text{场}}}=\int_Vu\,dV,
+\]
+
+\[
+P_{\mathrm{\text{物}}}
+=\int_V\mathbf J_f\cdot\mathbf E\,dV.
+\]
+
+则
+
+\[
+\boxed{
+\frac{dU_{\mathrm{\text{场}}}}{dt}
++\oint_{\partial V}\mathbf S\cdot\mathbf n\,da
+=-P_{\mathrm{\text{物}}}
+}.
+\]
+
+由于 \(\mathbf n\) 是外法向，
+
+\[
+\oint_{\partial V}\mathbf S\cdot\mathbf n\,da
+\]
+
+表示净流出功率。若希望直接写净流入功率，应在面积分前加负号：
+
+\[
+\boxed{
+-\oint_{\partial V}\mathbf S\cdot\mathbf n\,da
+=\frac{dU_{\mathrm{\text{场}}}}{dt}
++P_{\mathrm{\text{物}}}
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H04.pdf}}
+\par\smallskip{\small 图 M7-H04：坡印廷定理在有限控制体积中的积分形式与符号约定}
+\end{center}
+\end{minipage}\par
+
+这条式子可以读成：
+
+\[
+\boxed{
+\text{流入的电磁功率}
+=\text{场能增加率}
++\text{物质吸收功率}
+}.
+\]
+
+三个常见极限分别是：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{稳恒电阻：}
+
+  \[
+  \frac{dU_{\mathrm{\text{场}}}}{dt}=0,
+  \]
+
+  所有净流入电磁功率都转化为热。
+\item
+  \textbf{理想电容或电感充能：}
+
+  \[
+  P_{\mathrm{\text{物}}}=0,
+  \]
+
+  所有净流入功率都转化为场能。
+\item
+  \textbf{有源装置：}
+
+  若体积内
+
+  \[
+  P_{\mathrm{\text{物}}}<0,
+  \]
+
+  则物质向外部电磁场供能。
+\end{enumerate}
+
+\subsubsection{正弦稳态的平均能流}\label{m7:ux6b63ux5f26ux7a33ux6001ux7684ux5e73ux5747ux80fdux6d41}
+
+若 \(\underline{\mathbf E},\underline{\mathbf H}\)
+采用有效值相量，则平均坡印廷矢量为
+
+\[
+\boxed{
+\langle\mathbf S\rangle
+=\operatorname{Re}
+\left(\underline{\mathbf E}
+\times\underline{\mathbf H}^{\,*}\right)
+}.
+\]
+
+若相量取峰值，则右侧需要再乘
+\(1/2\)。竞赛计算中必须先确认相量采用峰值还是有效值。
+
+\subsection{五、电阻、电容和电感中的能流}\label{m7:ux4e94ux7535ux963bux7535ux5bb9ux548cux7535ux611fux4e2dux7684ux80fdux6d41}
+
+\subsubsection{1.
+电阻：流入功率转化为热}\label{m7:ux7535ux963bux6d41ux5165ux529fux7387ux8f6cux5316ux4e3aux70ed}
+
+在直流稳恒状态下，电阻内部有沿电流方向的电场，周围有电流产生的环绕磁场。因此
+
+\[
+\mathbf S=\mathbf E\times\mathbf H
+\]
+
+从电阻的侧表面指向内部。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H05.pdf}}
+\par\smallskip{\small 图 M7-H05：稳恒电阻周围的电场、磁场和向内坡印廷矢量}
+\end{center}
+\end{minipage}\par
+
+取包围电阻的控制体积，稳恒时场能不持续积累：
+
+\[
+\frac{dU_{\mathrm{\text{场}}}}{dt}=0.
+\]
+
+于是
+
+\[
+-\oint_{\partial V}\mathbf S\cdot\mathbf n\,da
+=\int_V\mathbf J\cdot\mathbf E\,dV.
+\]
+
+对一个二端电阻，这正是
+
+\[
+\boxed{
+-\oint_{\partial V}\mathbf S\cdot\mathbf n\,da
+=VI
+=I^2R
+}.
+\]
+
+电阻发热并不要求能量先由电子从电源处缓慢搬运到负载。电子漂移速度可以很小，而电磁场的重新建立和信号传播由麦克斯韦方程决定，速度接近相应介质中的波速。
+
+\subsubsection{2.
+电容：流入功率增加电场能}\label{m7:ux7535ux5bb9ux6d41ux5165ux529fux7387ux589eux52a0ux7535ux573aux80fd}
+
+理想电容器充电时，
+
+\[
+I=C\frac{dV}{dt}.
+\]
+
+端口输入功率为
+
+\[
+P_C=VI
+=CV\frac{dV}{dt}.
+\]
+
+因此
+
+\[
+\boxed{
+P_C
+=\frac{d}{dt}
+\left(\frac12CV^2\right)
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H06.pdf}}
+\par\smallskip{\small 图 M7-H06：电容充电时能量从极板边缘流入极板间电场区域}
+\end{center}
+\end{minipage}\par
+
+充电电流和位移电流产生环绕磁场，它与极板间电场共同形成指向极板间隙的坡印廷矢量。能量并非沿着极板法向由一块极板``穿过''到另一块极板，而是从边缘区域流入储能空间。
+
+\subsubsection{3.
+电感：流入功率增加磁场能}\label{m7:ux7535ux611fux6d41ux5165ux529fux7387ux589eux52a0ux78c1ux573aux80fd}
+
+理想线性电感满足
+
+\[
+V=L\frac{dI}{dt}.
+\]
+
+端口输入功率为
+
+\[
+P_L=VI
+=LI\frac{dI}{dt}.
+\]
+
+所以
+
+\[
+\boxed{
+P_L
+=\frac{d}{dt}
+\left(\frac12LI^2\right)
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H07.pdf}}
+\par\smallskip{\small 图 M7-H07：电感电流增加时感生电场、磁场与向内能流的方向}
+\end{center}
+\end{minipage}\par
+
+从长螺线管横截面看，若磁场向纸外增强，法拉第定律给出的感生电场沿顺时针方向，因而
+
+\[
+\mathbf S=\mathbf E\times\mathbf H
+\]
+
+径向指向线圈内部。断电时能流方向反转，磁场储能经端口返回电路，或在电阻、电弧和辐射中耗散。
+
+\subsubsection{4.
+端口功率与坡印廷定理}\label{m7:ux7aefux53e3ux529fux7387ux4e0eux5761ux5370ux5ef7ux5b9aux7406}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H08.pdf}}
+\par\smallskip{\small 图 M7-H08：电阻、电容和电感的端口功率公式与坡印廷定理的对应}
+\end{center}
+\end{minipage}\par
+
+集中参数模型成立需要：
+
+\begin{itemize}
+\tightlist
+\item
+  器件尺寸远小于相关波长；
+\item
+  传播时延相对研究时间尺度可以忽略；
+\item
+  电压可用两端之间近似唯一的电势差表示；
+\item
+  电流可用穿过端口截面的总电流表示。
+\end{itemize}
+
+一旦器件长度与波长可比，电压和电流会随位置改变，必须使用传输线或完整场论。
+
+\subsection{六、同轴电缆中的定量场---路连接}\label{m7:ux516dux540cux8f74ux7535ux7f06ux4e2dux7684ux5b9aux91cfux573aux8defux8fdeux63a5}
+
+设同轴电缆内导体半径为 \(a\)，外导体内半径为 \(b\)。内导体电势比外导体高
+\(V\)，内导体电流沿 \(+z\) 方向，外导体承担反向回流。
+
+在两导体之间的线性介质中，由高斯定律和安培环路定理：
+
+\[
+\boxed{
+\mathbf E
+=\frac{V}{r\ln(b/a)}\mathbf e_r
+},
+\]
+
+\[
+\boxed{
+\mathbf H
+=\frac{I}{2\pi r}\mathbf e_{\phi}
+}.
+\]
+
+因此
+
+\[
+\mathbf S
+=\mathbf E\times\mathbf H
+\]
+
+沿 \(+z\) 方向：
+
+\[
+\boxed{
+\mathbf S
+=\frac{VI}
+{2\pi r^2\ln(b/a)}
+\mathbf e_z
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H09.pdf}}
+\par\smallskip{\small 图 M7-H09：同轴电缆横截面中的径向电场、环向磁场与轴向能流}
+\end{center}
+\end{minipage}\par
+
+穿过横截面的总电磁功率为
+
+\[
+P
+=\int_a^bS_z\,2\pi r\,dr.
+\]
+
+代入 \(S_z\)：
+
+\[
+P
+=\frac{VI}{\ln(b/a)}
+\int_a^b\frac{dr}{r}.
+\]
+
+所以
+
+\[
+\boxed{P=VI}.
+\]
+
+这不是巧合，而是电路功率公式的场论来源。
+
+同轴电缆单位长度的电容和电感分别为
+
+\[
+C'
+=\frac{2\pi\varepsilon}{\ln(b/a)},
+\]
+
+\[
+L'
+=\frac{\mu}{2\pi}\ln\frac ba.
+\]
+
+单位长度储能为
+
+\[
+\boxed{
+U'
+=\frac12C'V^2
++\frac12L'I^2
+}.
+\]
+
+因此传输线既在介质中输送能量，也在沿线分布的电场和磁场中暂时储能。
+
+\subsection{七、电磁动量与辐射压}\label{m7:ux4e03ux7535ux78c1ux52a8ux91cfux4e0eux8f90ux5c04ux538b}
+
+真空中的电磁动量密度为
+
+\[
+\boxed{
+\mathbf g
+=\frac{\mathbf S}{c^2}
+=\varepsilon_0\mathbf E\times\mathbf B
+}.
+\]
+
+电磁波被物体吸收或反射时，动量通量发生改变，因此物体受到辐射压力。
+
+对真空中正入射、能流强度为 \(I\) 的光束：
+
+\[
+\boxed{p_{\mathrm{\text{吸收}}}=\frac Ic},
+\]
+
+\[
+\boxed{p_{\mathrm{\text{反射}}}=\frac{2I}{c}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H10.pdf}}
+\par\smallskip{\small 图 M7-H10：电磁波完全吸收和完全反射时的动量变化与辐射压力}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{正入射的辐射压力〔M7-004〕}
+
+\textbf{层级：} 基础
+
+真空平面电磁波以平均强度 \(I=1.0\times10^3\,\mathrm{W/m^2}\)
+垂直照射平面靶。分别把靶视为完全吸收体和完全反射体，求时间平均辐射压及方向。取
+\(c=3.0\times10^8\,\mathrm{m/s}\)，不考虑透射。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-004.pdf}}
+\par\smallskip{\small 图 M7-004：正入射的辐射压力}
+\end{center}
+\end{minipage}\par
+
+图 M7-004
+以指向靶面的法线为正。左侧光束的法向动量到靶面后消失；右侧反射光的法向动量反向，所以同样入射强度对应两倍压力。
+
+若
+
+\[
+I=1.0\times10^3\ \mathrm{W/m^2},
+\]
+
+则完全吸收面的压力约为
+
+\[
+p_{\mathrm{\text{吸收}}}
+=\frac{10^3}{3.0\times10^8}
+=3.3\times10^{-6}\ \mathrm{Pa}.
+\]
+
+完全反射面的压力约为
+
+\[
+\boxed{p_{\mathrm{\text{反射}}}
+=6.7\times10^{-6}\ \mathrm{Pa}}.
+\]
+
+斜入射、部分反射或介质界面问题应使用动量通量张量处理；不能把上面的正入射公式直接照搬。
+
+\subsection{八、使用条件与常见错误}\label{m7:ux516bux4f7fux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux9519ux8bef}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{能量密度、能流密度和功率密度不是同一个量。}
+
+  \[
+  [u]=\mathrm{J/m^3},
+  \qquad
+  [S]=\mathrm{W/m^2},
+  \qquad
+  [\mathbf J\cdot\mathbf E]=\mathrm{W/m^3}.
+  \]
+\item
+  \textbf{面积分默认使用外法向。} 净流入功率是
+
+  \[
+  -\oint\mathbf S\cdot\mathbf n\,da,
+  \]
+
+  不是正号面积分。
+\item
+  \textbf{\(\mathbf J\cdot\mathbf E>0\) 表示场向物质做功。}
+  在供能装置内部可以出现 \(\mathbf J\cdot\mathbf E<0\)。
+\item
+  \textbf{\(\tfrac12\mathbf E\cdot\mathbf D\) 和
+  \(\tfrac12\mathbf B\cdot\mathbf H\) 有适用条件。}
+  非线性、色散和磁滞介质不能不加说明地使用。
+\item
+  \textbf{有限区域的静电能推导有表面项。}
+  只有取全空间并满足远场衰减条件时，才能直接丢掉该项。
+\item
+  \textbf{电子漂移慢不等于信号传播慢。}
+  场的变化以介质中的电磁传播速度传递，但实际电路响应还受几何结构、色散和反射影响。
+\item
+  \textbf{坡印廷矢量的方向必须由叉乘判断。}
+  不能凭``电流向哪里，能量就向哪里''猜测。
+\item
+  \textbf{正弦稳态平均能流要检查相量约定。} 有效值相量与峰值相量相差一个
+  \(1/2\) 因子。
+\item
+  \textbf{场---路连接有低频、小尺寸条件。}
+  传输线、电磁波和辐射问题不能只用单一集中参数。
+\item
+  \textbf{介质中的电磁动量存在更深的划分问题。} 本专题的
+
+  \[
+  \mathbf g=\mathbf S/c^2
+  \]
+
+  只作为真空中的基本结论使用。
+\end{enumerate}
+
+\subsection{九、练习与解答}\label{m7:ux4e5dux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业一：同轴电缆中的功率传输〔M7-005〕}\label{m7:ux4f5cux4e1aux4e00ux540cux8f74ux7535ux7f06ux4e2dux7684ux529fux7387ux4f20ux8f93m7-005}
+
+\textbf{层级：} 基础　　\textbf{方法：} 能量法
+
+同轴电缆内导体半径为 \(a\)，外导体内半径为 \(b\)。内导体电势比外导体高
+\(V\)，内导体中有稳恒电流 \(I\) 沿 \(+z\) 方向，忽略导体内部场。求介质层
+\(a<r<b\) 中的坡印廷矢量，并证明穿过横截面的总功率为 \(VI\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-005.pdf}}
+\par\smallskip{\small 图 M7-005：作业一：同轴电缆中的功率传输}
+\end{center}
+\end{minipage}\par
+
+图 M7-005 中半径 \(r\) 的环形面元面积为 \(2\pi r\,dr\)；径向
+\(\mathbf E\) 与环向 \(\mathbf H\) 的叉积指向
+\(+z\)，后面的功率积分就对这个环带求和。
+
+由柱对称性，
+
+\[
+\mathbf E=E_r(r)\mathbf e_r.
+\]
+
+取半径为 \(r\)、长度为 \(\ell\) 的高斯柱面：
+
+\[
+E_r(2\pi r\ell)
+=\frac{\lambda\ell}{\varepsilon}.
+\]
+
+因此
+
+\[
+E_r=\frac{\lambda}{2\pi\varepsilon r}.
+\]
+
+两导体之间电势差为
+
+\[
+V
+=\int_a^bE_r\,dr
+=\frac{\lambda}{2\pi\varepsilon}
+\ln\frac ba.
+\]
+
+消去 \(\lambda\)：
+
+\[
+\boxed{
+\mathbf E
+=\frac{V}{r\ln(b/a)}\mathbf e_r
+}.
+\]
+
+由安培环路定理，
+
+\[
+\oint\mathbf H\cdot d\mathbf l=I,
+\]
+
+所以
+
+\[
+\boxed{
+\mathbf H
+=\frac{I}{2\pi r}\mathbf e_{\phi}
+}.
+\]
+
+坡印廷矢量为
+
+\[
+\mathbf S
+=\mathbf E\times\mathbf H.
+\]
+
+利用
+
+\[
+\mathbf e_r\times\mathbf e_{\phi}=\mathbf e_z,
+\]
+
+得到
+
+\[
+\boxed{
+\mathbf S
+=\frac{VI}
+{2\pi r^2\ln(b/a)}
+\mathbf e_z
+}.
+\]
+
+能量沿电缆轴向、在两导体之间的介质空间传播。
+
+横截面总功率为
+
+\[
+P
+=\int_a^bS_z(2\pi r\,dr).
+\]
+
+代入：
+
+\[
+P
+=\frac{VI}{\ln(b/a)}
+\int_a^b\frac{dr}{r}
+=\frac{VI}{\ln(b/a)}
+\ln\frac ba.
+\]
+
+因此
+
+\[
+\boxed{P=VI}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业二：圆柱电阻表面的能流〔M7-006〕}\label{m7:ux4f5cux4e1aux4e8cux5706ux67f1ux7535ux963bux8868ux9762ux7684ux80fdux6d41m7-006}
+
+\textbf{层级：} 基础　　\textbf{方法：} 能量法、网络方程
+
+一均匀圆柱形电阻，长度为 \(\ell\)、半径为 \(a\)、电导率为
+\(\sigma\)。稳恒电流 \(I\) 沿圆柱轴线方向流动，忽略端部效应。求：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  电阻内部电场；
+\item
+  圆柱侧表面处坡印廷矢量的大小和方向；
+\item
+  穿过侧表面的总电磁功率，并验证它等于 \(I^2R\)。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-006.pdf}}
+\par\smallskip{\small 图 M7-006：作业二：圆柱电阻表面的能流}
+\end{center}
+\end{minipage}\par
+
+图 M7-006 取电流沿 \(+z\)，表面电场同向、磁场沿
+\(\mathbf e_{\phi}\)；因此 \(\mathbf E\times\mathbf H\)
+指向圆柱内部，总流入功率用侧面积 \(2\pi a\ell\) 计算。
+
+电流密度均匀：
+
+\[
+\mathbf J
+=\frac{I}{\pi a^2}\mathbf e_z.
+\]
+
+由欧姆定律 \(\mathbf J=\sigma\mathbf E\)：
+
+\[
+\boxed{
+\mathbf E
+=\frac{I}{\sigma\pi a^2}\mathbf e_z
+}.
+\]
+
+圆柱表面处，由安培环路定理：
+
+\[
+H_{\phi}(a)(2\pi a)=I,
+\]
+
+所以
+
+\[
+\boxed{H_{\phi}(a)=\frac{I}{2\pi a}}.
+\]
+
+在侧表面，
+
+\[
+\mathbf S
+=\mathbf E\times\mathbf H.
+\]
+
+由于
+
+\[
+\mathbf e_z\times\mathbf e_{\phi}=-\mathbf e_r,
+\]
+
+坡印廷矢量径向向内：
+
+\[
+\boxed{
+\mathbf S(a)
+=-\frac{I^2}
+{2\sigma\pi^2a^3}\mathbf e_r
+}.
+\]
+
+其大小为
+
+\[
+S(a)
+=\frac{I^2}
+{2\sigma\pi^2a^3}.
+\]
+
+圆柱侧面积为 \(2\pi a\ell\)，所以净流入功率
+
+\[
+P_{\mathrm{\text{入}}}
+=S(a)(2\pi a\ell)
+=\frac{I^2\ell}{\sigma\pi a^2}.
+\]
+
+而圆柱电阻
+
+\[
+R=\frac{\ell}{\sigma\pi a^2}.
+\]
+
+因此
+
+\[
+\boxed{P_{\mathrm{\text{入}}}=I^2R}.
+\]
+
+这给出了焦耳热的完整场论解释：能量通过圆柱侧面由周围空间流入电阻。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业三：电阻充电过程中能量如何分配〔M7-007〕}\label{m7:ux4f5cux4e1aux4e09ux7535ux963bux5145ux7535ux8fc7ux7a0bux4e2dux80fdux91cfux5982ux4f55ux5206ux914dm7-007}
+
+\textbf{层级：} 基础　　\textbf{方法：} 能量法、网络方程
+
+电容为 \(C\) 的理想电容器初始不带电，通过电阻 \(R\) 接到恒压理想电源
+\(V_0\)。求从接通到充电完成：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  电源提供的总能量；
+\item
+  电容最终储存的能量；
+\item
+  电阻中耗散的能量。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-007.pdf}}
+\par\smallskip{\small 图 M7-007：作业三：电阻充电过程中能量如何分配}
+\end{center}
+\end{minipage}\par
+
+图 M7-007 的电流从电源正端经过 \(R\)
+流入电容正极板；对该方向列电压方程得到 \(I(t)\)，再分别累积电源功率
+\(V_0I\) 和电阻功率 \(I^2R\)。
+
+充电电流为
+
+\[
+I(t)
+=\frac{V_0}{R}
+e^{-t/(RC)}.
+\]
+
+电源输出总能量：
+
+\[
+W_{\mathrm{source}}
+=\int_0^{\infty} V_0I(t)\,dt.
+\]
+
+代入电流：
+
+\[
+W_{\mathrm{source}}
+=\frac{V_0^2}{R}
+\int_0^{\infty} e^{-t/(RC)}\,dt.
+\]
+
+由于
+
+\[
+\int_0^{\infty} e^{-t/(RC)}\,dt=RC,
+\]
+
+所以
+
+\[
+\boxed{W_{\mathrm{source}}=CV_0^2}.
+\]
+
+充电完成后，电容电压为 \(V_0\)，储能为
+
+\[
+\boxed{W_C=\frac12CV_0^2}.
+\]
+
+电阻耗散能量：
+
+\[
+W_R
+=\int_0^{\infty} I^2(t)R\,dt.
+\]
+
+代入：
+
+\[
+W_R
+=\frac{V_0^2}{R}
+\int_0^{\infty} e^{-2t/(RC)}\,dt.
+\]
+
+而
+
+\[
+\int_0^{\infty} e^{-2t/(RC)}\,dt
+=\frac{RC}{2}.
+\]
+
+因此
+
+\[
+\boxed{W_R=\frac12CV_0^2}.
+\]
+
+最后核对：
+
+\[
+W_{\mathrm{source}}
+=W_C+W_R
+=\frac12CV_0^2+\frac12CV_0^2.
+\]
+
+所以理想恒压源给出的能量有一半储存在电场中，另一半在充电路径中耗散。结果与
+\(R\) 的数值无关，但 \(R\) 决定充电所需的时间尺度 \(RC\)；当 \(R\to0\)
+时，理想集中参数模型会暴露出无限瞬时功率等非物理极限，实际电路必须考虑导线电阻、电感、辐射和传播时延。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-007-P1.pdf}}
+\par\smallskip{\small 图 M7-007-P1：充电过程中的累计能量}
+\end{center}
+\end{minipage}\par
+
+图 M7-007-P1 在每个时刻都满足
+\(W_s=W_C+W_R\)；两种最终能量均为电源总输出的一半。
+
+\section{专题六十二：麦克斯韦方程组与电磁波（基础必讲）}\label{m7:ux4e13ux9898ux516dux5341ux4e8cux9ea6ux514bux65afux97e6ux65b9ux7a0bux7ec4ux4e0eux7535ux78c1ux6ce2ux57faux7840ux5fc5ux8bb2}
+
+阅读准备：平面波把偏微分变成代数关系 对
+\(e^{j(\mathbf k\cdot\mathbf r-\omega t)}\)，空间微分相当于乘
+\(j\mathbf k\)，时间微分相当于乘
+\(-j\omega\)。代入麦克斯韦方程后，原来的场方程化为
+\(\mathbf k\)、\(\mathbf E\)、\(\mathbf B\) 之间的方向和大小关系。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{平面波为何是横波〔M7-008〕}
+
+\textbf{层级：} 基础
+
+真空无源区域中，一列非零单色平面波的电场复表示为
+\(\widetilde{\mathbf E}e^{i(\mathbf k\cdot\mathbf r-\omega t)}\)，其中
+\(\widetilde{\mathbf E}\)
+与位置无关，\(\mathbf k\ne0\)。由电场高斯定律说明电场的振动方向与传播方向有何关系。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-008.pdf}}
+\par\smallskip{\small 图 M7-008：平面波为何是横波}
+\end{center}
+\end{minipage}\par
+
+图 M7-008 中 \(\mathbf k\)
+沿传播轴，电场画在横截面内。把平面波代入散度方程得到
+\(i\mathbf k\cdot\widetilde{\mathbf E}=0\)，故非零电场只能有横向分量。
+
+\(\nabla\cdot\mathbf E=0\) 给出
+\(\mathbf k\cdot\mathbf E=0\)，所以真空平面波的电场垂直传播方向，而不是沿传播方向振动。
+
+麦克斯韦方程组不是四条彼此孤立的公式。两条散度方程说明场的源，两条旋度方程说明变化的场和电流怎样产生局域环量；再加上洛伦兹力和物质的本构关系，经典电动力学的基本结构才闭合。
+
+以下分别列出真空微观形式和介质宏观形式。除非特别说明，积分形式中的体积、曲面和回路都固定在空间中。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H11.pdf}}
+\par\smallskip{\small 图 M7-H11：麦克斯韦方程组中两条散度方程与两条旋度方程的物理分工}
+\end{center}
+\end{minipage}\par
+
+\subsection{一、使用条件、符号和两种方程形式}\label{m7:ux4e00ux4f7fux7528ux6761ux4ef6ux7b26ux53f7ux548cux4e24ux79cdux65b9ux7a0bux5f62ux5f0f}
+
+\subsubsection{1.
+面法向与边界正向}\label{m7:ux9762ux6cd5ux5411ux4e0eux8fb9ux754cux6b63ux5411}
+
+对闭合曲面 \(\partial V\)，面积元统一写成
+
+\[
+d\mathbf S=\mathbf n\,da,
+\]
+
+其中 \(\mathbf n\) 是外法向。
+
+对开曲面 \(S\)，先选定法向 \(\mathbf n\)，再用右手定则确定边界
+\(\partial S\) 的正向：右手四指沿边界正向弯曲时，拇指指向
+\(\mathbf n\)。
+
+散度定理和斯托克斯定理分别为
+
+\[
+\boxed{
+\oint_{\partial V}\mathbf F\cdot\mathbf n\,da
+=\int_V\nabla\cdot\mathbf F\,dV
+},
+\]
+
+\[
+\boxed{
+\oint_{\partial S}\mathbf F\cdot d\mathbf l
+=\int_S(\nabla\times\mathbf F)\cdot\mathbf n\,da
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H12.pdf}}
+\par\smallskip{\small 图 M7-H12：斯托克斯定理的面法向与边界正向，并列散度定理}
+\end{center}
+\end{minipage}\par
+
+从积分形式推出微分形式，还需要积分区域可以任意缩小，并且场在所讨论区域内具有足够的光滑性。若区域内有点电荷、细导线或面电荷，必须把奇点或界面单独处理，不能把它们当作普通光滑点。
+
+\subsubsection{2.
+真空中的微观形式}\label{m7:ux771fux7a7aux4e2dux7684ux5faeux89c2ux5f62ux5f0f}
+
+真空中的麦克斯韦方程组为
+
+\[
+\boxed{
+\nabla\cdot\mathbf E=\frac{\rho}{\varepsilon_0}
+},
+\]
+
+\[
+\boxed{
+\nabla\cdot\mathbf B=0
+},
+\]
+
+\[
+\boxed{
+\nabla\times\mathbf E
+=-\frac{\partial\mathbf B}{\partial t}
+},
+\]
+
+\[
+\boxed{
+\nabla\times\mathbf B
+=\mu_0\mathbf J
++\mu_0\varepsilon_0
+\frac{\partial\mathbf E}{\partial t}
+}.
+\]
+
+对应的固定区域积分形式为
+
+\[
+\boxed{
+\oint_{\partial V}\mathbf E\cdot\mathbf n\,da
+=\frac{Q_V}{\varepsilon_0}
+},
+\]
+
+\[
+\boxed{
+\oint_{\partial V}\mathbf B\cdot\mathbf n\,da=0
+},
+\]
+
+\[
+\boxed{
+\oint_{\partial S}\mathbf E\cdot d\mathbf l
+=-\frac{d}{dt}
+\int_S\mathbf B\cdot\mathbf n\,da
+},
+\]
+
+\[
+\boxed{
+\oint_{\partial S}\mathbf B\cdot d\mathbf l
+=\mu_0I_S
++\mu_0\varepsilon_0\frac{d}{dt}
+\int_S\mathbf E\cdot\mathbf n\,da
+}.
+\]
+
+这里
+
+\[
+Q_V=\int_V\rho\,dV,
+\qquad
+I_S=\int_S\mathbf J\cdot\mathbf n\,da.
+\]
+
+\subsubsection{3.
+介质中的宏观形式}\label{m7:ux4ecbux8d28ux4e2dux7684ux5b8fux89c2ux5f62ux5f0f}
+
+在宏观介质中，把束缚电荷和束缚电流吸收到 \(\mathbf D\)、\(\mathbf H\)
+中，方程写成
+
+\[
+\boxed{
+\nabla\cdot\mathbf D=\rho_f,
+\qquad
+\nabla\cdot\mathbf B=0
+},
+\]
+
+\[
+\boxed{
+\nabla\times\mathbf E
+=-\frac{\partial\mathbf B}{\partial t},
+\qquad
+\nabla\times\mathbf H
+=\mathbf J_f+\frac{\partial\mathbf D}{\partial t}
+}.
+\]
+
+其中下标 \(f\)
+表示自由电荷或自由电流。仅有这四条方程还不够，还必须给出本构关系。例如在线性、各向同性、无色散介质中，
+
+\[
+\mathbf D=\varepsilon\mathbf E,
+\qquad
+\mathbf B=\mu\mathbf H,
+\qquad
+\mathbf J_f=\sigma\mathbf E.
+\]
+
+若介质具有各向异性、色散、磁滞或非线性，本构关系可能是张量关系、含记忆的积分关系或非线性关系，不能直接套用常数
+\(\varepsilon\)、\(\mu\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H13.pdf}}
+\par\smallskip{\small 图 M7-H13：真空微观形式与介质宏观形式的对应关系}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{介质中的自由电荷与总电荷〔M7-009〕}
+
+\textbf{层级：} 基础
+
+介质的极化强度为 \(\mathbf P\)，定义
+\(\mathbf D=\varepsilon_0\mathbf E+\mathbf P\)，自由电荷密度为
+\(\rho_f\)、束缚电荷密度为 \(\rho_b=-\nabla\cdot\mathbf P\)。分别用
+\(\mathbf D\) 和 \(\mathbf E\) 写电场高斯定律，解释为何一般不能写成
+\(\nabla\cdot\mathbf E=\rho_f/\varepsilon_0\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-009.pdf}}
+\par\smallskip{\small 图 M7-009：介质中的自由电荷与总电荷}
+\end{center}
+\end{minipage}\par
+
+图 M7-009 的闭合面把自由电荷和束缚电荷一起包围；使用 \(\mathbf E\)
+时通量对应总电荷，使用 \(\mathbf D\) 时极化贡献已移到左端。
+
+因为介质极化产生束缚电荷。宏观尺度上
+
+\[
+\nabla\cdot\mathbf D=\rho_f
+\]
+
+只把自由电荷放在右端，而 \(\mathbf D\) 已包含极化响应。若坚持使用
+\(\mathbf E\)，右端就必须包含自由电荷与束缚电荷的总和。 因而明确写为
+\(\nabla\cdot\mathbf D=\rho_f\) 和
+\(\nabla\cdot\mathbf E=(\rho_f+\rho_b)/\varepsilon_0\)。
+
+\subsection{二、电场高斯定律：从平方反比场到局域源}\label{m7:ux4e8cux7535ux573aux9ad8ux65afux5b9aux5f8bux4eceux5e73ux65b9ux53cdux6bd4ux573aux5230ux5c40ux57dfux6e90}
+
+\subsubsection{1.
+点电荷与立体角}\label{m7:ux70b9ux7535ux8377ux4e0eux7acbux4f53ux89d2}
+
+原点处点电荷 \(q\) 的真空静电场为
+
+\[
+\mathbf E(\mathbf r)
+=\frac{q}{4\pi\varepsilon_0}
+\frac{\mathbf e_r}{r^2}.
+\]
+
+任意面元 \(d\mathbf S\) 对点电荷所张立体角为
+
+\[
+d\Omega
+=\frac{\mathbf e_r\cdot d\mathbf S}{r^2}.
+\]
+
+所以该面元上的电通量为
+
+\[
+\mathbf E\cdot d\mathbf S
+=\frac{q}{4\pi\varepsilon_0}d\Omega.
+\]
+
+若闭合面包围点电荷，总有向立体角为 \(4\pi\)，于是
+
+\[
+\boxed{
+\oint_{\partial V}\mathbf E\cdot d\mathbf S
+=\frac{q}{\varepsilon_0}
+}.
+\]
+
+若点电荷在闭合面外，总有向立体角为零，净通量也为零。若点电荷恰好位于曲面上，理想点电荷模型使积分奇异，必须通过有限尺寸电荷分布或极限过程另行定义。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H14.pdf}}
+\par\smallskip{\small 图 M7-H14：平方反比场、立体角和点电荷奇点的关系}
+\end{center}
+\end{minipage}\par
+
+\subsubsection{2.
+连续分布与微分形式}\label{m7:ux8fdeux7eedux5206ux5e03ux4e0eux5faeux5206ux5f62ux5f0f}
+
+由线性叠加原理，任意电荷分布满足
+
+\[
+\oint_{\partial V}\mathbf E\cdot d\mathbf S
+=\frac1{\varepsilon_0}\int_V\rho\,dV.
+\]
+
+使用散度定理：
+
+\[
+\int_V\nabla\cdot\mathbf E\,dV
+=\int_V\frac{\rho}{\varepsilon_0}\,dV.
+\]
+
+对任意不跨越未处理奇点的体积成立，故
+
+\[
+\boxed{
+\nabla\cdot\mathbf E=\frac{\rho}{\varepsilon_0}
+}.
+\]
+
+点电荷需要在分布意义下写成
+
+\[
+\rho(\mathbf r)=q\delta^3(\mathbf r),
+\]
+
+并使用恒等式
+
+\[
+\boxed{
+\nabla\cdot\frac{\mathbf e_r}{r^2}
+=4\pi\delta^3(\mathbf r)
+}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{球面外点电荷的净通量〔M7-010〕}
+
+\textbf{层级：} 基础
+
+真空中点电荷 \(q\) 位于半径 \(R\) 的球形闭合面之外，点电荷到球心 \(O\)
+的距离
+\(d>R\)。球内无其他电荷，取球面外法向。求穿过该球面的净电通量，并判断这是否意味着球面各处电场为零。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-010.pdf}}
+\par\smallskip{\small 图 M7-010：球面外点电荷的净通量}
+\end{center}
+\end{minipage}\par
+
+图 M7-010 中 \(q\)
+位于球面外，阴影球内包围电荷为零；靠近电荷的一侧有场线进入，另一侧有场线穿出，净通量相消。
+
+一个点电荷位于球形闭合面外。虽然球面各处一般都有非零电场，但进入球面的通量与离开球面的通量相消，所以
+
+\[
+\oint\mathbf E\cdot d\mathbf S=0.
+\]
+
+高斯定律只决定闭合面净通量，通常不能单独给出球面各处的场强。
+
+\subsection{三、磁场高斯定律：经验事实、矢量势与拓扑边界}\label{m7:ux4e09ux78c1ux573aux9ad8ux65afux5b9aux5f8bux7ecfux9a8cux4e8bux5b9eux77e2ux91cfux52bfux4e0eux62d3ux6251ux8fb9ux754c}
+
+实验上尚未发现孤立磁荷，经典电动力学据此取
+
+\[
+\boxed{
+\nabla\cdot\mathbf B=0
+}.
+\]
+
+积分形式为
+
+\[
+\boxed{
+\oint_{\partial V}\mathbf B\cdot d\mathbf S=0
+}.
+\]
+
+它说明任意闭合面上的净磁通为零。磁感线在通常讨论中形成闭合曲线，或延伸到无穷远；不能在普通空间点突然起始或终止。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H15.pdf}}
+\par\smallskip{\small 图 M7-H15：闭合磁通与磁场无散度的几何和数学解释}
+\end{center}
+\end{minipage}\par
+
+对于稳恒局域电流，在通常的单连通讨论区域和适当边界条件下，毕奥-萨伐尔场可写成
+
+\[
+\mathbf B=\nabla\times\mathbf A,
+\]
+
+因此在 \(\mathbf A\) 足够光滑的区域内
+
+\[
+\nabla\cdot\mathbf B
+=\nabla\cdot(\nabla\times\mathbf A)=0.
+\]
+
+但逻辑次序需要说清：毕奥-萨伐尔定律描述稳恒电流产生的磁场，它能验证这类场无散度；它不能单独排除自然界存在其他类型磁源。没有磁单极子是实验输入，\(\nabla\cdot\mathbf B=0\)
+是经典麦克斯韦理论的基本方程之一。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{均匀磁场穿过闭合面〔M7-011〕}
+
+\textbf{层级：} 基础
+
+一任意形状的闭合面 \(\partial V\) 置于空间均匀磁场 \(\mathbf B\)
+中，面元矢量均取外法向。求总磁通，并解释局部面元通量可以非零而总磁通为零的原因。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-011.pdf}}
+\par\smallskip{\small 图 M7-011：均匀磁场穿过闭合面}
+\end{center}
+\end{minipage}\par
+
+图 M7-011 的左右两面取相反外法向，在相同 \(\mathbf B\)
+下通量一正一负；一般闭合面也满足面积矢量和为零。
+
+若 \(\mathbf B\) 为常矢量，
+
+\[
+\oint_{\partial V}\mathbf B\cdot d\mathbf S
+=\mathbf B\cdot\oint_{\partial V}d\mathbf S=0.
+\]
+
+这不是因为每个面元通量都为零，而是因为整个闭合面的面积矢量和为零。
+
+\subsection{四、法拉第定律：固定回路与运动回路必须分开}\label{m7:ux56dbux6cd5ux62c9ux7b2cux5b9aux5f8bux56faux5b9aux56deux8defux4e0eux8fd0ux52a8ux56deux8defux5fc5ux987bux5206ux5f00}
+
+\subsubsection{1. 固定回路}\label{m7:ux56faux5b9aux56deux8def}
+
+对空间中固定的曲面 \(S\)，实验规律为
+
+\[
+\boxed{
+\oint_{\partial S}\mathbf E\cdot d\mathbf l
+=-\frac{d}{dt}
+\int_S\mathbf B\cdot\mathbf n\,da
+}.
+\]
+
+因为曲面固定，时间导数可以移入积分号：
+
+\[
+\frac{d}{dt}\int_S\mathbf B\cdot\mathbf n\,da
+=\int_S\frac{\partial\mathbf B}{\partial t}
+\cdot\mathbf n\,da.
+\]
+
+再用斯托克斯定理：
+
+\[
+\int_S(\nabla\times\mathbf E)\cdot\mathbf n\,da
+=-\int_S\frac{\partial\mathbf B}{\partial t}
+\cdot\mathbf n\,da.
+\]
+
+由于曲面可以任意选取，得到局域形式
+
+\[
+\boxed{
+\nabla\times\mathbf E
+=-\frac{\partial\mathbf B}{\partial t}
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H16.pdf}}
+\par\smallskip{\small 图 M7-H16：法拉第定律中面法向、边界正向和感生电场方向}
+\end{center}
+\end{minipage}\par
+
+负号是楞次规律的数学表达：先固定法向和边界正向，若沿法向的磁通增加，感生电场的环量取负。这个符号由实验规律确定，并与能量守恒相容；不能只凭图形绕向死记。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{圆形区域内的感生电场〔M7-012〕}
+
+\textbf{层级：} 基础
+
+半径 \(R\) 的无限长圆柱区域内有均匀磁场
+\(\mathbf B(t)=B(t)\mathbf e_z\)，采用轴对称理想模型。取半径 \(r<R\)
+的同心圆作为固定回路，以 \(+z\) 为面法向，\(\mathbf e_{\phi}\)
+为对应逆时针正向。求感生电场 \(E_{\phi}(r)\)，并判断 \(\dot B>0\)
+时的实际方向。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-012.pdf}}
+\par\smallskip{\small 图 M7-012：圆形区域内的感生电场}
+\end{center}
+\end{minipage}\par
+
+图 M7-012 以出纸面为 \(+z\)，虚线圆是半径 \(r\)
+的积分边界，蓝色圆盘半径为
+\(R\)。先按逆时针正向写环量，再由负号判断实际感生电场顺时针。
+
+半径为 \(R\) 的圆形区域内有均匀轴向磁场 \(B(t)\)。对 \(r<R\) 的同心圆，
+
+\[
+E_{\phi}(2\pi r)
+=-\pi r^2\frac{dB}{dt}.
+\]
+
+因此
+
+\[
+\boxed{
+E_{\phi}(r)
+=-\frac r2\frac{dB}{dt}
+\qquad (r<R)
+}.
+\]
+
+负号表示 \(E_{\phi}\) 的方向与所选正向之间的关系。
+
+\subsubsection{2.
+运动或形变回路}\label{m7:ux8fd0ux52a8ux6216ux5f62ux53d8ux56deux8def}
+
+若回路 \(C(t)\) 以局域速度 \(\mathbf v\) 运动，电荷受到单位电荷洛伦兹力
+
+\[
+\mathbf E+\mathbf v\times\mathbf B.
+\]
+
+总电动势为
+
+\[
+\boxed{
+\mathcal E
+=\oint_{C(t)}
+(\mathbf E+\mathbf v\times\mathbf B)\cdot d\mathbf l
+}.
+\]
+
+磁通定律写成
+
+\[
+\boxed{
+\oint_{C(t)}
+(\mathbf E+\mathbf v\times\mathbf B)\cdot d\mathbf l
+=-\frac d{dt}
+\int_{S(t)}\mathbf B\cdot\mathbf n\,da
+}.
+\]
+
+运动曲面的磁通全导数为
+
+\[
+\frac d{dt}\int_{S(t)}\mathbf B\cdot\mathbf n\,da
+=\int_{S(t)}\frac{\partial\mathbf B}{\partial t}
+\cdot\mathbf n\,da
++\oint_{C(t)}(\mathbf B\times\mathbf v)\cdot d\mathbf l.
+\]
+
+由于
+
+\[
+\mathbf B\times\mathbf v=-\mathbf v\times\mathbf B,
+\]
+
+运动项在两侧抵消，仍留下局域场方程
+
+\[
+\nabla\times\mathbf E
+=-\frac{\partial\mathbf B}{\partial t}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H17.pdf}}
+\par\smallskip{\small 图 M7-H17：固定回路的感生电动势与运动导体的动生电动势}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{运动导体棒的端点极性〔M7-013〕}
+
+\textbf{层级：} 基础
+
+直导体棒长 \(\ell\)，沿 \(y\) 轴放置，端点 \(A\) 在下、\(B\) 在上；棒以
+\(\mathbf v=v\mathbf e_x\) 在匀强静磁场 \(\mathbf B=B\mathbf e_z\)
+中运动，\(v,B>0\)。求沿棒由 \(B\) 到 \(A\)
+的动生电动势及开路稳态的端点极性，说明能否把它归因于
+\(\partial\mathbf B/\partial t\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-013.pdf}}
+\par\smallskip{\small 图 M7-013：运动导体棒的端点极性}
+\end{center}
+\end{minipage}\par
+
+图 M7-013 的磁场点号表示
+\(+z\)，棒向右运动；\(\mathbf v\times\mathbf B\) 沿棒向下，正电荷移向
+\(A\)，因此 \(A\) 电势高于 \(B\)。
+
+长为 \(\ell\) 的导体棒以速度 \(v\) 垂直切割均匀磁场
+\(B\)，且棒、速度、磁场两两垂直，则
+
+\[
+\boxed{\mathcal E=B\ell v}.
+\]
+
+这里可以有 \(\partial\mathbf B/\partial t=0\)，电动势来自
+\(\mathbf v\times\mathbf B\)，不是来自空间中的涡旋电场。
+开路稳态中静电力与磁力平衡，\(\mathbf E=-\mathbf v\times\mathbf B\)，所以
+\(V_A-V_B=B\ell v>0\)。
+
+\subsection{五、麦克斯韦---安培定律的结构}\label{m7:ux4e94ux9ea6ux514bux65afux97e6ux5b89ux57f9ux5b9aux5f8bux7684ux7ed3ux6784}
+
+一般时变场中，静磁方程 \(\nabla\times\mathbf B=\mu_0\mathbf J\)
+必须补全为
+
+\[
+\boxed{
+\nabla\times\mathbf B
+=\mu_0\mathbf J
++\mu_0\varepsilon_0\frac{\partial\mathbf E}{\partial t}}.
+\]
+
+新增项保证旋度方程与局域电荷守恒相容，并使真空中的电场与磁场构成波动方程。专题六十四再推导位移电流项，检查充电电容器的不同积分曲面，并讨论介质形式和移动点电荷；这里直接使用完整方程推导电磁波。
+
+\subsection{六、从麦克斯韦方程组到电磁波}\label{m7:ux516dux4eceux9ea6ux514bux65afux97e6ux65b9ux7a0bux7ec4ux5230ux7535ux78c1ux6ce2}
+
+\subsubsection{1.
+推导的物理前提}\label{m7:ux63a8ux5bfcux7684ux7269ux7406ux524dux63d0}
+
+考虑无自由电荷、无传导电流的均匀、线性、各向同性、无耗散介质：
+
+\[
+\rho_f=0,
+\qquad
+\mathbf J_f=0,
+\]
+
+\[
+\mathbf D=\varepsilon\mathbf E,
+\qquad
+\mathbf B=\mu\mathbf H,
+\]
+
+其中 \(\varepsilon\)、\(\mu\) 在空间和时间中为常量。麦克斯韦方程化为
+
+\[
+\nabla\cdot\mathbf E=0,
+\qquad
+\nabla\cdot\mathbf H=0,
+\]
+
+\[
+\nabla\times\mathbf E
+=-\mu\frac{\partial\mathbf H}{\partial t},
+\]
+
+\[
+\nabla\times\mathbf H
+=\varepsilon\frac{\partial\mathbf E}{\partial t}.
+\]
+
+若介质不均匀、存在源、具有色散或耗散，下面的简单推导和结论都要修改。
+
+\subsubsection{2.
+电场波动方程}\label{m7:ux7535ux573aux6ce2ux52a8ux65b9ux7a0b}
+
+对法拉第定律取旋度：
+
+\[
+\nabla\times(\nabla\times\mathbf E)
+=-\mu\frac{\partial}{\partial t}
+(\nabla\times\mathbf H).
+\]
+
+代入麦克斯韦-安培定律：
+
+\[
+\nabla\times(\nabla\times\mathbf E)
+=-\mu\varepsilon
+\frac{\partial^2\mathbf E}{\partial t^2}.
+\]
+
+使用恒等式
+
+\[
+\nabla\times(\nabla\times\mathbf E)
+=\nabla(\nabla\cdot\mathbf E)-\nabla^2\mathbf E
+\]
+
+以及 \(\nabla\cdot\mathbf E=0\)，得到
+
+\[
+-\nabla^2\mathbf E
+=-\mu\varepsilon
+\frac{\partial^2\mathbf E}{\partial t^2}.
+\]
+
+因此
+
+\[
+\boxed{
+\nabla^2\mathbf E
+=\mu\varepsilon
+\frac{\partial^2\mathbf E}{\partial t^2}
+}.
+\]
+
+\subsubsection{3.
+磁场波动方程}\label{m7:ux78c1ux573aux6ce2ux52a8ux65b9ux7a0b}
+
+同理，对麦克斯韦-安培定律取旋度：
+
+\[
+\nabla\times(\nabla\times\mathbf H)
+=\varepsilon\frac{\partial}{\partial t}
+(\nabla\times\mathbf E).
+\]
+
+代入法拉第定律，并用 \(\nabla\cdot\mathbf H=0\)，得到
+
+\[
+\boxed{
+\nabla^2\mathbf H
+=\mu\varepsilon
+\frac{\partial^2\mathbf H}{\partial t^2}
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H18.pdf}}
+\par\smallskip{\small 图 M7-H18：由两条旋度方程推导电场和磁场波动方程}
+\end{center}
+\end{minipage}\par
+
+与标准波动方程
+
+\[
+\nabla^2\mathbf F
+=\frac1{v^2}
+\frac{\partial^2\mathbf F}{\partial t^2}
+\]
+
+比较，波速为
+
+\[
+\boxed{v=\frac1{\sqrt{\mu\varepsilon}}}.
+\]
+
+真空中
+
+\[
+\boxed{c=\frac1{\sqrt{\mu_0\varepsilon_0}}}.
+\]
+
+理论给出的真空电磁波速度与光速一致，由此产生``光是电磁波''的预言，随后由电磁波实验得到确认。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{非磁性介质中的波速〔M7-014〕}
+
+\textbf{层级：} 基础
+
+均匀、线性、各向同性、无耗且近似无色散的介质具有
+\(\mu_r=1\)、相对介电常数 \(\varepsilon_r\)。求单色平面波相速度；若
+\(\varepsilon_r=4\)，给出数值。取 \(c=3.0\times10^8\,\mathrm{m/s}\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-014.pdf}}
+\par\smallskip{\small 图 M7-014：非磁性介质中的波速}
+\end{center}
+\end{minipage}\par
+
+图 M7-014 标出同一均匀介质内的传播与横向场方向；由两条旋度方程得到
+\(v=1/\sqrt{\mu\varepsilon}\)，代入本题的材料参数即可求相速度。
+
+若 \(\mu_r\approx1\)、相对介电常数为
+\(\varepsilon_r\)，并且色散可以忽略，则
+
+\[
+v=\frac{c}{\sqrt{\varepsilon_r}}.
+\]
+
+若 \(\varepsilon_r=4\)，则 \(v=c/2\)。实际光学介质通常有色散，此处的
+\(\varepsilon_r\) 应理解为相应频率下的有效参数。
+
+\subsubsection{4.
+有源区域不能删掉源项}\label{m7:ux6709ux6e90ux533aux57dfux4e0dux80fdux5220ux6389ux6e90ux9879}
+
+在真空有源区域，电场满足
+
+\[
+\boxed{
+\nabla^2\mathbf E
+-\frac1{c^2}\frac{\partial^2\mathbf E}{\partial t^2}
+=\frac1{\varepsilon_0}\nabla\rho
++\mu_0\frac{\partial\mathbf J}{\partial t}
+},
+\]
+
+磁场满足
+
+\[
+\boxed{
+\nabla^2\mathbf B
+-\frac1{c^2}\frac{\partial^2\mathbf B}{\partial t^2}
+=-\mu_0\nabla\times\mathbf J
+}.
+\]
+
+因此``先令
+\(\rho=\mathbf J=0\)''不是形式步骤，而是无源波动方程成立的必要物理条件。
+
+\subsection{七、均匀平面波的方向、相位与波阻抗}\label{m7:ux4e03ux5747ux5300ux5e73ux9762ux6ce2ux7684ux65b9ux5411ux76f8ux4f4dux4e0eux6ce2ux963bux6297}
+
+\subsubsection{1. 简谐平面波}\label{m7:ux7b80ux8c10ux5e73ux9762ux6ce2}
+
+取相位约定
+
+\[
+\mathbf E(\mathbf r,t)
+=\operatorname{Re}
+\left[
+\mathbf E_0e^{i(\mathbf k\cdot\mathbf r-\omega t)}
+\right],
+\]
+
+\[
+\mathbf H(\mathbf r,t)
+=\operatorname{Re}
+\left[
+\mathbf H_0e^{i(\mathbf k\cdot\mathbf r-\omega t)}
+\right].
+\]
+
+对这类波，空间微分相当于 \(\nabla\to i\mathbf k\)，时间微分相当于
+\(\partial/\partial t\to-i\omega\)。
+
+由两条散度方程：
+
+\[
+\boxed{
+\mathbf k\cdot\mathbf E_0=0,
+\qquad
+\mathbf k\cdot\mathbf H_0=0
+}.
+\]
+
+所以均匀平面电磁波是横波。
+
+由法拉第定律：
+
+\[
+\mathbf k\times\mathbf E_0
+=\omega\mu\mathbf H_0.
+\]
+
+由麦克斯韦-安培定律：
+
+\[
+\mathbf k\times\mathbf H_0
+=-\omega\varepsilon\mathbf E_0.
+\]
+
+两式给出色散关系
+
+\[
+\boxed{k^2=\mu\varepsilon\omega^2},
+\]
+
+以及
+
+\[
+\boxed{
+\mathbf H_0
+=\frac1\eta\,\hat{\mathbf k}\times\mathbf E_0
+},
+\]
+
+其中
+
+\[
+\boxed{
+\eta=\sqrt{\frac\mu\varepsilon}
+}
+\]
+
+称为介质的波阻抗。
+
+因此 \(\mathbf E\)、\(\mathbf H\)、\(\mathbf k\) 两两垂直，并满足
+
+\[
+\mathbf E\times\mathbf H
+\parallel\mathbf k.
+\]
+
+在无耗散介质中，\(\eta\) 为实数，\(\mathbf E\) 与 \(\mathbf H\) 同相。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H19.pdf}}
+\par\smallskip{\small 图 M7-H19：均匀平面波的右手三元组和沿传播方向的同相快照}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{由传播与电场确定磁场〔M7-015〕}
+
+\textbf{层级：} 基础
+
+一列真空平面波沿 \(+x\) 方向传播。在电场为正的相位处，电场沿
+\(+y\)，峰值为 \(E_0\)。求磁场方向、磁场强度峰值 \(H_0\)
+和磁感应强度峰值 \(B_0\)，并用能流方向检验。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-015.pdf}}
+\par\smallskip{\small 图 M7-015：由传播与电场确定磁场}
+\end{center}
+\end{minipage}\par
+
+图 M7-015 的 \(+x,+y,+z\)
+构成右手系，\(\mathbf e_x\times\mathbf e_y=\mathbf e_z\)；因此电场为正时磁场沿
+\(+z\)，能流仍沿 \(+x\)。
+
+一列真空平面波沿 \(+x\) 方向传播，电场沿 \(+y\) 方向。由于
+
+\[
+\mathbf H=\frac1{\eta_0}
+\mathbf e_x\times\mathbf E,
+\]
+
+所以磁场沿 \(+z\) 方向，并且
+
+\[
+H_0=\frac{E_0}{\eta_0},
+\qquad
+B_0=\frac{E_0}{c}.
+\]
+
+\subsubsection{2.
+能量密度与能流}\label{m7:ux80fdux91cfux5bc6ux5ea6ux4e0eux80fdux6d41}
+
+对无耗散介质中的单向平面行波，
+
+\[
+H=\frac E\eta.
+\]
+
+电场能量密度为
+
+\[
+u_E=\frac12\varepsilon E^2,
+\]
+
+磁场能量密度为
+
+\[
+u_H=\frac12\mu H^2
+=\frac12\varepsilon E^2.
+\]
+
+所以
+
+\[
+\boxed{u_E=u_H},
+\]
+
+\[
+\boxed{u=u_E+u_H=\varepsilon E^2=\mu H^2}.
+\]
+
+坡印廷矢量为
+
+\[
+\mathbf S=\mathbf E\times\mathbf H,
+\]
+
+其瞬时大小满足
+
+\[
+\boxed{S=\frac{E^2}{\eta}=uv}.
+\]
+
+若 \(E_0\) 是峰值，时间平均能流强度为
+
+\[
+\boxed{
+\langle S\rangle
+=\frac{E_0^2}{2\eta}
+=\frac12E_0H_0
+}.
+\]
+
+若使用有效值，
+
+\[
+\boxed{
+\langle S\rangle
+=E_{\mathrm{\text{有效}}}H_{\mathrm{\text{有效}}}
+=\frac{E_{\mathrm{\text{有效}}}^2}{\eta}
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H20.pdf}}
+\par\smallskip{\small 图 M7-H20：平面行波中的波阻抗、等量储能和平均能流}
+\end{center}
+\end{minipage}\par
+
+这些点态关系只适用于无耗散均匀介质中的单向平面行波。驻波中电场能与磁场能会在空间和时间上交换，通常不满足每一点、每一时刻
+\(u_E=u_H\)。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{峰值场强与平均强度〔M7-016〕}
+
+\textbf{层级：} 基础
+
+真空中单色平面波电场为
+\(\mathbf E=E_0\cos(kz-\omega t)\mathbf e_x\)，其中 \(E_0\)
+是峰值。求瞬时能流和时间平均强度，解释平均公式中的因子
+\(1/2\)；再说明若改用电场有效值应如何写。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-016.pdf}}
+\par\smallskip{\small 图 M7-016：峰值场强与平均强度}
+\end{center}
+\end{minipage}\par
+
+图 M7-016 中两场同相，随相位一起变号；能流由两者乘积得到，正比于
+\(\cos^2\)，始终沿传播方向，周期平均产生因子 \(1/2\)。
+
+若真空平面波电场峰值为 \(E_0\)，则
+
+\[
+\boxed{
+\langle S\rangle
+=\frac12\varepsilon_0cE_0^2
+}.
+\] 瞬时
+\(\mathbf S=\varepsilon_0cE_0^2\cos^2(kz-\omega t)\mathbf e_z\)；若用
+\(E_{\rm rms}=E_0/\sqrt2\)，则
+\(\langle S\rangle=\varepsilon_0cE_{\rm rms}^2\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-016-P1.pdf}}
+\par\smallskip{\small 图 M7-016-P1：场变号与能流的周期平均}
+\end{center}
+\end{minipage}\par
+
+图 M7-016-P1 中能流曲线非负，一周期平均高度为
+\(1/2\)；场为负时两场同时反向，能流仍朝前。
+
+\subsection{八、偏振：电场端点随时间的轨迹}\label{m7:ux516bux504fux632fux7535ux573aux7aefux70b9ux968fux65f6ux95f4ux7684ux8f68ux8ff9}
+
+设波沿 \(+z\) 传播，两个正交分量为
+
+\[
+E_x=A_x\cos(kz-\omega t),
+\]
+
+\[
+E_y=A_y\cos(kz-\omega t+\delta).
+\]
+
+在固定空间点，电场矢量端点一般描出椭圆。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  若 \(\delta=0\) 或 \(\pi\)，两分量同相或反相，得到线偏振。
+\item
+  若 \(A_x=A_y\) 且 \(\delta=\pm\pi/2\)，得到圆偏振。
+\item
+  其余一般情形得到椭圆偏振。
+\end{enumerate}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H21.pdf}}
+\par\smallskip{\small 图 M7-H21：线偏振、圆偏振和椭圆偏振的电场端点轨迹}
+\end{center}
+\end{minipage}\par
+
+圆偏振的``左旋''与``右旋''取决于观察方向和采用的相位约定。若题目没有说明约定，直接写出固定位置处
+\(\mathbf E\) 随时间的转动方向，比只给一个旋向名称更明确。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{圆偏振的轨迹和转向〔M7-017〕}
+
+\textbf{层级：} 基础
+
+一列沿 \(+z\) 传播的平面波满足
+\(E_x=E_0\cos(kz-\omega t)\)、\(E_y=E_0\sin(kz-\omega t)\)，\(E_0>0\)。在固定点
+\(z=0\) 消去时间求端点轨迹，判断偏振类型，并说明从 \(+x\)
+初始方向开始端点随后朝哪一半轴运动。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-017.pdf}}
+\par\smallskip{\small 图 M7-017：圆偏振的轨迹和转向}
+\end{center}
+\end{minipage}\par
+
+图 M7-017 取 \(z=0\)，初始端点位于 \((E_0,0)\)；稍后
+\(E_y=-E_0\sin\omega t<0\)，所以沿圆从右端向下运动。
+
+若
+
+\[
+E_x=E_0\cos(kz-\omega t),
+\]
+
+\[
+E_y=E_0\sin(kz-\omega t),
+\]
+
+则两分量等振幅且相差 \(\pi/2\)，所以是圆偏振。固定 \(z\) 后消去时间：
+
+\[
+E_x^2+E_y^2=E_0^2.
+\]
+
+\subsection{九、使用条件与常见错误}\label{m7:ux4e5dux4f7fux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux9519ux8bef}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H22.pdf}}
+\par\smallskip{\small 图 M7-H22：麦克斯韦方程组和电磁波问题的方程选择路线}
+\end{center}
+\end{minipage}\par
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{积分形式默认固定区域。} 运动回路必须使用
+
+  \[
+  \oint(\mathbf E+\mathbf v\times\mathbf B)\cdot d\mathbf l,
+  \]
+
+  不能把固定回路公式直接照搬。
+\item
+  \textbf{先选面法向，再定边界正向。}
+  法拉第定律和斯托克斯定理的符号依赖同一套右手约定。
+\item
+  \textbf{静磁安培定律只适用于稳恒电流。}
+  电荷密度随时间变化时必须加入位移电流项。
+\item
+  \textbf{位移电流不是自由电荷流。}
+  它只是在激发磁场的意义上与传导电流共同出现。
+\item
+  \textbf{\(\nabla\cdot\mathbf B=0\) 不是由``画出的磁感线闭合''证明的。}
+  闭合线是方程的几何表达，不应把示意图反过来当作证明。
+\item
+  \textbf{由积分形式推出微分形式需要任意小区域和光滑性。}
+  点电荷、细导线、面电荷与面电流要用分布或边界条件处理。
+\item
+  \textbf{无源波动方程有明确条件。} 必须确认区域内
+  \(\rho=0\)、\(\mathbf J=0\)，并检查介质是否均匀。
+\item
+  \textbf{横波结论针对均匀平面波。}
+  近场、波导中的纵向分量以及非均匀介质不能简单套用
+  \(\mathbf k\cdot\mathbf E=0\)。
+\item
+  \textbf{峰值与有效值不能混用。} 平均能流公式是否含 \(1/2\)
+  取决于振幅约定。
+\item
+  \textbf{单向行波与驻波不同。} \(u_E=u_H\)
+  的点态结论不适用于一般叠加场。
+\end{enumerate}
+
+\subsection{附录一：库仑定律与高斯定律的补充}\label{m7:ux9644ux5f55ux4e00ux5e93ux4ed1ux5b9aux5f8bux4e0eux9ad8ux65afux5b9aux5f8bux7684ux8865ux5145}
+
+\subsubsection{1.
+平方反比律为什么关键}\label{m7:ux5e73ux65b9ux53cdux6bd4ux5f8bux4e3aux4ec0ux4e48ux5173ux952e}
+
+点电荷场的通量元为
+
+\[
+d\Phi_E
+=E\,dS\cos\theta.
+\]
+
+因为
+
+\[
+E\propto\frac1{r^2},
+\qquad
+dS\cos\theta=r^2d\Omega,
+\]
+
+距离因子恰好抵消，通量只由立体角决定。若假设
+
+\[
+E\propto\frac1{r^{2+\delta}},
+\]
+
+则
+
+\[
+d\Phi_E\propto r^{-\delta}d\Omega,
+\]
+
+闭合面通量一般会依赖曲面的尺度和形状，不能得到通常的高斯定律。
+
+这里的``拓扑性''必须谨慎理解：总有向立体角只取 \(0\) 或 \(4\pi\)
+与闭合面包围关系有关，但通量能够化成立体角，首先依赖三维空间中的平方反比律。
+
+\subsubsection{2. 点电荷奇点}\label{m7:ux70b9ux7535ux8377ux5947ux70b9}
+
+对 \(r\ne0\)，球坐标散度公式给出
+
+\[
+\nabla\cdot\frac{\mathbf e_r}{r^2}=0.
+\]
+
+然而任何包围原点的小球都有
+
+\[
+\oint\frac{\mathbf e_r}{r^2}\cdot d\mathbf S=4\pi.
+\]
+
+二者并不矛盾：原点不是普通光滑点。严格表达必须使用分布恒等式
+
+\[
+\nabla\cdot\frac{\mathbf e_r}{r^2}
+=4\pi\delta^3(\mathbf r).
+\]
+
+正确的推导顺序是：先从空间中挖去一个包围原点的小球，在光滑区域使用散度定理，再由小球通量确定
+\(\delta\) 函数的系数。
+
+\subsubsection{3.
+线性叠加与源点、场点}\label{m7:ux7ebfux6027ux53e0ux52a0ux4e0eux6e90ux70b9ux573aux70b9}
+
+连续电荷分布产生
+
+\[
+\mathbf E(\mathbf r)
+=\frac1{4\pi\varepsilon_0}
+\int
+\rho(\mathbf r')
+\frac{\mathbf r-\mathbf r'}{|\mathbf r-\mathbf r'|^3}
+\,d^3r'.
+\]
+
+\(\mathbf r'\) 是源点，\(\mathbf r\) 是场点。对场点取散度：
+
+\[
+\nabla\cdot\mathbf E(\mathbf r)
+=\frac1{4\pi\varepsilon_0}
+\int\rho(\mathbf r')
+\nabla\cdot
+\frac{\mathbf r-\mathbf r'}{|\mathbf r-\mathbf r'|^3}
+\,d^3r'.
+\]
+
+利用
+
+\[
+\nabla\cdot
+\frac{\mathbf r-\mathbf r'}{|\mathbf r-\mathbf r'|^3}
+=4\pi\delta^3(\mathbf r-\mathbf r'),
+\]
+
+得到
+
+\[
+\nabla\cdot\mathbf E(\mathbf r)
+=\frac1{\varepsilon_0}
+\int\rho(\mathbf r')
+\delta^3(\mathbf r-\mathbf r')\,d^3r'
+=\frac{\rho(\mathbf r)}{\varepsilon_0}.
+\]
+
+\subsection{附录二：毕奥-萨伐尔定律、矢量势与磁场无散度}\label{m7:ux9644ux5f55ux4e8cux6bd5ux5965-ux8428ux4f10ux5c14ux5b9aux5f8bux77e2ux91cfux52bfux4e0eux78c1ux573aux65e0ux6563ux5ea6}
+
+\subsubsection{1.
+由稳恒电流构造矢量势}\label{m7:ux7531ux7a33ux6052ux7535ux6d41ux6784ux9020ux77e2ux91cfux52bf}
+
+对局域稳恒体电流，
+
+\[
+\mathbf A(\mathbf r)
+=\frac{\mu_0}{4\pi}
+\int\frac{\mathbf J(\mathbf r')}
+{|\mathbf r-\mathbf r'|}\,d^3r'.
+\]
+
+利用
+
+\[
+\nabla\frac1{|\mathbf r-\mathbf r'|}
+=-\frac{\mathbf r-\mathbf r'}
+{|\mathbf r-\mathbf r'|^3},
+\]
+
+可得
+
+\[
+\mathbf B
+=\nabla\times\mathbf A
+=\frac{\mu_0}{4\pi}
+\int
+\frac{\mathbf J(\mathbf r')\times(\mathbf r-\mathbf r')}
+{|\mathbf r-\mathbf r'|^3}
+\,d^3r'.
+\]
+
+这就是体电流形式的毕奥-萨伐尔定律。于是
+
+\[
+\nabla\cdot\mathbf B=0
+\]
+
+在 \(\mathbf A\) 足够光滑的区域内自动成立。
+
+\subsubsection{2.
+库仑规范与静磁安培定律}\label{m7:ux5e93ux4ed1ux89c4ux8303ux4e0eux9759ux78c1ux5b89ux57f9ux5b9aux5f8b}
+
+在库仑规范
+
+\[
+\nabla\cdot\mathbf A=0
+\]
+
+下，稳恒电流满足
+
+\[
+\nabla^2\mathbf A=-\mu_0\mathbf J.
+\]
+
+因此
+
+\[
+\nabla\times\mathbf B
+=\nabla\times(\nabla\times\mathbf A)
+=\nabla(\nabla\cdot\mathbf A)-\nabla^2\mathbf A
+=\mu_0\mathbf J.
+\]
+
+这个推导依赖稳恒条件与所选规范。\(\mathbf A\) 可以作规范变换，但可观测的
+\(\mathbf B\) 不变。
+
+\subsubsection{3.
+亥姆霍兹视角}\label{m7:ux4ea5ux59c6ux970dux5179ux89c6ux89d2}
+
+在适当的衰减条件和边界条件下，一个矢量场由其散度、旋度及边界信息确定。稳恒磁场需要同时满足
+
+\[
+\nabla\cdot\mathbf B=0,
+\qquad
+\nabla\times\mathbf B=\mu_0\mathbf J.
+\]
+
+只有旋度方程而没有散度与边界条件，解并不唯一。
+
+\subsubsection{4.
+磁单极子的假设性扩展}\label{m7:ux78c1ux5355ux6781ux5b50ux7684ux5047ux8bbeux6027ux6269ux5c55}
+
+若引入磁荷密度 \(\rho_m\)，一种约定下可把磁场高斯定律写成
+
+\[
+\nabla\cdot\mathbf B=\mu_0\rho_m.
+\]
+
+此时磁感线可以在磁荷处起止，电磁对偶结构也会改变。狄拉克指出，磁单极子的存在会导致电荷量子化条件。例如在一种常见的高斯型自然单位约定并取
+\(c=1\) 时，可写成
+
+\[
+q_eg=n\frac{\hbar}{2},
+\qquad n\in\mathbb Z.
+\]
+
+具体公式中的 \(4\pi\)、\(\mu_0\)、\(c\) 和 \(\hbar\)
+因磁荷定义与单位制而不同，因此竞赛题中必须先采用题目给定约定，不能把某一单位制下的公式直接搬到另一单位制。
+
+到目前的经典竞赛范围，仍以
+
+\[
+\nabla\cdot\mathbf B=0
+\]
+
+为基本方程。
+
+\subsection{附录三：运动回路磁通公式的分项}\label{m7:ux9644ux5f55ux4e09ux8fd0ux52a8ux56deux8defux78c1ux901aux516cux5f0fux7684ux5206ux9879}
+
+令 \(C(t)=\partial S(t)\) 随速度场 \(\mathbf v\) 运动。磁通全导数为
+
+\[
+\boxed{
+\frac d{dt}
+\int_{S(t)}\mathbf B\cdot d\mathbf S
+=\int_{S(t)}
+\frac{\partial\mathbf B}{\partial t}
+\cdot d\mathbf S
++\oint_{C(t)}
+(\mathbf B\times\mathbf v)\cdot d\mathbf l
+}.
+\]
+
+第一项来自固定空间点处磁场本身变化，第二项来自边界扫掠面积。
+
+另一方面，总电动势是洛伦兹力每单位电荷沿回路的积分：
+
+\[
+\mathcal E
+=\oint_{C(t)}
+(\mathbf E+\mathbf v\times\mathbf B)
+\cdot d\mathbf l.
+\]
+
+代入
+
+\[
+\mathcal E=-\frac{d\Phi_B}{dt}
+\]
+
+并使用 \(\mathbf B\times\mathbf v=-\mathbf v\times\mathbf B\)：
+
+\[
+\oint\mathbf E\cdot d\mathbf l
++\oint(\mathbf v\times\mathbf B)\cdot d\mathbf l
+=-\int\frac{\partial\mathbf B}{\partial t}\cdot d\mathbf S
++\oint(\mathbf v\times\mathbf B)\cdot d\mathbf l.
+\]
+
+运动项抵消，得到
+
+\[
+\oint\mathbf E\cdot d\mathbf l
+=-\int\frac{\partial\mathbf B}{\partial t}\cdot d\mathbf S.
+\]
+
+这解释了感生电动势与动生电动势如何统一在总磁通定律中，同时又保持局域场方程只含
+\(\partial\mathbf B/\partial t\)。
+
+楞次规律的负号首先是实验规律。若感应电流反而增强原磁通变化，在无外部持续供能的理想化系统中会形成非物理的正反馈；能量守恒因此与楞次方向一致。但``能量守恒''不能替代方向约定和实验定律本身。
+
+感生电动势与动生电动势在不同惯性系中的分解会改变，而总电磁作用保持一致。更完整的理论中，电场和磁场统一为电磁场张量，并在洛伦兹变换下相互混合。
+
+\subsection{附录四：电磁波推导的分量校验与光速关系}\label{m7:ux9644ux5f55ux56dbux7535ux78c1ux6ce2ux63a8ux5bfcux7684ux5206ux91cfux6821ux9a8cux4e0eux5149ux901fux5173ux7cfb}
+
+\subsubsection{1.
+矢量拉普拉斯算符}\label{m7:ux77e2ux91cfux62c9ux666eux62c9ux65afux7b97ux7b26}
+
+在直角坐标系中
+
+\[
+\nabla^2\mathbf E
+=\mathbf e_x\nabla^2E_x
++\mathbf e_y\nabla^2E_y
++\mathbf e_z\nabla^2E_z.
+\]
+
+因此矢量波动方程代表三个分量方程，但各分量还要同时满足散度约束，不能任意独立选择。
+
+\subsubsection{2.
+一维行波校验}\label{m7:ux4e00ux7ef4ux884cux6ce2ux6821ux9a8c}
+
+若
+
+\[
+\mathbf E(x,t)=E_y(x,t)\mathbf e_y,
+\]
+
+波动方程化为
+
+\[
+\frac{\partial^2E_y}{\partial x^2}
+=\frac1{v^2}
+\frac{\partial^2E_y}{\partial t^2}.
+\]
+
+任意形状的右行波
+
+\[
+E_y(x,t)=f(x-vt)
+\]
+
+都满足该方程，因为
+
+\[
+\frac{\partial^2E_y}{\partial x^2}=f''(x-vt),
+\]
+
+\[
+\frac{\partial^2E_y}{\partial t^2}=v^2f''(x-vt).
+\]
+
+左行波 \(g(x+vt)\)
+同样成立。波动方程本身允许双向传播；具体方向由初始条件和边界条件决定。
+
+\subsubsection{3.
+简谐波的色散关系}\label{m7:ux7b80ux8c10ux6ce2ux7684ux8272ux6563ux5173ux7cfb}
+
+将
+
+\[
+\mathbf E=\mathbf E_0e^{i(\mathbf k\cdot\mathbf r-\omega t)}
+\]
+
+代入无源波动方程，得到
+
+\[
+-k^2\mathbf E
+=-\mu\varepsilon\omega^2\mathbf E.
+\]
+
+非零解要求
+
+\[
+k^2=\mu\varepsilon\omega^2.
+\]
+
+所以
+
+\[
+v_{\mathrm p}=\frac\omega k
+=\frac1{\sqrt{\mu\varepsilon}}.
+\]
+
+在无色散模型中相速度与频率无关；在真实色散介质中
+\(\varepsilon(\omega)\)、\(\mu(\omega)\)
+随频率变化，还要区分相速度与群速度。
+
+\subsubsection{4.
+真空常量与光速}\label{m7:ux771fux7a7aux5e38ux91cfux4e0eux5149ux901f}
+
+真空麦克斯韦方程给出精确关系
+
+\[
+c^2=\frac1{\mu_0\varepsilon_0}.
+\]
+
+在现行国际单位制中，\(c\) 的数值由单位定义固定，而 \(\mu_0\)
+不再被定义为精确的
+\(4\pi\times10^{-7}\ \mathrm{N/A^2}\)；竞赛若给出近似数值，应按题目精度使用。物理上重要的是麦克斯韦理论把电磁扰动速度与光速联系起来。
+
+\subsection{九、例题}\label{m7:ux4e5dux4f8bux9898}
+
+\subsubsection{平面波代入后的方向关系}\label{m7:ux5e73ux9762ux6ce2ux4ee3ux5165ux540eux7684ux65b9ux5411ux5173ux7cfb}
+
+令
+\(\mathbf E=\mathbf E_0e^{j(\mathbf k\cdot\mathbf r-\omega t)}\)、\(\mathbf B=\mathbf B_0e^{j(\mathbf k\cdot\mathbf r-\omega t)}\)。真空麦克斯韦方程给出
+
+\[
+\mathbf k\cdot\mathbf E_0=\mathbf k\cdot\mathbf B_0=0,
+\qquad
+\mathbf B_0=\frac1\omega\mathbf k\times\mathbf E_0.
+\]
+
+因此 \(\mathbf E\)、\(\mathbf B\) 都横向，且
+\(\mathbf E\times\mathbf B\) 指向传播方向。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H23.pdf}}
+\par\smallskip{\small 图 M7-H23：平面波的电场磁场和波矢构成右手正交关系}
+\end{center}
+\end{minipage}\par
+
+\subsubsection{良导体中的能流去了哪里}\label{m7:ux826fux5bfcux4f53ux4e2dux7684ux80fdux6d41ux53bbux4e86ux54eaux91cc}
+
+良导体中趋肤深度近似为
+
+\[
+\delta=\sqrt{\frac{2}{\mu\sigma\omega}},
+\]
+
+场振幅随深度按 \(e^{-x/\delta}\)
+衰减。时间平均坡印廷矢量也随深度减小，并满足
+
+\[
+-\frac{d\langle S_x\rangle}{dx}
+=\langle\mathbf J\cdot\mathbf E\rangle.
+\]
+
+减少的电磁能流转化为焦耳热；衰减不是能量凭空消失。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H24.pdf}}
+\par\smallskip{\small 图 M7-H24：导体中电磁波振幅和平均能流随传播深度衰减}
+\end{center}
+\end{minipage}\par
+
+\subsection{十、练习与解答}\label{m7:ux5341ux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业一：局域变化磁场产生的环形电场〔M7-018〕}\label{m7:ux4f5cux4e1aux4e00ux5c40ux57dfux53d8ux5316ux78c1ux573aux4ea7ux751fux7684ux73afux5f62ux7535ux573am7-018}
+
+\textbf{层级：} 基础　　\textbf{方法：} 麦克斯韦方程、波动与边界
+
+半径为 \(R\) 的圆柱形区域内存在均匀轴向磁场
+
+\[
+\mathbf B(t)=B(t)\mathbf e_z,
+\]
+
+区域外磁场可忽略。求以轴线为中心、半径为 \(r\)
+的圆周上的感生电场。分别讨论 \(r<R\) 和 \(r>R\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-018.pdf}}
+\par\smallskip{\small 图 M7-018：作业一：局域变化磁场产生的环形电场}
+\end{center}
+\end{minipage}\par
+
+图 M7-018 的内圆和外圆分别包围面积 \(\pi r^2\) 与 \(\pi R^2\)
+的变化磁通。两种环路都按 \(+z\)
+对应的逆时针为正，环量的负号决定实际方向。
+
+由轴对称性，感生电场沿环向：
+
+\[
+\mathbf E=E_{\phi}(r)\mathbf e_{\phi}.
+\]
+
+选 \(+z\) 为面法向，边界正向为从 \(+z\) 方向看去的逆时针方向。
+
+当 \(r<R\) 时，环路包围的磁通为
+
+\[
+\Phi_B=\pi r^2B.
+\]
+
+法拉第定律给出
+
+\[
+E_{\phi}(2\pi r)
+=-\pi r^2\frac{dB}{dt}.
+\]
+
+所以
+
+\[
+\boxed{
+E_{\phi}(r)
+=-\frac r2\frac{dB}{dt}
+\qquad (r<R)
+}.
+\]
+
+当 \(r>R\) 时，只有半径 \(R\) 内有磁通：
+
+\[
+\Phi_B=\pi R^2B.
+\]
+
+因此
+
+\[
+E_{\phi}(2\pi r)
+=-\pi R^2\frac{dB}{dt},
+\]
+
+即
+
+\[
+\boxed{
+E_{\phi}(r)
+=-\frac{R^2}{2r}\frac{dB}{dt}
+\qquad (r>R)
+}.
+\]
+
+在 \(r=R\) 处两式连续。区域外虽然
+\(B\approx0\)，但只要环路包围变化磁通，感生电场仍可非零。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-018-P1.pdf}}
+\par\smallskip{\small 图 M7-018-P1：内外区域的连续拼接}
+\end{center}
+\end{minipage}\par
+
+图 M7-018-P1 在 \(r=R\)
+处连续；外侧环路继续增大，所包围的变化通量已不再增长。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业二：真空平面波的场、能量和能流〔M7-019〕}\label{m7:ux4f5cux4e1aux4e8cux771fux7a7aux5e73ux9762ux6ce2ux7684ux573aux80fdux91cfux548cux80fdux6d41m7-019}
+
+\textbf{层级：} 基础　　\textbf{方法：} 能量法、麦克斯韦方程、波动与边界
+
+一列真空平面电磁波沿 \(+x\) 方向传播，电场为
+
+\[
+\mathbf E(x,t)
+=E_0\cos(kx-\omega t)\mathbf e_y.
+\]
+
+求：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\omega\) 与 \(k\) 的关系；
+\item
+  磁感应强度 \(\mathbf B\)；
+\item
+  瞬时总能量密度 \(u\)；
+\item
+  时间平均坡印廷矢量。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-019.pdf}}
+\par\smallskip{\small 图 M7-019：作业二：真空平面波的场、能量和能流}
+\end{center}
+\end{minipage}\par
+
+图 M7-019 中
+\(\mathbf E\parallel y\)、\(\mathbf B\parallel z\)，叉积指向传播轴
+\(+x\)；图中的两场同相，故电场能与磁场能在同一位置同时增减。
+
+真空色散关系为
+
+\[
+\boxed{\omega=ck}.
+\]
+
+传播方向、电场和磁场构成右手系。因为
+
+\[
+\mathbf B
+=\frac1c\mathbf e_x\times\mathbf E,
+\]
+
+所以
+
+\[
+\boxed{
+\mathbf B(x,t)
+=\frac{E_0}{c}
+\cos(kx-\omega t)\mathbf e_z
+}.
+\]
+
+电场能量密度为
+
+\[
+u_E=\frac12\varepsilon_0E^2.
+\]
+
+磁场能量密度为
+
+\[
+u_B=\frac{B^2}{2\mu_0}.
+\]
+
+利用 \(B=E/c\) 和 \(c^{-2}=\mu_0\varepsilon_0\)：
+
+\[
+u_B=\frac12\varepsilon_0E^2=u_E.
+\]
+
+因此
+
+\[
+\boxed{
+u(x,t)
+=\varepsilon_0E_0^2
+\cos^2(kx-\omega t)
+}.
+\]
+
+坡印廷矢量为
+
+\[
+\mathbf S
+=\frac1{\mu_0}\mathbf E\times\mathbf B.
+\]
+
+所以
+
+\[
+\mathbf S(x,t)
+=\varepsilon_0cE_0^2
+\cos^2(kx-\omega t)\mathbf e_x.
+\]
+
+利用一周期平均值
+
+\[
+\langle\cos^2\rangle=\frac12,
+\]
+
+得到
+
+\[
+\boxed{
+\langle\mathbf S\rangle
+=\frac12\varepsilon_0cE_0^2\mathbf e_x
+}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业三：由两个正交分量判断偏振〔M7-020〕}\label{m7:ux4f5cux4e1aux4e09ux7531ux4e24ux4e2aux6b63ux4ea4ux5206ux91cfux5224ux65adux504fux632fm7-020}
+
+\textbf{层级：} 基础　　\textbf{方法：} 麦克斯韦方程、波动与边界
+
+一列沿 \(+z\) 方向传播的平面波具有电场分量
+
+\[
+E_x=A\cos(kz-\omega t),
+\]
+
+\[
+E_y=2A\sin(kz-\omega t).
+\]
+
+判断偏振类型，并求固定空间点处电场端点轨迹方程。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-020.pdf}}
+\par\smallskip{\small 图 M7-020：作业三：由两个正交分量判断偏振}
+\end{center}
+\end{minipage}\par
+
+图 M7-020 的横、纵半轴分别为
+\(A\)、\(2A\)；将两分量各除以自己的半轴后，恰好组成
+\(\cos^2\theta+\sin^2\theta=1\)。
+
+令
+
+\[
+\theta=kz-\omega t.
+\]
+
+则
+
+\[
+\frac{E_x}{A}=\cos\theta,
+\]
+
+\[
+\frac{E_y}{2A}=\sin\theta.
+\]
+
+平方后相加：
+
+\[
+\left(\frac{E_x}{A}\right)^2
++\left(\frac{E_y}{2A}\right)^2=1.
+\]
+
+因此端点轨迹是半轴分别为 \(A\) 和 \(2A\) 的椭圆：
+
+\[
+\boxed{
+\frac{E_x^2}{A^2}
++\frac{E_y^2}{4A^2}=1
+}.
+\]
+
+两分量相差
+\(\pi/2\)，但振幅不相等，所以是椭圆偏振而不是圆偏振。若要命名旋向，还必须说明观察方向和相位约定。
+
+\section{专题六十三：电磁振荡、赫兹实验与无线电收发（基础必讲与决赛拓展）}\label{m7:ux4e13ux9898ux516dux5341ux4e09ux7535ux78c1ux632fux8361ux8d6bux5179ux5b9eux9a8cux4e0eux65e0ux7ebfux7535ux6536ux53d1ux57faux7840ux5fc5ux8bb2ux4e0eux51b3ux8d5bux62d3ux5c55}
+
+LC
+电路中的能量交换、开放空间中的电磁波和接收机中的调谐不是彼此孤立的知识。闭合振荡回路提供周期电流；开放结构把一部分能量辐射出去；接收天线把场重新变成端口电压，调谐和检波再从高频载波中恢复低频信息。
+
+\subsection{一、理想 LC 振荡}\label{m7:ux4e00ux7406ux60f3-lc-ux632fux8361}
+
+理想电感 \(L\) 与电容 \(C\) 构成闭合回路。取电容电荷为 \(q\)、回路电流为
+\(i=-dq/dt\)，基尔霍夫方程给出
+
+\[
+L\frac{di}{dt}=\frac qC.
+\]
+
+因此
+
+\[
+\boxed{\frac{d^2q}{dt^2}+\frac1{LC}q=0},
+\qquad
+\boxed{\omega_0=\frac1{\sqrt{LC}}},
+\qquad
+\boxed{f_0=\frac1{2\pi\sqrt{LC}}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H25.pdf}}
+\par\smallskip{\small 图 M7-H25：理想LC回路的电荷、电流正向及振荡关系}
+\end{center}
+\end{minipage}\par
+
+若 \(q(0)=Q_0\)、\(i(0)=0\)，则
+
+\[
+q=Q_0\cos\omega_0t,
+\qquad
+i=Q_0\omega_0\sin\omega_0t.
+\]
+
+\subsection{二、电场能与磁场能的交换}\label{m7:ux4e8cux7535ux573aux80fdux4e0eux78c1ux573aux80fdux7684ux4ea4ux6362}
+
+理想回路总能量为
+
+\[
+W=\frac{q^2}{2C}+\frac12Li^2.
+\]
+
+代入振荡解可得
+
+\[
+\boxed{W=\frac{Q_0^2}{2C}=\text{常量}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H26.pdf}}
+\par\smallskip{\small 图 M7-H26：LC 振荡中电场能和磁场能反相变化而总能量保持不变}
+\end{center}
+\end{minipage}\par
+
+电荷最大时电流为零，能量全在电容电场中；电荷过零时电流最大，能量全在电感磁场中。实际回路含电阻和辐射，振幅会衰减；外源补充损耗后才能形成稳定振荡。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{改变电感后的固有频率〔M7-021〕}
+
+\textbf{层级：} 基础
+
+比较两个理想LC回路：电容均为 \(C\)，电感分别为 \(L\) 和
+\(4L\)。两回路初始电流均为零，电容初始电荷均为
+\(Q_0\)。求两回路固有频率、总能量与最大电流之比。此处比较两个给定回路，不讨论振荡中动态改变元件的过程。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-021.pdf}}
+\par\smallskip{\small 图 M7-021：改变电感后的固有频率}
+\end{center}
+\end{minipage}\par
+
+两个回路都采用图 M7-021
+的同一电荷和电流正向；第二回路周期加倍，储能仍由电容初值决定，而电流峰值由
+\(Q_0\omega_0\) 决定。
+
+由 \(\omega_0=1/\sqrt{LC}\)，第二回路
+\(\omega_2=\omega_1/2\)、\(T_2=2T_1\)。相同初始电荷给出
+\(W_2=W_1=Q_0^2/(2C)\)。因 \(I_{\max}=Q_0\omega_0\)，有
+\(I_{2,\max}/I_{1,\max}=1/2\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-021-P1.pdf}}
+\par\smallskip{\small 图 M7-021-P1：同一电荷初值下的周期比较}
+\end{center}
+\end{minipage}\par
+
+图 M7-021-P1：第二回路 \(L_2=4L_1\)，相同时间内只完成一半振荡次数。
+
+\subsection{三、从闭合回路到赫兹实验}\label{m7:ux4e09ux4eceux95edux5408ux56deux8defux5230ux8d6bux5179ux5b9eux9a8c}
+
+完全封闭且尺寸远小于波长的回路主要表现为集总储能。赫兹实验使用具有火花隙的振荡源产生高频变化电流，并用远处分离的谐振环观察感应火花，从而显示能量能够脱离源传播，并具有反射、干涉和偏振等波动性质。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H27.pdf}}
+\par\smallskip{\small 图 M7-H27：赫兹振荡源、传播空间与谐振接收环的实验结构}
+\end{center}
+\end{minipage}\par
+
+实验观察到的是接收端对电磁场的响应，不应把接收环火花解释成源回路电荷直接穿过空间到达。电磁场传递能量和动量，传播速度由介质参数决定。
+
+\subsection{四、电磁波谱与共同规律}\label{m7:ux56dbux7535ux78c1ux6ce2ux8c31ux4e0eux5171ux540cux89c4ux5f8b}
+
+真空中所有电磁波满足
+
+\[
+c=f\lambda.
+\]
+
+无线电波、微波、红外、可见光、紫外、X
+射线和伽马射线按频率依次升高、波长依次减小。各区间的分界是约定性的，产生和探测机制会有重叠；它们服从同一组麦克斯韦方程。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H28.pdf}}
+\par\smallskip{\small 图 M7-H28：从无线电波到伽马射线的频率升高与波长减小次序}
+\end{center}
+\end{minipage}\par
+
+频率决定单个光子的能量
+\(hf\)，但经典场论中的平均强度由场振幅决定。不能仅凭``频率高''判断经典波的强度更大。
+
+\subsection{五、发射链与调幅频谱}\label{m7:ux4e94ux53d1ux5c04ux94feux4e0eux8c03ux5e45ux9891ux8c31}
+
+无线电发射链可概括为：低频信息信号控制高频载波，经功率放大后送入天线。以单音调幅为例，
+
+\[
+u(t)=U_c[1+m\cos\omega_mt]\cos\omega_ct,
+\qquad 0\le m\le1.
+\]
+
+展开得
+
+\[
+u(t)=U_c\cos\omega_ct
++\frac{mU_c}{2}\cos(\omega_c+\omega_m)t
++\frac{mU_c}{2}\cos(\omega_c-\omega_m)t.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H29.pdf}}
+\par\smallskip{\small 图 M7-H29：调幅波由载波和上下两个边带组成}
+\end{center}
+\end{minipage}\par
+
+因此频谱含载频 \(f_c\) 和两个边频 \(f_c\pm f_m\)。若最高信息频率为
+\(f_{m,\max}\)，双边带调幅所需带宽为
+
+\[
+\boxed{B=2f_{m,\max}}.
+\]
+
+\(m>1\) 会发生过调制，包络交叉，简单包络检波将产生失真。
+
+\subsection{六、接收、调谐与包络检波}\label{m7:ux516dux63a5ux6536ux8c03ux8c10ux4e0eux5305ux7edcux68c0ux6ce2}
+
+接收天线得到许多频率分量的叠加。LC 调谐回路通过
+
+\[
+\boxed{\omega_0=\frac1{\sqrt{LC}}}
+\]
+
+选出目标载频附近的信号。二极管使高频信号单向导通，随后 RC
+回路跟随缓慢包络并滤去大部分载频。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H30.pdf}}
+\par\smallskip{\small 图 M7-H30：包络检波的二极管RC电路与时间尺度}
+\end{center}
+\end{minipage}\par
+
+包络检波的时间常数需同时满足
+
+\[
+\boxed{\frac1{\omega_c}\ll RC\ll\frac1{\omega_{m,\max}}}.
+\]
+
+左边保证电容不会在每个载波周期内明显放电，右边保证输出仍能跟随信息包络。选择性、响应速度和失真之间存在实际折中。
+
+\subsection{七、尺度条件}\label{m7:ux4e03ux5c3aux5ea6ux6761ux4ef6}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  理想 LC 频率公式忽略电阻、辐射和分布电容电感。
+\item
+  回路尺寸接近波长后，各处相位不再相同，必须转向传输线或全波模型。
+\item
+  调幅频谱中的边带来自乘法产生的和频与差频，不是载频在时间中来回漂移。
+\item
+  包络检波只适用于包络不交叉且载频远高于信息频率的调幅信号。
+\item
+  电磁波谱分区不改变基本场方程，但不同频段的源、介质响应和探测方式可能不同。
+\end{enumerate}
+
+\subsection{八、练习与解答}\label{m7:ux516bux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业一：LC
+振荡的频率、能量与最大电流〔M7-022〕}\label{m7:ux4f5cux4e1aux4e00lc-ux632fux8361ux7684ux9891ux7387ux80fdux91cfux4e0eux6700ux5927ux7535ux6d41m7-022}
+
+\textbf{层级：} 基础　　\textbf{方法：} 电磁振荡、能量法
+
+理想 LC 回路中
+\(L=25.0\ \mu\mathrm H\)、\(C=100\ \mathrm{pF}\)。初始时电容带电
+\(Q_0=1.00\ \mathrm{nC}\)，电流为零。求振荡频率、总能量和最大电流。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-022.pdf}}
+\par\smallskip{\small 图 M7-022：作业一：LC 振荡的频率、能量与最大电流}
+\end{center}
+\end{minipage}\par
+
+图 M7-022 规定 \(q\) 为电容上极板电荷、电流为放电正向，因此
+\(i=-\dot q\)；初始电荷峰值决定电能，四分之一周期后对应电流峰值。
+
+\[
+\sqrt{LC}=\sqrt{25.0\times10^{-6}\times100\times10^{-12}}
+=5.00\times10^{-8}\ \mathrm s.
+\]
+
+故
+
+\[
+\omega_0=2.00\times10^7\ \mathrm{rad/s},
+\qquad
+\boxed{f_0=\frac{\omega_0}{2\pi}=3.18\ \mathrm{MHz}}.
+\]
+
+总能量为
+
+\[
+\boxed{W=\frac{Q_0^2}{2C}=5.00\times10^{-9}\ \mathrm J}.
+\]
+
+最大电流
+
+\[
+\boxed{I_{\max}=Q_0\omega_0=20.0\ \mathrm{mA}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-022-P1.pdf}}
+\par\smallskip{\small 图 M7-022-P1：四分之一周期的能量交换}
+\end{center}
+\end{minipage}\par
+
+图 M7-022-P1 中 \(W_E+W_B=W\)；在 \(\omega_0t=\pi/2\)
+时电荷为零、电流达到峰值。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业二：调谐电容的选择〔M7-023〕}\label{m7:ux4f5cux4e1aux4e8cux8c03ux8c10ux7535ux5bb9ux7684ux9009ux62e9m7-023}
+
+\textbf{层级：} 基础　　\textbf{方法：} 电磁振荡、调谐
+
+接收机用 \(L=250\ \mu\mathrm H\) 的线圈调谐到
+\(f_0=1.00\ \mathrm{MHz}\)。忽略损耗和杂散参数，求所需电容。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-023.pdf}}
+\par\smallskip{\small 图 M7-023：作业二：调谐电容的选择}
+\end{center}
+\end{minipage}\par
+
+图 M7-023 的调谐电感固定为
+\(250\,\mu\mathrm H\)，改变电容使回路固有频率等于来波频率；公式中的
+\(f_0\) 因而使用 \(1.00\,\mathrm{MHz}\)。
+
+由
+
+\[
+f_0=\frac1{2\pi\sqrt{LC}}
+\]
+
+得到
+
+\[
+C=\frac1{(2\pi f_0)^2L}.
+\]
+
+代入数值：
+
+\[
+\boxed{C=1.01\times10^{-10}\ \mathrm F=101\ \mathrm{pF}}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业三：单音调幅的边带与功率〔M7-024〕}\label{m7:ux4f5cux4e1aux4e09ux5355ux97f3ux8c03ux5e45ux7684ux8fb9ux5e26ux4e0eux529fux7387m7-024}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 调幅、频谱分析、功率
+
+载频 \(f_c=1.00\ \mathrm{MHz}\)，调制频率
+\(f_m=5.00\ \mathrm{kHz}\)，调制度 \(m=0.600\)，载波峰值电压
+\(U_c=10.0\ \mathrm V\)，负载
+\(R=50.0\ \Omega\)。求三条谱线频率、每个边带的峰值电压和总平均功率。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-024.pdf}}
+\par\smallskip{\small 图 M7-024：作业三：单音调幅的边带与功率}
+\end{center}
+\end{minipage}\par
+
+图 M7-024 的中间谱线是载波，左右两线相距
+\(f_m\)；把调幅乘积展开后，每条边带的峰值都只有
+\(mU_c/2\)，计算功率时再由峰值除以 \(\sqrt2\)。
+
+三条谱线为
+
+\[
+\boxed{995\ \mathrm{kHz},\quad1000\ \mathrm{kHz},\quad1005\ \mathrm{kHz}}.
+\]
+
+每个边带峰值为
+
+\[
+\boxed{U_{\mathrm{sb}}=\frac{mU_c}{2}=3.00\ \mathrm V}.
+\]
+
+载波平均功率
+
+\[
+P_c=\frac{U_c^2}{2R}=1.00\ \mathrm W.
+\]
+
+两个边带总功率为 \(m^2P_c/2\)，因此
+
+\[
+\boxed{P_{\mathrm{tot}}=P_c\left(1+\frac{m^2}{2}\right)=1.18\ \mathrm W}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-024-P1.pdf}}
+\par\smallskip{\small 图 M7-024-P1：调幅波及其上下包络}
+\end{center}
+\end{minipage}\par
+
+图 M7-024-P1 使用本题实际频率比 \(f_c/f_m=200\)；包络幅度在 \(0.4U_c\)
+与 \(1.6U_c\) 之间。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业四：包络检波时间常数〔M7-025〕}\label{m7:ux4f5cux4e1aux56dbux5305ux7edcux68c0ux6ce2ux65f6ux95f4ux5e38ux6570m7-025}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 包络检波、时间尺度
+
+调幅载频为 \(1.00\ \mathrm{MHz}\)，信息最高频率为
+\(5.00\ \mathrm{kHz}\)。比较
+\(RC=0.050\ \mu\mathrm s\)、\(10.0\ \mu\mathrm s\) 和
+\(200\ \mu\mathrm s\)，在调制度适中、仅按常用时间尺度判据估计的前提下，判断哪一个最适合包络检波。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-025.pdf}}
+\par\smallskip{\small 图 M7-025：作业四：包络检波时间常数}
+\end{center}
+\end{minipage}\par
+
+图 M7-025
+标出载波与包络的两种时间尺度：放电时间要足够长以平滑载波，又要足够短以跟随包络。以下比较是常用尺度判据，精确失真还与调制度和二极管模型有关。
+
+要求
+
+\[
+\frac1{\omega_c}\ll RC\ll\frac1{\omega_{m,\max}}.
+\]
+
+两端尺度为
+
+\[
+\frac1{2\pi\times10^6}=0.159\ \mu\mathrm s,
+\]
+
+\[
+\frac1{2\pi\times5.00\times10^3}=31.8\ \mu\mathrm s.
+\]
+
+\(0.050\ \mu\mathrm s\) 太小，载波纹波明显；\(200\ \mu\mathrm s\)
+太大，不能跟随包络；\(10.0\ \mu\mathrm s\) 位于两尺度之间。因此
+
+\[
+\boxed{RC=10.0\ \mu\mathrm s}
+\]
+
+最合适。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业五：波长、天线尺度与传播时延〔M7-026〕}\label{m7:ux4f5cux4e1aux4e94ux6ce2ux957fux5929ux7ebfux5c3aux5ea6ux4e0eux4f20ux64adux65f6ux5ef6m7-026}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 尺度分析、传播时延
+
+一台发射机频率为 \(100\ \mathrm{MHz}\)，使用长度 \(0.750\ \mathrm m\)
+的直线天线。接收站距发射站
+\(30.0\ \mathrm{km}\)。求真空波长、天线长度与波长之比、传播时延以及时延对应的载波周期数。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-026.pdf}}
+\par\smallskip{\small 图 M7-026：作业五：波长、天线尺度与传播时延}
+\end{center}
+\end{minipage}\par
+
+图 M7-026 分别标出天线长度 \(\ell\) 和站间距离 \(r\)；\(\ell/\lambda\)
+检查天线的电尺寸，\(r/c\) 决定接收延迟，两者不能混用。
+
+波长为
+
+\[
+\boxed{\lambda=\frac c f=\frac{3.00\times10^8}{1.00\times10^8}=3.00\ \mathrm m}.
+\]
+
+所以
+
+\[
+\boxed{\frac{\ell}{\lambda}=0.250}.
+\]
+
+天线达到四分之一波长，不能视为尺寸远小于波长的集总元件。
+
+传播时延为
+
+\[
+\boxed{\tau=\frac rc=\frac{3.00\times10^4}{3.00\times10^8}=100\ \mu\mathrm s}.
+\]
+
+载波周期为 \(10.0\ \mathrm{ns}\)，因此
+
+\[
+\boxed{N=f\tau=1.00\times10^4}
+\]
+
+个周期。
+
+\section{专题六十四：位移电流、电荷守恒与运动电荷（基础必讲与拔高选讲）}\label{m7:ux4e13ux9898ux516dux5341ux56dbux4f4dux79fbux7535ux6d41ux7535ux8377ux5b88ux6052ux4e0eux8fd0ux52a8ux7535ux8377ux57faux7840ux5fc5ux8bb2ux4e0eux62d4ux9ad8ux9009ux8bb2}
+
+连续性方程要求在麦克斯韦---安培方程中加入位移电流项；充电电容器给出这一项的直接计算。运动点电荷与积分曲面的选择列为选讲。位移电流表示变化电场对磁场旋度的贡献，并不要求自由电荷穿过真空。
+
+\subsection{一、麦克斯韦---安培定律为何必需}\label{m7:ux4e00ux9ea6ux514bux65afux97e6ux5b89ux57f9ux5b9aux5f8bux4e3aux4f55ux5fc5ux9700}
+
+\subsubsection{1.
+静磁安培定律为什么不够}\label{m7:ux9759ux78c1ux5b89ux57f9ux5b9aux5f8bux4e3aux4ec0ux4e48ux4e0dux591f}
+
+稳恒电流中有
+
+\[
+\nabla\times\mathbf B=\mu_0\mathbf J.
+\]
+
+对两边取散度：
+
+\[
+0=\mu_0\nabla\cdot\mathbf J.
+\]
+
+但电荷守恒要求
+
+\[
+\boxed{
+\nabla\cdot\mathbf J
++\frac{\partial\rho}{\partial t}=0
+}.
+\]
+
+所以静磁安培定律只能与 \(\partial\rho/\partial t=0\) 的稳恒情形相容。
+
+由电场高斯定律
+
+\[
+\rho=\varepsilon_0\nabla\cdot\mathbf E
+\]
+
+和连续性方程得到
+
+\[
+\nabla\cdot
+\left(
+\mathbf J+\varepsilon_0
+\frac{\partial\mathbf E}{\partial t}
+\right)=0.
+\]
+
+因此修正后的方程为
+
+\[
+\boxed{
+\nabla\times\mathbf B
+=\mu_0\mathbf J
++\mu_0\varepsilon_0
+\frac{\partial\mathbf E}{\partial t}
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H31.pdf}}
+\par\smallskip{\small 图 M7-H31：位移电流项由连续性方程和电场高斯定律推出}
+\end{center}
+\end{minipage}\par
+
+把
+
+\[
+\mathbf J_d
+=\varepsilon_0\frac{\partial\mathbf E}{\partial t}
+\]
+
+称为位移电流密度。它表示变化电场对磁场的贡献，不表示真空中存在真实带电粒子的定向穿越。
+
+\subsubsection{2.
+充电电容器的双曲面检验}\label{m7:ux5145ux7535ux7535ux5bb9ux5668ux7684ux53ccux66f2ux9762ux68c0ux9a8c}
+
+同一个安培环路 \(C\) 可以张成两个曲面：\(S_1\) 穿过导线，\(S_2\)
+鼓入电容器极板间隙。
+
+对 \(S_1\)，
+
+\[
+\oint_C\mathbf B\cdot d\mathbf l=\mu_0I.
+\]
+
+对 \(S_2\)，没有传导电流穿过，但有
+
+\[
+\oint_C\mathbf B\cdot d\mathbf l
+=\mu_0\varepsilon_0\frac{d\Phi_E}{dt}.
+\]
+
+忽略平行板边缘效应时，
+
+\[
+Q=\varepsilon_0EA,
+\qquad
+I=\frac{dQ}{dt}
+=\varepsilon_0A\frac{dE}{dt}
+=\varepsilon_0\frac{d\Phi_E}{dt}.
+\]
+
+所以两种曲面给出相同结果。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H32.pdf}}
+\par\smallskip{\small 图 M7-H32：同一安培环路所张的导线曲面和极板间曲面}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{充电圆形极板周围的磁场〔M7-027〕}
+
+\textbf{层级：} 基础
+
+真空平行板电容器的圆形极板半径为 \(R\)，板间电场近似为
+\(\mathbf E=E(t)\mathbf e_z\)。采用忽略边缘电场的轴对称模型，以 \(+z\)
+为面法向。分别求半径 \(r<R\) 与 \(r>R\) 的同心安培圆周上的
+\(B_{\phi}(r)\)，并检查 \(r=R\) 处的连续性。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-027.pdf}}
+\par\smallskip{\small 图 M7-027：充电圆形极板周围的磁场}
+\end{center}
+\end{minipage}\par
+
+图 M7-027 中变化电场沿 \(+z\)，右手正向磁场沿逆时针；半径小于 \(R\)
+时取部分极板面积，大于 \(R\) 时电通量只积累到整个极板。
+
+圆形极板半径为 \(R\)，极板间电场均匀增加。对 \(r<R\) 的同心安培环路，
+
+\[
+B_{\phi}(2\pi r)
+=\mu_0\varepsilon_0
+\frac d{dt}(E\pi r^2).
+\]
+
+因此
+
+\[
+\boxed{
+B_{\phi}(r)
+=\frac{\mu_0\varepsilon_0r}{2}
+\frac{dE}{dt}
+\qquad (r<R)
+}.
+\]
+
+对于 \(r>R\)，被环路包围的变化电通量只来自极板面积，故
+
+\[
+\boxed{
+B_{\phi}(r)
+=\frac{\mu_0\varepsilon_0R^2}{2r}
+\frac{dE}{dt}
+\qquad (r>R)
+}.
+\] 两个表达式在 \(r=R\) 均给出
+\(B_{\phi}(R)=\mu_0\varepsilon_0R\dot E/2\)，因此连续。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-027-P1.pdf}}
+\par\smallskip{\small 图 M7-027-P1：内外区域的连续拼接}
+\end{center}
+\end{minipage}\par
+
+图 M7-027-P1 在 \(r=R\)
+处连续；外侧环路继续增大，所包围的变化通量已不再增长。
+
+\subsection{二、移动点电荷与位移电流}\label{m7:ux4e8cux79fbux52a8ux70b9ux7535ux8377ux4e0eux4f4dux79fbux7535ux6d41}
+
+点电荷 \(q\) 以低速 \(v\ll c\) 沿圆环轴线向圆面靠近。圆环半径为
+\(h\)，取圆面法向由电荷所在一侧指向圆面另一侧，即背离电荷，并令电荷尚未穿过圆面时的轴向距离为
+\(x>0\)。此时电荷穿过该圆面的电通量为
+
+\[
+\Phi_E=\frac{q}{2\varepsilon_0}
+\left(1-\frac{x}{\sqrt{x^2+h^2}}\right).
+\]
+
+令 \(\dot x=-v\)，则位移电流大小为
+
+\[
+I_d=\varepsilon_0\frac{d\Phi_E}{dt}
+=\frac{qvh^2}{2(x^2+h^2)^{3/2}}.
+\]
+
+安培---麦克斯韦定律给出
+
+\[
+B(2\pi h)=\mu_0I_d,
+\]
+
+故
+
+\[
+\boxed{
+B=\frac{\mu_0qvh}{4\pi(x^2+h^2)^{3/2}}}.
+\]
+
+这正是非相对论运动点电荷磁场
+
+\[
+\mathbf B=\frac{\mu_0}{4\pi}
+\frac{q\mathbf v\times\mathbf R}{R^3}
+\]
+
+在圆环上的大小。
+
+当电荷到达并穿过圆面时，传导电流会刺穿所选曲面，电通量表达式的分支和符号也要随法向约定重新处理；上式只用于
+\(x>0\) 的靠近阶段，不能跨过 \(x=0\) 直接延拓。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H33.pdf}}
+\par\smallskip{\small 图 M7-H33：移动点电荷的电通量变化产生位移电流和环向磁场}
+\end{center}
+\end{minipage}\par
+
+\subsection{三、由场方程反向检验局域电荷守恒}\label{m7:ux4e09ux7531ux573aux65b9ux7a0bux53cdux5411ux68c0ux9a8cux5c40ux57dfux7535ux8377ux5b88ux6052}
+
+麦克斯韦---安培方程为
+
+\[
+\nabla\times\mathbf B
+=\mu_0\mathbf J+\mu_0\varepsilon_0\frac{\partial\mathbf E}{\partial t}.
+\]
+
+两边取散度，利用任意光滑矢量场旋度的散度恒为零，得到
+
+\[
+0=\mu_0\left(\nabla\cdot\mathbf J
++\varepsilon_0\frac{\partial}{\partial t}\nabla\cdot\mathbf E\right).
+\]
+
+再用 \(\nabla\cdot\mathbf E=\rho/\varepsilon_0\)，便有
+
+\[
+\boxed{\frac{\partial\rho}{\partial t}+\nabla\cdot\mathbf J=0}.
+\]
+
+这正是局域电荷守恒方程。若安培定律中缺少位移电流项，取散度会错误地要求
+\(\nabla\cdot\mathbf J=0\)，从而无法描述电容充电等电荷密度随时间变化的过程。
+
+\subsection{四、积分曲面、介质形式与逻辑边界}\label{m7:ux56dbux79efux5206ux66f2ux9762ux4ecbux8d28ux5f62ux5f0fux4e0eux903bux8f91ux8fb9ux754c}
+
+\subsubsection{1.
+积分曲面不能改变物理结果}\label{m7:ux79efux5206ux66f2ux9762ux4e0dux80fdux6539ux53d8ux7269ux7406ux7ed3ux679c}
+
+斯托克斯定理要求：同一边界 \(C\)
+所张的不同曲面，只要场在两曲面之间的区域满足相应条件，环量结果应一致。充电电容器中，若仍使用静磁公式
+
+\[
+\oint_C\mathbf B\cdot d\mathbf l
+=\mu_0\int_S\mathbf J\cdot d\mathbf S,
+\]
+
+穿导线的曲面给出 \(\mu_0I\)，穿极板间隙的曲面却给出零，产生矛盾。
+
+\subsubsection{2.
+连续性方程强制补偿项出现}\label{m7:ux8fdeux7eedux6027ux65b9ux7a0bux5f3aux5236ux8865ux507fux9879ux51faux73b0}
+
+由
+
+\[
+\nabla\cdot\mathbf J
+=-\frac{\partial\rho}{\partial t}
+\]
+
+和
+
+\[
+\rho=\varepsilon_0\nabla\cdot\mathbf E
+\]
+
+得到
+
+\[
+\nabla\cdot
+\left(
+\mathbf J+\varepsilon_0
+\frac{\partial\mathbf E}{\partial t}
+\right)=0.
+\]
+
+麦克斯韦-安培方程选择这个局域补偿项，使方程与电荷守恒、实验结果和电磁波传播共同相容。单从``散度必须抵消''这一条件看，还可以给补偿项加上无散度场；完整的物理理论由局域性、对称性、实验与其他方程共同确定，不能把``唯一性''只归因于一次代数移项。
+
+\subsubsection{3.
+位移电流不等于带电粒子流}\label{m7:ux4f4dux79fbux7535ux6d41ux4e0dux7b49ux4e8eux5e26ux7535ux7c92ux5b50ux6d41}
+
+传导电流密度 \(\mathbf J\) 描述自由电荷的定向运动。真空位移电流密度
+
+\[
+\mathbf J_d
+=\varepsilon_0\frac{\partial\mathbf E}{\partial t}
+\]
+
+描述变化电场对磁场的贡献。二者都出现在磁场的旋度方程中，但微观机制不同。
+
+在介质中应使用
+
+\[
+\nabla\times\mathbf H
+=\mathbf J_f+\frac{\partial\mathbf D}{\partial t}.
+\]
+
+\(\partial\mathbf D/\partial t\)
+包含真空项与极化变化的贡献；材料损耗必须结合本构关系分析。
+
+\subsubsection{4.
+位移电流与电磁波}\label{m7:ux4f4dux79fbux7535ux6d41ux4e0eux7535ux78c1ux6ce2}
+
+若没有 \(\partial\mathbf E/\partial t\) 项，无源真空中将只剩
+
+\[
+\nabla\times\mathbf B=0,
+\]
+
+变化磁场虽然能产生电场，变化电场却不能反过来产生磁场，无法闭合成真空波动方程。位移电流项使电场和磁场的动力学耦合成为可能。
+
+\subsection{五、使用条件与常见错误}\label{m7:ux4e94ux4f7fux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux9519ux8bef}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  真空微观形式使用
+  \(\mathbf J+\varepsilon_0\dfrac{\partial\mathbf E}{\partial t}\)；介质宏观形式使用
+  \(\mathbf J_f+\dfrac{\partial\mathbf D}{\partial t}\)，两种``分账''不能混写。
+\item
+  位移电流是对选定曲面的通量变化；环路正向、曲面法向和磁场环向必须满足右手定则。
+\item
+  传导电流与位移电流可以具有相同的磁效应贡献，但微观机制不同。
+\item
+  移动点电荷的圆面通量公式限定在 \(x>0\)
+  且电荷尚未穿面；穿面后必须同时处理传导电流和有向通量分支。
+\item
+  ``由散度相消补出一项''只给出结构约束；完整方程还受局域性、洛伦兹协变性和实验事实约束。
+\end{enumerate}
+
+\subsection{六、练习与解答}\label{m7:ux516dux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业一：充电电容器的位移电流〔M7-028〕}\label{m7:ux4f5cux4e1aux4e00ux5145ux7535ux7535ux5bb9ux5668ux7684ux4f4dux79fbux7535ux6d41m7-028}
+
+\textbf{层级：} 基础　　\textbf{方法：} 麦克斯韦方程
+
+面积为 \(A\)、板间为真空的平行板电容器正在充电，极板间电场近似均匀并满足
+\(dE/dt=\alpha\)。忽略边缘效应，求极板间的位移电流，并说明它为什么与导线中的传导电流相等。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-028.pdf}}
+\par\smallskip{\small 图 M7-028：作业一：充电电容器的位移电流}
+\end{center}
+\end{minipage}\par
+
+图 M7-028 中 \(S_1\) 穿过导线、\(S_2\) 张入板间，两者有同一边界圆周。对
+\(S_2\) 计算变化电通量，对 \(S_1\) 计算输送到极板的电荷变化。
+
+极板间的电通量为
+
+\[
+\Phi_E=EA.
+\]
+
+真空位移电流为
+
+\[
+I_d
+=\varepsilon_0\frac{d\Phi_E}{dt}
+=\varepsilon_0A\frac{dE}{dt}.
+\]
+
+代入 \(dE/dt=\alpha\)：
+
+\[
+\boxed{I_d=\varepsilon_0A\alpha}.
+\]
+
+另一方面，极板电荷为
+
+\[
+Q=\varepsilon_0EA.
+\]
+
+导线向极板输送电荷的传导电流为
+
+\[
+I=\frac{dQ}{dt}
+=\varepsilon_0A\frac{dE}{dt}
+=\varepsilon_0A\alpha.
+\]
+
+所以
+
+\[
+\boxed{I=I_d}.
+\]
+
+这保证同一安培环路无论选择穿过导线的曲面，还是选择穿过极板间隙的曲面，都得到相同的磁场环量。极板间没有自由电荷穿越；相等的是二者对磁场旋度的贡献数值。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业二：移动点电荷的位移电流检验〔M7-029〕}\label{m7:ux4f5cux4e1aux4e8cux79fbux52a8ux70b9ux7535ux8377ux7684ux4f4dux79fbux7535ux6d41ux68c0ux9a8cm7-029}
+
+\textbf{层级：} 基础　　\textbf{方法：} 麦克斯韦方程
+
+真空中，电荷 \(q>0\) 位于轴上 \(X=-x\) 处，以恒速 \(v\ll c\) 沿 \(+X\)
+接近位于 \(X=0\) 的圆面，圆面半径为 \(h\)，法向取 \(+X\)，\(x>0\) 且
+\(\dot x=-v\)。使用低速瞬时库仑场近似，圆面电通量为
+\(\Phi_E=\dfrac{q}{2\varepsilon_0}\left(1-\dfrac{x}{\sqrt{x^2+h^2}}\right)\)。在电荷尚未穿面时，求穿过圆面的位移电流，以及边界圆周上沿右手正向的磁感应强度，并检查
+\(h\ll x\) 的极限。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-029.pdf}}
+\par\smallskip{\small 图 M7-029：作业二：移动点电荷的位移电流检验}
+\end{center}
+\end{minipage}\par
+
+图 M7-029 中圆面位于 \(X=0\)，半径为 \(h\)，法向取 \(+X\)；点电荷在轴上
+\(X=-x\) 处向右接近，\(x>0\) 且
+\(\dot x=-v\)。由此确定通量的符号和环向正向。
+
+\[
+\frac{d}{dx}\frac{x}{\sqrt{x^2+h^2}}
+=\frac{h^2}{(x^2+h^2)^{3/2}}.
+\]
+
+取 \(\dot x=-v\)，
+
+\[
+I_d=\varepsilon_0\dot\Phi_E
+=\frac{qvh^2}{2(x^2+h^2)^{3/2}}.
+\]
+
+故
+
+\[
+B=\frac{\mu_0I_d}{2\pi h}
+=\frac{\mu_0qvh}{4\pi(x^2+h^2)^{3/2}}.
+\]
+
+当 \(h\ll|x|\) 时，
+
+\[
+\boxed{B\simeq\frac{\mu_0qvh}{4\pi|x|^3}},
+\]
+
+与低速运动点电荷在 \(h\ll x\) 下的磁场横向分量一致。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-029-P1.pdf}}
+\par\smallskip{\small 图 M7-029-P1：轴向距离改变时的环向磁场}
+\end{center}
+\end{minipage}\par
+
+图 M7-029-P1：远处 \(x\gg h\) 时按 \(x^{-3}\)
+下降；只取电荷尚未穿过圆面的 \(x>0\) 一侧。
+
+\section{专题六十五：电磁场的洛伦兹变换（决赛拓展）}\label{m7:ux4e13ux9898ux516dux5341ux4e94ux7535ux78c1ux573aux7684ux6d1bux4f26ux5179ux53d8ux6362ux51b3ux8d5bux62d3ux5c55}
+
+阅读准备：先区分平行与垂直分量 两惯性系相对速度为 \(\mathbf v\)
+时，任意矢量都可分成平行于 \(\mathbf v\) 和垂直于 \(\mathbf v\)
+的部分。洛伦兹因子为 \(\gamma=1/\sqrt{1-v^2/c^2}\)；当 \(v/c\ll1\)
+时，\(\gamma\approx1+v^2/(2c^2)\)，变换应退回低速近似。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{场变换的平行与垂直分量〔M7-030〕}
+
+\textbf{层级：} 决赛拓展
+
+参考系 \(S'\) 以速度 \(\mathbf v=v\mathbf e_x\) 相对 \(S\) 运动。将
+\(\mathbf E=(E_x,E_y,E_z)\)、\(\mathbf B=(B_x,B_y,B_z)\)
+分为平行和垂直于相对速度的部分，写出场的洛伦兹变换，并指出哪些分量保持不变。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-030.pdf}}
+\par\smallskip{\small 图 M7-030：场变换的平行与垂直分量}
+\end{center}
+\end{minipage}\par
+
+图 M7-030 的相对速度沿 \(x\)；投影到这根轴的分量直接保留，\(yz\)
+横截面的分量则与叉积项混合，须分别使用两类变换。
+
+若相对运动沿 \(x\) 轴，则 \(E_x\) 属于平行分量，而 \(E_y,E_z\)
+属于垂直分量；两类分量的变换形式不能混用。 具体为
+\(E_x'=E_x\)、\(B_x'=B_x\)，\(\mathbf E_{\perp}'=\gamma(\mathbf E_{\perp}+\mathbf v\times\mathbf B)\)、\(\mathbf B_{\perp}'=\gamma(\mathbf B_{\perp}-\mathbf v\times\mathbf E/c^2)\)，其中
+\(\gamma=(1-v^2/c^2)^{-1/2}\)。
+
+设惯性系 \(S'\) 相对 \(S\) 以速度 \(\mathbf v=v\mathbf e_x\)
+运动，并定义
+
+\[
+\beta_v=\frac vc,
+\qquad
+\boxed{\gamma_v=\frac1{\sqrt{1-\beta_v^2}}}.
+\]
+
+撇号表示 \(S'\)
+系测得的物理量。电场和磁场是电磁场在不同惯性系中的分量；不同参考系对电、磁作用的划分可以不同，但对同一粒子轨道的描述必须相容。
+
+\subsection{一、载流导线：磁力与相对论电力的对应}\label{m7:ux4e00ux8f7dux6d41ux5bfcux7ebfux78c1ux529bux4e0eux76f8ux5bf9ux8bbaux7535ux529bux7684ux5bf9ux5e94}
+
+实验室系中，一根长直导线由静止正离子线密度 \(+\lambda\) 和以速度 \(u\)
+运动的电子线密度 \(-\lambda\) 组成，因而整体电中性，电流大小为
+
+\[
+I=\lambda u.
+\]
+
+与电子同向运动、速度同为 \(u\) 的试探电荷 \(Q\) 在距导线 \(r\)
+处受到磁力，大小为
+
+\[
+\boxed{
+F_B=QuB
+=\frac{\mu_0Q\lambda u^2}{2\pi r}}.
+\]
+
+转到电子静止系，定义
+
+\[
+\gamma_u=\frac1{\sqrt{1-u^2/c^2}}.
+\]
+
+正离子因长度收缩而具有线密度
+\(+\gamma_u\lambda\)；电子在实验室系的线密度 \(-\lambda\)
+已包含长度收缩，所以其本征线密度为 \(-\lambda/\gamma_u\)。净线电荷密度为
+
+\[
+\boxed{
+\lambda'
+=\gamma_u\lambda-\frac{\lambda}{\gamma_u}
+=\gamma_u\lambda\frac{u^2}{c^2}}.
+\]
+
+因而电子静止系中出现径向电场，试探电荷受到
+
+\[
+F_E'
+=\frac{Q\lambda'}{2\pi\varepsilon_0r}
+=\gamma_u\frac{Q\lambda u^2}{2\pi\varepsilon_0c^2r}.
+\]
+
+使用 \(c^2=1/(\mu_0\varepsilon_0)\) 得到
+
+\[
+\boxed{F_E'=\gamma_u F_B},
+\]
+
+这正符合三维力横向分量从实验室系到粒子瞬时静止系的变换关系。低速极限
+\(u\ll c\) 时
+\(\gamma_u\simeq1\)，两者数值近似相等。这里不是用相对论``推导''真空常数，而是在已知麦克斯韦关系后检验两参考系描述相容。
+
+\subsection{二、电磁场的洛伦兹变换}\label{m7:ux4e8cux7535ux78c1ux573aux7684ux6d1bux4f26ux5179ux53d8ux6362}
+
+对沿 \(x\) 方向的标准洛伦兹变换，纵向分量不变：
+
+\[
+E_x'=E_x,
+\qquad
+B_x'=B_x.
+\]
+
+横向分量满足
+
+\[
+\boxed{
+\begin{aligned}
+E_y'&=\gamma_v(E_y-vB_z),\\
+E_z'&=\gamma_v(E_z+vB_y),\\
+B_y'&=\gamma_v\left(B_y+\frac{v}{c^2}E_z\right),\\
+B_z'&=\gamma_v\left(B_z-\frac{v}{c^2}E_y\right).
+\end{aligned}}
+\]
+
+等价的平行---垂直写法为
+
+\[
+\begin{aligned}
+\mathbf E_{\parallel}'&=\mathbf E_{\parallel},
+&\mathbf E_{\perp}'&=\gamma_v(\mathbf E+\mathbf v\times\mathbf B)_{\perp},\\
+\mathbf B_{\parallel}'&=\mathbf B_{\parallel},
+&\mathbf B_{\perp}'&=\gamma_v\left(\mathbf B-\frac{\mathbf v\times\mathbf E}{c^2}\right)_{\perp}.
+\end{aligned}
+\]
+
+低速 \(v\ll c\) 时，\(\gamma_v\simeq1\)，主要混合项为
+
+\[
+\boxed{
+\mathbf E'\simeq\mathbf E+\mathbf v\times\mathbf B}.
+\]
+
+这正是动生电动势中出现的有效力场。某一参考系中的纯磁场，在另一参考系中一般会同时出现电场。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H34.pdf}}
+\par\smallskip{\small 图 M7-H34：沿横向洛伦兹变换时电场和磁场分量互相混合}
+\end{center}
+\end{minipage}\par
+
+\subsection{三、两个场不变量}\label{m7:ux4e09ux4e24ux4e2aux573aux4e0dux53d8ux91cf}
+
+任意惯性系中，下列两组组合保持不变：
+
+\[
+\boxed{
+\mathbf E'\cdot\mathbf B'=\mathbf E\cdot\mathbf B},
+\]
+
+\[
+\boxed{
+E'^2-c^2B'^2=E^2-c^2B^2}.
+\]
+
+因而若
+\(\mathbf E\cdot\mathbf B\ne0\)，不存在惯性系能让电场或磁场中的任一个完全消失。若
+\(\mathbf E\perp\mathbf B\) 且
+\(E<cB\)，场属于``磁型''，可以寻找某个惯性系使 \(\mathbf E'=0\)；若
+\(E>cB\)，场属于``电型''，可以寻找某个惯性系使
+\(\mathbf B'=0\)。临界情形 \(E=cB\)、\(\mathbf E\perp\mathbf B\)
+对应平面电磁波的场型，不能通过低于光速的惯性系把其中一场消去。
+
+\subsection{四、使用条件与常见错误}\label{m7:ux56dbux4f7fux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux9519ux8bef}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  洛伦兹因子必须注明对应速度；本专题用 \(\gamma_u\) 表示载流电子速度，用
+  \(\gamma_v\) 表示参考系相对速度。
+\item
+  长度收缩必须分别从各粒子族的静止系定义本征密度，不能把同一个
+  \(\gamma\) 同向乘到所有线密度上。
+\item
+  \(\mathbf E+\mathbf v\times\mathbf B\)
+  只是低速场变换的首阶形式；高速问题必须使用完整变换与相对论动量。
+\item
+  不同参考系对``动生''与``感生''的分账可以不同，但总洛伦兹力和可测轨道不能矛盾。
+\item
+  比较不同参考系中的三力时，还要使用力的相对论变换；不能把横向三力在两个参考系中直接令为严格相等。
+\end{enumerate}
+
+\subsection{五、练习与解答}\label{m7:ux4e94ux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业一：低速场变换与动生项〔M7-031〕}\label{m7:ux4f5cux4e1aux4e00ux4f4eux901fux573aux53d8ux6362ux4e0eux52a8ux751fux9879m7-031}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 法拉第定律
+
+在参考系 \(S\) 中只有匀强磁场
+\(\mathbf B=B\mathbf e_z\)、\(\mathbf E=0\)。参考系 \(S'\) 以速度
+\(v\mathbf e_x\) 相对 \(S\) 运动，且 \(v\ll c\)。求 \(S'\) 中的电场。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-031.pdf}}
+\par\smallskip{\small 图 M7-031：作业一：低速场变换与动生项}
+\end{center}
+\end{minipage}\par
+
+图 M7-031 中 \(\mathbf v\) 沿 \(+x\)、\(\mathbf B\) 沿 \(+z\)，叉积朝
+\(-y\)；低速电场变换因此产生向下的 \(\mathbf E'\)。
+
+低速变换为
+
+\[
+\mathbf E'\simeq\mathbf E+\mathbf v\times\mathbf B.
+\]
+
+所以
+
+\[
+\boxed{
+\mathbf E'=v\mathbf e_x\times B\mathbf e_z
+=-vB\mathbf e_y}.
+\]
+
+在 \(S\) 中可把作用解释为运动电荷的磁力；在 \(S'\)
+中同一电荷若静止，则由新出现的电场产生相同的低速横向作用。
+
+\section{专题六十六：电磁波在界面上的反射、折射与导体中的传播（基础必讲与拔高选讲）}\label{m7:ux4e13ux9898ux516dux5341ux516dux7535ux78c1ux6ce2ux5728ux754cux9762ux4e0aux7684ux53cdux5c04ux6298ux5c04ux4e0eux5bfcux4f53ux4e2dux7684ux4f20ux64adux57faux7840ux5fc5ux8bb2ux4e0eux62d4ux9ad8ux9009ux8bb2}
+
+平面波在界面上必须满足相位匹配和切向场连续条件。由此可确定反射、折射的方向和振幅，并讨论布儒斯特角、全反射与倏逝场；导体中的传播还要计入耗散。
+
+\subsection{一、均匀介质中的平面波关系}\label{m7:ux4e00ux5747ux5300ux4ecbux8d28ux4e2dux7684ux5e73ux9762ux6ce2ux5173ux7cfb}
+
+在线性、各向同性、无源、无耗散介质中，
+
+\[
+v=\frac1{\sqrt{\mu\varepsilon}},
+\qquad
+k=\omega\sqrt{\mu\varepsilon}.
+\]
+
+定义波阻抗
+
+\[
+\boxed{\eta=\sqrt{\frac{\mu}{\varepsilon}}}.
+\]
+
+对沿单位方向 \(\hat{\mathbf k}\) 传播的平面波，
+
+\[
+\boxed{
+\mathbf H=\frac1\eta\hat{\mathbf k}\times\mathbf E
+},
+\]
+
+并且
+
+\[
+\mathbf E\perp\mathbf H,
+\qquad
+\mathbf E\perp\hat{\mathbf k}.
+\]
+
+时间平均坡印廷矢量沿传播方向：
+
+\[
+\boxed{
+\langle\mathbf S\rangle
+=\frac{E_0^2}{2\eta}\hat{\mathbf k}
+}
+\]
+
+其中 \(E_0\) 为峰值振幅；若使用有效值，式中的 \(1/2\) 应去掉。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{数值场强对应的平均能流〔M7-032〕}
+
+\textbf{层级：} 基础
+
+真空单色平面波电场峰值为 \(E_0=100\,\mathrm{V/m}\)。取真空波阻抗
+\(\eta_0=377\,\Omega\)，求磁场强度峰值及时间平均能流大小，说明峰值与有效值的使用区别。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-032.pdf}}
+\par\smallskip{\small 图 M7-032：数值场强对应的平均能流}
+\end{center}
+\end{minipage}\par
+
+图 M7-032 用峰值电场 \(100\,\mathrm{V/m}\) 与波阻抗求
+\(H_0\)；正弦波的平均功率是两场峰值乘积的一半。
+
+真空中
+\(\eta_0=\sqrt{\mu_0/\varepsilon_0}\approx377\ \Omega\)。若电场峰值为
+\(100\ \mathrm{V/m}\)，则平均能流为
+
+\[
+\langle S\rangle
+=\frac{100^2}{2\times377}
+\approx13.3\ \mathrm{W/m^2}.
+\] 同时 \(H_0=E_0/\eta_0=0.265\,\mathrm{A/m}\)；若使用有效值
+\(E_{\rm rms}=100/\sqrt2\,\mathrm{V/m}\)，则平均能流为
+\(E_{\rm rms}^2/\eta_0\)。
+
+\subsection{二、界面上的相位匹配与折射定律}\label{m7:ux4e8cux754cux9762ux4e0aux7684ux76f8ux4f4dux5339ux914dux4e0eux6298ux5c04ux5b9aux5f8b}
+
+设平面界面为 \(z=0\)，介质 1 位于 \(z<0\)，介质 2 位于
+\(z>0\)。入射、反射和透射波的波矢分别为
+\(\mathbf k_i,\mathbf k_r,\mathbf k_t\)。界面上任意位置、任意时刻都必须满足边界条件，因此三列波在界面切向方向上的相位必须一致：
+
+\[
+\boxed{
+\mathbf k_{i\parallel}
+=\mathbf k_{r\parallel}
+=\mathbf k_{t\parallel}
+}.
+\]
+
+于是
+
+\[
+\boxed{\theta_r=\theta_i},
+\]
+
+以及
+
+\[
+\boxed{k_1\sin\theta_i=k_2\sin\theta_t}.
+\]
+
+若定义折射率 \(n=c/v\)，便得到斯涅耳定律
+
+\[
+\boxed{
+n_1\sin\theta_i=n_2\sin\theta_t
+}.
+\]
+
+入射波矢和界面法线张成入射面。相位匹配还说明
+\(\mathbf k_i,\mathbf k_r,\mathbf k_t\) 位于同一平面。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H35.pdf}}
+\par\smallskip{\small 图 M7-H35：入射、反射和折射波的相位匹配与角度定义}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{空气进入玻璃的折射角〔M7-033〕}
+
+\textbf{层级：} 基础
+
+光从折射率 \(n_1=1.00\) 的空气射入折射率 \(n_2=1.50\)
+的均匀无耗玻璃。入射角
+\(\theta_i=30^{\circ}\)，所有角均相对界面法线测量。求折射角，并说明折射光线相对法线的偏折方向。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-033.pdf}}
+\par\smallskip{\small 图 M7-033：空气进入玻璃的折射角}
+\end{center}
+\end{minipage}\par
+
+图 M7-033 所有角都从虚线法线量起；切向波矢匹配给出
+\(n_1\sin\theta_i=n_2\sin\theta_t\)，折射线因 \(n_2>n_1\) 更靠近法线。
+
+光从 \(n_1=1.00\) 的介质以 \(\theta_i=30^{\circ}\) 入射到 \(n_2=1.50\)
+的介质，
+
+\[
+\sin\theta_t=\frac{1.00}{1.50}\sin30^{\circ}=\frac13,
+\]
+
+所以
+
+\[
+\boxed{\theta_t\approx19.5^{\circ}}.
+\]
+
+折射线向法线偏折。
+
+\subsection{三、两种偏振与切向波导纳}\label{m7:ux4e09ux4e24ux79cdux504fux632fux4e0eux5207ux5411ux6ce2ux5bfcux7eb3}
+
+以下假定界面上没有自由面电荷和自由面电流，因此
+
+\[
+\mathbf E_{1t}=\mathbf E_{2t},
+\qquad
+\mathbf H_{1t}=\mathbf H_{2t}.
+\]
+
+将电场分解为两种互不耦合的线偏振：
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{TE 偏振}：\(\mathbf E\) 垂直入射面；
+\item
+  \textbf{TM 偏振}：\(\mathbf H\) 垂直入射面，\(\mathbf E\)
+  位于入射面内。
+\end{itemize}
+
+为避免斜入射时``总电场幅''和``切向电场幅''混用，统一用界面切向电场幅
+\(E_{\parallel}\) 定义反射系数和透射系数：
+
+\[
+\boxed{
+r=\frac{E_{\parallel r}}{E_{\parallel i}},
+\qquad
+t=\frac{E_{\parallel t}}{E_{\parallel i}}
+}.
+\]
+
+对一列沿界面法线具有正向能流的波，定义切向波导纳
+
+\[
+Y=\frac{H_{\parallel}}{E_{\parallel}}.
+\]
+
+两种偏振分别为
+
+\[
+\boxed{
+Y_{\mathrm{TE}}=\frac{\cos\theta}{\eta}
+},
+\]
+
+\[
+\boxed{
+Y_{\mathrm{TM}}=\frac1{\eta\cos\theta}
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H36.pdf}}
+\par\smallskip{\small 图 M7-H36：TE与TM偏振的场方向和切向场分量}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{正入射时TE与TM的等价〔M7-034〕}
+
+\textbf{层级：} 基础
+
+无耗各向同性介质的波阻抗为 \(\eta\)，TE和TM波的切向波导纳分别为
+\(Y_{\rm TE}=\cos\theta/\eta\) 和
+\(Y_{\rm TM}=1/(\eta\cos\theta)\)，\(\theta\)
+为波矢与法线的夹角。求正入射极限，解释此时为何不再有独特的入射面。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-034.pdf}}
+\par\smallskip{\small 图 M7-034：正入射时TE与TM的等价}
+\end{center}
+\end{minipage}\par
+
+图 M7-034 的入射波矢与法线重合，两个正交切向偏振都处在界面内；令
+\(\cos\theta=1\) 后两种导纳相同。
+
+在正入射极限 \(\theta=0\) 时，两种偏振都给出
+
+\[
+Y=\frac1\eta.
+\]
+
+此时入射面没有唯一方向，TE 与 TM 的差别自然消失。
+
+\subsection{四、菲涅耳振幅关系的推导}\label{m7:ux56dbux83f2ux6d85ux8033ux632fux5e45ux5173ux7cfbux7684ux63a8ux5bfc}
+
+切向电场连续给出
+
+\[
+1+r=t.
+\]
+
+反射波的法向能流方向与入射波相反，所以切向磁场边界条件写成
+
+\[
+Y_1(1-r)=Y_2t.
+\]
+
+联立两式：
+
+\[
+\boxed{
+r=\frac{Y_1-Y_2}{Y_1+Y_2}
+},
+\]
+
+\[
+\boxed{
+t=\frac{2Y_1}{Y_1+Y_2}
+}.
+\]
+
+代入两种偏振的导纳，得到
+
+\[
+\boxed{
+r_{\mathrm{TE}}
+=\frac{\eta_2\cos\theta_i-\eta_1\cos\theta_t}
+{\eta_2\cos\theta_i+\eta_1\cos\theta_t}
+},
+\]
+
+\[
+\boxed{
+r_{\mathrm{TM}}
+=\frac{\eta_2\cos\theta_t-\eta_1\cos\theta_i}
+{\eta_2\cos\theta_t+\eta_1\cos\theta_i}
+}.
+\]
+
+这里 \(r_{\mathrm{TM}}\)
+是\textbf{切向电场幅}的反射系数。若教材改用总电场在另一组偏振基矢上的分量，反射系数可能整体差一个负号；反射率不受影响。
+
+正入射时，
+
+\[
+\boxed{
+r=\frac{\eta_2-\eta_1}{\eta_2+\eta_1}
+},
+\]
+
+\[
+\boxed{
+t=\frac{2\eta_2}{\eta_1+\eta_2}
+}.
+\]
+
+若 \(\eta_2<\eta_1\)，则 \(r<0\)，反射电场相对入射电场发生 \(\pi\)
+相变。
+
+\subsection{五、反射率、透射率与能量守恒}\label{m7:ux4e94ux53cdux5c04ux7387ux900fux5c04ux7387ux4e0eux80fdux91cfux5b88ux6052}
+
+对无耗散介质，法向平均能流可写为
+
+\[
+\langle S_n\rangle
+=\frac12Y|E_{\parallel}|^2.
+\]
+
+所以
+
+\[
+\boxed{R=|r|^2},
+\]
+
+\[
+\boxed{
+T=\frac{Y_2}{Y_1}|t|^2
+}.
+\]
+
+利用前述振幅关系可以验证
+
+\[
+\boxed{R+T=1}.
+\]
+
+注意：一般斜入射时
+\(T\ne|t|^2\)，因为透射波的波阻抗和法向投影都可能改变。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H37.pdf}}
+\par\smallskip{\small 图 M7-H37：界面处入射、反射和透射的法向能流守恒}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{正入射的振幅与功率〔M7-035〕}
+
+\textbf{层级：} 基础
+
+平面波由空气正入射到无耗非磁玻璃，\(n_1=1.00\)、\(n_2=1.50\)。电场振幅反射系数为
+\(r=E_r/E_i\)，透射系数为 \(t=E_t/E_i\)，使用共同的切向电场坐标。求
+\(r,t\) 及功率反射率 \(R\)、透射率 \(T\)，检验能量守恒。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-035.pdf}}
+\par\smallskip{\small 图 M7-035：正入射的振幅与功率}
+\end{center}
+\end{minipage}\par
+
+图 M7-035 的反射电场箭头与入射电场相反；右框中的 \(R,T\)
+表示非负的功率比，不能把振幅负号当成负反射率。
+
+若两侧均非磁性，\(n_1=1\)、\(n_2=1.5\)，则 \(\eta\propto1/n\)，从而
+
+\[
+r=\frac{n_1-n_2}{n_1+n_2}=-0.2,
+\]
+
+\[
+\boxed{R=0.04},
+\qquad
+\boxed{T=0.96}.
+\]
+
+反射电场反相，但反射功率只有入射功率的 \(4\%\)。 切向电场连续给出
+\(t=1+r=0.8\)，功率透射率是 \(T=(n_2/n_1)|t|^2=0.96\)，故 \(R+T=1\)。
+
+\subsection{六、布儒斯特角}\label{m7:ux516dux5e03ux5112ux65afux7279ux89d2}
+
+TM 偏振的反射为零要求
+
+\[
+Y_{1,\mathrm{TM}}=Y_{2,\mathrm{TM}},
+\]
+
+即
+
+\[
+\eta_1\cos\theta_i=\eta_2\cos\theta_t.
+\]
+
+对两侧均为非磁介质，结合斯涅耳定律可得
+
+\[
+\theta_B+\theta_t=90^{\circ},
+\]
+
+以及
+
+\[
+\boxed{
+\tan\theta_B=\frac{n_2}{n_1}
+}.
+\]
+
+在 \(\theta_i=\theta_B\) 时，TM 偏振没有反射，反射波若存在则只含 TE
+分量。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{布儒斯特角的几何关系〔M7-036〕}
+
+\textbf{层级：} 基础
+
+平面光波从空气射向折射率 \(n=1.50\)
+的无耗非磁玻璃。求TM反射消失时的入射角及折射角，并在几何图中说明反射线与折射线的夹角。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-036.pdf}}
+\par\smallskip{\small 图 M7-036：布儒斯特角的几何关系}
+\end{center}
+\end{minipage}\par
+
+图 M7-036
+中反射线与折射线正交，两个对法线的锐角互余；非磁介质的TM零反射条件给出
+\(\tan\theta_B=n_2/n_1\)。
+
+空气射向 \(n=1.50\) 的玻璃，
+
+\[
+\theta_B=\arctan1.50\approx56.3^{\circ}.
+\]
+
+对应折射角约为 \(33.7^{\circ}\)，两角之和为 \(90^{\circ}\)。
+
+\subsection{七、全反射与倏逝场}\label{m7:ux4e03ux5168ux53cdux5c04ux4e0eux500fux901dux573a}
+
+当 \(n_1>n_2\) 时，斯涅耳定律给出的透射角只在
+
+\[
+\sin\theta_i\le\frac{n_2}{n_1}
+\]
+
+时为实数。临界角为
+
+\[
+\boxed{
+\theta_c=\arcsin\frac{n_2}{n_1}
+}.
+\]
+
+若 \(\theta_i>\theta_c\)，介质 2
+中法向波数成为纯虚数。对非磁、无耗散介质，
+
+\[
+k_{2z}=i\kappa,
+\]
+
+\[
+\boxed{
+\kappa=k_0
+\sqrt{n_1^2\sin^2\theta_i-n_2^2}
+}.
+\]
+
+透射侧场沿法向按
+
+\[
+e^{-\kappa z}
+\]
+
+衰减，称为倏逝场。它不向介质 2
+深处输送时间平均法向功率，但界面附近仍存在场和切向能流。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H38.pdf}}
+\par\smallskip{\small 图 M7-H38：全反射时的反射波与透射侧倏逝场}
+\end{center}
+\end{minipage}\par
+
+全反射时
+
+\[
+|r|=1,
+\]
+
+但 \(r\) 一般不是简单的 \(+1\) 或
+\(-1\)，而含有随角度和偏振变化的相位。TE 与 TM
+的相位差可使反射后的偏振状态改变。
+
+\subsection{八、导电介质中的传播}\label{m7:ux516bux5bfcux7535ux4ecbux8d28ux4e2dux7684ux4f20ux64ad}
+
+设均匀介质满足
+
+\[
+\mathbf J=\sigma\mathbf E,
+\]
+
+并取场的时间---空间因子为
+
+\[
+e^{i(kz-\omega t)}.
+\]
+
+由麦克斯韦方程得到
+
+\[
+\boxed{
+k^2=\omega^2\mu\varepsilon+i\omega\mu\sigma
+}.
+\]
+
+写成
+
+\[
+k=\beta+i\alpha,
+\]
+
+则场沿 \(+z\) 方向为
+
+\[
+e^{-\alpha z}e^{i(\beta z-\omega t)}.
+\]
+
+\(\alpha\) 是衰减常数，\(\beta\) 是相位常数。定义复介电常数
+
+\[
+\boxed{
+\widetilde\varepsilon
+=\varepsilon+i\frac{\sigma}{\omega}
+},
+\]
+
+便可写成
+
+\[
+k=\omega\sqrt{\mu\widetilde\varepsilon}.
+\]
+
+\subsubsection{良导体极限}\label{m7:ux826fux5bfcux4f53ux6781ux9650}
+
+若
+
+\[
+\sigma\gg\omega\varepsilon,
+\]
+
+则
+
+\[
+\boxed{
+k\approx(1+i)
+\sqrt{\frac{\omega\mu\sigma}{2}}
+}.
+\]
+
+于是
+
+\[
+\boxed{
+\alpha\approx\beta
+\approx\sqrt{\frac{\omega\mu\sigma}{2}}
+},
+\]
+
+趋肤深度为
+
+\[
+\boxed{
+\delta=\frac1\alpha
+\approx\sqrt{\frac{2}{\omega\mu\sigma}}
+}.
+\]
+
+场每深入一个 \(\delta\)，振幅衰减到原来的 \(e^{-1}\)。
+
+导体中的波阻抗近似为
+
+\[
+\boxed{
+\eta_c\approx(1-i)
+\sqrt{\frac{\omega\mu}{2\sigma}}
+}.
+\]
+
+其模远小于真空波阻抗，说明良导体内电场相对磁场很小。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H39.pdf}}
+\par\smallskip{\small 图 M7-H39：电磁波进入良导体后的指数衰减与趋肤深度}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{兆赫频率下铜的趋肤深度〔M7-037〕}
+
+\textbf{层级：} 基础
+
+均匀铜导体占据半空间，电导率
+\(\sigma=5.8\times10^7\,\mathrm{S/m}\)、磁导率 \(\mu=\mu_0\)。频率
+\(f=1.0\,\mathrm{MHz}\)，满足良导体条件。求场振幅趋肤深度，并说明在一个趋肤深度处振幅和平均能流各衰减到多少。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-037.pdf}}
+\par\smallskip{\small 图 M7-037：兆赫频率下铜的趋肤深度}
+\end{center}
+\end{minipage}\par
+
+图 M7-037 横轴是从铜表面向内的深度 \(z/\delta\)；振幅按
+\(e^{-z/\delta}\) 衰减，平均能流按其平方衰减，二者的衰减长度不同。
+
+铜在 \(f=1.0\ \mathrm{MHz}\) 时取
+\(\sigma=5.8\times10^7\ \mathrm{S/m}\)、\(\mu\approx\mu_0\)，有
+
+\[
+\delta
+=\sqrt{\frac{2}{2\pi f\mu_0\sigma}}
+\approx6.6\times10^{-5}\ \mathrm m
+=66\ \mu\mathrm m.
+\]
+
+高频电流主要集中在导体表面附近。 在 \(z=\delta\) 处，场振幅为表面的
+\(e^{-1}\)，平均能流为表面的 \(e^{-2}\)。
+
+\subsection{九、理想导体边界与驻波}\label{m7:ux4e5dux7406ux60f3ux5bfcux4f53ux8fb9ux754cux4e0eux9a7bux6ce2}
+
+理想导体内部
+
+\[
+\mathbf E=\mathbf0.
+\]
+
+因此表面切向电场必须为零：
+
+\[
+\boxed{\mathbf E_t=0}.
+\]
+
+正入射时，电场反射系数为
+
+\[
+\boxed{r_E=-1}.
+\]
+
+入射电场和反射电场在表面相消，而磁场在表面同相叠加。若导体表面位于
+\(z=0\)，真空在 \(z<0\)，则驻波满足
+
+\[
+E_t(z)\propto\sin kz,
+\]
+
+\[
+H_t(z)\propto\cos kz.
+\]
+
+所以导体表面是电场波节、磁场波腹。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{理想导体前的驻波位置〔M7-038〕}
+
+\textbf{层级：} 基础
+
+理想导体表面位于 \(z=0\)，真空位于
+\(z<0\)。单色平面波垂直入射后与完全反射波形成驻波，真空波长为
+\(\lambda\)。以 \(d=-z\ge0\)
+表示离表面的距离，求最近的电场波腹位置及相邻电场波节的距离。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-038.pdf}}
+\par\smallskip{\small 图 M7-038：理想导体前的驻波位置}
+\end{center}
+\end{minipage}\par
+
+图 M7-038 以距导体的距离 \(d\) 为横轴，电场包络在 \(d=0\) 为零、在
+\(d=\lambda/4\) 首次取最大；磁场包络与其错开四分之一波长。
+
+第一处电场波腹距导体表面为
+
+\[
+\boxed{\lambda/4},
+\]
+
+相邻电场波节间距为
+
+\[
+\boxed{\lambda/2}.
+\]
+
+\subsection{十、使用条件与常见错误}\label{m7:ux5341ux4f7fux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux9519ux8bef}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  反射定律和折射定律来自界面切向相位匹配，不是几何光学中的独立假设。
+\item
+  TE、TM 必须先相对于入射面定义；正入射时二者退化为等价情形。
+\item
+  菲涅耳振幅公式必须说明采用总场幅还是切向场幅。以下采用切向电场幅。
+\item
+  斜入射透射率不能直接写成 \(|t|^2\)，还要乘切向波导纳之比。
+\item
+  全反射不表示另一侧场处处为零；透射侧存在倏逝场。
+\item
+  良导体不是理想导体。良导体内场虽迅速衰减，却仍有有限穿透和焦耳耗散。
+\item
+  趋肤深度公式要求
+  \(\sigma\gg\omega\varepsilon\)；半导体或高频介质应使用完整复波数。
+\item
+  振幅相变与功率反射率是两个不同问题；\(r<0\) 不表示功率为负。
+\end{enumerate}
+
+\subsection{练习与解答}\label{m7:ux7ec3ux4e60ux4e0eux89e3ux7b54}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业一：正入射空气---玻璃界面〔M7-039〕}\label{m7:ux4f5cux4e1aux4e00ux6b63ux5165ux5c04ux7a7aux6c14ux73bbux7483ux754cux9762m7-039}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 波动与边界
+
+一列平面电磁波从空气正入射到折射率为 \(n_2=1.50\)
+的无耗散非磁玻璃，取空气
+\(n_1=1.00\)。求电场反射系数、透射系数、反射率和透射率，并说明反射电场是否发生相变。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-039.pdf}}
+\par\smallskip{\small 图 M7-039：作业一：正入射空气---玻璃界面}
+\end{center}
+\end{minipage}\par
+
+图 M7-039 在界面两侧采用同一切向电场坐标；左侧边界值为 \(1+r\)、右侧为
+\(t\)，磁场还须计入反射波传播方向改变带来的负号。
+
+非磁介质中
+
+\[
+\eta=\frac{\eta_0}{n}.
+\]
+
+正入射电场反射系数为
+
+\[
+r=\frac{\eta_2-\eta_1}{\eta_2+\eta_1}
+=\frac{n_1-n_2}{n_1+n_2}.
+\]
+
+因此
+
+\[
+\boxed{
+r=\frac{1.00-1.50}{1.00+1.50}=-0.20
+}.
+\]
+
+切向电场透射系数为
+
+\[
+\boxed{t=1+r=0.80}.
+\]
+
+反射率
+
+\[
+\boxed{R=|r|^2=0.040}.
+\]
+
+正入射时
+
+\[
+T=\frac{\eta_1}{\eta_2}|t|^2
+=\frac{n_2}{n_1}|t|^2,
+\]
+
+所以
+
+\[
+\boxed{T=1.50\times0.80^2=0.960}.
+\]
+
+检验：
+
+\[
+R+T=1.
+\]
+
+\(r<0\) 表明反射电场相对入射电场发生 \(\pi\) 相变。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业二：布儒斯特角与偏振选择〔M7-040〕}\label{m7:ux4f5cux4e1aux4e8cux5e03ux5112ux65afux7279ux89d2ux4e0eux504fux632fux9009ux62e9m7-040}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 波动与边界
+
+一列平面波从空气入射到折射率 \(n=1.50\)
+的无耗散非磁玻璃。求布儒斯特角和对应折射角，并说明在该入射角下反射波的偏振。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-040.pdf}}
+\par\smallskip{\small 图 M7-040：作业二：布儒斯特角与偏振选择}
+\end{center}
+\end{minipage}\par
+
+图 M7-040
+的反射线与折射线正交；只有TM反射系数在此处为零，若入射含两种偏振，反射后只留下垂直入射面的TE电场。
+
+对非磁介质，
+
+\[
+\tan\theta_B=\frac{n_2}{n_1}=1.50.
+\]
+
+故
+
+\[
+\boxed{\theta_B=\arctan1.50\approx56.3^{\circ}}.
+\]
+
+布儒斯特条件还给出
+
+\[
+\theta_B+\theta_t=90^{\circ},
+\]
+
+所以
+
+\[
+\boxed{\theta_t\approx33.7^{\circ}}.
+\]
+
+也可代入斯涅耳定律核对：
+
+\[
+\sin\theta_t
+=\frac{\sin56.3^{\circ}}{1.50}
+\approx0.555.
+\]
+
+在此角度，TM 偏振的反射系数为零。因此若入射波同时含有 TE 与 TM
+分量，反射波只保留 TE 分量，即电场垂直入射面。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业三：全反射与倏逝深度〔M7-041〕}\label{m7:ux4f5cux4e1aux4e09ux5168ux53cdux5c04ux4e0eux500fux901dux6df1ux5ea6m7-041}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 波动与边界
+
+真空波长为 \(\lambda_0=600\ \mathrm{nm}\) 的光从折射率 \(n_1=1.50\)
+的玻璃射向空气 \(n_2=1.00\)，入射角为
+\(60^{\circ}\)。判断是否全反射，并求空气中倏逝场的振幅穿透深度
+\(1/\kappa\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-041.pdf}}
+\par\smallskip{\small 图 M7-041：作业三：全反射与倏逝深度}
+\end{center}
+\end{minipage}\par
+
+图 M7-041
+在空气侧只画沿法线指数衰减的包络；界面切向相位仍匹配，法向波数则为
+\(i\kappa\)，穿透深度按振幅降至 \(e^{-1}\) 定义。
+
+临界角为
+
+\[
+\theta_c
+=\arcsin\frac{n_2}{n_1}
+=\arcsin\frac{1}{1.5}
+\approx41.8^{\circ}.
+\]
+
+由于
+
+\[
+60^{\circ}>\theta_c,
+\]
+
+发生全反射。
+
+倏逝场衰减常数为
+
+\[
+\kappa
+=k_0\sqrt{n_1^2\sin^2\theta_i-n_2^2},
+\qquad
+k_0=\frac{2\pi}{\lambda_0}.
+\]
+
+代入
+
+\[
+n_1^2\sin^260^{\circ}-n_2^2
+=2.25\times\frac34-1
+=0.6875,
+\]
+
+故
+
+\[
+\kappa=0.829\,k_0.
+\]
+
+于是振幅穿透深度
+
+\[
+\frac1\kappa
+=\frac{\lambda_0}{2\pi\times0.829}
+\approx0.192\lambda_0.
+\]
+
+因此
+
+\[
+\boxed{
+\frac1\kappa\approx115\ \mathrm{nm}
+}.
+\]
+
+这表示场振幅沿界面法向进入空气约 \(115\ \mathrm{nm}\) 后降为界面处的
+\(e^{-1}\)，并不表示能量以传播波形式进入空气深处。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-041-P1.pdf}}
+\par\smallskip{\small 图 M7-041-P1：倏逝场的振幅穿透深度}
+\end{center}
+\end{minipage}\par
+
+图 M7-041-P1 在 \(d\simeq115\,\mathrm{nm}\) 处降为
+\(e^{-1}\)；这里是法向衰减而非向空气深处传播。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业四：铜中的趋肤深度〔M7-042〕}\label{m7:ux4f5cux4e1aux56dbux94dcux4e2dux7684ux8d8bux80a4ux6df1ux5ea6m7-042}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 波动与边界
+
+铜的电导率取 \(\sigma=5.8\times10^7\ \mathrm{S/m}\)、磁导率取
+\(\mu_0\)。分别求 \(f=50\ \mathrm{Hz}\) 和 \(f=1.0\ \mathrm{MHz}\)
+时的趋肤深度，并比较频率变化规律。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-042.pdf}}
+\par\smallskip{\small 图 M7-042：作业四：铜中的趋肤深度}
+\end{center}
+\end{minipage}\par
+
+图 M7-042 将两种频率的深度均按各自 \(\delta\)
+归一化；相同曲线形状不代表相同实际深度，换回长度时需分别乘以两种
+\(\delta\)。
+
+良导体趋肤深度为
+
+\[
+\delta=\sqrt{\frac{2}{\omega\mu_0\sigma}}
+=\frac1{\sqrt{\pi f\mu_0\sigma}}.
+\]
+
+在 \(f=50\ \mathrm{Hz}\) 时，
+
+\[
+\delta_{50}
+=\frac1{\sqrt{\pi(50)(4\pi\times10^{-7})(5.8\times10^7)}}
+\approx9.35\times10^{-3}\ \mathrm m.
+\]
+
+所以
+
+\[
+\boxed{\delta_{50}\approx9.4\ \mathrm{mm}}.
+\]
+
+在 \(f=1.0\ \mathrm{MHz}\) 时，
+
+\[
+\delta_{\mathrm{1\,MHz}}
+\approx6.61\times10^{-5}\ \mathrm m,
+\]
+
+即
+
+\[
+\boxed{\delta_{\mathrm{1\,MHz}}\approx66\ \mu\mathrm m}.
+\]
+
+由于
+
+\[
+\delta\propto f^{-1/2},
+\]
+
+频率提高 \(2.0\times10^4\) 倍，趋肤深度缩小
+\(\sqrt{2.0\times10^4}\approx141\) 倍，与上述数值相符。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-042-P1.pdf}}
+\par\smallskip{\small 图 M7-042-P1：实际深度尺度的频率差异}
+\end{center}
+\end{minipage}\par
+
+图 M7-042-P1
+共用实际深度坐标；高频曲线在更浅的位置衰减，而不是只改变一张相同的归一化图。
+
+\section{专题六十七：传输线、电报方程、反射与阻抗匹配（基础必讲与决赛拓展）}\label{m7:ux4e13ux9898ux516dux5341ux4e03ux4f20ux8f93ux7ebfux7535ux62a5ux65b9ux7a0bux53cdux5c04ux4e0eux963bux6297ux5339ux914dux57faux7840ux5fc5ux8bb2ux4e0eux51b3ux8d5bux62d3ux5c55}
+
+阅读准备：每一小段都有自己的储能与耗散 传输线参数 \(R',L',G',C'\)
+都是单位长度量。取长度 \(dz\)
+的小段后，串联电阻和电感决定电压降，并联电导和电容决定横向电流；令
+\(dz\to0\) 才得到电压、电流同时依赖 \(z,t\) 的电报方程。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{前行脉冲的传播延迟〔M7-043〕}
+
+\textbf{层级：} 基础
+
+理想无耗传输线沿 \(+z\) 延伸，波速 \(v\)、特性阻抗
+\(Z_0\)。只有单向前行电压脉冲 \(V(z,t)=F(t-z/v)\)，电流正向取
+\(+z\)。比较 \(z=0\) 与 \(z=\ell\)
+的波形，求延迟和相应电流，说明集总电路的同时性假设何时失效。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-043.pdf}}
+\par\smallskip{\small 图 M7-043：前行脉冲的传播延迟}
+\end{center}
+\end{minipage}\par
+
+图 M7-043 的两脉冲形状相同，右侧只比左侧晚
+\(\ell/v\)；对同一个前行波，电流为电压除以 \(Z_0\)，沿 \(+z\) 取正。
+
+无耗线中若 \(V(z,t)=F(t-z/v)\)，则波形在时间 \(z/v\) 后到达位置
+\(z\)，说明``导线各处电压同时变化''的集总图像已不再适用。 该前行波满足
+\(I(z,t)=V(z,t)/Z_0\)。若波形变化时间与 \(\ell/v\)
+可比，不同位置必须保留时间延迟。
+
+当导线长度与波长不可相比地小这一条件失效时，``整根导线具有同一个电压和电流''不再成立。电压和电流会随位置传播、反射并形成驻波。传输线模型保留一个主要传播方向上的空间变化，同时把横截面场分布压缩为单位长度参数，是集总电路与完整电磁场之间最重要的中间层。
+
+\subsection{一、分布参数与长度微元}\label{m7:ux4e00ux5206ux5e03ux53c2ux6570ux4e0eux957fux5ea6ux5faeux5143}
+
+均匀双导体传输线的单位长度参数为：
+
+\[
+R'\quad(\Omega/\mathrm m),
+\qquad
+L'\quad(\mathrm H/\mathrm m),
+\]
+
+\[
+G'\quad(\mathrm S/\mathrm m),
+\qquad
+C'\quad(\mathrm F/\mathrm m).
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  \(R'\)：两导体单位长度的串联电阻；
+\item
+  \(L'\)：单位长度的串联电感；
+\item
+  \(G'\)：介质单位长度的并联电导；
+\item
+  \(C'\)：单位长度的并联电容。
+\end{itemize}
+
+取从 \(z\) 到 \(z+dz\) 的微元。串联支路的压降为
+
+\[
+R'I\,dz+L'\frac{\partial I}{\partial t}\,dz.
+\]
+
+因此
+
+\[
+V(z,t)-V(z+dz,t)
+=R'I\,dz+L'\frac{\partial I}{\partial t}\,dz.
+\]
+
+除以 \(dz\) 并取极限：
+
+\[
+\boxed{
+\frac{\partial V}{\partial z}
+=-R'I-L'\frac{\partial I}{\partial t}
+}.
+\]
+
+对微元应用电流连续性：
+
+\[
+I(z,t)-I(z+dz,t)
+=G'V\,dz+C'\frac{\partial V}{\partial t}\,dz,
+\]
+
+得到
+
+\[
+\boxed{
+\frac{\partial I}{\partial z}
+=-G'V-C'\frac{\partial V}{\partial t}
+}.
+\]
+
+这两式称为电报方程。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H40.pdf}}
+\par\smallskip{\small 图 M7-H40：传输线长度微元的分布电阻、电感、电导与电容}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{无耗线微元的电压电流耦合〔M7-044〕}
+
+\textbf{层级：} 基础
+
+理想无耗传输线单位长度电感、电容分别为
+\(L',C'\)，传导串联电阻和并联电导均为零。取微元
+\([z,z+\Delta z]\)，电流沿 \(+z\)
+为正。由KVL和KCL写出两条电报方程，并解释电压与电流为何相互耦合。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-044.pdf}}
+\par\smallskip{\small 图 M7-044：无耗线微元的电压电流耦合}
+\end{center}
+\end{minipage}\par
+
+图 M7-044 的串联元件是 \(L'\Delta z\)，跨接两导体的是
+\(C'\Delta z\)。电压降由串联电感给出，流入与流出电流之差为电容充电电流。
+
+对微元列KVL：\(V(z)-V(z+\Delta z)=L'\Delta z\,\partial_tI\)；列KCL：\(I(z)-I(z+\Delta z)=C'\Delta z\,\partial_tV\)。分别除以
+\(\Delta z\) 并取极限，即得下列方程。
+
+理想无耗线满足 \(R'=G'=0\)，电报方程化为
+
+\[
+\frac{\partial V}{\partial z}
+=-L'\frac{\partial I}{\partial t},
+\]
+
+\[
+\frac{\partial I}{\partial z}
+=-C'\frac{\partial V}{\partial t}.
+\]
+
+电压随位置变化必然伴随电流的时间变化，二者不能独立传播。
+
+\subsection{二、从一阶方程到波动方程}\label{m7:ux4e8cux4eceux4e00ux9636ux65b9ux7a0bux5230ux6ce2ux52a8ux65b9ux7a0b}
+
+对第一条电报方程再对 \(z\) 求导，并用第二条消去
+\(\partial I/\partial z\)，得到
+
+\[
+\boxed{
+\frac{\partial^2V}{\partial z^2}
+=L'C'\frac{\partial^2V}{\partial t^2}
++(R'C'+L'G')\frac{\partial V}{\partial t}
++R'G'V
+}.
+\]
+
+同理，
+
+\[
+\boxed{
+\frac{\partial^2I}{\partial z^2}
+=L'C'\frac{\partial^2I}{\partial t^2}
++(R'C'+L'G')\frac{\partial I}{\partial t}
++R'G'I
+}.
+\]
+
+理想无耗线中，
+
+\[
+\boxed{
+\frac{\partial^2V}{\partial z^2}
+=L'C'\frac{\partial^2V}{\partial t^2}
+},
+\]
+
+\[
+\boxed{
+\frac{\partial^2I}{\partial z^2}
+=L'C'\frac{\partial^2I}{\partial t^2}
+}.
+\]
+
+因此传播速度为
+
+\[
+\boxed{
+v=\frac1{\sqrt{L'C'}}
+}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{由单位长度参数求波速〔M7-045〕}
+
+\textbf{层级：} 基础
+
+理想均匀无耗线的单位长度参数为
+\(L'=250\,\mathrm{nH/m}\)、\(C'=100\,\mathrm{pF/m}\)。求波速和特性阻抗，并检查两式的量纲。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-045.pdf}}
+\par\smallskip{\small 图 M7-045：由单位长度参数求波速}
+\end{center}
+\end{minipage}\par
+
+图 M7-045 的 \(L'\) 和 \(C'\)
+都按每米给出；乘积的平方根决定单位长度延迟，二者之比的平方根则决定电压电流比。
+
+若
+
+\[
+L'=250\ \mathrm{nH/m},
+\qquad
+C'=100\ \mathrm{pF/m},
+\]
+
+则
+
+\[
+v=\frac1{\sqrt{(250\times10^{-9})(100\times10^{-12})}}
+=2.0\times10^8\ \mathrm{m/s}.
+\] 特性阻抗 \(Z_0=\sqrt{L'/C'}=50\,\Omega\)。\(L'C'\) 的单位为
+\(\mathrm{s^2/m^2}\)，\(L'/C'\) 的单位为 \(\Omega^2\)。
+
+\subsection{三、正弦稳态、传播常数与特性阻抗}\label{m7:ux4e09ux6b63ux5f26ux7a33ux6001ux4f20ux64adux5e38ux6570ux4e0eux7279ux6027ux963bux6297}
+
+正弦稳态采用
+
+\[
+V(z,t)=\operatorname{Re}[\underline V(z)e^{i\omega t}],
+\]
+
+\[
+I(z,t)=\operatorname{Re}[\underline I(z)e^{i\omega t}].
+\]
+
+电报方程化为
+
+\[
+\frac{d\underline V}{dz}
+=-(R'+i\omega L')\underline I,
+\]
+
+\[
+\frac{d\underline I}{dz}
+=-(G'+i\omega C')\underline V.
+\]
+
+定义传播常数
+
+\[
+\boxed{
+\gamma
+=\sqrt{(R'+i\omega L')(G'+i\omega C')}
+=\alpha+i\beta
+},
+\]
+
+以及特性阻抗
+
+\[
+\boxed{
+Z_0
+=\sqrt{\frac{R'+i\omega L'}
+{G'+i\omega C'}}
+}.
+\]
+
+通解为
+
+\[
+\boxed{
+\underline V(z)
+=V^+e^{-\gamma z}+V^-e^{\gamma z}
+},
+\]
+
+\[
+\boxed{
+\underline I(z)
+=\frac{V^+}{Z_0}e^{-\gamma z}
+-\frac{V^-}{Z_0}e^{\gamma z}
+}.
+\]
+
+\(V^+\) 表示向 \(+z\) 方向传播的电压波，\(V^-\) 表示向 \(-z\)
+方向传播的电压波。反向波的电流项带负号，这是判断开路、短路反射时最容易遗漏的符号。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H41.pdf}}
+\par\smallskip{\small 图 M7-H41：传输线上的前行波、反行波与电压电流方向}
+\end{center}
+\end{minipage}\par
+
+对无耗线，
+
+\[
+\boxed{
+\gamma=i\beta,
+\qquad
+\beta=\omega\sqrt{L'C'}
+},
+\]
+
+\[
+\boxed{
+Z_0=\sqrt{\frac{L'}{C'}}
+}.
+\]
+
+因此
+
+\[
+\boxed{
+\lambda=\frac{2\pi}{\beta}=\frac v f
+}.
+\]
+
+特性阻抗不是一段线的直流电阻，也不随线长改变；它是单向行波的电压与电流之比。
+
+\subsection{四、负载反射系数}\label{m7:ux56dbux8d1fux8f7dux53cdux5c04ux7cfbux6570}
+
+设负载位于 \(z=0\)，负载阻抗为 \(Z_L\)。在负载处
+
+\[
+\underline V(0)=V^++V^-,
+\]
+
+\[
+\underline I(0)=\frac{V^+-V^-}{Z_0}.
+\]
+
+由
+
+\[
+Z_L=\frac{\underline V(0)}{\underline I(0)}
+\]
+
+得到电压反射系数
+
+\[
+\boxed{
+\Gamma_L
+=\frac{V^-}{V^+}
+=\frac{Z_L-Z_0}{Z_L+Z_0}
+}.
+\]
+
+电流反射系数为
+
+\[
+\boxed{
+\Gamma_I=-\Gamma_L
+}.
+\]
+
+三个基本端接为
+
+\[
+\begin{array}{c|c|c}
+\text{端接}&\Gamma_L&\text{电压反射}\\ \hline
+Z_L=Z_0&0&\text{无反射}\\
+Z_L=0&-1&\text{反相}\\
+Z_L\to\infty&+1&\text{同相}
+\end{array}
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H42.pdf}}
+\par\smallskip{\small 图 M7-H42：开路与短路端接边界，右框同时列出匹配条件}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{电阻负载的反射方向〔M7-046〕}
+
+\textbf{层级：} 基础
+
+特性阻抗 \(Z_0=50\,\Omega\) 的无耗线接纯电阻 \(Z_L=100\,\Omega\)。采用
+\(e^{i\omega t}\)
+约定，电压波向负载传播，电流坐标正向也指向负载。求负载电压反射系数，比较负载处电压与电流的入射、反射贡献。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-046.pdf}}
+\par\smallskip{\small 图 M7-046：电阻负载的反射方向}
+\end{center}
+\end{minipage}\par
+
+图 M7-046 统一以向负载为电流正向。反射电压为
+\(\Gamma_LV_+\)，但反射电流为
+\(-\Gamma_LV_+/Z_0\)，所以负载处电压增强、电流相减。
+
+\(Z_0=50\ \Omega\) 的无耗线接 \(Z_L=100\ \Omega\)，
+
+\[
+\Gamma_L
+=\frac{100-50}{100+50}
+=\frac13.
+\]
+
+反射电压与入射电压同相，负载处总电压增大；反射电流则反向。 负载处
+\(V_L=(1+\Gamma_L)V_+=4V_+/3\)，\(I_L=(1-\Gamma_L)V_+/Z_0=2V_+/(3Z_0)\)，两者之比恰为
+\(100\,\Omega\)。
+
+\subsection{五、驻波与驻波比}\label{m7:ux4e94ux9a7bux6ce2ux4e0eux9a7bux6ce2ux6bd4}
+
+无耗线上取负载位于 \(z=0\)，有
+
+\[
+\underline V(z)
+=V^+\left(e^{-i\beta z}
++\Gamma_Le^{i\beta z}\right).
+\]
+
+设
+
+\[
+\Gamma_L=|\Gamma|e^{i\phi},
+\]
+
+则
+
+\[
+|\underline V(z)|^2
+=|V^+|^2
+\left[
+1+|\Gamma|^2
++2|\Gamma|\cos(2\beta z+\phi)
+\right].
+\]
+
+因此
+
+\[
+V_{\max}=|V^+|(1+|\Gamma|),
+\]
+
+\[
+V_{\min}=|V^+|(1-|\Gamma|).
+\]
+
+电压驻波比为
+
+\[
+\boxed{
+\mathrm{SWR}
+=\frac{V_{\max}}{V_{\min}}
+=\frac{1+|\Gamma|}
+{1-|\Gamma|}
+}.
+\]
+
+相邻电压波腹或相邻电压波节的距离均为
+
+\[
+\boxed{\lambda/2},
+\]
+
+相邻波腹与波节的距离为
+
+\[
+\boxed{\lambda/4}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H43.pdf}}
+\par\smallskip{\small 图 M7-H43：不完全反射形成的电压驻波包络}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{驻波包络与驻波比〔M7-047〕}
+
+\textbf{层级：} 基础
+
+无耗线上电压反射系数的模为 \(|\Gamma|=1/3\)，入射电压峰值为
+\(V_+\)。求电压包络最大值、最小值和驻波比；再讨论 \(|\Gamma|=1\)
+时的极限。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-047.pdf}}
+\par\smallskip{\small 图 M7-047：驻波包络与驻波比}
+\end{center}
+\end{minipage}\par
+
+图 M7-047 显示瞬时电压的正负包络；包络模的最大、最小值分别为
+\(V_+(1+|\Gamma|)\) 和 \(V_+(1-|\Gamma|)\)，取二者之比即可消去 \(V_+\)。
+
+\(V_{\max}=(1+1/3)V_+=4V_+/3\)，\(V_{\min}=(1-1/3)V_+=2V_+/3\)，故
+\(\mathrm{SWR}=V_{\max}/V_{\min}=2\)。完全反射时
+\(|\Gamma|=1\)、\(V_{\min}=0\)，驻波比趋于无穷大。
+
+\subsection{六、输入阻抗}\label{m7:ux516dux8f93ux5165ux963bux6297}
+
+一段长度为 \(\ell\) 的均匀传输线以 \(Z_L\) 端接。输入端看到的阻抗为
+
+\[
+\boxed{
+Z_{\mathrm{in}}
+=Z_0
+\frac{Z_L+Z_0\tanh(\gamma\ell)}
+{Z_0+Z_L\tanh(\gamma\ell)}
+}.
+\]
+
+对无耗线 \(\gamma=i\beta\)，利用
+
+\[
+\tanh(i\beta\ell)=i\tan(\beta\ell),
+\]
+
+得到
+
+\[
+\boxed{
+Z_{\mathrm{in}}
+=Z_0
+\frac{Z_L+iZ_0\tan(\beta\ell)}
+{Z_0+iZ_L\tan(\beta\ell)}
+}.
+\]
+
+两种常用极限为：
+
+\subsubsection{1. 短路线}\label{m7:ux77edux8defux7ebf}
+
+若 \(Z_L=0\)，
+
+\[
+\boxed{
+Z_{\mathrm{in}}=iZ_0\tan(\beta\ell)
+}.
+\]
+
+\subsubsection{2. 开路线}\label{m7:ux5f00ux8defux7ebf}
+
+若 \(Z_L\to\infty\)，
+
+\[
+\boxed{
+Z_{\mathrm{in}}=-iZ_0\cot(\beta\ell)
+}.
+\]
+
+长度远小于波长时，短路线表现为电感性，开路线表现为电容性；但长度接近
+\(\lambda/4\) 时性质会完全转换，不能再按普通短导线理解。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{八分之一波长开路支节〔M7-048〕}
+
+\textbf{层级：} 基础
+
+理想无耗传输线特性阻抗为 \(Z_0\)，长度为
+\(\ell=\lambda/8\)，终端开路，采用 \(e^{i\omega t}\)
+约定。求从输入端向负载看入的阻抗，并判断其电抗性质。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-048.pdf}}
+\par\smallskip{\small 图 M7-048：八分之一波长开路支节}
+\end{center}
+\end{minipage}\par
+
+图 M7-048 的右端两导体不连接，表示开路；输入端距终端
+\(\lambda/8\)，代入开路支节式时使用的是电长度 \(\beta\ell=\pi/4\)。
+
+开路无耗线若
+
+\[
+\ell=\frac{\lambda}{8},
+\]
+
+则
+
+\[
+\beta\ell=\frac\pi4,
+\]
+
+所以
+
+\[
+\boxed{Z_{\mathrm{in}}=-iZ_0}.
+\] 按 \(e^{i\omega t}\) 约定，\(-iZ_0\) 是负虚部纯电抗，呈电容性。
+
+\subsection{七、四分之一波长变换与阻抗匹配}\label{m7:ux4e03ux56dbux5206ux4e4bux4e00ux6ce2ux957fux53d8ux6362ux4e0eux963bux6297ux5339ux914d}
+
+若
+
+\[
+\ell=\frac{\lambda}{4},
+\qquad
+\beta\ell=\frac\pi2,
+\]
+
+则无耗线输入阻抗化为
+
+\[
+\boxed{
+Z_{\mathrm{in}}=\frac{Z_0^2}{Z_L}
+}.
+\]
+
+要在实数源阻抗 \(R_S\) 与实数负载 \(R_L\)
+之间实现匹配，可插入四分之一波长线段，使其特性阻抗为
+
+\[
+\boxed{
+Z_t=\sqrt{R_SR_L}
+}.
+\]
+
+此时
+
+\[
+Z_{\mathrm{in}}
+=\frac{Z_t^2}{R_L}
+=R_S.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H44.pdf}}
+\par\smallskip{\small 图 M7-H44：四分之一波长传输线的阻抗变换}
+\end{center}
+\end{minipage}\par
+
+这种匹配严格依赖频率；离开设计频率后，线长不再是
+\(\lambda/4\)，匹配性能下降。
+
+\subsection{八、同轴线的单位长度参数}\label{m7:ux516bux540cux8f74ux7ebfux7684ux5355ux4f4dux957fux5ea6ux53c2ux6570}
+
+同轴线内导体半径为 \(a\)，外导体内半径为 \(b\)，中间填充均匀介质
+\(\varepsilon,\mu\)。忽略导体损耗和介质损耗。
+
+由静电场结果，
+
+\[
+\boxed{
+C'=\frac{2\pi\varepsilon}{\ln(b/a)}
+}.
+\]
+
+由磁场能或磁通链，
+
+\[
+\boxed{
+L'=\frac{\mu}{2\pi}\ln\frac ba
+}.
+\]
+
+因此
+
+\[
+\boxed{
+Z_0=\sqrt{\frac{L'}{C'}}
+=\frac1{2\pi}\sqrt{\frac{\mu}{\varepsilon}}
+\ln\frac ba
+},
+\]
+
+\[
+\boxed{
+v=\frac1{\sqrt{L'C'}}
+=\frac1{\sqrt{\mu\varepsilon}}
+}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H45.pdf}}
+\par\smallskip{\small 图 M7-H45：同轴线横截面的电场、磁场与分布参数}
+\end{center}
+\end{minipage}\par
+
+专题六十一已经从坡印廷矢量证明同轴线横截面的总功率为
+\(P=VI\)。本节进一步说明，横截面场结构同时决定 \(L'\)、\(C'\)、\(Z_0\)
+和传播速度。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{同轴几何与特性阻抗〔M7-049〕}
+
+\textbf{层级：} 基础
+
+理想真空同轴线的内导体半径为 \(a\)、外导体内半径为
+\(b\)，\(b/a=2.30\)。忽略损耗，利用单位长度电感、电容导出特性阻抗并计算数值。取
+\(\eta_0/(2\pi)\approx60\,\Omega\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-049.pdf}}
+\par\smallskip{\small 图 M7-049：同轴几何与特性阻抗}
+\end{center}
+\end{minipage}\par
+
+图 M7-049 的环形介质区限定积分范围 \(a<r<b\)，电场与磁场的 \(1/r\)
+关系分别给出 \(C'\)、\(L'\)，相除后只保留 \(\ln(b/a)\)。
+
+由场的积分得
+\(L'=\mu_0\ln(b/a)/(2\pi)\)、\(C'=2\pi\varepsilon_0/\ln(b/a)\)，故
+\(Z_0=\sqrt{L'/C'}=\eta_0\ln(b/a)/(2\pi)\)。
+
+真空同轴线若 \(b/a=2.30\)，
+
+\[
+Z_0=60\ln(2.30)\ \Omega\approx50\ \Omega.
+\]
+
+这里用了
+
+\[
+\frac1{2\pi}\sqrt{\frac{\mu_0}{\varepsilon_0}}\approx60\ \Omega.
+\]
+
+\subsection{九、行波功率与匹配的能量意义}\label{m7:ux4e5dux884cux6ce2ux529fux7387ux4e0eux5339ux914dux7684ux80fdux91cfux610fux4e49}
+
+以下采用有效值相量。对无耗线，向前行波携带的平均功率为
+
+\[
+\boxed{
+P^+=\frac{|V^+|^2}{Z_0}
+},
+\]
+
+反射波向负方向携带
+
+\[
+\boxed{
+P^-=\frac{|V^-|^2}{Z_0}
+=|\Gamma|^2P^+
+}.
+\]
+
+负载吸收的净功率为
+
+\[
+\boxed{
+P_L=P^+-P^-
+=(1-|\Gamma|^2)P^+
+}.
+\]
+
+匹配时 \(\Gamma=0\)，所有入射功率都进入负载；无耗开路或短路时
+\(|\Gamma|=1\)，负载平均吸收功率为零，能量在线路上往返。
+
+\subsection{十、脉冲传播与往返延迟}\label{m7:ux5341ux8109ux51b2ux4f20ux64adux4e0eux5f80ux8fd4ux5ef6ux8fdf}
+
+传输线的反射不仅是正弦稳态现象。一个电压阶跃到达负载所需时间为
+
+\[
+\boxed{\tau=\frac{\ell}{v}}.
+\]
+
+负载产生的反射再返回源端还需相同时间，所以源端最早在
+
+\[
+\boxed{2\ell/v}
+\]
+
+之后感知负载端接。
+
+对开路负载，电压反射系数为
+\(+1\)，到达瞬间负载电压加倍而负载电流为零；对短路负载，电压反射系数为
+\(-1\)，负载电压为零而电流加倍。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{电缆反射的往返时间〔M7-050〕}
+
+\textbf{层级：} 基础
+
+长 \(\ell=100\,\mathrm m\) 的均匀传输线波速为
+\(v=2.0\times10^8\,\mathrm{m/s}\)，负载失配。在 \(t=0\)
+从源端发射短脉冲，忽略色散。求脉冲到达负载的时间及第一次负载反射到达源端的时间。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-050.pdf}}
+\par\smallskip{\small 图 M7-050：电缆反射的往返时间}
+\end{center}
+\end{minipage}\par
+
+图 M7-050 的时空图把源端和负载端放在两根竖线上；第一次到负载走一段
+\(\ell\)，第一次返回源端走两段，所以反射到达时间为单程的两倍。
+
+长度 \(100\ \mathrm m\)、波速 \(2.0\times10^8\ \mathrm{m/s}\)
+的电缆，单程延迟为
+
+\[
+0.50\ \mu\mathrm s,
+\]
+
+源端在 \(1.0\ \mu\mathrm s\) 后才收到第一次负载反射。
+
+\subsection{十一、使用条件与常见错误}\label{m7:ux5341ux4e00ux4f7fux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux9519ux8bef}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(Z_0\) 是单向行波的电压电流比，不是传输线的直流总电阻。
+\item
+  反向电压波对应的电流项带负号，因此电流反射系数为 \(-\Gamma_L\)。
+\item
+  终端匹配消除反射，但不消除传播延迟和相位变化。
+\item
+  \(\ell\ll\lambda\)
+  时才能把整段线近似为集总连接；外部辐射很小并不能保证集总近似成立。
+\item
+  输入阻抗同时依赖 \(Z_L\)、\(Z_0\)、频率和线长，不能只由负载决定。
+\item
+  四分之一波长变换器是窄带匹配结构。
+\item
+  驻波的波节不表示两列行波都为零，而是它们在该位置相消。
+\item
+  传输线模型要求主要传播模式可由一对电压、电流描述；截面尺寸与波长可比、出现高阶模式或强辐射时，应改用完整麦克斯韦方程。
+\end{enumerate}
+
+\subsection{练习与解答}\label{m7:ux7ec3ux4e60ux4e0eux89e3ux7b54-1}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业一：由分布参数求特性阻抗和波速〔M7-051〕}\label{m7:ux4f5cux4e1aux4e00ux7531ux5206ux5e03ux53c2ux6570ux6c42ux7279ux6027ux963bux6297ux548cux6ce2ux901fm7-051}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 分布与奇性、波动与边界、传输线
+
+一条理想无耗传输线的单位长度参数为
+
+\[
+L'=250\ \mathrm{nH/m},
+\qquad
+C'=100\ \mathrm{pF/m}.
+\]
+
+求特性阻抗、传播速度，以及 \(f=100\ \mathrm{MHz}\) 时的线内波长。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-051.pdf}}
+\par\smallskip{\small 图 M7-051：作业一：由分布参数求特性阻抗和波速}
+\end{center}
+\end{minipage}\par
+
+图 M7-051 取一米微元的储能参数；\(L'C'\) 先决定波速，再由 \(v/f\)
+得到线内波长，不能直接套用真空波长。
+
+无耗线特性阻抗为
+
+\[
+Z_0=\sqrt{\frac{L'}{C'}}.
+\]
+
+代入：
+
+\[
+Z_0
+=\sqrt{\frac{250\times10^{-9}}
+{100\times10^{-12}}}
+=\sqrt{2500}\ \Omega.
+\]
+
+所以
+
+\[
+\boxed{Z_0=50\ \Omega}.
+\]
+
+传播速度为
+
+\[
+v=\frac1{\sqrt{L'C'}}
+=\frac1{\sqrt{(250\times10^{-9})(100\times10^{-12})}},
+\]
+
+故
+
+\[
+\boxed{v=2.0\times10^8\ \mathrm{m/s}}.
+\]
+
+在 \(100\ \mathrm{MHz}\) 时，
+
+\[
+\boxed{
+\lambda=\frac vf
+=\frac{2.0\times10^8}{1.0\times10^8}
+=2.0\ \mathrm m
+}.
+\]
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业二：失配负载、驻波比与输入阻抗〔M7-052〕}\label{m7:ux4f5cux4e1aux4e8cux5931ux914dux8d1fux8f7dux9a7bux6ce2ux6bd4ux4e0eux8f93ux5165ux963bux6297m7-052}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 波动与边界、传输线
+
+\(Z_0=50\ \Omega\) 的无耗传输线接负载
+\(Z_L=100\ \Omega\)。求负载反射系数和驻波比；再求距负载
+\(\ell=\lambda/8\) 处向负载方向看入的阻抗。 采用 \(e^{i\omega t}\)
+相量约定。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-052.pdf}}
+\par\smallskip{\small 图 M7-052：作业二：失配负载、驻波比与输入阻抗}
+\end{center}
+\end{minipage}\par
+
+图 M7-052 在负载处标出 \(100\,\Omega\)，输入端向左退
+\(\lambda/8\)；反射幅度决定驻波比，传播相位决定输入端复阻抗，二者分别计算。
+
+负载反射系数为
+
+\[
+\Gamma_L
+=\frac{Z_L-Z_0}{Z_L+Z_0}
+=\frac{100-50}{100+50}.
+\]
+
+所以
+
+\[
+\boxed{\Gamma_L=\frac13}.
+\]
+
+驻波比为
+
+\[
+\mathrm{SWR}
+=\frac{1+|\Gamma_L|}{1-|\Gamma_L|}
+=\frac{1+1/3}{1-1/3},
+\]
+
+故
+
+\[
+\boxed{\mathrm{SWR}=2}.
+\]
+
+当 \(\ell=\lambda/8\) 时，
+
+\[
+\beta\ell=\frac{2\pi}{\lambda}\frac{\lambda}{8}
+=\frac\pi4,
+\]
+
+\[
+\tan(\beta\ell)=1.
+\]
+
+输入阻抗为
+
+\[
+Z_{\mathrm{in}}
+=50
+\frac{100+i50}{50+i100}.
+\]
+
+分子分母同乘 \(50-i100\)：
+
+\[
+\frac{100+i50}{50+i100}
+=0.8-0.6i.
+\]
+
+因此
+
+\[
+\boxed{
+Z_{\mathrm{in}}=40-30i\ \Omega
+}.
+\]
+
+负载本身是纯电阻，但经过一段有相位长度的无耗线后，输入阻抗一般带有电抗。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-052-P1.pdf}}
+\par\smallskip{\small 图 M7-052-P1：向源端移动时的复输入阻抗}
+\end{center}
+\end{minipage}\par
+
+图 M7-052-P1 在 \(\ell/\lambda=1/8\) 处给出
+\(40-30i\,\Omega\)；纯电阻负载在其他位置一般表现为复阻抗。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业三：四分之一波长匹配〔M7-053〕}\label{m7:ux4f5cux4e1aux4e09ux56dbux5206ux4e4bux4e00ux6ce2ux957fux5339ux914dm7-053}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 波动与边界、传输线
+
+用一段无耗传输线把 \(R_S=50\ \Omega\) 的源匹配到 \(R_L=200\ \Omega\)
+的纯电阻负载。设计四分之一波长变换段的特性阻抗。若变换段波速为
+\(2.0\times10^8\ \mathrm{m/s}\)、工作频率为
+\(100\ \mathrm{MHz}\)，求其最短物理长度。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-053.pdf}}
+\par\smallskip{\small 图 M7-053：作业三：四分之一波长匹配}
+\end{center}
+\end{minipage}\par
+
+图 M7-053 的中间段是单独的 \(Z_t\) 传输线，最短电长度为
+\(\lambda/4\)；在这个频率上，它把右端 \(R_L\) 变换成左端 \(Z_t^2/R_L\)。
+
+变换段特性阻抗应取
+
+\[
+Z_t=\sqrt{R_SR_L}.
+\]
+
+因此
+
+\[
+\boxed{
+Z_t=\sqrt{50\times200}=100\ \Omega
+}.
+\]
+
+线内波长为
+
+\[
+\lambda=\frac vf
+=\frac{2.0\times10^8}{1.0\times10^8}
+=2.0\ \mathrm m.
+\]
+
+最短四分之一波长为
+
+\[
+\boxed{
+\ell=\frac{\lambda}{4}=0.50\ \mathrm m
+}.
+\]
+
+在设计频率处，输入阻抗
+
+\[
+Z_{\mathrm{in}}
+=\frac{Z_t^2}{R_L}
+=\frac{100^2}{200}
+=50\ \Omega,
+\]
+
+与源阻抗匹配。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业四：开路与短路支节〔M7-054〕}\label{m7:ux4f5cux4e1aux56dbux5f00ux8defux4e0eux77edux8defux652fux8282m7-054}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 波动与边界、传输线
+
+\(Z_0=50\ \Omega\) 的无耗传输线长度为
+\(\lambda/8\)。分别求终端开路和终端短路时的输入阻抗，并判断其电抗性质。
+采用 \(e^{i\omega t}\) 相量约定。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-054.pdf}}
+\par\smallskip{\small 图 M7-054：作业四：开路与短路支节}
+\end{center}
+\end{minipage}\par
+
+图 M7-054 上下两支节长度相同，区别在右端是否短接；同一个
+\(\beta\ell=\pi/4\) 分别代入开路和短路边界条件，得到相反符号的纯电抗。
+
+因为
+
+\[
+\beta\ell=\frac\pi4,
+\qquad
+\tan\frac\pi4=\cot\frac\pi4=1,
+\]
+
+短路支节的输入阻抗为
+
+\[
+Z_{\mathrm{in,short}}
+=iZ_0\tan(\beta\ell),
+\]
+
+所以
+
+\[
+\boxed{
+Z_{\mathrm{in,short}}=i50\ \Omega
+}.
+\]
+
+它呈电感性。
+
+开路支节的输入阻抗为
+
+\[
+Z_{\mathrm{in,open}}
+=-iZ_0\cot(\beta\ell),
+\]
+
+所以
+
+\[
+\boxed{
+Z_{\mathrm{in,open}}=-i50\ \Omega
+}.
+\]
+
+它呈电容性。两者都没有平均有功损耗，但可以储存并交换电磁能。
+
+\section{专题六十八：辐射耗散与集总参数近似（拔高选讲）}\label{m7:ux4e13ux9898ux516dux5341ux516bux8f90ux5c04ux8017ux6563ux4e0eux96c6ux603bux53c2ux6570ux8fd1ux4f3cux62d4ux9ad8ux9009ux8bb2}
+
+阅读准备：现在看到的是源较早时刻的状态 距源 \(r\) 的观察点在时刻 \(t\)
+接收到的信息来自迟滞时刻
+\(t_r=t-r/c\)。近区、中间区和辐射区不是三套不同场，而是同一迟滞解中按
+\(1/r^3\)、\(1/r^2\)、\(1/r\) 等不同距离阶次占主导的区域。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{观察距离与近远场〔M7-055〕}
+
+\textbf{层级：} 决赛拓展
+
+真空中有尺度为 \(a\) 的局域电小谐振源，\(ka\ll1\)，观察距离满足
+\(r\gg a\)，\(k=\omega/c\)。说明 \(kr\ll1\) 与 \(kr\gg1\)
+时近场项和辐射项的相对地位，解释为何观察距离与源尺寸应分别检查。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-055.pdf}}
+\par\smallskip{\small 图 M7-055：观察距离与近远场}
+\end{center}
+\end{minipage}\par
+
+图 M7-055 中源半径 \(a\) 和观察距离 \(r\) 分别标注；\(ka\)
+约束源的电尺寸，\(kr\) 决定观察点处 \(1/r^3\)、\(1/r^2\) 与 \(1/r\)
+项的相对大小。
+
+若源以角频率 \(\omega\) 变化，则 \(kr=\omega r/c\)
+衡量传播相位是否显著；\(kr\ll1\) 时更接近准静态，\(kr\gg1\) 时保留的
+\(1/r\) 项形成向外输运能量的远区辐射。 此处同时要求
+\(r\gg a\)，以避开源内部结构；\(kr\gg1\) 不能替代源本身的 \(ka\ll1\)
+条件。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H46.pdf}}
+\par\smallskip{\small 图 M7-H46：集总电路、传输线与开放空间辐射的尺度关系}
+\end{center}
+\end{minipage}\par
+
+普通交流电路为什么通常可以只讨论电阻、电容和电感，而不必把连接导线当作天线？反过来，频率升高或电路变长以后，为什么同一组元件又会出现传播延迟、反射、驻波和辐射？这些问题不能只用``频率高低''判断，而要区分三个不同尺度：源本身的电尺寸、观察点所在的场区以及传导电流与位移电流的相对大小。
+
+\subsection{一、三个不能混用的无量纲判据}\label{m7:ux4e00ux4e09ux4e2aux4e0dux80fdux6df7ux7528ux7684ux65e0ux91cfux7eb2ux5224ux636e}
+
+先以无耗、无色散背景定义参考速度和参考波数（本节以下 \(k\)
+均指此参考值）为
+
+\[
+v=\frac{1}{\sqrt{\mu\varepsilon}},\qquad
+k=\frac{\omega}{v}=\frac{2\pi}{\lambda}.
+\]
+
+有耗介质应另用传播常数 \(\gamma=\alpha+i\beta\)：\(\alpha\)
+决定衰减，\(\beta\) 决定相位，实际相速度为
+\(\omega/\beta\)。导电较强时，应同时检查
+\(\alpha L\)、\(\beta L\)，不能只用背景参考量 \(kL\) 判断。
+
+记 \(a\) 为辐射源的特征尺寸，\(L\)
+为需要建立统一电压、电流关系的结构长度，\(r\)
+为观察点到源的距离。常用的三个判据为
+
+\[
+ka,\qquad kr,\qquad
+\chi=\frac{\omega\varepsilon}{\sigma}.
+\]
+
+它们回答的问题不同：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(ka\) 或 \(kL\) 判断源或电路是否``电小''，也就是传播相位能否忽略；
+\item
+  \(kr\) 判断观察点属于准静态近场、过渡区还是辐射远场；
+\item
+  \(\chi\) 比较同一局部电场引起的位移电流密度与传导电流密度，
+\end{enumerate}
+
+\[
+\frac{|\mathbf J_{\mathrm d}|}{{|\mathbf J_{\mathrm c}|}}
+=\frac{|\partial\mathbf D/\partial t|}{|\sigma\mathbf E|}
+=\frac{\omega\varepsilon}{\sigma}
+=\chi.
+\]
+
+因此，\(kL\ll1\) 不能自动推出位移电流可以忽略，\(kr\ll1\)
+也不能自动推出整个装置可以用集总电路表示。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H47.pdf}}
+\par\smallskip{\small 图 M7-H47：源尺寸、观察距离和电流机制分别由三个无量纲量判断}
+\end{center}
+\end{minipage}\par
+
+\subsection{二、集总参数近似的来源与边界}\label{m7:ux4e8cux96c6ux603bux53c2ux6570ux8fd1ux4f3cux7684ux6765ux6e90ux4e0eux8fb9ux754c}
+
+\subsubsection{1. 相位判据}\label{m7:ux76f8ux4f4dux5224ux636e}
+
+电磁信息沿结构传播所需的时间约为
+
+\[
+\tau_{\mathrm p}=\frac{L}{v}.
+\]
+
+若激励按 \(e^{-i\omega t}\) 变化，结构两端由传播产生的典型相位差为
+
+\[
+\Delta\varphi\sim\omega\tau_{\mathrm p}
+=\frac{\omega L}{v}=kL.
+\]
+
+集总参数近似要求
+
+\[
+\boxed{kL\ll1}
+\]
+
+或等价地
+
+\[
+L\ll\frac{\lambda}{2\pi}.
+\]
+
+常写成 \(L\ll\lambda\)，但真正控制误差的是
+\(kL\)。工程上取多小才算``足够小''取决于允许的相位误差、结构形状、端接方式和耦合强弱，不存在对所有问题通用的固定百分比。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H48.pdf}}
+\par\smallskip{\small 图 M7-H48：集总结构各处近似同相，分布结构的电压和电流随位置变化}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{短连接线的传播相位〔M7-056〕}
+
+\textbf{层级：} 基础
+
+长 \(L=0.20\,\mathrm m\) 的理想连接线中波速为
+\(v=2.0\times10^8\,\mathrm{m/s}\)。分别在 \(f=1.0\,\mathrm{MHz}\) 和
+\(100\,\mathrm{MHz}\) 时求两端传播相位
+\(kL\)，以弧度和角度表示，判断能否忽略此延迟。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-056.pdf}}
+\par\smallskip{\small 图 M7-056：短连接线的传播相位}
+\end{center}
+\end{minipage}\par
+
+图 M7-056 用两端波形的时间差表示线路传播延迟；对正弦信号，相位差为
+\(\omega L/v=kL\)，随频率线性增加，再乘 \(180/\pi\) 化为角度。
+
+长度 \(L=0.20\ \mathrm m\) 的连接线中波速为
+\(v=2.0\times10^8\ \mathrm{m/s}\)。在 \(f=1.0\ \mathrm{MHz}\) 时，
+
+\[
+kL=\frac{2\pi fL}{v}=6.3\times10^{-3},
+\qquad \Delta\varphi\approx0.36^{\circ},
+\]
+
+传播相位通常可以忽略；若频率升到 \(100\ \mathrm{MHz}\)，则
+\(kL\approx0.63\)，相位差约为
+\(36^{\circ}\)，已不能把整段导线视为同一时刻具有单一电压和电流的集总连接线。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-056-P1.pdf}}
+\par\smallskip{\small 图 M7-056-P1：连接线各处的相位累积}
+\end{center}
+\end{minipage}\par
+
+图 M7-056-P1：同一线路的高频相位累积为低频的100倍，端点分别约
+\(0.36^{\circ}\) 和 \(36^{\circ}\)。
+
+\subsubsection{2.
+基尔霍夫定律是麦克斯韦方程的近似结果}\label{m7:ux57faux5c14ux970dux592bux5b9aux5f8bux662fux9ea6ux514bux65afux97e6ux65b9ux7a0bux7684ux8fd1ux4f3cux7ed3ux679c}
+
+麦克斯韦---法拉第方程的积分形式为
+
+\[
+\oint_C\mathbf E\cdot d\mathbf l
+=-\frac{d}{dt}\int_S\mathbf B\cdot d\mathbf S.
+\]
+
+若连接导线围成的杂散面积很小，且变化磁通可以忽略，则导线网络上的电势降近似与路径无关。把电阻、电容、电感等局域区域中的电动势和压降分别归入元件模型，便得到回路电压关系。若有不可忽略的外磁通穿过回路，则不能简单写成电压代数和为零，而应保留感应电动势
+
+\[
+\sum_j U_j=-\frac{d\Phi_{B,\mathrm{ext}}}{dt}.
+\]
+
+电荷连续性方程为
+
+\[
+\nabla\cdot\mathbf J+\frac{\partial\rho}{\partial t}=0.
+\]
+
+对包围结点的小体积积分，得到
+
+\[
+\sum_j I_j=-\frac{dQ_{\mathrm{node}}}{dt}.
+\]
+
+若结点内没有未建模的电荷积累，或结点电容已作为支路计入，右端可并入元件电流，得到
+\(\sum_j I_j=0\)。因此，基尔霍夫定律适用于空间传播、杂散磁通和未建模电荷积累均可忽略或已计入模型的情形。
+
+\subsection{三、电准静态、磁准静态与全波描述}\label{m7:ux4e09ux7535ux51c6ux9759ux6001ux78c1ux51c6ux9759ux6001ux4e0eux5168ux6ce2ux63cfux8ff0}
+
+``准静态''并不只有一种形式。对简谐场，麦克斯韦方程可写成
+
+\[
+\nabla\times\mathbf E=i\omega\mathbf B,
+\qquad
+\nabla\times\mathbf H=\mathbf J-i\omega\mathbf D
+\]
+
+（这里采用 \(e^{-i\omega t}\)
+约定）。根据装置的储能方式和电流机制，可区分：
+
+\subsubsection{1.
+电准静态近似}\label{m7:ux7535ux51c6ux9759ux6001ux8fd1ux4f3c}
+
+电场主要由瞬时电荷分布决定，磁感应引起的涡旋电场相对较小，因而
+
+\[
+\nabla\times\mathbf E\approx0,
+\qquad \mathbf E\approx-\nabla\varphi.
+\]
+
+电容器、开路导体和高阻介质中的低频问题常属于这一类。此时位移电流往往正是电容电流的来源，不能因``准静态''三个字就把它删去。
+
+\subsubsection{2.
+磁准静态近似}\label{m7:ux78c1ux51c6ux9759ux6001ux8fd1ux4f3c}
+
+电流回路和磁储能占主导。若在导电介质中
+
+\[
+\chi=\frac{\omega\varepsilon}{\sigma}\ll1,
+\]
+
+则安培---麦克斯韦方程中的位移电流相对于传导电流较小；但法拉第感应仍须保留，否则便无法描述电感和涡流。
+
+\subsubsection{3. 全波描述}\label{m7:ux5168ux6ce2ux63cfux8ff0}
+
+当传播相位不可忽略，或电场与磁场彼此耦合形成传播波时，应保留完整麦克斯韦方程。仅凭
+\(\chi\)
+不能决定整个空间采用哪一种模型，因为真空或介质区、导体区和元件间隙可能分别具有不同的主导机制。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H49.pdf}}
+\par\smallskip{\small 图 M7-H49：传导与位移电流的幅值比，选模型还需结构信息}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{同频率下的两种电流机制〔M7-057〕}
+
+\textbf{层级：} 决赛拓展
+
+均匀介质的介电常数为 \(\varepsilon=4\varepsilon_0\)，频率为
+\(f=1.0\,\mathrm{MHz}\)。分别取 \(\sigma_1=10^{-2}\,\mathrm{S/m}\) 与
+\(\sigma_2=10^{-8}\,\mathrm{S/m}\)，求位移与传导电流密度振幅之比
+\(\chi=\omega\varepsilon/\sigma\)，判断哪一种电流占优。取
+\(\varepsilon_0=8.85\times10^{-12}\,\mathrm{F/m}\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-057.pdf}}
+\par\smallskip{\small 图 M7-057：同频率下的两种电流机制}
+\end{center}
+\end{minipage}\par
+
+图 M7-057 比较同一电场下 \(J_c=\sigma E\) 与 \(J_d=\omega\varepsilon E\)
+的幅值；两种介质只改变前者，因此二者之比相差六个数量级。
+
+设 \(f=1.0\ \mathrm{MHz}\)、\(\varepsilon=4\varepsilon_0\)。则
+
+\[
+\omega\varepsilon
+=2\pi\times10^6\times4\times8.85\times10^{-12}
+\approx2.2\times10^{-4}\ \mathrm{S/m}.
+\]
+
+若 \(\sigma=10^{-2}\ \mathrm{S/m}\)，则
+\(\chi\approx2.2\times10^{-2}\)，传导电流占优；若
+\(\sigma=10^{-8}\ \mathrm{S/m}\)，则
+\(\chi\approx2.2\times10^4\)，位移电流占优。两种介质处在同一频率，并不具有同一种电流机制。
+
+\subsection{四、近场、感应场与辐射场}\label{m7:ux56dbux8fd1ux573aux611fux5e94ux573aux4e0eux8f90ux5c04ux573a}
+
+对尺度有限、随时间变化的局域源，推迟势展开后通常出现不同距离阶次的项。以电偶极或磁偶极为例：
+
+\[
+\text{准静态项}\propto\frac1{r^3},\qquad
+\text{感应项}\propto\frac1{r^2},\qquad
+\text{辐射项}\propto\frac1r.
+\]
+
+因此可按 \(kr\) 作渐近区分：
+
+\[
+kr\ll1\quad\text{准静态近场},
+\]
+
+\[
+kr\sim1\quad\text{过渡区},
+\]
+
+\[
+kr\gg1\quad\text{辐射远场}.
+\]
+
+上述近远场阶次比较针对电小局域偶极源（\(ka\ll1\)），并要求
+\(r\gg a\)。在此范围内，\(r\gg\lambda\)
+是充分但偏强的远区条件；大尺寸扩展源还需检查波前曲率与源内相位展开，例如远区条件
+\(r\gg a^2/\lambda\)，不能仅凭 \(kr\gg1\) 判断。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H50.pdf}}
+\par\smallskip{\small 图 M7-H50：偶极场的不同距离阶次及相应空间区域}
+\end{center}
+\end{minipage}\par
+
+近场中的电场和磁场一般不满足平面波的固定比例，坡印廷矢量可随相位改变方向，表示能量在源与邻近场之间往返交换。辐射项在远区满足
+
+\[
+\mathbf B_{\mathrm{rad}}
+=\frac1v\hat{\mathbf r}\times\mathbf E_{\mathrm{rad}},
+\qquad
+\mathbf E_{\mathrm{rad}}\perp\mathbf B_{\mathrm{rad}}\perp\hat{\mathbf r},
+\]
+
+其时间平均能流指向外部。近场中也可同时含有较小的辐射分量；准确说法是：\(1/r^3\)
+和 \(1/r^2\) 的反应性项不产生与半径无关的净辐射功率，\(1/r\)
+项才在大球面上留下有限的外流功率。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H51.pdf}}
+\par\smallskip{\small 图 M7-H51：反应性近场的往返能流与辐射远场的净外流}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{同一源的近场与远场位置〔M7-058〕}
+
+\textbf{层级：} 决赛拓展
+
+真空局域电小源的频率为 \(100\,\mathrm{MHz}\)，源尺度
+\(a\ll3.0\,\mathrm{cm}\)。比较 \(r_1=3.0\,\mathrm{cm}\) 与
+\(r_2=30\,\mathrm m\) 两个观察点的 \(kr\)，判断近场或远场近似。取
+\(c=3.0\times10^8\,\mathrm{m/s}\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-058.pdf}}
+\par\smallskip{\small 图 M7-058：同一源的近场与远场位置}
+\end{center}
+\end{minipage}\par
+
+图 M7-058 中 \(r\) 代表源外的观察距离，本题分别取
+\(r_1=3.0\,\mathrm{cm}\) 和 \(r_2=30\,\mathrm m\)；用同一波长求
+\(k\)，再按两个 \(kr\) 判断近场或远场。
+
+真空中频率为 \(100\ \mathrm{MHz}\) 的场有 \(\lambda=3.0\ \mathrm m\)。当
+\(r=3.0\ \mathrm{cm}\) 时，\(kr\approx0.063\)，观察点位于准静态近场；当
+\(r=30\ \mathrm m\) 时，\(kr\approx63\)，远场近似充分成立。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-058-P1.pdf}}
+\par\smallskip{\small 图 M7-058-P1：三类距离幂次的比较}
+\end{center}
+\end{minipage}\par
+
+图 M7-058-P1
+仅比较距离幂次，公共系数与角因子已移除；不是任意方向上的精确场强曲线。
+
+\subsection{五、局域源的最低阶辐射}\label{m7:ux4e94ux5c40ux57dfux6e90ux7684ux6700ux4f4eux9636ux8f90ux5c04}
+
+对尺寸 \(a\ll\lambda\)
+的局域源，可把远场按多极矩展开。最低阶中最常见的是电偶极辐射和磁偶极辐射。
+
+\subsubsection{1. 电偶极辐射}\label{m7:ux7535ux5076ux6781ux8f90ux5c04}
+
+电偶极矩定义为
+
+\[
+\mathbf p(t)=\int\mathbf r'\rho(\mathbf r',t)\,dV'.
+\]
+
+其辐射角分布满足
+
+\[
+\frac{d\langle P_e\rangle}{d\Omega}
+\propto\sin^2\theta,
+\]
+
+其中 \(\theta\) 是观察方向与 \(\mathbf p\) 轴的夹角。总辐射功率为
+
+\[
+\boxed{
+\langle P_e\rangle
+=\frac{\langle|\ddot{\mathbf p}|^2\rangle}
+{6\pi\varepsilon_0c^3}}
+\]
+
+若 \(\mathbf p(t)=\mathbf p_0\cos\omega t\)，且 \(p_0\) 表示峰值，则
+
+\[
+\boxed{
+\langle P_e\rangle
+=\frac{\omega^4p_0^2}{12\pi\varepsilon_0c^3}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H52.pdf}}
+\par\smallskip{\small 图 M7-H52：电偶极辐射的截面方向图和总功率}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{电偶极辐射的频率标度〔M7-059〕}
+
+\textbf{层级：} 决赛拓展
+
+两个相反点电荷 \(\pm q\) 沿固定轴运动，其有向分离量为
+\(d(t)=d_0\cos\omega t\)，其中
+\(d_0\ll c/\omega\)，可用电偶极近似。求平均辐射功率对 \(q,d_0,\omega\)
+的依赖；保持 \(q,d_0\) 不变，将频率加倍，功率变为几倍？
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-059.pdf}}
+\par\smallskip{\small 图 M7-059：电偶极辐射的频率标度}
+\end{center}
+\end{minipage}\par
+
+图 M7-059
+中偶极矩沿两电荷连线，辐射方向图在该轴上为零、赤道方向最大；总功率的频率四次方来自二阶时间导数的平方。
+
+若两个相反点电荷的有向分离量作微小简谐变化 \(d(t)=d_0\cos\omega t\)，则
+\(p_0=qd_0\)，辐射功率正比于
+\(q^2d_0^2\omega^4\)。频率加倍而振幅不变时，平均辐射功率增大到原来的
+\(16\) 倍。
+
+\subsubsection{2. 磁偶极辐射}\label{m7:ux78c1ux5076ux6781ux8f90ux5c04}
+
+局域电流分布的磁偶极矩为
+
+\[
+\mathbf m(t)=\frac12\int\mathbf r'\times\mathbf J(\mathbf r',t)\,dV'.
+\]
+
+对电小、细导线、单匝闭合回路，若回路各处电流可视为同相，则
+
+\[
+\mathbf m(t)=I(t)S\hat{\mathbf n}.
+\]
+
+其总辐射功率为
+
+\[
+\boxed{
+\langle P_m\rangle
+=\frac{\mu_0\langle|\ddot{\mathbf m}|^2\rangle}{6\pi c^3}}.
+\]
+
+对于 \(I(t)=I_0\cos\omega t\)，
+
+\[
+\boxed{
+\langle P_m\rangle
+=\frac{\mu_0\omega^4I_0^2S^2}{12\pi c^3}}.
+\]
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H53.pdf}}
+\par\smallskip{\small 图 M7-H53：电小闭合回路的面积、磁偶极矩与辐射功率}
+\end{center}
+\end{minipage}\par
+
+理想对称闭合回路的电偶极矩可以为零，最低阶辐射通常由磁偶极矩决定；但实际馈线不对称、回流路径分离或导体上存在明显电荷分离时，电偶极辐射可能不再为零，甚至可能占主导。因此，不能仅看``主导回路是闭合的''就断言装置只有磁偶极辐射。
+
+同样，也不能把``任意随时间变化的源都必然辐射''当作无条件定理。多极矩可能因对称性或特殊电流分布而抵消；准确结论是：一般局域时变源会辐射，实际最低非零多极矩决定远场的领先项。
+
+\subsection{六、电小回路辐射功率的推导}\label{m7:ux516dux7535ux5c0fux56deux8defux8f90ux5c04ux529fux7387ux7684ux63a8ux5bfc}
+
+设回路尺度 \(a\ll\lambda\)，观察点满足 \(r\gg a\) 且
+\(kr\gg1\)，回路电流在各处近似同相。记推迟时刻为
+
+\[
+t_r=t-\frac rc.
+\]
+
+取真空中的外向迟滞解，辐射矢势为
+\(\mathbf A_{\mathrm{rad}}=\mu_0[\dot{\mathbf m}(t_r)\times\hat{\mathbf r}]/(4\pi cr)\)。由
+\(\mathbf E_{\mathrm{rad}}=-\partial_t\mathbf A_{\mathrm{rad}}\)，磁偶极子的辐射场可写成
+
+\[
+\mathbf E_{\mathrm{rad}}(\mathbf r,t)
+=+\frac{\mu_0}{4\pi cr}
+\hat{\mathbf r}\times\ddot{\mathbf m}(t_r),
+\]
+
+\[
+\mathbf B_{\mathrm{rad}}(\mathbf r,t)
+=+\frac{\mu_0}{4\pi c^2r}
+\hat{\mathbf r}\times
+\left[\hat{\mathbf r}\times\ddot{\mathbf m}(t_r)\right].
+\]
+
+两式满足向外传播波关系
+
+\[
+\mathbf B_{\mathrm{rad}}
+=\frac1c\hat{\mathbf r}\times\mathbf E_{\mathrm{rad}}.
+\]
+
+若 \(\theta\) 是 \(\mathbf m\) 与 \(\hat{\mathbf r}\) 的夹角，则
+
+\[
+|\mathbf E_{\mathrm{rad}}|
+=\frac{\mu_0|\ddot{\mathbf m}(t_r)|\sin\theta}{4\pi cr}.
+\]
+
+于是径向坡印廷矢量为
+
+\[
+S_r
+=\frac{E_{\mathrm{rad}}^2}{\mu_0c}
+=\frac{\mu_0|\ddot{\mathbf m}(t_r)|^2\sin^2\theta}
+{16\pi^2c^3r^2}.
+\]
+
+每单位立体角的瞬时功率为
+
+\[
+\frac{dP_m}{d\Omega}
+=r^2S_r
+=\frac{\mu_0|\ddot{\mathbf m}(t_r)|^2}{16\pi^2c^3}
+\sin^2\theta.
+\]
+
+利用
+
+\[
+\int\sin^2\theta\,d\Omega
+=2\pi\int_0^{\pi}\sin^3\theta\,d\theta
+=\frac{8\pi}{3},
+\]
+
+可得
+
+\[
+P_m(t)=\frac{\mu_0|\ddot{\mathbf m}(t_r)|^2}{6\pi c^3}.
+\]
+
+再对一个周期取平均。对于
+
+\[
+\mathbf m(t)=I_0S\cos\omega t\,\hat{\mathbf n},
+\]
+
+有
+
+\[
+\left\langle|\ddot{\mathbf m}|^2\right\rangle
+=\frac12\omega^4I_0^2S^2,
+\]
+
+所以
+
+\[
+\langle P_m\rangle
+=\frac{\mu_0\omega^4I_0^2S^2}{12\pi c^3}.
+\]
+
+代入 \(\omega=2\pi c/\lambda\)，得到
+
+\[
+\boxed{
+\langle P_m\rangle
+=\frac{4\pi^3\mu_0c}{3}I_0^2
+\left(\frac{S}{\lambda^2}\right)^2}.
+\]
+
+若几何形状固定且 \(S\sim a^2\)，则辐射功率随电尺寸按 \((a/\lambda)^4\)
+衰减。这说明电小回路并非完全不辐射，而是磁偶极辐射被四次方小量强烈压低。
+
+\subsubsection{辐射电阻}\label{m7:ux8f90ux5c04ux7535ux963b}
+
+把远场带走的平均功率折算到回路端口，定义
+
+\[
+\langle P_{\mathrm{rad}}\rangle
+=I_{\mathrm{rms}}^2R_{\mathrm{rad}}
+=\frac12I_0^2R_{\mathrm{rad}}.
+\]
+
+电小单匝回路的辐射电阻为
+
+\[
+\boxed{
+R_{\mathrm{rad},m}
+=320\pi^4\left(\frac{S}{\lambda^2}\right)^2}.
+\]
+
+作为比较，长度为 \(\ell\ll\lambda\)、电流近似均匀的短电流元有
+
+\[
+R_{\mathrm{rad},e}
+=80\pi^2\left(\frac{\ell}{\lambda}\right)^2.
+\]
+
+后一公式针对均匀电流元；若是中心馈电短偶极子，电流分布并不均匀，系数会改变，不能混用。辐射电阻也不是导体的焦耳热电阻，但信号源确实要提供相应的有功功率。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H54.pdf}}
+\par\smallskip{\small 图 M7-H54：短电流元和电小回路的辐射电阻}
+\end{center}
+\end{minipage}\par
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\textbf{电小圆回路的辐射电阻〔M7-060〕}
+
+\textbf{层级：} 决赛拓展
+
+真空中单匝圆回路半径为 \(a=0.10\,\mathrm m\)，工作频率
+\(f=10\,\mathrm{MHz}\)，电流有效值 \(I_{\rm rms}=1.0\,\mathrm A\)。检查
+\(ka\)，再用电小磁偶极模型求面积、辐射电阻和平均辐射功率。取
+\(c=3.0\times10^8\,\mathrm{m/s}\)。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-060.pdf}}
+\par\smallskip{\small 图 M7-060：电小圆回路的辐射电阻}
+\end{center}
+\end{minipage}\par
+
+图 M7-060 的回路面积为 \(S=\pi a^2\)，电流有效值用于
+\(P=I_{\rm rms}^2R_{\rm rad}\)；先检查
+\(ka\ll1\)，再使用磁偶极辐射公式。
+
+先检查
+\(ka=2\pi a/\lambda=2.09\times10^{-2}\ll1\)，因此电小回路近似有尺度依据。
+
+半径 \(a=0.10\ \mathrm m\) 的单匝圆回路在 \(f=10\ \mathrm{MHz}\) 时有
+
+\[
+\lambda=30\ \mathrm m,\qquad
+S=\pi a^2=3.14\times10^{-2}\ \mathrm{m^2},
+\]
+
+\[
+R_{\mathrm{rad},m}
+=320\pi^4\left(\frac{3.14\times10^{-2}}{30^2}\right)^2
+\approx3.8\times10^{-5}\ \Omega.
+\]
+
+若 \(I_{\mathrm{rms}}=1.0\ \mathrm A\)，则平均辐射功率约为
+\(3.8\times10^{-5}\ \mathrm W\)。它很小，却并不等于零。
+
+\subsection{七、``辐射很弱''与``可以集总''不是同一判断}\label{m7:ux4e03ux8f90ux5c04ux5f88ux5f31ux4e0eux53efux4ee5ux96c6ux603bux4e0dux662fux540cux4e00ux5224ux65ad}
+
+至少要分别检查以下三件事：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{传播是否可忽略}：由 \(kL\)
+  判断，关系到电压、电流是否随位置显著变化；
+\item
+  \textbf{外部辐射是否很弱}：由最低非零多极矩、回流路径、馈线对称性和屏蔽条件决定；
+\item
+  \textbf{采用哪一种准静态模型}：由电容性或电感性储能结构以及
+  \(\omega\varepsilon/\sigma\) 等条件共同决定。
+\end{enumerate}
+
+一根很长但屏蔽良好、回流路径紧贴内导体的同轴线，外部辐射可以很小；然而只要
+\(kL\)
+不小，线内仍会出现传播相位、反射和驻波，必须使用传输线模型。相反，一个电小回路可以满足集总条件，却仍有极微弱但非零的磁偶极辐射。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H55.pdf}}
+\par\smallskip{\small 图 M7-H55：选择集总、传输线或全波模型时应依次检查的条件}
+\end{center}
+\end{minipage}\par
+
+还要注意：天线尺寸达到 \(\lambda/4\) 或 \(\lambda/2\)
+时通常更容易形成有效辐射和谐振，但这不是``能否辐射''的门槛。电小源同样能够辐射，只是辐射电阻和辐射功率往往非常小。
+
+\subsection{八、50 Hz
+回路的数量级}\label{m7:ux516b50-hz-ux56deux8defux7684ux6570ux91cfux7ea7}
+
+对于 \(f=50\ \mathrm{Hz}\)、\(S=1\ \mathrm{m^2}\)、\(I_0=10\ \mathrm A\)
+的单匝回路，
+
+\[
+\lambda=\frac cf=6.0\times10^6\ \mathrm m,
+\]
+
+\[
+\langle P_{\mathrm{rad}}\rangle
+=\frac{\mu_0\omega^4I_0^2S^2}{12\pi c^3}
+\approx1.2\times10^{-21}\ \mathrm W.
+\]
+
+若回路电阻为 \(0.1\ \Omega\)，其平均焦耳热功率为
+\(5\ \mathrm W\)，两者相差约 \(22\)
+个数量级。这正是普通低频实验电路忽略辐射耗散的数量级依据。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-H56.pdf}}
+\par\smallskip{\small 图 M7-H56：50 Hz 单匝回路的辐射功率与焦耳热功率比较}
+\end{center}
+\end{minipage}\par
+
+\subsection{九、适用条件与常见误区}\label{m7:ux4e5dux9002ux7528ux6761ux4ef6ux4e0eux5e38ux89c1ux8befux533a}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{低频不等于集总}：应检查
+  \(kL\)，而不是只看频率数值；足够长的低频线路仍可能是分布系统。
+\item
+  \textbf{准静态不等于忽略位移电流}：电准静态问题中，位移电流可以是主导量。
+\item
+  \textbf{近场不等于没有辐射分量}：近区总场可同时包含反应性项和较小的
+  \(1/r\) 辐射项。
+\item
+  \textbf{远区不必机械要求 \(r\gg\lambda\)}：对于电小局域偶极源，检查
+  \(kr\gg1\) 和 \(r\gg a\)；大尺寸扩展源还要检验波前曲率条件（如
+  \(r\gg a^2/\lambda\)），精确边界取决于允许误差。
+\item
+  \textbf{闭合回路不保证只有磁偶极辐射}：实际馈线、接地和回流不对称会产生电偶极矩。
+\item
+  \textbf{辐射很弱不等于没有传播效应}：屏蔽良好的长传输线就是典型反例。
+\item
+  \textbf{辐射电阻不是发热电阻}：前者表示能量流入远场，后者表示能量转化为内能。
+\item
+  \textbf{不能把四次方尺度律用于任意几何}：\((a/\lambda)^4\)
+  来自几何相似的电小回路；若面积、电流分布或最低非零多极阶次改变，尺度律也会改变。
+\end{enumerate}
+
+\subsection{十、练习与解答}\label{m7:ux5341ux7ec3ux4e60ux4e0eux89e3ux7b54-1}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业一：低频闭合回路的辐射耗散〔M7-061〕}\label{m7:ux4f5cux4e1aux4e00ux4f4eux9891ux95edux5408ux56deux8defux7684ux8f90ux5c04ux8017ux6563m7-061}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 尺度分析
+
+考虑一个标准的实验室交流电路。已知市电频率
+\(f = 50\text{ Hz}\)，电路为一个面积 \(S = 1\text{ m}^2\)
+的单匝正方形闭合导线回路，回路中通有振幅为 \(I_0 = 10\text{ A}\)
+的交变电流。
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  计算该交变电流产生的电磁波波长 \(\lambda\)。
+\item
+  估算该电路向外辐射的平均电磁功率 \(P_{rad}\)。
+\item
+  若导线总电阻 \(R = 0.1\ \Omega\)，求焦耳热损耗功率 \(P_{heat}\)
+  与辐射功率 \(P_{rad}\)
+  的比值，并据此说明为何不考虑辐射耗散。（已知真空磁导率
+  \(\mu_0 = 4\pi \times 10^{-7}\text{ H/m}\)，光速
+  \(c = 3 \times 10^8\text{ m/s}\)，取 \(\pi^4 \approx 97.4\)）。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-061.pdf}}
+\par\smallskip{\small 图 M7-061：作业一：低频闭合回路的辐射耗散}
+\end{center}
+\end{minipage}\par
+
+图 M7-061 以一平方米回路面积和峰值电流 \(I_0\)
+定义磁偶极矩；焦耳热需把峰值换成有效值，比较时同时列出正比与倒比，避免数量级倒置。
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\tightlist
+\item
+  波长为
+\end{enumerate}
+
+\[
+\lambda=\frac cf
+=\frac{3\times10^8}{50}\ \mathrm m
+=6.0\times10^6\ \mathrm m
+=6000\ \mathrm{km}.
+\]
+
+回路的米量级尺寸远小于波长，满足电小回路条件。
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  角频率为
+\end{enumerate}
+
+\[
+\omega=2\pi f=100\pi\ \mathrm{rad/s}.
+\]
+
+代入磁偶极辐射功率公式：
+
+\[
+P_{rad}
+=\frac{\mu_0\omega^4I_0^2S^2}{12\pi c^3}
+=\frac{(4\pi\times10^{-7})(100\pi)^4(10)^2}
+{12\pi(3\times10^8)^3}.
+\]
+
+约去一个 \(\pi\) 并整理数量级，
+
+\[
+P_{rad}
+=\frac{4\pi^4\times10^3}{324\times10^{24}}\ \mathrm W
+\approx1.2\times10^{-21}\ \mathrm W.
+\]
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  电流有效值为 \(I_{rms}=I_0/\sqrt2\)，故
+\end{enumerate}
+
+\[
+P_{heat}=I_{rms}^2R
+=\left(\frac{10}{\sqrt2}\right)^2\times0.1
+=5\ \mathrm W.
+\]
+
+因此
+
+\[
+\frac{P_{heat}}{P_{rad}}
+=\frac5{1.2\times10^{-21}}
+\approx4.2\times10^{21}.
+\]
+
+辐射耗散比焦耳热小约 \(22\)
+个数量级，在这一低频、电小回路模型下完全可以忽略。
+等价地，辐射功率只占焦耳热的
+\(P_{rad}/P_{heat}\approx2.4\times10^{-22}\)。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业二：两类准静态近似的判断〔M7-062〕}\label{m7:ux4f5cux4e1aux4e8cux4e24ux7c7bux51c6ux9759ux6001ux8fd1ux4f3cux7684ux5224ux65adm7-062}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 尺度分析
+
+某装置的特征长度为 \(L=0.10\ \mathrm m\)，工作频率
+\(f=1.0\ \mathrm{MHz}\)，介质参数为
+\(\mu\approx\mu_0\)、\(\varepsilon=4\varepsilon_0\)。
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  先用无耗参考波数 \(k_d=\omega\sqrt{\mu\varepsilon}\) 估算
+  \(k_dL\)。导电较强时，再检查实际传播常数
+  \(\gamma=\alpha+i\beta=\sqrt{i\omega\mu(\sigma+i\omega\varepsilon)}\)
+  的 \(\alpha L\) 与 \(\beta L\)，判断尺度是否足够小。
+\item
+  分别取 \(\sigma_1=10^{-2}\ \mathrm{S/m}\) 和
+  \(\sigma_2=10^{-8}\ \mathrm{S/m}\)，计算
+  \(\chi=\omega\varepsilon/\sigma\)。
+\item
+  说明两种情况下优先考虑哪一种准静态描述，并指出这一判断还需要什么结构信息。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-062.pdf}}
+\par\smallskip{\small 图 M7-062：作业二：两类准静态近似的判断}
+\end{center}
+\end{minipage}\par
+
+图 M7-062 的两个点比较两种介质的电流幅值比；传播尺度另用 \(k_dL\) 和实际
+\(\alpha L,\beta L\) 检查，两类判断不能互相替代。
+
+采用 \(e^{i\omega t}\)、沿正向传播时 \(e^{-\gamma z}\) 的约定，记
+\(\gamma=\alpha+i\beta\)，其中 \(\alpha,\beta\ge0\)。
+
+无耗参考速度 \(v_d=1/\sqrt{\mu\varepsilon}=c/2\)，因此
+\(k_dL=2\pi fL/v_d=4.19\times10^{-3}\)。这个数是位移电流对应的参考尺度；有导电损耗时，实际传播相位应使用
+\(\beta L\)。
+
+先算 \(\omega\varepsilon=2.22\times10^{-4}\,\mathrm{S/m}\)，得到
+\[\chi_1=2.22\times10^{-2},\qquad \chi_2=2.22\times10^4.\]
+第一种介质接近良导体，代入
+\[\alpha=k_d\sqrt{\frac{\sqrt{1+(\sigma/\omega\varepsilon)^2}-1}{2}},\quad
+\beta=k_d\sqrt{\frac{\sqrt{1+(\sigma/\omega\varepsilon)^2}+1}{2}}\] 可得
+\(\alpha_1L\approx0.0196\)、\(\beta_1L\approx0.0201\)，两者仍远小于1。第二种介质接近无耗电介质，\(\alpha_2L\approx9.42\times10^{-8}\)、\(\beta_2L\approx0.00419\)，尺度检查也通过。
+
+由 \(\chi_1\ll1\)
+可知第一种介质传导电流占优；若结构是闭合电流回路且以磁储能为主，可优先考虑磁准静态。由
+\(\chi_2\gg1\)
+可知第二种介质位移电流占优；若结构为电极分离且以电储能为主，可优先考虑电准静态。电流比与小尺度只提供必要线索，仍须核对回路、电极、边界条件及储能分布，不能仅凭介质参数给所有装置指定同一种模型。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-062-P1.pdf}}
+\par\smallskip{\small 图 M7-062-P1：参考波数与有耗传播常数}
+\end{center}
+\end{minipage}\par
+
+图 M7-062-P1 中参考波数固定；导电性提高时，相位累积 \(\beta L\)
+与衰减指数 \(\alpha L\) 增大；本题两端的这两个无量纲量仍远小于1。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业三：电小圆回路的辐射电阻〔M7-063〕}\label{m7:ux4f5cux4e1aux4e09ux7535ux5c0fux5706ux56deux8defux7684ux8f90ux5c04ux7535ux963bm7-063}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 尺度分析、磁偶极辐射
+
+半径 \(a=0.10\ \mathrm m\) 的单匝圆回路在真空中以 \(f=10\ \mathrm{MHz}\)
+工作。若回路电流有效值为 \(I_{rms}=1.0\ \mathrm A\)，求：
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  电尺寸 \(ka\)；
+\item
+  辐射电阻 \(R_{rad,m}\)；
+\item
+  平均辐射功率。若导体电阻为 \(1.0\ \Omega\)，比较辐射功率与焦耳热功率。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-063.pdf}}
+\par\smallskip{\small 图 M7-063：作业三：电小圆回路的辐射电阻}
+\end{center}
+\end{minipage}\par
+
+图 M7-063 的回路半径决定
+\(ka\)，面积决定磁偶极矩；在同一个有效值电流下，辐射功率与焦耳热之比就是两种等效电阻之比。
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\tightlist
+\item
+\end{enumerate}
+
+\[
+\lambda=\frac cf=\frac{3.0\times10^8}{1.0\times10^7}
+=30\ \mathrm m,
+\]
+
+\[
+ka=\frac{2\pi a}{\lambda}
+=\frac{2\pi\times0.10}{30}
+\approx2.1\times10^{-2}\ll1.
+\]
+
+因此可使用电小回路公式。
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  回路面积为
+\end{enumerate}
+
+\[
+S=\pi a^2=3.14\times10^{-2}\ \mathrm{m^2}.
+\]
+
+所以
+
+\[
+R_{rad,m}
+=320\pi^4\left(\frac{S}{\lambda^2}\right)^2
+=320\pi^4
+\left(\frac{3.14\times10^{-2}}{30^2}\right)^2
+\approx3.8\times10^{-5}\ \Omega.
+\]
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+\end{enumerate}
+
+\[
+P_{rad}=I_{rms}^2R_{rad,m}
+\approx3.8\times10^{-5}\ \mathrm W.
+\]
+
+焦耳热功率为
+
+\[
+P_{heat}=I_{rms}^2R=1.0\ \mathrm W,
+\]
+
+故
+
+\[
+\frac{P_{rad}}{P_{heat}}
+\approx3.8\times10^{-5}.
+\]
+
+辐射仍远小于导体发热，但已经不像 50 Hz 例题那样相差二十多个数量级。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsubsection{作业四：低辐射长同轴线是否可以集总〔M7-064〕}\label{m7:ux4f5cux4e1aux56dbux4f4eux8f90ux5c04ux957fux540cux8f74ux7ebfux662fux5426ux53efux4ee5ux96c6ux603bm7-064}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 尺度分析
+
+一段长度 \(L=30\ \mathrm m\) 的理想屏蔽同轴线，线内波速
+\(v=2.0\times10^8\ \mathrm{m/s}\)，工作频率
+\(f=10\ \mathrm{MHz}\)，终端与特性阻抗匹配。由于外导体屏蔽良好，可认为外部辐射很小。判断能否把整段同轴线视为一根集总连接线，并说明理由。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-064.pdf}}
+\par\smallskip{\small 图 M7-064：作业四：低辐射长同轴线是否可以集总}
+\end{center}
+\end{minipage}\par
+
+图 M7-064 的终端取
+\(Z_L=Z_0\)，反行波幅值为零；匹配只消除反射，不能消除沿
+\(30\,\mathrm m\) 线路累积的传播相位。
+
+线内波长为
+
+\[
+\lambda_{line}=\frac vf
+=\frac{2.0\times10^8}{1.0\times10^7}
+=20\ \mathrm m.
+\]
+
+整段线路的相位变化为
+
+\[
+kL=\frac{2\pi L}{\lambda_{line}}
+=\frac{2\pi\times30}{20}
+=3\pi\approx9.42.
+\]
+
+传播延迟和周期分别为
+
+\[
+\tau_p=\frac Lv=1.5\times10^{-7}\ \mathrm s,
+\qquad
+T=\frac1f=1.0\times10^{-7}\ \mathrm s.
+\]
+
+传播延迟已经大于一个周期，线路不同位置的电压、电流显著不同，绝不能采用集总连接线模型；应使用传输线方程。终端匹配只消除了理想情况下的反射，并没有消除传播相位。外部辐射很小也只说明屏蔽与回流路径有效，不能推出
+\(kL\ll1\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-064-P1.pdf}}
+\par\smallskip{\small 图 M7-064-P1：匹配线内仍存在传播相位}
+\end{center}
+\end{minipage}\par
+
+图 M7-064-P1
+为同一时刻沿线的快照；匹配只消除反行波，不能使30米线上的电压电流同时相等。
+
+\section{模块七小结}\label{m7:ux6a21ux5757ux4e03ux5c0fux7ed3}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+检验问题
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+结论或判断
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+回看位置
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+坡印廷矢量表示什么？ & 单位面积单位时间的电磁能流 & 专题六十一 \\
+平面波中 \(\mathbf E,\mathbf B,\mathbf k\) 的方向如何确定？ &
+三者正交并满足右手关系 & 专题六十二 \\
+位移电流是否表示真空中有电荷穿过？ & 不是，它是变化电场的场源项 &
+专题六十四 \\
+场变换为何需要平行与垂直分量？ & 洛伦兹变换对两类分量作用不同 &
+专题六十五 \\
+反射问题最可靠的检验是什么？ & 边界条件与能流守恒同时成立 &
+专题六十六 \\
+何时从集总电路转向传输线或辐射模型？ & 当传播相位或电尺寸不再足够小 &
+专题六十七、六十八 \\
+\end{longtable}
+}
+
+\section{模块七综合题：电磁波的能量流、反射与耗散}\label{m7:ux6a21ux5757ux4e03ux7efcux5408ux9898ux7535ux78c1ux6ce2ux7684ux80fdux91cfux6d41ux53cdux5c04ux4e0eux8017ux6563}
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsection{题
+1　真空平面电磁波的能量流〔M7-065〕}\label{m7:ux9898-1-ux771fux7a7aux5e73ux9762ux7535ux78c1ux6ce2ux7684ux80fdux91cfux6d41m7-065}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 能量法、波动与边界
+
+真空中有沿 \(+z\) 方向传播的平面电磁波，其电场为
+
+\[
+\mathbf E(z,t)=E_0\cos(kz-\omega t)\,\mathbf i.
+\]
+
+求磁场 \(\mathbf B\)、瞬时能量密度 \(u\)、坡印廷矢量 \(\mathbf S\)
+及其时间平均值，并验证电场能与磁场能在任意时刻相等。
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-065.pdf}}
+\par\smallskip{\small 图 M7-065：题 1　真空平面电磁波的能量流}
+\end{center}
+\end{minipage}\par
+
+图 M7-065 中电场沿 \(x\)、磁场沿 \(y\)，右手叉积给出 \(+z\)
+能流；两场同相且 \(B=E/c\)，可逐点验证两种能量密度相等。
+
+真空平面波满足
+
+\[
+k=\frac{\omega}{c},
+\qquad
+\mathbf B=\frac1c\hat{\mathbf z}\times\mathbf E.
+\]
+
+由于 \(\hat{\mathbf z}\times\hat{\mathbf x}=\hat{\mathbf y}\)，故
+
+\[
+\boxed{
+\mathbf B(z,t)=\frac{E_0}{c}
+\cos(kz-\omega t)\,\hat{\mathbf y}}.
+\]
+
+方向也可由 \(\mathbf E\times\mathbf B\parallel+\hat{\mathbf z}\) 检验。
+
+真空电磁场能量密度为
+
+\[
+u=u_E+u_B
+=\frac{\varepsilon_0E^2}{2}
++\frac{B^2}{2\mu_0}.
+\]
+
+利用 \(c^{-2}=\mu_0\varepsilon_0\) 与 \(B=E/c\)，有
+
+\[
+u_B=\frac{B^2}{2\mu_0}
+=\frac{E^2}{2\mu_0c^2}
+=\frac{\varepsilon_0E^2}{2}
+=u_E.
+\]
+
+所以电场能量密度与磁场能量密度在任意位置、任意时刻均相等，且
+
+\[
+\boxed{
+u=\varepsilon_0E_0^2\cos^2(kz-\omega t)}.
+\]
+
+坡印廷矢量为
+
+\[
+\mathbf S
+=\frac1{\mu_0}\mathbf E\times\mathbf B
+=\frac{E_0^2}{\mu_0c}
+\cos^2(kz-\omega t)\,\hat{\mathbf z}.
+\]
+
+再次利用 \(1/(\mu_0c)=\varepsilon_0c\)，得到
+
+\[
+\boxed{
+\mathbf S
+=\varepsilon_0cE_0^2
+\cos^2(kz-\omega t)\,\hat{\mathbf z}}.
+\]
+
+对一个周期取平均，\(\langle\cos^2\rangle=1/2\)，故
+
+\[
+\boxed{
+\langle\mathbf S\rangle
+=\frac12\varepsilon_0cE_0^2\,\hat{\mathbf z}}.
+\]
+
+此外，
+
+\[
+|\mathbf S|=cu,
+\]
+
+说明行波中的局部能量以速度 \(c\) 沿传播方向输运。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsection{题
+2　理想导体表面的反射、驻波与辐射压〔M7-066〕}\label{m7:ux9898-2-ux7406ux60f3ux5bfcux4f53ux8868ux9762ux7684ux53cdux5c04ux9a7bux6ce2ux4e0eux8f90ux5c04ux538bm7-066}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 能量法、波动与边界、传输线
+
+真空占据 \(z<0\)，理想导体占据 \(z\ge0\)。一列沿 \(+z\)
+方向传播的平面波垂直入射到导体表面：
+
+\[
+\mathbf E_i(z,t)=E_0\cos(kz-\omega t)\,\hat{\mathbf x}.
+\]
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  求反射波的电场和磁场。
+\item
+  求导体前总电场、总磁场及电场节点和磁场节点的位置。
+\item
+  求总坡印廷矢量并证明其时间平均值为零。
+\item
+  求导体表面受到的时间平均辐射压。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-066.pdf}}
+\par\smallskip{\small 图 M7-066：题 2　理想导体表面的反射、驻波与辐射压}
+\end{center}
+\end{minipage}\par
+
+图 M7-066 取理想导体左侧为
+\(z<0\)；表面电场相消、磁场相加，这两个边界值固定反射场的符号。随后用距表面
+\(d=-z\) 标记节点。
+
+\subsubsection{(1) 反射场}\label{m7:ux53cdux5c04ux573a}
+
+理想导体表面的切向电场必须满足
+
+\[
+\mathbf E_{\parallel}(0,t)=0.
+\]
+
+反射波沿 \(-z\) 方向传播，可设
+
+\[
+\mathbf E_r(z,t)=E_r\cos(kz+\omega t)\,\hat{\mathbf x}.
+\]
+
+在 \(z=0\) 处要求 \(\mathbf E_i+\mathbf E_r=0\)，所以 \(E_r=-E_0\)：
+
+\[
+\boxed{
+\mathbf E_r(z,t)
+=-E_0\cos(kz+\omega t)\,\hat{\mathbf x}}.
+\]
+
+对沿 \(-z\) 传播的波，
+
+\[
+\mathbf B_r
+=\frac1c(-\hat{\mathbf z})\times\mathbf E_r,
+\]
+
+因而
+
+\[
+\boxed{
+\mathbf B_r(z,t)
+=\frac{E_0}{c}\cos(kz+\omega t)\,\hat{\mathbf y}}.
+\]
+
+入射磁场为
+
+\[
+\mathbf B_i(z,t)
+=\frac{E_0}{c}\cos(kz-\omega t)\,\hat{\mathbf y}.
+\]
+
+可以看出：反射电场相对于入射电场反相，而在导体表面，反射磁场与入射磁场同向相加。
+
+\subsubsection{(2)
+驻波场与节点}\label{m7:ux9a7bux6ce2ux573aux4e0eux8282ux70b9}
+
+利用三角恒等式
+
+\[
+\cos(A-B)-\cos(A+B)=2\sin A\sin B,
+\]
+
+\[
+\cos(A-B)+\cos(A+B)=2\cos A\cos B,
+\]
+
+得到总场
+
+\[
+\boxed{
+\mathbf E(z,t)
+=2E_0\sin kz\sin\omega t\,\hat{\mathbf x}},
+\]
+
+\[
+\boxed{
+\mathbf B(z,t)
+=\frac{2E_0}{c}\cos kz\cos\omega t\,\hat{\mathbf y}}.
+\]
+
+电场节点满足 \(\sin kz=0\)。若用 \(d=-z\ge0\)
+表示观察点到导体表面的距离，则
+
+\[
+d=\frac{n\lambda}{2},
+\qquad n=0,1,2,\cdots.
+\]
+
+磁场节点满足 \(\cos kz=0\)，即
+
+\[
+d=\frac{(2n+1)\lambda}{4},
+\qquad n=0,1,2,\cdots.
+\]
+
+因此，电场节点与磁场腹点重合，电场腹点与磁场节点重合。
+
+\subsubsection{(3)
+坡印廷矢量与能量交换}\label{m7:ux5761ux5370ux5ef7ux77e2ux91cfux4e0eux80fdux91cfux4ea4ux6362}
+
+总坡印廷矢量为
+
+\[
+\mathbf S
+=\frac1{\mu_0}\mathbf E\times\mathbf B.
+\]
+
+代入总场：
+
+\[
+S_z
+=\frac{4E_0^2}{\mu_0c}
+\sin kz\cos kz\sin\omega t\cos\omega t.
+\]
+
+利用 \(1/(\mu_0c)=\varepsilon_0c\)，得到
+
+\[
+\boxed{
+S_z
+=\varepsilon_0cE_0^2
+\sin(2kz)\sin(2\omega t)}.
+\]
+
+它随位置和时间改变正负，表示能量在不同空间区域以及电场、磁场之间往返交换。一个周期内
+
+\[
+\langle\sin(2\omega t)\rangle=0,
+\]
+
+所以
+
+\[
+\boxed{\langle\mathbf S\rangle=0}.
+\]
+
+这并不意味着入射波没有携带能量，而是入射能流与反射能流的时间平均值大小相等、方向相反。
+
+总能量密度为
+
+\[
+u=2\varepsilon_0E_0^2
+\left(\sin^2kz\sin^2\omega t
++\cos^2kz\cos^2\omega t\right).
+\]
+
+其时间平均值为
+
+\[
+\langle u\rangle
+=\varepsilon_0E_0^2,
+\]
+
+与位置无关，正好等于入射波和反射波平均能量密度之和。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-066-P1.pdf}}
+\par\smallskip{\small 图 M7-066-P1：驻波能流的往返交换}
+\end{center}
+\end{minipage}\par
+
+图 M7-066-P1 中能流取 \(d=\lambda/8\)
+处，周期平均为0；压力取导体表面，周期平均为1。
+
+\subsubsection{(4) 辐射压}\label{m7:ux8f90ux5c04ux538b}
+
+入射波平均强度为
+
+\[
+\langle S_i\rangle
+=\frac12\varepsilon_0cE_0^2.
+\]
+
+完全反射时，电磁波的法向动量发生反向，动量改变量是完全吸收时的两倍，因此
+
+\[
+\boxed{
+\langle p\rangle
+=\frac{2\langle S_i\rangle}{c}
+=\varepsilon_0E_0^2}.
+\]
+
+压力方向沿 \(+z\)，即指向导体内部。
+
+也可直接用表面磁场检验。在 \(z=0\) 处
+
+\[
+B(0,t)=\frac{2E_0}{c}\cos\omega t,
+\]
+
+瞬时磁压力为
+
+\[
+p(t)=\frac{B^2(0,t)}{2\mu_0}
+=2\varepsilon_0E_0^2\cos^2\omega t,
+\]
+
+周期平均后同样得到 \(\langle p\rangle=\varepsilon_0E_0^2\)。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsection{题
+3　阻性薄片的反射、透射与最大吸收〔M7-067〕}\label{m7:ux9898-3-ux963bux6027ux8584ux7247ux7684ux53cdux5c04ux900fux5c04ux4e0eux6700ux5927ux5438ux6536m7-067}
+
+\textbf{层级：} 复赛　　\textbf{方法：} 能量法、波动与边界
+
+无限大、零厚度阻性薄片位于
+\(z=0\)，薄片两侧均为真空。薄片的表面电导为正实常数
+\(G>0\)（纯阻性），其表面电流满足
+
+\[
+\mathbf K=G\mathbf E_{\parallel}.
+\]
+
+一列沿 \(+z\) 方向传播、峰值电场为 \(E_0\) 的线偏振平面波从 \(z<0\)
+一侧垂直入射。设反射和透射电场的振幅系数分别为 \(r\)、\(t\)。
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  求 \(r\) 和 \(t\)。
+\item
+  求功率反射率 \(R\)、透射率 \(T\) 和吸收率 \(A\)，并验证能量守恒。
+\item
+  求薄片吸收率的最大值及达到最大值时的表面电阻 \(R_s=1/G\)。
+\end{enumerate}
+
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\textbf{解答}
+
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-067.pdf}}
+\par\smallskip{\small 图 M7-067：题 3　阻性薄片的反射、透射与最大吸收}
+\end{center}
+\end{minipage}\par
+
+图 M7-067 中薄片位于 \(z=0\)，电场沿 \(x\)、表面电流也沿
+\(x\)；反射波传播方向反转，使 \(H_{r,y}=-rE_0/Z_0\)，磁场跳跃写成
+\(H_{1y}-H_{2y}=K_x\)。
+
+记真空波阻抗为
+
+\[
+Z_0=\sqrt{\frac{\mu_0}{\varepsilon_0}}=\mu_0c.
+\]
+
+\subsubsection{(1) 振幅系数}\label{m7:ux632fux5e45ux7cfbux6570}
+
+切向电场连续，因此
+
+\[
+E_0+rE_0=tE_0,
+\]
+
+即
+
+\[
+1+r=t.
+\]
+
+在薄片左侧，反射波传播方向反转，故其磁场分量为
+\(H_{r,y}=-rE_0/Z_0\)。本题 \(r<0\) 时两磁场在表面实际同向相加，因而
+
+\[
+H_{1y}=\frac{E_0}{Z_0}(1-r).
+\]
+
+在薄片右侧，
+
+\[
+H_{2y}=\frac{tE_0}{Z_0}.
+\]
+
+安培环路定理给出磁场切向分量的跳变。按上述方向约定，
+
+\[
+H_{1y}-H_{2y}=K_x=GtE_0.
+\]
+
+代入 \(t=1+r\)：
+
+\[
+\frac{1-r-t}{Z_0}=Gt,
+\]
+
+\[
+-\frac{2r}{Z_0}=Gt.
+\]
+
+令
+
+\[
+g=Z_0G,
+\]
+
+解得
+
+\[
+\boxed{
+r=-\frac{g}{2+g}},
+\qquad
+\boxed{
+t=\frac{2}{2+g}}.
+\]
+
+当 \(G\to0\) 时，\(r\to0\)、\(t\to1\)，薄片趋于透明；当 \(G\to\infty\)
+时，\(r\to-1\)、\(t\to0\)，薄片趋于理想导体。这两个极限与物理图像一致。
+
+\subsubsection{(2)
+功率系数与能量守恒}\label{m7:ux529fux7387ux7cfbux6570ux4e0eux80fdux91cfux5b88ux6052}
+
+薄片两侧介质相同，所以
+
+\[
+R=|r|^2,
+\qquad
+T=|t|^2.
+\]
+
+由于 \(G\) 为正实数，\(r\)、\(t\) 均为实数：
+
+\[
+\boxed{
+R=\frac{g^2}{(2+g)^2}},
+\]
+
+\[
+\boxed{
+T=\frac{4}{(2+g)^2}}.
+\]
+
+表面单位面积平均焦耳热功率为
+
+\[
+\frac{P_{\mathrm{abs}}}{A_s}
+=\frac12G|tE_0|^2.
+\]
+
+入射平均功率密度为
+
+\[
+\langle S_i\rangle=\frac{E_0^2}{2Z_0}.
+\]
+
+所以吸收率为
+
+\[
+A
+=\frac{\frac12Gt^2E_0^2}{E_0^2/(2Z_0)}
+=g t^2
+=\boxed{\frac{4g}{(2+g)^2}}.
+\]
+
+直接相加：
+
+\[
+R+T+A
+=\frac{g^2+4+4g}{(2+g)^2}
+=1,
+\]
+
+能量守恒得到验证。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-067-P1.pdf}}
+\par\smallskip{\small 图 M7-067-P1：薄片的反射透射与吸收}
+\end{center}
+\end{minipage}\par
+
+图 M7-067-P1 在 \(g=2\) 处吸收率最大：\(A=1/2,R=T=1/4\)；整个曲线均满足
+\(R+T+A=1\)。
+
+\subsubsection{(3) 最大吸收率}\label{m7:ux6700ux5927ux5438ux6536ux7387}
+
+对 \(A(g)\) 求导：
+
+\[
+\frac{dA}{dg}
+=\frac{4(2-g)}{(2+g)^3}.
+\]
+
+在 \(g>0\) 范围内，极值点为
+
+\[
+g=2.
+\]
+
+此时
+
+\[
+\boxed{A_{\max}=\frac12},
+\]
+
+\[
+r=-\frac12,
+\qquad
+t=\frac12,
+\]
+
+\[
+R=T=\frac14.
+\]
+
+达到最大吸收时
+
+\[
+Z_0G=2,
+\]
+
+故
+
+\[
+\boxed{
+R_s=\frac1G=\frac{Z_0}{2}}.
+\]
+
+\(50\%\)
+上限依赖于``零厚度、纯阻性、两侧介质相同、仅从一侧入射''这些条件。若加入背反射板、多层匹配结构，或从两侧相干入射，吸收率可以超过
+\(50\%\)，不能把这里的结论推广为所有吸收体的普遍上限。
+
+\par\addvspace{.4\baselineskip}
+\noindent\begin{minipage}{\linewidth}
+
+\subsection{题
+4　电小回路辐射公式的适用性〔M7-068〕}\label{m7:ux9898-4-ux7535ux5c0fux56deux8defux8f90ux5c04ux516cux5f0fux7684ux9002ux7528ux6027m7-068}
+
+\textbf{层级：} 决赛　　\textbf{方法：} 能量法、波动与边界、尺度分析
+
+一个单匝圆回路的半径为
+\(a=5.0\ \mathrm{cm}\)，馈线中需要统一建立电压、电流关系的最长传播路径为
+\(L=0.50\ \mathrm m\)。装置处于真空中。
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  分别在 \(f_1=1.0\ \mathrm{MHz}\) 和 \(f_2=300\ \mathrm{MHz}\) 下计算
+  \(kL\) 与 \(ka\)，判断能否采用集总模型和电小回路近似。
+\item
+  在 \(f_1\) 下，若回路电流有效值为
+  \(I_{\mathrm{rms}}=1.0\ \mathrm A\)，求磁偶极辐射电阻和平均辐射功率。
+\item
+  说明为什么不能把 \(f_2\) 直接代入电小回路辐射电阻公式以获得可靠答案。
+\end{enumerate}
+
+\end{minipage}\par
+
+\textbf{解答}
+
+\subsubsection{(1)
+电尺寸与模型判断}\label{m7:ux7535ux5c3aux5bf8ux4e0eux6a21ux578bux5224ux65ad}
+
+在 \(f_1=1.0\ \mathrm{MHz}\) 时，
+
+\[
+\lambda_1=\frac{c}{f_1}=300\ \mathrm m.
+\]
+
+于是
+
+\[
+k_1L=\frac{2\pi L}{\lambda_1}
+=\frac{2\pi\times0.50}{300}
+\approx1.05\times10^{-2}\ll1,
+\]
+
+\[
+k_1a=\frac{2\pi a}{\lambda_1}
+=\frac{2\pi\times0.050}{300}
+\approx1.05\times10^{-3}\ll1.
+\]
+
+馈线传播相位很小，且回路本身是电小源，可以采用集总模型及小回路磁偶极辐射公式。
+
+在 \(f_2=300\ \mathrm{MHz}\) 时，
+
+\[
+\lambda_2=\frac{c}{f_2}=1.0\ \mathrm m.
+\]
+
+因此
+
+\[
+k_2L=\frac{2\pi\times0.50}{1.0}=\pi,
+\]
+
+\[
+k_2a=\frac{2\pi\times0.050}{1.0}
+\approx0.314.
+\]
+
+\(k_2L\) 已明显不小，馈线必须用分布参数模型处理；\(k_2a\)
+也不再是良好的渐近小量。回路周长为 \(2\pi a\)，沿一周的传播相位量级为
+
+\[
+k_2(2\pi a)=2\pi(k_2a)\approx1.97,
+\]
+
+这一尺度不足以保证回路各处电流均匀同相；真实分布还取决于馈电与加载。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-068.pdf}}
+\par\smallskip{\small 图 M7-068：题 4　电小回路辐射公式的适用性}
+\end{center}
+\end{minipage}\par
+
+图 M7-068 分别标出馈线最长路径 \(L\) 和回路半径
+\(a\)；两者应乘同一频率对应的 \(k\)，用 \(kL\) 检查集总近似、用 \(ka\)
+检查小回路近似。
+
+\subsubsection{(2)
+低频辐射电阻与功率}\label{m7:ux4f4eux9891ux8f90ux5c04ux7535ux963bux4e0eux529fux7387}
+
+回路面积为
+
+\[
+S=\pi a^2
+=\pi(0.050)^2
+\approx7.85\times10^{-3}\ \mathrm{m^2}.
+\]
+
+电小单匝回路的辐射电阻为
+
+\[
+R_{\mathrm{rad}}
+=320\pi^4\left(\frac{S}{\lambda_1^2}\right)^2.
+\]
+
+代入数值：
+
+\[
+R_{\mathrm{rad}}
+=320\pi^4
+\left(\frac{7.85\times10^{-3}}{(300)^2}\right)^2
+\approx2.4\times10^{-10}\ \Omega.
+\]
+
+所以
+
+\[
+\boxed{
+P_{\mathrm{rad}}
+=I_{\mathrm{rms}}^2R_{\mathrm{rad}}
+\approx2.4\times10^{-10}\ \mathrm W}.
+\]
+
+\subsubsection{(3)
+高频时公式失效的原因}\label{m7:ux9ad8ux9891ux65f6ux516cux5f0fux5931ux6548ux7684ux539fux56e0}
+
+小回路公式
+
+\[
+R_{\mathrm{rad}}
+=320\pi^4\left(\frac{S}{\lambda^2}\right)^2
+\]
+
+建立在回路尺度远小于波长、各处电流同相且磁偶极项主导的条件上。在 \(f_2\)
+下：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  馈线上的电压和电流随位置显著变化；
+\item
+  仅凭现有尺度不能保证回路电流近似均匀同相，需要由馈电和加载条件验证；
+\item
+  若馈线不对称，还可能产生不可忽略的电偶极辐射，须另行检查；
+\item
+  回路与馈线之间还会出现反射、谐振和互相耦合。
+\end{enumerate}
+
+因此，即使把 \(f_2\)
+机械代入小回路公式得到一个数值，这个数值也没有可靠的误差依据。此时应建立传输线或全波模型，并由实际电流分布计算辐射场。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=.40\textheight,keepaspectratio]{\detokenize{assets/module-07/M7-068-P1.pdf}}
+\par\smallskip{\small 图 M7-068-P1：馈线低频与高频的相位比较}
+\end{center}
+\end{minipage}\par
+
+图 M7-068-P1
+仅用真空行波展示馈线相位尺度；实际环路电流还取决于馈电、反射和加载。
+
+\subsection{方法归纳}\label{m7:ux65b9ux6cd5ux5f52ux7eb3}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  已知行波中的一个场，先用
+  \(\mathbf B=(1/c)\hat{\mathbf k}\times\mathbf E\) 确定另一个场，再用
+  \(\mathbf S=(1/\mu_0)\mathbf E\times\mathbf B\) 检验传播方向。
+\item
+  遇到界面问题，先写切向场边界条件，再处理能流；不要先凭``反相''记忆猜符号。
+\item
+  驻波的瞬时坡印廷矢量一般不为零，但时间平均净能流可以为零。
+\item
+  有耗散边界时，必须同时验证
+  \(R+T+A=1\)；这是发现符号和系数错误的有效检验。
+\item
+  使用偶极辐射公式前，应分别检查源电尺寸、馈线传播相位和最低非零多极矩，不能只检查回路面积。
+\end{enumerate}
+\clearpage
+\endgroup

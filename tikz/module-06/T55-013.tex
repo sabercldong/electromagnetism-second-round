@@ -1,0 +1,44 @@
+% 核心结论：作业六：不同频率的相量分开表示
+% 图原型：纯几何／对比；按本题相位与电路拓扑绘制。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[font=\fontsize{11}{14}\selectfont\bfseries] at (0.00000,3.04000) {作业六：不同频率的相量分开表示};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.50000,0.00000) -- (2.60000,0.00000);
+\draw[axis] (0.00000,-2.05000) -- (0.00000,2.25000);
+\node[] at (2.58000,-0.26000) {$\operatorname{Re}$};
+\node[] at (-0.33000,2.20000) {$\operatorname{Im}$};
+\node[] at (-0.18000,-0.20000) {$O$};
+\draw[v,blue] (0.00000,0.00000) -- (2.00000,0.00000);
+\node[lab,text=blue,anchor=center] at (1.00000,0.35000) {$\widetilde U_1=6$};
+\node[] at (0.00000,-2.40000) {$\omega_1=100\;\mathrm{rad/s}$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\draw[axis] (-2.50000,0.00000) -- (2.60000,0.00000);
+\draw[axis] (0.00000,-2.05000) -- (0.00000,2.25000);
+\node[] at (2.58000,-0.26000) {$\operatorname{Re}$};
+\node[] at (-0.33000,2.20000) {$\operatorname{Im}$};
+\node[] at (-0.18000,-0.20000) {$O$};
+\draw[v,green] (0.00000,0.00000) -- (2.30940,1.33333);
+\node[lab,text=green,anchor=west] at (0.30000,1.90000) {$\widetilde U_2=8\angle30^\circ$};
+\node[] at (0.00000,-2.40000) {$\omega_2=200\;\mathrm{rad/s}$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {不同频率分别建相量；相量单位 V，共同绘图尺度为 $1/3\,\mathrm{cm/V}$。};
+\end{tikzpicture}
+\end{document}

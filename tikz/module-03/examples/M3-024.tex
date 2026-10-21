@@ -1,0 +1,38 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M3-024\quad 接地球与介质平面的正交电像闭合};
+\begin{scope}[shift={(-4,0)}]
+\begin{scope}\clip (0,0)circle(1.3);\fill[blue!7] (-1.4,-1.4) rectangle(1.4,0);\end{scope}
+\draw[ink,thick] (0,0)circle(1.3);\draw[ink!60] (-2,0)--(2,0);
+\draw[axis] (0,-2.65)--(0,2.6) node[right] {$z$};
+\node[label] at(-1.6,.9){真空 $V_1$};\node[label] at(-1.5,-.9){$\varepsilon_r$};
+\node[label] at(-1.9,-1.8){球面接地\\$r=R$};
+\fill[red](0,.43)circle(2.5pt) node[right=3pt] {$Q$};\node[left=4pt] at(0,.43){$R/3$};
+\foreach \y/\lab/\pos in {2.35/q_1/{3R},-.43/q_2/{-R/3},-2.35/q_3/{-3R}}{\draw[blue,dashed](0,\y)circle(3pt);\node[right=4pt] at(0,\y){$\lab$};\node[left=4pt] at(0,\y){$\pos$};}
+\node[label] at(0,-3.0){轴向示意，球外长距离压缩；$x=(\varepsilon_r-1)/(\varepsilon_r+1)$};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$q_1=-3Q,\quad q_2=-xQ,\quad q_3=3xQ$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\displaystyle \frac{27}{64}-\frac{9x}{4}+\frac{27x}{100}=0$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {$x=75/352$\\$\varepsilon_r=427/277$};
+\end{tikzpicture}\end{document}

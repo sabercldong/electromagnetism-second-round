@@ -1,0 +1,53 @@
+% 2026-10-20用户反馈复核；图号、参考方向、数据与本题解答同步。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.3}{12.5}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.8mm,width=1.1mm]},ink!70,line width=.6pt},
+aux/.style={ink!40,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-3.6) rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{14}\selectfont,text width=15cm,align=center] at (0,3.23) {M5-172e　角部子框：完整路径配对产生半因子};
+\draw[blue,line width=1.3pt] (-6.6,-1.45)--(-3.4,-1.45);
+\draw[blue,line width=1.3pt] (-6.6,-1.45)--(-6.6,1.75);
+\draw[orange,line width=1.3pt] (-3.4,-1.45)--(-3.4,1.75);
+\draw[orange,line width=1.3pt] (-3.4,1.75)--(-6.6,1.75);
+\fill[ink](-6.6,-1.45)circle(1.4pt);
+\node[] at (-6.85,-1.65) {$A$};
+\fill[ink](-3.4,-1.45)circle(1.4pt);
+\node[] at (-3.15,-1.65) {$P$};
+\fill[ink](-6.6,1.75)circle(1.4pt);
+\node[] at (-6.85,1.95) {$Q$};
+\fill[ink](-3.4,1.75)circle(1.4pt);
+\node[] at (-3.15,1.95) {$T$};
+\draw[v,blue] (-4.0,-1.45)--(-4.65,-1.45);
+\draw[v,blue] (-6.6,-0.6)--(-6.6,0.4);
+\draw[v,orange] (-3.4,-0.55)--(-3.4,0.4);
+\draw[v,orange] (-4.15,1.75)--(-4.85,1.75);
+\draw[ink,line width=.8pt] (-1.9,-1.45)--(-3.4,-1.45);
+\draw[v,green] (-2.0,-1.45)--(-2.75,-1.45);
+\node[text=green] at (-2.5,-1.05) {$I_c$};
+\draw[v,green] (-6.6,1.75)--(-6.6,2.45);
+\node[text=green] at (-7.25,2.4) {$I_c$};
+\node[text=blue] at (-4.95,-1.9) {$\Gamma_+:P\to A\to Q$};
+\node[text=orange] at (-4.95,2.35) {$\Gamma_-:P\to T\to Q$};
+\node[] at (-4.8,0.7) {$\odot\ \dot B=k$};
+\node[lab] at (-5.05,-0.25) {$O_s$};
+\node[] at (-4.95,-0.75) {内部递归网络略};
+\node[] at (-4.8,-2.45) {两条路径的积分方向均为 $P\to Q$};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,1.8) {$e_+-e_-=\mathcal E(s)=ks^2$\\[3pt]$\Gamma_+-\Gamma_-$ 围绕整个子框};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,0.05) {纯感应态：$e_+=-e_-$\\[3pt]旋转$180^\circ$后路径反向\\[3pt]$\therefore e_+=\mathcal E(s)/2$};
+\node[box,fill=blue!3,text width=6.25cm] at (3.85,-1.8) {再叠加端口电流态：\\[3pt]外侧压降 $=R_{AC}(s)I_c+\mathcal E(s)/2$};
+\node[text width=15cm,align=center] at (0,-3.12) {蓝、橙箭头是积分路径正向；绿色箭头是端口电流。中心仅为旋转中心，不是电节点。};
+\end{tikzpicture}\end{document}

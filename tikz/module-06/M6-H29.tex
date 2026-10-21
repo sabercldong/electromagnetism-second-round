@@ -1,0 +1,63 @@
+% 核心结论：多绕组理想变压器共享主磁通并满足安匝平衡
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-H29　多绕组理想变压器共享主磁通并满足安匝平衡};
+\begin{scope}[shift={(-4,0)}]
+\draw[blue!55,fill=blue!3] (-1.1,-1.8) rectangle(1.0,1.8);
+\node[text width=1.3cm,align=center] at (-0.15000,0.00000) {理想三绕组};
+\draw[ink,thick] (-2.60000,0.80000) -- (-2.60000,0.40000);
+\draw[ink,thick] (-2.60000,-0.40000) -- (-2.60000,-0.80000);
+\draw[ink,thick] (-2.6,0) circle (.4);
+\node[] at (-2.60000,0.00000) {$\sim$};
+\node[] at (-3.22000,0.00000) {$U_1$};
+\draw[ink,thick] (-2.60000,0.80000) -- (-1.10000,0.80000);
+\draw[ink,thick] (-2.60000,-0.80000) -- (-1.10000,-0.80000);
+\draw[ink,thick] (1.00000,1.40000) -- (2.60000,1.40000);
+\draw[ink,thick] (2.60000,1.40000) -- (2.60000,1.20000);
+\draw[ink,thick] (2.60000,0.80000) -- (2.60000,0.60000);
+\begin{scope}[shift={(2.60000,1.00000)},rotate=-90.0]
+\draw[ink,thick,fill=white] (-0.19999999999999998,-.14) rectangle (0.19999999999999998,.14);
+\end{scope}
+\node[lab,anchor=east] at (2.18000,1.00000) {$R_2$};
+\draw[ink,thick] (2.60000,0.60000) -- (1.00000,0.60000);
+\node[] at (0.50000,1.00000) {$N_2$};
+\fill[ink] (1.05000,1.40000) circle (1.6pt);
+\draw[ink,thick] (1.00000,-0.60000) -- (2.60000,-0.60000);
+\draw[ink,thick] (2.60000,-0.60000) -- (2.60000,-0.80000);
+\draw[ink,thick] (2.60000,-1.20000) -- (2.60000,-1.40000);
+\begin{scope}[shift={(2.60000,-1.00000)},rotate=-90.0]
+\draw[ink,thick,fill=white] (-0.19999999999999998,-.14) rectangle (0.19999999999999998,.14);
+\end{scope}
+\node[lab,anchor=east] at (2.18000,-1.00000) {$R_3$};
+\draw[ink,thick] (2.60000,-1.40000) -- (1.00000,-1.40000);
+\node[] at (0.50000,-1.00000) {$N_3$};
+\fill[ink] (1.05000,-0.60000) circle (1.6pt);
+\node[] at (-0.75000,0.80000) {$N_1$};
+\node[] at (0.00000,-2.40000) {各绕组共用磁通，电气端口互相隔离。};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$u_k/N_k=\dot\Phi$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$\sum N_ki_k=0\quad\text{(全部流入同名端)}$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {同名端、电流方向与折算侧统一；有限励磁和损耗不能混入理想模型。};
+
+\end{tikzpicture}\end{document}

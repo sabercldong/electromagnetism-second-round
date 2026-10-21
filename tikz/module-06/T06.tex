@@ -1,0 +1,45 @@
+% 核心结论：基尔霍夫定律对应有向多边形闭合
+% 图原型：纯几何／对比；按本题相位与电路拓扑绘制。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[font=\fontsize{11}{14}\selectfont\bfseries] at (0.00000,3.04000) {基尔霍夫定律对应有向多边形闭合};
+\begin{scope}[shift={(-4,0)}]
+\draw[v,blue] (-1.80000,-1.25000) -- (1.20000,-1.25000);
+\node[lab,text=blue,anchor=center] at (-0.30000,-1.60000) {$4$};
+\draw[v,green] (1.20000,-1.25000) -- (1.20000,1.00000);
+\node[lab,text=green,anchor=west] at (1.45000,-0.12500) {$j3$};
+\draw[v,red] (1.20000,1.00000) -- (-1.80000,-1.25000);
+\node[lab,text=red,anchor=east] at (-0.45000,0.02500) {$-\widetilde I_3$};
+\node[] at (-2.00000,-1.37000) {$O$};
+\node[] at (1.40000,-1.45000) {$A$};
+\node[] at (1.40000,1.20000) {$B$};
+\node[] at (0.00000,-2.35000) {$\widetilde I_3=4+j3\;\mathrm{A}$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\draw[v,blue] (-1.70000,-1.25000) -- (1.10000,-1.25000);
+\node[lab,text=blue,anchor=center] at (-0.30000,-1.60000) {$\widetilde U_R$};
+\draw[v,green] (1.10000,-1.25000) -- (1.10000,1.20000);
+\node[lab,text=green,anchor=west] at (1.30000,-0.02500) {$\widetilde U_X$};
+\draw[v,red] (1.10000,1.20000) -- (-1.70000,-1.25000);
+\node[lab,text=red,anchor=east] at (-0.50000,0.12500) {$-\widetilde U$};
+\node[] at (0.00000,-2.35000) {KVL：$\widetilde U_R+\widetilde U_X-\widetilde U=0$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {左：$\widetilde I_1+\widetilde I_2-\widetilde I_3=0$，沿合相量反向回到起点；右：电压有向闭合。};
+\end{tikzpicture}
+\end{document}

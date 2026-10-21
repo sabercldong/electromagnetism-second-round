@@ -1,0 +1,48 @@
+% 核心结论：用真实电阻符号画出每条星形臂，中心名移离斜支路
+% 草图：[真实几何与节点 | 条件、推导、结论]；17cm印宽，最小字号8pt。
+% 图契约：星形中心消元保持任意外端电势下的响应；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {M4-078\quad 星形中心消元保持任意外端电势下的响应};
+\begin{scope}[shift={(-4.05,0)}]\draw[wire,draw=ink](0,0)--(4.5924254968025736e-17,0.7499999999999999) (7.960204194457795e-17,1.2999999999999998)--(1.2552629691260368e-16,2.05);\begin{scope}[shift={(6.276314845630184e-17,1.025)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label,anchor=east,fill=white,inner sep=1pt]at(-0.32999999999999996,1.025){$R_1$};\draw[wire,draw=ink](0,0)--(0.713292387221365,0.2317627457812105) (1.2363734711836996,0.40172209268743164)--(1.9496658584050646,0.6334848384686421);\begin{scope}[shift={(0.9748329292025323,0.31674241923432106)},rotate=18.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label,anchor=center,fill=white,inner sep=1pt]at(0.8203244320150586,0.7922706773818978){$R_2$};\draw[wire,draw=ink](0,0)--(0.4408389392193548,-0.6067627457812105) (0.764120827980215,-1.0517220926874316)--(1.2049597671995698,-1.6584848384686421);\begin{scope}[shift={(0.6024798835997849,-0.8292424192343211)},rotate=-54.00000000000001]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label,anchor=center,fill=white,inner sep=1pt]at(1.0069883807872586,-0.5353497930880845){$R_3$};\draw[wire,draw=ink](0,0)--(-0.4408389392193547,-0.6067627457812105) (-0.7641208279802149,-1.0517220926874316)--(-1.2049597671995695,-1.6584848384686421);\begin{scope}[shift={(-0.6024798835997848,-0.8292424192343211)},rotate=-126.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label,anchor=center,fill=white,inner sep=1pt]at(-0.19797138641231105,-1.1231350453805575){$R_4$};\draw[wire,draw=ink](0,0)--(-0.7132923872213651,0.23176274578121042) (-1.2363734711836996,0.4017220926874315)--(-1.9496658584050648,0.6334848384686419);\begin{scope}[shift={(-0.9748329292025324,0.31674241923432095)},rotate=162.00000000000003]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label,anchor=center,fill=white,inner sep=1pt]at(-1.1293414263900061,-0.15878583891325587){$R_5$};\fill[ink] (1.2552629691260368e-16,2.05)circle(2pt);\node[above=4pt] at(1.2552629691260368e-16,2.05){$1$};
+\fill[ink] (1.9496658584050646,0.6334848384686421)circle(2pt);\node[above=4pt] at(1.9496658584050646,0.6334848384686421){$2$};
+\fill[ink] (1.2049597671995698,-1.6584848384686421)circle(2pt);\node[below=4pt] at(1.2049597671995698,-1.6584848384686421){$3$};
+\fill[ink] (-1.2049597671995695,-1.6584848384686421)circle(2pt);\node[below=4pt] at(-1.2049597671995695,-1.6584848384686421){$4$};
+\fill[ink] (-1.9496658584050648,0.6334848384686419)circle(2pt);\node[above=4pt] at(-1.9496658584050648,0.6334848384686419){$5$};
+\fill[ink] (0,0)circle(2pt);
+\node[label]at(.4,.52){$O$};\end{scope}
+\node[card,text width=6.5cm,draw=blue!65,fill=blue!4]at(3.9,1.8){$a_i=1/R_i,\quad A=\sum_k a_k$};
+\node[card,text width=6.5cm,draw=green!65,fill=green!4]at(3.9,0){$V_O=\sum_k a_kV_k/A$};
+\node[card,text width=6.5cm,draw=orange!65,fill=orange!4]at(3.9,-1.8){$g_{ij}=a_ia_j/A\quad(i\ne j)$};
+
+\end{tikzpicture}\end{document}

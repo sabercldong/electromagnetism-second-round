@@ -1,0 +1,59 @@
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathmorphing,decorations.markings,shapes.geometric}
+\IfFontExistsTF{Heiti SC}{
+  \IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}
+  \IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}
+}{
+  \IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}
+  \IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}
+}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{245,140,24}
+\definecolor{greenfield}{RGB}{20,135,90}
+\definecolor{purplefield}{RGB}{115,70,190}
+\definecolor{softgray}{RGB}{244,246,248}
+\definecolor{linegray}{RGB}{85,92,100}
+\tikzset{
+  arrow/.style={-{Latex[length=3.0mm,width=2.1mm]},line width=1.05pt},
+  thinarr/.style={-{Latex[length=2.4mm,width=1.7mm]},line width=.85pt},
+  box/.style={draw=linegray,rounded corners=4pt,fill=softgray,line width=.8pt,align=center,inner sep=6pt},
+  note/.style={align=center,font=\small},
+  terminal/.style={circle,draw=linegray,fill=white,line width=.9pt,inner sep=1.8pt,font=\small},
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \fill[white] (-7.1,-4.25) rectangle (7.1,4.35);
+  \node[font=\Large\bfseries] at (0,4.0) {纳布拉恒等式的四类结构};
+
+  \node[box,minimum width=3.45cm,minimum height=1.55cm,fill=bluefield!7,draw=bluefield!70] (core) at (0,2.45)
+    {核心提醒\\$\nabla$ 既是微分算符\\又像矢量参与点乘、叉乘};
+
+  \node[box,minimum width=4.1cm,minimum height=1.65cm] (lin) at (-4.55,0.85)
+    {线性性质\\偏导数逐项作用\\$\nabla(c_1u+c_2v)=c_1\nabla u+c_2\nabla v$};
+  \node[box,minimum width=4.1cm,minimum height=1.65cm] (prod) at (4.55,0.85)
+    {乘积法则\\每个因子都要被微分一次\\$\nabla\cdot(u\mathbf A)=u\nabla\cdot\mathbf A+\mathbf A\cdot\nabla u$};
+  \node[box,minimum width=4.1cm,minimum height=1.65cm] (second) at (-4.55,-1.35)
+    {二阶恒等式\\依赖混合偏导可交换\\$\nabla\times\nabla u=\mathbf0,\quad \nabla\cdot(\nabla\times\mathbf A)=0$};
+  \node[box,minimum width=4.1cm,minimum height=1.65cm] (dir) at (4.55,-1.35)
+    {方向导数\\把矢量变成微分方向\\$(\mathbf A\cdot\nabla)\mathbf B$};
+
+  \draw[arrow,linegray] (core) -- (lin);
+  \draw[arrow,linegray] (core) -- (prod);
+  \draw[linegray,line width=.8pt] (core.south)--(0,-1.35);
+\draw[arrow,linegray] (0,-1.35)--(second.east);
+  \draw[arrow,linegray] (0,-1.35)--(dir.west);
+
+  \node[note,draw=orangefield,fill=orangefield!8,rounded corners=4pt,inner sep=7pt] at (0,-3.25)
+    {课堂判断顺序：先看是否是线性叠加，再看是否有乘积，最后看是否连续作用两次 $\nabla$};
+\end{tikzpicture}
+\end{document}

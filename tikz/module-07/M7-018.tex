@@ -1,0 +1,47 @@
+% 图契约：局域变化磁场产生的环形电场；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-018　局域变化磁场产生的环形电场};
+\begin{scope}[shift={(-4,0)}]
+\draw[blue,fill=blue!5](0,0)circle(1.6);
+\draw[ink!60,dashed](0,0)circle(2.25);
+\draw[ink!50,dashed](0,0)circle(0.9);
+\node[]at(-1.40000,1.30000){$R$};
+\node[]at(1.80000,-1.80000){$r_>$};
+\node[lab]at(0.65000,0.95000){$r_<$};
+\draw[blue](0,0)circle(0.13);
+\fill[blue](0,0)circle(.035);
+\draw[blue](0.5,0.35)circle(0.13);
+\fill[blue](0.5,0.35)circle(.035);
+\draw[blue](-0.5,0.35)circle(0.13);
+\fill[blue](-0.5,0.35)circle(.035);
+\draw[blue](0.5,-0.35)circle(0.13);
+\fill[blue](0.5,-0.35)circle(.035);
+\draw[blue](-0.5,-0.35)circle(0.13);
+\fill[blue](-0.5,-0.35)circle(.035);
+\draw[v,red](.9,0)arc(0:-230:.9);
+\draw[v,red](2.25,0)arc(0:-230:2.25);
+\node[]at(0.00000,2.65000){$\dot B_z>0$};
+\node[text=red]at(0.00000,-2.65000){$E_\phi<0$：顺时针};
+\end{scope}
+\node[card]at(4.00000,1.25000){$E_\phi=-\frac r2\dot B\quad(r<R)$};
+\node[card]at(4.00000,-1.05000){$E_\phi=-\frac{R^2}{2r}\dot B\quad(r>R)$};
+\node[text width=15.2cm,align=center]at(0.00000,-3.20000){图示 $\dot B_z>0$；从 $+z$ 朝原点看，感生电场顺时针。};
+\end{tikzpicture}\end{document}

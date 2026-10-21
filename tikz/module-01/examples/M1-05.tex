@@ -1,0 +1,54 @@
+% 对应题号 M1-05，复用已核对的本题几何图。
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {两次叉乘：保留垂直于 $\mathbf n$ 的分量};
+\begin{scope}[shift={(-4.6,-.25)}]
+\fill[softblue] (-3,-1.15) rectangle (3,-.85);
+\draw[linegray] (-3,-1)--(3,-1) node[right] {$\mathbf n^\perp$};
+\draw[arrow,bluefield] (0,-1)--(0,2.35) node[above] {$\mathbf n$};
+\draw[arrow,redfield] (0,-1)--(2.35,1.55) node[above right] {$\mathbf A$};
+\draw[arrow,greenfield] (0,-1)--(2.35,-1) node[below] {$P_\perp(\mathbf A)$};
+\draw[guide] (2.35,1.55)--(2.35,-1);
+\draw[arrow,orangefield] (2.35,-1)--(2.35,1.55) node[midway,right] {$(\mathbf A\cdot\mathbf n)\mathbf n$};
+\draw[linegray] (.35,-1)--(.35,-.65)--(0,-.65);
+\end{scope}
+\begin{scope}[shift={(4.55,-.15)}]
+\node[bluebox,text width=6.7cm] at (0,1.7) {$\displaystyle \mathbf n\times(\mathbf A\times\mathbf n)=\mathbf A-(\mathbf A\cdot\mathbf n)\mathbf n$};
+\node[greenbox,text width=6.7cm] at (0,.05) {结果已在平面 $\mathbf n^\perp$ 内\\再次投影不会改变它};
+\node[orangebox,text width=6.7cm] at (0,-1.65) {$\mathbf A\parallel\mathbf n\Rightarrow0$；$\mathbf A\perp\mathbf n\Rightarrow\mathbf A$。};
+\end{scope}
+\end{tikzpicture}
+\end{document}

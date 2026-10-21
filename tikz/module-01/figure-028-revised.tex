@@ -1,0 +1,40 @@
+% 核心结论：二阶恒等式需要相应的正则性；奇异源须保留分布贡献。
+% 图契约：物理竞赛讲义；印刷宽16cm，最小字号8.5pt；几何示意与公式分区。
+% 布局：[几何/曲线 7cm] [定义/结果 7cm]；实线主量，虚线辅助；无装饰数据。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,positioning,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{
+ every node/.style={font=\fontsize{9.5}{13}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!60,fill=blue!4,
+   align=center,text width=6.8cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{11}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.5}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[title] at (0,2.95) {二阶恒等式：光滑性与定义域};
+\begin{scope}[shift={(-4,0)}]
+
+\draw[axis] (-2.5,-1.2)--(2.5,-1.2) node[right] {$x$};
+\draw[blue] (-2,0) .. controls (-.5,1.5) and (.5,1.5) .. (2,0);
+\node[green] at (0,1.7) {$C^2$ 光滑标量场};
+\draw[guide] (0,-2.1)--(0,.3);\fill[red] (0,-1.2) circle(3pt);
+\node[label,red] at (0,-2.45) {奇点、跳跃界面：先核对定义域};
+
+\end{scope}\node[card,draw=blue!65,fill=blue!4] at (3.9,1.65) {$\nabla\times(\nabla u)=0$\\混合偏导可交换时成立。};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\nabla\cdot(\nabla\times\mathbf A)=0$\\经典式在光滑邻域内成立。};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.65) {跨越奇点或界面时使用积分式、挖孔极限或分布；不能把经典导数机械延拓。};
+\end{tikzpicture}\end{document}

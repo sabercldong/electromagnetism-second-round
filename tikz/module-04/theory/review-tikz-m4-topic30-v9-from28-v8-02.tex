@@ -1,0 +1,33 @@
+% 图契约：闭合面外法向与开曲面边界正向；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {\quad 闭合面外法向与开曲面边界正向};
+\begin{scope}[shift={(-4.2,0)}]\draw[ink,fill=blue!4](0,.7)circle(1.15);\node at(0,.7){$V$};\draw[vec,red](1.15,0.7)--(1.7,0.7);\draw[vec,red](0.5750000000000001,1.6959292143521043)--(0.8500000000000002,2.172243186433546);\draw[vec,red](-0.5749999999999997,1.6959292143521045)--(-0.8499999999999996,2.172243186433546);\draw[vec,red](-1.15,0.7000000000000001)--(-1.7,0.7000000000000002);\draw[vec,red](-0.5750000000000005,-0.29592921435210406)--(-0.8500000000000008,-0.7722431864335453);\draw[vec,red](0.5750000000000001,-0.2959292143521044)--(0.8500000000000002,-0.7722431864335457);\node[label]at(0,-1.45){闭合面 $\partial V$：统一取外法向};\end{scope}\begin{scope}[shift={(4.1,0)}]\fill[blue!5](-1.3,.2)rectangle(1.3,1.8);\draw[ink!50](-1.3,.2)rectangle(1.3,1.8);\draw[vec,red](-1.3,.2)--(1.3,.2);\draw[vec,red](1.3,.2)--(1.3,1.8);\draw[vec,red](1.3,1.8)--(-1.3,1.8);\draw[vec,red](-1.3,1.8)--(-1.3,.2);\draw[blue](0,1)circle(.16);\fill[blue](0,1)circle(1.5pt);\node[above]at(0,1.2){$\mathbf n$};\node[label]at(1.95,1){正视};\node[label]at(-.65,.65){$S$};\draw[ink,thick](-1.3,-1)--(1.3,-1);\draw[vec,blue](0,-1)--(0,-.2)node[above]{$\mathbf n$};\draw[ink!65](.16,-1)--(.16,-.84)--(0,-.84);\node[label]at(1.95,-1){侧视};\node[label]at(0,-1.65){从法向朝向的一侧正视，边界为逆时针};\end{scope}\node[card,text width=6.8cm,draw=blue!65,fill=blue!4]at(-4.1,-2.55){$\iint_{\partial V}\mathbf A\cdot d\mathbf S$\\闭合面只有外法向约定，不需要指定边界绕向};
+\node[card,text width=6.8cm,draw=green!65,fill=green!4]at(4.1,-2.55){$\oint_{\partial S}\mathbf A\cdot d\mathbf l$\\开曲面：边界正向与法向满足右手定则};
+
+\end{tikzpicture}\end{document}

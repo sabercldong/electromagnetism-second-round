@@ -1,0 +1,51 @@
+% 2026-10-21 统一复核：几何、箭头、符号与正文逐项对应。
+% 印宽17cm；最小字号8.4pt；保留独立注释行与框间空隙。
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-5) rectangle(8,5);
+
+\node[title] at(0,4.65){M5-117a\quad 两个相同元件：由连接关系推出等效参数};
+\node at(-4.05,3.95){串联：支路电流相同};
+\node at(4.05,3.95){并联：端口电压相同};
+\foreach \row/\kind/\eqs/\eqp in {2.7/R/2R/{\frac{R}{2}},0/C/{\frac{C}{2}}/2C,-2.7/L/2L/{\frac{L}{2}}}{
+\begin{scope}[shift={(-4.05,\row)}]
+\draw[ink!75](-3,0)--(-1.8,0) (-.9,0)--(.6,0) (1.5,0)--(3,0);
+\foreach \x in {-1.35,1.05}{
+\node[draw=blue!70,fill=blue!4,minimum width=.9cm,minimum height=.55cm]at(\x,0){$\kind$};}
+\fill[ink](-3,0)circle(1.5pt) node[left]{$A$};
+\fill[ink](3,0)circle(1.5pt) node[right]{$B$};
+\node[label]at(0,-.85){$\kind_{\rm eq}=\eqs$};
+\end{scope}
+\begin{scope}[shift={(4.05,\row)}]
+\draw[ink!75](-3,0)--(-2.1,0)--(-2.1,.48)--(-.45,.48)
+(.45,.48)--(2.1,.48)--(2.1,0)--(3,0)
+(-2.1,0)--(-2.1,-.48)--(-.45,-.48)
+(.45,-.48)--(2.1,-.48)--(2.1,0);
+\node[draw=green!70,fill=green!4,minimum width=.9cm,minimum height=.55cm]at(0,.48){$\kind$};
+\node[draw=green!70,fill=green!4,minimum width=.9cm,minimum height=.55cm]at(0,-.48){$\kind$};
+\fill[ink](-3,0)circle(1.5pt) node[left]{$A$};
+\fill[ink](3,0)circle(1.5pt) node[right]{$B$};
+\node[label]at(0,-1.05){$\kind_{\rm eq}=\eqp$};
+\end{scope}}
+\node[label,text width=15cm]at(0,-4.6){方框内字母表示理想元件种类；电感互不耦合。电容串联中间节点净电荷为零，电感采用相容的零初始状态。};
+\end{tikzpicture}\end{document}

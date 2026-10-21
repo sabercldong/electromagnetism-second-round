@@ -1,0 +1,36 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M2-039\quad 等效中心可以位于实际源区之外};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.4,0)--(2.5,0) node[right] {$x$};
+\fill[blue] (-0.9,0) circle(2.3pt) node[above=3pt] {$-q$};
+\fill[red] (0.9,0) circle(2.3pt) node[above=3pt] {$+3q$};
+\node[below=4pt] at(-.9,0){$-\ell$};\node[below=4pt] at(.9,0){$\ell$};\node[below=4pt] at(0,0){$O$};\fill[green] (1.8,0) circle(2pt) node[below=4pt] {$O_c:2\ell$};\draw[vec,green] (0,-1)--(1.8,-1) node[midway,below] {$\mathbf a=\mathbf p/Q$};
+\node[note] at (0,-2.85) {$O_c$ 是展开中心，并非另一个真实电荷。};
+\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$Q=2q,\quad p_x=4q\ell$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$a_x=p_x/Q=2\ell$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {$p_x^{\prime}=p_x-Qa_x=0$};
+\end{tikzpicture}\end{document}

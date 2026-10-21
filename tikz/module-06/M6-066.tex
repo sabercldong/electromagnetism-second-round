@@ -1,0 +1,89 @@
+% 核心结论：桥式全波与反向峰值
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-066　桥式全波与反向峰值};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-2.00000,0.00000) -- (-1.32001,0.57799);
+\draw[ink,thick] (-0.67999,1.12201) -- (0.00000,1.70000);
+\begin{scope}[shift={(-1.00000,0.85000)},rotate=40.36453657309736]
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.20000,0.00000);
+\draw[ink,thick] (0.16000,0.00000) -- (0.42000,0.00000);
+\draw[ink,thick,fill=white] (-.20,-.18)--(-.20,.18)--(.16,0)--cycle;
+\draw[ink,thick] (0.16000,-0.22000) -- (0.16000,0.22000);
+\end{scope}
+\node[lab] at (-1.27201,1.17001) {$D_1$};
+\draw[ink,thick] (2.00000,0.00000) -- (1.32001,0.57799);
+\draw[ink,thick] (0.67999,1.12201) -- (0.00000,1.70000);
+\begin{scope}[shift={(1.00000,0.85000)},rotate=139.63546342690265]
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.20000,0.00000);
+\draw[ink,thick] (0.16000,0.00000) -- (0.42000,0.00000);
+\draw[ink,thick,fill=white] (-.20,-.18)--(-.20,.18)--(.16,0)--cycle;
+\draw[ink,thick] (0.16000,-0.22000) -- (0.16000,0.22000);
+\end{scope}
+\node[lab] at (1.27201,1.17001) {$D_2$};
+\draw[ink,thick] (0.00000,-1.70000) -- (-0.67999,-1.12201);
+\draw[ink,thick] (-1.32001,-0.57799) -- (-2.00000,0.00000);
+\begin{scope}[shift={(-1.00000,-0.85000)},rotate=139.63546342690265]
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.20000,0.00000);
+\draw[ink,thick] (0.16000,0.00000) -- (0.42000,0.00000);
+\draw[ink,thick,fill=white] (-.20,-.18)--(-.20,.18)--(.16,0)--cycle;
+\draw[ink,thick] (0.16000,-0.22000) -- (0.16000,0.22000);
+\end{scope}
+\node[lab] at (-1.27201,-1.17001) {$D_3$};
+\draw[ink,thick] (0.00000,-1.70000) -- (0.67999,-1.12201);
+\draw[ink,thick] (1.32001,-0.57799) -- (2.00000,0.00000);
+\begin{scope}[shift={(1.00000,-0.85000)},rotate=40.36453657309736]
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.20000,0.00000);
+\draw[ink,thick] (0.16000,0.00000) -- (0.42000,0.00000);
+\draw[ink,thick,fill=white] (-.20,-.18)--(-.20,.18)--(.16,0)--cycle;
+\draw[ink,thick] (0.16000,-0.22000) -- (0.16000,0.22000);
+\end{scope}
+\node[lab] at (1.27201,-1.17001) {$D_4$};
+\draw[ink,thick] (-2.00000,0.00000) -- (-0.40000,0.00000);
+\draw[ink,thick] (0.40000,0.00000) -- (2.00000,0.00000);
+\draw[ink,thick] (0,0) circle(.4);
+\node[] at (0.00000,0.00000) {$\sim$};
+\draw[ink,thick] (0.00000,1.70000) -- (3.00000,1.70000);
+\draw[ink,thick] (3.00000,1.70000) -- (3.00000,0.42000);
+\draw[ink,thick] (3.00000,-0.42000) -- (3.00000,-1.70000);
+\begin{scope}[shift={(3.00000,0.00000)},rotate=-90.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab,anchor=west] at (3.42000,0.00000) {$R_L$};
+\draw[ink,thick] (3.00000,-1.70000) -- (0.00000,-1.70000);
+\fill[ink] (-2.00000,0.00000) circle (1.6pt);
+\node[] at (-2.25000,-0.30000) {$A$};
+\fill[ink] (2.00000,0.00000) circle (1.6pt);
+\node[] at (2.25000,-0.30000) {$B$};
+\fill[ink] (0.00000,1.70000) circle (1.6pt);
+\node[] at (-0.20000,2.00000) {$+$};
+\fill[ink] (0.00000,-1.70000) circle (1.6pt);
+\node[] at (-0.20000,-2.00000) {$-$};
+\node[] at (0.00000,-2.50000) {$A$ 较高：$D_1,D_4$ 导通；$B$ 较高：$D_2,D_3$ 导通。};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$u_o=|u_s|$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$U_{dc}=2U_m/\pi,\quad PIV=U_m$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {A电位较高时D1、D4构成通路；B较高时换成D2、D3，负载电流始终从上到下。};
+
+\end{tikzpicture}\end{document}

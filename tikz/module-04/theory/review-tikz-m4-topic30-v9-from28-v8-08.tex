@@ -1,0 +1,39 @@
+% 核心结论：恢复被说明框覆盖的弛豫时间分母，并保留均匀介质条件
+% 草图：[真实几何与节点 | 条件、推导、结论]；17cm印宽，最小字号8pt。
+% 图契约：体电荷弛豫由守恒、欧姆关系和高斯定律决定；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {\quad 体电荷弛豫由守恒、欧姆关系和高斯定律决定};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[axis](-2.2,-1.4)--(2.4,-1.4)node[right]{$t$};\draw[axis](-2,-1.6)--(-2,1.8)node[above]{$\rho/\rho_0$};\draw[blue,thick]plot[domain=0:4,samples=70]({-2+\x},{-1.4+2.7*exp(-\x)});\node[left]at(-2,1.3){$1$};\node[note]at(0,-2.8){均匀介质、瞬时欧姆近似有效时；\\失去的体电荷可转移到边界};
+\end{scope}
+\node[card,text width=6.5cm,draw=blue!65,fill=blue!4]at(3.9,1.8){$\nabla\cdot\mathbf J+\partial_t\rho=0$\\$\mathbf J=\sigma\mathbf E,\quad\nabla\cdot\mathbf E=\rho/\varepsilon$};
+\node[card,text width=6.5cm,draw=green!65,fill=green!4]at(3.9,0){$\partial_t\rho=-(\sigma/\varepsilon)\rho$};
+\node[card,text width=6.5cm,draw=orange!65,fill=orange!4]at(3.9,-1.8){$\rho(t)=\rho_0e^{-t/\tau_c},\quad\tau_c=\varepsilon/\sigma$};
+
+\end{tikzpicture}\end{document}

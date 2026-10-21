@@ -1,0 +1,47 @@
+% 统一复核：旧图框线/曲线压字，重排为独立行；保留可编辑源。
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box](-8,-4.5)rectangle(8,4.5);
+
+\node[title]at(0,4.15){完整球面上的两极正则性，筛出非负整数阶};
+\node[align=center,text width=15cm]at(0,3.1){$\displaystyle
+-\frac{\mathrm d}{\mathrm dx}\left[(1-x^2)y'\right]=\lambda y,
+\qquad x=\cos\theta,\qquad \lambda=l(l+1)$};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis](-2.5,-.3)--(2.5,-.3)node[right]{$x$};
+\draw[blue,thick](-2.15,-.4)--(-2.15,-.2) (2.15,-.4)--(2.15,-.2);
+\node[above]at(-2.15,-.2){$-1$};\node[above]at(2.15,-.2){$+1$};
+\draw[green,line width=1pt]plot[domain=-2.15:2.15,samples=70](\x,{-.3+.85*(3*(\x/2.15)^2-1)/2});
+\node[align=center,text width=6.7cm]at(0,-1.5){例：$l=2$，$P_2(x)=(3x^2-1)/2$\\两端 $P_2(-1)=P_2(1)=1$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\draw[axis](-2.5,-.3)--(2.5,-.3)node[right]{$x$};
+\draw[red,guide](-2.15,-1.0)--(-2.15,1.4);
+\draw[red,line width=1pt] plot[domain=-2.12:2.15,samples=90](\x,{.5*ln((\x+2.17)/4.32)+.9});
+\node[above]at(-2.15,1.4){$x=-1$};
+\node[above]at(2.15,-.2){$x=+1$};
+\node[align=center,text width=6.7cm]at(0,-1.75){一般非整数 $\nu$：$P_\nu$ 在 $+1$ 可有限，\\在 $-1$ 通常出现对数奇性（示意）};
+\end{scope}
+\node[align=center,text width=15cm]at(0,-3.3){完整球面要求同一解在两极同时正则，给出 $l=0,1,2,\ldots$。\\
+第二类解 $Q_l$ 在极轴端点发散；真实区域避开相应端点时，才可能保留。};
+\end{tikzpicture}\end{document}

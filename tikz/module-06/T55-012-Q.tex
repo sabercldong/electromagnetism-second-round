@@ -1,0 +1,42 @@
+% 核心结论：固定电容：正频率的同相条件
+% 图原型：纯几何／对比；按本题相位与电路拓扑绘制。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[font=\fontsize{11}{14}\selectfont\bfseries] at (0.00000,3.04000) {固定电容：正频率的同相条件};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.40000,0.00000) -- (2.65000,0.00000);
+\draw[axis] (-2.40000,-1.90000) -- (-2.40000,1.95000);
+\node[] at (2.52000,-0.35000) {$q$};
+\node[] at (-2.05000,2.20000) {$b=B\sqrt{L/C}$};
+\draw[blue,thick] plot[domain=0:2.3,samples=150] ({-2.4+2.0*\x},{1.12*\x*(1-1/(0.5^2+\x^2))});
+\draw[green,thick] plot[domain=0:2.3,samples=150] ({-2.4+2.0*\x},{1.12*\x*(1-1/(1^2+\x^2))});
+\draw[purple,thick] plot[domain=0:2.3,samples=150] ({-2.4+2.0*\x},{1.12*\x*(1-1/(1.4^2+\x^2))});
+\draw[aux] (-0.66795,-1.65000) -- (-0.66795,0.00000);
+\node[lab] at (-0.66795,-1.95000) {$q_0=\sqrt{1-\rho^2}$};
+\node[text=blue] at (0.60000,-1.25000) {$\rho=0.5$};
+\node[lab,text=green] at (0.90000,0.25000) {$\rho=1$};
+\node[lab,text=purple] at (0.60000,1.35000) {$\rho=1.4$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$q=\omega\sqrt{LC}$，$\rho=r\sqrt{C/L}$\\[4pt]$B=\omega C-\dfrac{\omega L}{r^2+(\omega L)^2}$};
+\node[card] at (0.00000,-1.10000) {$q_0>0\iff\rho<1$\\[4pt]$\omega_0=\sqrt{\dfrac1{LC}-\dfrac{r^2}{L^2}}$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {曲线用无量纲变量表示；$q=0$ 的公共零点不是本题所求的正频率谐振。};
+\end{tikzpicture}
+\end{document}

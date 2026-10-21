@@ -1,0 +1,51 @@
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,decorations.pathmorphing}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{224,116,10}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\definecolor{softpurple}{RGB}{247,242,255}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  fieldline/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=1pt,draw=bluefield},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange},
+  purplebox/.style={box,draw=purplefield,fill=softpurple}
+}
+\usepackage{fontspec,xeCJK}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\usetikzlibrary{bending}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.4cm,align=center] at (0,4.05) {模块五方法主线：磁场、感应、储能与机械运动};
+\node[bluebox,text width=3.05cm] (n0) at (-7.6,.55) {\textbf{受力}\\$q(\mathbf E+\mathbf v\times\mathbf B)$};
+\node[greenbox,text width=3.05cm] (n1) at (-3.8,.55) {\textbf{磁场来源}\\电流与磁化};
+\node[orangebox,text width=3.05cm] (n2) at (0,.55) {\textbf{势与通量}\\$\mathbf B=\nabla\times\mathbf A$};
+\node[purplebox,text width=3.05cm] (n3) at (3.8,.55) {\textbf{电磁感应}\\$\mathcal E=-d\Phi_B/dt$};
+\node[bluebox,text width=3.05cm] (n4) at (7.6,.55) {\textbf{能量耦合}\\磁能、共能与运动};
+\draw[arrow,bluefield] (n0)--(n1);
+\draw[arrow,greenfield] (n1)--(n2);
+\draw[arrow,orangefield] (n2)--(n3);
+\draw[arrow,purplefield] (n3)--(n4);
+\node[greenbox,text width=15.9cm] at (0,-2.45) {场、回路和机械坐标是同一系统的三种描述；方向判定与能量守恒必须给出一致结果。};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,54 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{blue}{HTML}{2455DE}
+\definecolor{green}{HTML}{078565}
+\definecolor{orange}{HTML}{D77B00}
+\definecolor{red}{HTML}{D53636}
+\definecolor{purple}{HTML}{7750C5}
+\definecolor{ink}{HTML}{28343C}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2.2mm,width=1.4mm]},line width=.85pt},
+axis/.style={-{Latex[length=2mm,width=1.2mm]},ink,line width=.6pt},
+aux/.style={ink!45,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-3.45) rectangle(8,3.45);
+\node[font=\bfseries\fontsize{11}{14}\selectfont,text width=15.2cm,align=center] at (0,3.05) {电场线的唯一性、方向与零场点};
+\begin{scope}[shift={(-5.15,0)}]
+\node[text=blue,font=\bfseries] at (0,2.25) {非零场点：切向唯一};
+\draw[blue,line width=1pt] (-1.6,-.8)..controls(-.7,0)and(.3,.8)..(1.65,1.35);
+\draw[red,line width=.8pt] (-1.3,1.35)--(1.1,-0.2);
+\node[text=red,font=\Large] at (-0.03,0.53) {$\times$};
+\node[text width=4.3cm,align=center] at (0,-1.8) {同一点若有两条不同切线，\\就会给出两个不同的 $\mathbf E$ 方向。};
+\end{scope}
+\begin{scope}[shift={(0,0)}]
+\node[text=green,font=\bfseries] at (0,2.25) {沿定向场线：电势下降};
+\draw[v,green] (-1.7,.15)..controls(-.8,1.3)and(.8,1.3)..(1.7,.15);
+\node[] at (-1.7,-0.2) {$\varphi_1$};
+\node[] at (0,1.35) {$\varphi_2$};
+\node[] at (1.7,-0.2) {$\varphi_3$};
+\node[text=green] at (0,-0.8) {$\varphi_1>\varphi_2>\varphi_3$};
+\node[text width=4.3cm,align=center] at (0,-1.8) {$d\varphi=-E\,ds<0$。\\非零静电场线不能闭合。};
+\end{scope}
+\begin{scope}[shift={(5.15,0)}]
+\node[text=orange,font=\bfseries] at (0,2.25) {零场点：另作局部分析};
+\draw[axis] (-1.7,0)--(1.7,0);
+\draw[axis] (0,-1.45)--(0,1.5);
+\draw[v,orange] (0.15,0)--(1.4,0);
+\draw[v,orange] (-0.15,0)--(-1.4,0);
+\draw[v,blue] (0,1.35)--(0,0.2);
+\draw[v,blue] (0,-1.35)--(0,-0.2);
+\draw[purple,line width=.75pt] (-0.25,-1.2)..controls(-0.4,-0.45)and(-0.6,-0.35)..(-1.4,-0.22);
+\draw[purple,line width=.75pt] (-0.25,1.2)..controls(-0.4,0.45)and(-0.6,0.35)..(-1.4,0.22);
+\draw[purple,line width=.75pt] (0.25,-1.2)..controls(0.4,-0.45)and(0.6,-0.35)..(1.4,-0.22);
+\draw[purple,line width=.75pt] (0.25,1.2)..controls(0.4,0.45)and(0.6,0.35)..(1.4,0.22);
+\fill[red](0,0) circle(2pt);
+\node[lab,text=red] at (0.8,-0.75) {$\mathbf E=0$};
+\node[text width=4.3cm,align=center] at (0,-1.95) {示例 $\mathbf E=(x,-y)$：\\坐标轴为分界线；零点处没有场方向。};
+\end{scope}
+\node[text width=15cm,align=center] at (0,-3.02) {上述结论适用于附近光滑的静电场；零场点不能直接套用“切向唯一”。};
+\end{tikzpicture}\end{document}

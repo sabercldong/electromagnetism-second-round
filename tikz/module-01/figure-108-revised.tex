@@ -1,0 +1,43 @@
+% 核心结论：长度尺度因子相乘后给出正确的面积元与体积元。
+% 图契约：物理竞赛讲义；印刷宽16cm，最小字号8.5pt；几何示意与公式分区。
+% 布局：[几何/曲线 7cm] [定义/结果 7cm]；实线主量，虚线辅助；无装饰数据。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,positioning,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{
+ every node/.style={font=\fontsize{9.5}{13}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!60,fill=blue!4,
+   align=center,text width=6.8cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{11}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.5}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[title] at (0,2.95) {正交曲线坐标：三条边长决定微元};
+\begin{scope}[shift={(-4,0)}]
+
+\coordinate (O) at (-1.8,-1.3);\coordinate (A) at (.8,-1.3);\coordinate (B) at (-.9,-.3);\coordinate (C) at (1.7,-.3);
+\fill[blue!6] (O)--(A)--(C)--(B)--cycle;
+\draw[ink!70] (O)--(A)--(C)--(B)--cycle;
+\draw[ink!70] ($(O)+(0,2)$)--($(A)+(0,2)$)--($(C)+(0,2)$)--($(B)+(0,2)$)--cycle;
+\foreach \p in {O,A,B,C}{\draw[ink!70] (\p)--++(0,2);}
+\draw[vec] (O)--(A) node[midway,below] {$h_1dq_1$};
+\draw[vec,green] (A)--(C) node[midway,right] {$h_2dq_2$};
+\draw[vec,orange] (O)--++(0,2) node[midway,left] {$h_3dq_3$};
+
+\end{scope}\node[card,draw=blue!65,fill=blue!4] at (3.9,1.65) {$dV=h_1h_2h_3\,dq_1dq_2dq_3$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$d\mathbf S_1=h_2h_3\,dq_2dq_3\,\mathbf e_1$\\其余两项按指标轮换。};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.65) {先读真实边长，再取面积与体积；\\坐标增量不能直接当作长度。};
+\end{tikzpicture}\end{document}

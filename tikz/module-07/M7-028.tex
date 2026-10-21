@@ -1,0 +1,38 @@
+% 图契约：充电电容器的位移电流；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-028　充电电容器的位移电流};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,line width=1.5pt](-1.20000,-1.35000)--(-1.20000,1.35000);
+\draw[ink,line width=1.5pt](1.20000,-1.35000)--(1.20000,1.35000);
+\draw[v,blue](-0.95000,-0.60000)--(0.95000,-0.60000);
+\draw[v,blue](-0.95000,0.60000)--(0.95000,0.60000);
+\draw[v,red](-3.00000,0.00000)--(-1.25000,0.00000);
+\node[text=red]at(-2.70000,0.40000){$I$};
+\node[]at(0.65000,2.35000){$S_2$：板间};
+\node[]at(-2.45000,-1.50000){$S_1$：导线};
+\draw[purple,dashed](-2,0)ellipse(.28 and .85);\draw[purple](-2,-.85)--(-2,.85);\draw[green,line width=1pt](-2,.85)..controls(-1.9,2)and(0,2)..(0,1.55)--(0,-1.55)..controls(0,-2)and(-1.9,-2)..(-2,-.85);
+\node[]at(-2.65000,1.10000){$C$};
+\node[]at(0.00000,-2.50000){两曲面在同一边界圆周 $C$ 处相接};
+\end{scope}
+\node[card]at(4.00000,1.25000){$I_d=\varepsilon_0A\dot E$};
+\node[card]at(4.00000,-1.05000){$I=\dot Q=I_d$};
+\node[text width=15.2cm,align=center]at(0.00000,-3.20000){板间为真空；两曲面具有同一边界，图中曲面轮廓仅作示意。};
+\end{tikzpicture}\end{document}

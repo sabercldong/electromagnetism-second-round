@@ -1,0 +1,47 @@
+% 图契约：移动点电荷的位移电流检验；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-029　移动点电荷的位移电流检验};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis](-2.90000,0.00000)--(2.50000,0.00000);
+\node[]at(2.50000,-0.30000){$X$};
+\draw[ink](1,0)ellipse(.5 and 1.7);
+\node[]at(1.00000,-2.10000){圆面 $X=0$};
+\node[lab,text=red]at(-2.00000,0.00000){$+q$};
+\draw[v,red](-1.70000,0.50000)--(-0.70000,0.50000);
+\node[text=red]at(-1.20000,0.85000){$v$};
+\draw[{Latex[length=1.3mm]}-{Latex[length=1.3mm]},ink!65,line width=.5pt](-2.00000,-0.65000)--(1.00000,-0.65000);
+\node[lab]at(-0.50000,-0.90000){$x$};
+\draw[{Latex[length=1.3mm]}-{Latex[length=1.3mm]},ink!65,line width=.5pt](1.00000,0.00000)--(1.00000,1.70000);
+\node[lab]at(1.30000,0.85000){$h$};
+\draw[v,green](1.30000,1.90000)--(2.30000,1.90000);
+\node[]at(2.00000,2.25000){$\mathbf n=+\mathbf e_X$};
+\draw[white,fill=white](1,1.7)circle(0.145);
+\draw[blue](1,1.7)circle(0.13);
+\fill[blue](1,1.7)circle(.035);
+\draw[blue,fill=white](1,-1.7)circle(0.13);
+\draw[blue](0.93000,-1.77000)--(1.07000,-1.63000);
+\draw[blue](0.93000,-1.63000)--(1.07000,-1.77000);
+\node[text=blue]at(0.25000,1.80000){$B_\phi$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$\Phi_E=\frac q{2\varepsilon_0}(1-\frac{x}{\sqrt{x^2+h^2}})$};
+\node[card]at(4.00000,-1.05000){$B_\phi=\frac{\mu_0qvh}{4\pi(x^2+h^2)^{3/2}}$};
+\node[text width=15.2cm,align=center]at(0.00000,-3.20000){$x>0,\ \dot x=-v$；低速瞬时库仑近似 $v\ll c$。};
+\end{tikzpicture}\end{document}

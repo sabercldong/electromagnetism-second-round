@@ -1,0 +1,37 @@
+% 图契约：先假设导通，再检查极性；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {M4-014\quad 先假设导通，再检查极性};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[wire,draw=ink](-2,1.2)--(-0.475,1.2) (0.07500000000000007,1.2)--(1.6,1.2);\begin{scope}[shift={(-0.19999999999999996,1.2)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label] at(-0.19999999999999996,1.48){$1.00\ \mathrm{k}\Omega$};
+\draw[wire](1.6,1.2)--(2,1.2)--(2,-1.2)--(-2,-1.2)--(-2,-.4);\draw[wire](-2,.4)--(-2,1.2);\draw[wire](-2,0)circle(.4);\node at(-2,.17){$+$};\node at(-2,-.17){$-$};\node[left=5pt]at(-2,0){$5.00\ \mathrm V$};\draw[vec,red](.8,-1.8)--(-.8,-1.8)node[midway,below]{$I$};\draw[fill=green!7,draw=green](1.65,-.55)rectangle(2.35,.55);\node[right=4pt]at(2.35,0){二极管};\node[label]at(.1,-.4){正接：阳极在上};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {正接：$5.00-I(1000)-0.700=0$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$I=4.30\ \mathrm{mA}$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {反接且未击穿：$I\simeq0$};
+\end{tikzpicture}\end{document}

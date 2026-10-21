@@ -1,0 +1,39 @@
+% 统一复核：旧图框线/曲线压字，重排为独立行；保留可编辑源。
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box](-8,-4.5)rectangle(8,4.5);
+
+\node[title]at(0,4.15){库仑核展开：阶次、物理矩与截断误差};
+\node[align=center,text width=15cm]at(0,3.05){$\displaystyle
+\frac{1}{|\mathbf r-\mathbf r'|}
+=\sum_{n=0}^{\infty}\frac{r'^n}{r^{n+1}}P_n(\cos\gamma),\qquad r>r'$};
+\node[card,text width=6.6cm]at(-3.9,1.5){零阶：$\displaystyle\frac1rP_0=\frac1r$\\[3pt]只保留总电荷};
+\node[card,text width=6.6cm,draw=green!70,fill=green!4]at(3.9,1.5){一阶：$\displaystyle\frac{r'}{r^2}P_1=\frac{r'\cos\gamma}{r^2}$\\保留偶极矩};
+\node[card,text width=6.6cm,draw=orange!70,fill=orange!4]at(-3.9,-.3){二阶：$\displaystyle\frac{r'^2}{r^3}P_2=
+\frac{r'^2(3\cos^2\gamma-1)}{2r^3}$\\保留四极矩};
+\node[card,text width=6.6cm,draw=purple!70,fill=purple!4]at(3.9,-.3){更高阶：$n$ 阶电势 $\propto r^{-n-1}$\\相应电场 $\propto r^{-n-2}$};
+\node[align=center,text width=15cm]at(0,-2.2){源区 $r'\le a$，$\eta=a/r<1$，利用 $|P_n(x)|\le1$：\\[5pt]
+$\displaystyle |R_L|\le\frac1r\frac{\eta^{L+1}}{1-\eta},\qquad
+|\Delta\varphi_L|\le\frac{Q_{\rm abs}}{4\pi\varepsilon_0r}\frac{\eta^{L+1}}{1-\eta}$};
+\node[label,text width=15cm]at(0,-3.9){这是绝对误差上界；角向节点处首项为零，须检查下一阶，不能只看相对误差。};
+\end{tikzpicture}\end{document}

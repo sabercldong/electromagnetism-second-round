@@ -1,0 +1,56 @@
+% 图契约：保留原稿的物理与电路拓扑，启用中文字体及中文断行，逐图检查标注。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,decorations.pathmorphing,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\definecolor{softpurple}{RGB}{245,240,255}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  wire/.style={draw=linegray,line width=1.05pt},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange},
+  purplebox/.style={box,draw=purplefield,fill=softpurple}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {电解质中的电流同时伴随物质迁移};
+\begin{scope}[shift={(-5.4,-.2)}]
+  \fill[softblue] (-2.8,-2.0) rectangle (2.8,1.5);
+  \draw[linegray] (-2.8,1.5)--(-2.8,-2)--(2.8,-2)--(2.8,1.5);
+  \fill[linegray] (-2.1,-1.45) rectangle (-1.75,2.15);
+  \fill[linegray] (1.75,-1.45) rectangle (2.1,2.15);
+  \node[above] at (-1.92,2.15) {阳极}; \node[above] at (1.92,2.15) {阴极};
+  \foreach \x in {-1.1,-.3,.5}{\node[redfield] at (\x,.55) {$+$}; \draw[thinarr,redfield] (\x,.35)--(1.45,.35);}
+  \foreach \x in {-1.0,0,1.0}{\node[bluefield] at (\x,-.8) {$-$}; \draw[thinarr,bluefield] (\x,-1.0)--(-1.45,-1.0);}
+  \draw[linegray,line width=1.4pt] (1.74,-1.3)--(1.74,.9);
+  \node[greenfield] at (0,-2.65) {$m=\eta MQ/(zF)$};
+  \end{scope}
+
+\begin{scope}[shift={(4.55,-.15)}]
+  \node[bluebox,text width=7.0cm,minimum height=2.15cm] at (0,1.25) {$Q=\int I\,dt$\\$m=\eta MQ/(zF)$};
+  \node[greenbox,text width=7.0cm,minimum height=2.15cm] at (0,-1.55) {价数 $z$ 由电极反应确定；\\质量和摩尔质量单位必须相容};
+\end{scope}
+\end{tikzpicture}
+\end{document}

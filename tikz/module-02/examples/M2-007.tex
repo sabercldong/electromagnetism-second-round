@@ -1,0 +1,49 @@
+% 对应题号 M2-007，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {点电荷：原点外解拉普拉斯方程，小球通量确定系数};
+\begin{scope}[shift={(-4.8,-.2)}]
+\foreach \r in {1.0,2.0}{\draw[linegray!55] (0,0) circle(\r);}
+\foreach \a in {0,45,...,315}{\draw[arrow,bluefield] ({.4*cos(\a)},{.4*sin(\a)})--({2.35*cos(\a)},{2.35*sin(\a)});}
+\fill[redfield] (0,0) circle(.09) node[below right] {$q$};
+\node[greenfield] at (0,2.8) {球对称高斯面};
+\end{scope}
+\begin{scope}[shift={(4.55,-.1)}]
+\node[bluebox,text width=6.8cm] at (0,1.7) {$r>0:\ \nabla^2\varphi=0\Rightarrow\varphi=C_1/r+C_2$};
+\node[greenbox,text width=6.8cm] at (0,0) {$\varphi(\infty)=0\Rightarrow C_2=0$；$4\pi r^2E_r=q/\varepsilon_0$};
+\node[orangebox,text width=6.8cm] at (0,-1.7) {$\displaystyle \varphi=\frac{q}{4\pi\varepsilon_0r},\quad \mathbf E=\frac{q}{4\pi\varepsilon_0r^2}\mathbf e_r$};
+\end{scope}
+\end{tikzpicture}
+\end{document}

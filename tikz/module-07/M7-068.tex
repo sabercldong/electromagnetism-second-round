@@ -1,0 +1,37 @@
+% 图契约：题 4　电小回路辐射公式的适用性；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-068　题 4　电小回路辐射公式的适用性};
+\begin{scope}[shift={(-4,0)}]
+\draw[blue,line width=1pt](-1.71557,-.50521)arc(200:520:1.4 and .6);
+\draw[ink,line width=.8pt](-2.90000,-0.09479)--(-1.71557,-0.09479);
+\draw[ink,line width=.8pt](-2.90000,-0.50521)--(-1.71557,-0.50521);
+\draw[{Latex[length=1.3mm]}-{Latex[length=1.3mm]},ink!65,line width=.5pt](-2.90000,-1.30000)--(-1.71557,-1.30000);
+\node[lab]at(-2.30778,-1.55000){$L$};
+\draw[v,green](-0.40000,-0.30000)--(-0.40000,1.80000);
+\node[text=green]at(0.60000,2.30000){$\mathbf m=IS\mathbf n$};
+\draw[{Latex[length=1.3mm]}-{Latex[length=1.3mm]},ink!65,line width=.5pt](-0.40000,-0.30000)--(1.00000,-0.30000);
+\node[lab]at(0.30000,0.00000){$a$};
+\node[]at(0.00000,-2.20000){馈线与回路分开检查；示意不按比例};
+\end{scope}
+\node[card]at(4.00000,1.25000){$f_1:\ kL=0.0105,\quad ka=0.00105$};
+\node[card]at(4.00000,-1.05000){$f_2:\ kL=\pi,\quad ka=0.314$};
+\node[text width=15.2cm,align=center]at(0.00000,-3.20000){馈线相位大，不可整体集总；高频电流分布仍须由实际馈电验证。};
+\end{tikzpicture}\end{document}

@@ -1,0 +1,68 @@
+% 核心结论：综合题：变压器与复阻抗
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-078　综合题：变压器与复阻抗};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-2.60000,1.50000) -- (-2.60000,0.40000);
+\draw[ink,thick] (-2.60000,-0.40000) -- (-2.60000,-1.50000);
+\draw[ink,thick] (-2.6,0) circle (.4);
+\node[] at (-2.60000,0.00000) {$\sim$};
+\node[] at (-3.22000,0.00000) {$U_1$};
+\draw[ink,thick] (-2.60000,1.50000) -- (-0.90000,1.50000);
+\draw[ink,thick] (-2.60000,-1.50000) -- (-0.90000,-1.50000);
+\draw[ink,thick] (-0.90000,1.50000) -- (-0.90000,0.42000);
+\draw[ink,thick] (-0.90000,-0.42000) -- (-0.90000,-1.50000);
+\begin{scope}[shift={(-0.90000,0.00000)},rotate=-90.0]
+\draw[ink,thick] plot[domain=-0.42:0.42,samples=70] (\x,{.20*abs(sin(720*(\x+0.42)/0.84))});
+\end{scope}
+\node[lab,anchor=east] at (-1.32000,0.00000) {$N_1$};
+\draw[ink,thick] (0.90000,1.50000) -- (0.90000,0.42000);
+\draw[ink,thick] (0.90000,-0.42000) -- (0.90000,-1.50000);
+\begin{scope}[shift={(0.90000,0.00000)},rotate=-90.0]
+\draw[ink,thick] plot[domain=-0.42:0.42,samples=70] (\x,{.20*abs(sin(720*(\x+0.42)/0.84))});
+\end{scope}
+\node[lab,anchor=west] at (1.32000,-0.65000) {$N_2$};
+\draw[ink!50,line width=1.4pt] (0.00000,-1.00000) -- (0.00000,1.00000);
+\draw[ink!50,line width=1.4pt] (0.20000,-1.00000) -- (0.20000,1.00000);
+\draw[ink,thick] (0.90000,1.50000) -- (2.60000,1.50000);
+\draw[ink,thick] (2.60000,-1.50000) -- (0.90000,-1.50000);
+\draw[ink,thick] (2.60000,1.50000) -- (2.60000,0.42000);
+\draw[ink,thick] (2.60000,-0.42000) -- (2.60000,-1.50000);
+\begin{scope}[shift={(2.60000,0.00000)},rotate=-90.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab,anchor=west] at (3.02000,0.00000) {$Z_L$};
+\fill[ink] (-0.90000,0.80000) circle (1.6pt);
+\fill[ink] (0.90000,0.80000) circle (1.6pt);
+\draw[v,blue] (-2.35000,1.50000) -- (-1.50000,1.50000);
+\node[lab,text=blue,anchor=center] at (-1.92500,1.82000) {$I_1$};
+\draw[v,green] (1.20000,1.50000) -- (2.00000,1.50000);
+\node[lab,text=green,anchor=center] at (1.60000,1.82000) {$I_{out}$};
+\node[] at (0.00000,-2.40000) {上端为同名端；次级负载电流从同名端流出。};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$Z_{in}=24+j32\;\Omega$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$I_1=1.5-j2A,\quad I_{out}=3-j4A$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {次级电流从同名端流向负载，折算到初级时同时检查电压比、电流反比和复功率。};
+
+\end{tikzpicture}\end{document}

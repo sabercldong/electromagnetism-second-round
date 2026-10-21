@@ -1,0 +1,53 @@
+% 核心结论：四桥臂恢复为R1至R4、负载为RL，电源端点P/Q及功率式全部对应题设
+% 草图：[真实几何与节点 | 条件、推导、结论]；17cm印宽，最小字号8pt。
+% 图契约：桥式网络的负载跨接两个分压中点；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {M4-087\quad 桥式网络的负载跨接两个分压中点};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[wire,draw=ink](0,2)--(-0.8055456351736994,1.1944543648263006) (-1.1944543648263006,0.8055456351736994)--(-2,0);\begin{scope}[shift={(-1.0,1.0)},rotate=-135.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label]at(-0.7030151519016501,0.7030151519016501){$R_1$};
+\draw[wire,draw=ink](-2,0)--(-1.1944543648263006,-0.8055456351736994) (-0.8055456351736994,-1.1944543648263006)--(0,-2);\begin{scope}[shift={(-1.0,-1.0)},rotate=-45.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label]at(-0.7030151519016501,-0.7030151519016501){$R_2$};
+\draw[wire,draw=ink](0,2)--(0.8055456351736994,1.1944543648263006) (1.1944543648263006,0.8055456351736994)--(2,0);\begin{scope}[shift={(1.0,1.0)},rotate=-45.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label]at(1.29698484809835,1.29698484809835){$R_3$};
+\draw[wire,draw=ink](2,0)--(1.1944543648263006,-0.8055456351736994) (0.8055456351736994,-1.1944543648263006)--(0,-2);\begin{scope}[shift={(1.0,-1.0)},rotate=-135.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label]at(1.29698484809835,-1.29698484809835){$R_4$};
+\draw[wire,draw=red](-2,0)--(-0.275,0.0) (0.275,0.0)--(2,0);\begin{scope}[shift={(0.0,0.0)},rotate=0.0]\draw[draw=red,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label]at(0.0,0.42){$R_L$};
+\fill[ink] (0,2)circle(2pt);\node[above=4pt] at(0,2){$P=\mathcal E$};
+\fill[ink] (0,-2)circle(2pt);\node[below=4pt] at(0,-2){$Q=0$};
+\fill[ink] (-2,0)circle(2pt);\node[left=4pt] at(-2,0){$A$};
+\fill[ink] (2,0)circle(2pt);\node[right=4pt] at(2,0){$B$};
+\node[note]at(0,-3.05){开路电压非零时匹配RL=Rth；平衡桥所有负载功率均为零};
+\end{scope}
+\node[card,text width=6.5cm,draw=blue!65,fill=blue!4]at(3.9,1.8){$U_{\rm oc}=\mathcal E[\dfrac{R_2}{R_1+R_2}-\dfrac{R_4}{R_3+R_4}]$};
+\node[card,text width=6.5cm,draw=green!65,fill=green!4]at(3.9,0){$R_{\rm th}=(R_1\parallel R_2)+(R_3\parallel R_4)$};
+\node[card,text width=6.5cm,draw=orange!65,fill=orange!4]at(3.9,-1.8){$P_L=U_{\rm oc}^2R_L/(R_{\rm th}+R_L)^2$};
+
+\end{tikzpicture}\end{document}

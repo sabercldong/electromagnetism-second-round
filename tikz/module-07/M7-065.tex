@@ -1,0 +1,37 @@
+% 图契约：题 1　真空平面电磁波的能量流；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-065　题 1　真空平面电磁波的能量流};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis](-1.80000,-0.70000)--(2.20000,-0.70000);
+\draw[v,blue](-1.80000,-0.70000)--(-1.80000,1.80000);
+\draw[green](-1.8,-0.7)circle(0.13);
+\fill[green](-1.8,-0.7)circle(.035);
+\node[]at(1.70000,-1.10000){$+z,\mathbf k$};
+\node[text=blue]at(-1.85000,2.20000){$\mathbf E_x$};
+\node[text=green]at(-2.55000,-1.10000){$\mathbf B_y$};
+\draw[red,line width=.9pt,]plot coordinates{(-1.40000,0.70000) (-1.35889,0.76263) (-1.31778,0.82404) (-1.27667,0.88303) (-1.23556,0.93846) (-1.19444,0.98925) (-1.15333,1.03442) (-1.11222,1.07307) (-1.07111,1.10446) (-1.03000,1.12798) (-0.98889,1.14316) (-0.94778,1.14973) (-0.90667,1.14753) (-0.86556,1.13663) (-0.82444,1.11723) (-0.78333,1.08971) (-0.74222,1.05460) (-0.70111,1.01260) (-0.66000,0.96450) (-0.61889,0.91126) (-0.57778,0.85391) (-0.53667,0.79356) (-0.49556,0.73139) (-0.45444,0.66861) (-0.41333,0.60644) (-0.37222,0.54609) (-0.33111,0.48874) (-0.29000,0.43550) (-0.24889,0.38740) (-0.20778,0.34540) (-0.16667,0.31029) (-0.12556,0.28277) (-0.08444,0.26337) (-0.04333,0.25247) (-0.00222,0.25027) (0.03889,0.25684) (0.08000,0.27202) (0.12111,0.29554) (0.16222,0.32693) (0.20333,0.36558) (0.24444,0.41075) (0.28556,0.46154) (0.32667,0.51697) (0.36778,0.57596) (0.40889,0.63737) (0.45000,0.70000) (0.49111,0.76263) (0.53222,0.82404) (0.57333,0.88303) (0.61444,0.93846) (0.65556,0.98925) (0.69667,1.03442) (0.73778,1.07307) (0.77889,1.10446) (0.82000,1.12798) (0.86111,1.14316) (0.90222,1.14973) (0.94333,1.14753) (0.98444,1.13663) (1.02556,1.11723) (1.06667,1.08971) (1.10778,1.05460) (1.14889,1.01260) (1.19000,0.96450) (1.23111,0.91126) (1.27222,0.85391) (1.31333,0.79356) (1.35444,0.73139) (1.39556,0.66861) (1.43667,0.60644) (1.47778,0.54609) (1.51889,0.48874) (1.56000,0.43550) (1.60111,0.38740) (1.64222,0.34540) (1.68333,0.31029) (1.72444,0.28277) (1.76556,0.26337) (1.80667,0.25247) (1.84778,0.25027) (1.88889,0.25684) (1.93000,0.27202) (1.97111,0.29554) (2.01222,0.32693) (2.05333,0.36558) (2.09444,0.41075) (2.13556,0.46154) (2.17667,0.51697) (2.21778,0.57596) (2.25889,0.63737) (2.30000,0.70000)};
+\draw[aux](-1.40000,0.70000)--(2.30000,0.70000);
+\node[text=red]at(0.50000,1.60000){归一化的同相场};
+\end{scope}
+\node[card]at(4.00000,1.25000){$u_E=u_B=\frac12\varepsilon_0E^2$};
+\node[card]at(4.00000,-1.05000){$\mathbf S=cu\mathbf e_z,\quad\langle S\rangle=\frac12\varepsilon_0cE_0^2$};
+\node[text width=15.2cm,align=center]at(0.00000,-3.20000){同一点电场与磁场同相；能流随两场平方变化。};
+\end{tikzpicture}\end{document}

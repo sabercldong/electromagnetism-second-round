@@ -1,0 +1,61 @@
+% 核心结论：升压与三根线的焦耳损耗
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-074　升压与三根线的焦耳损耗};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-2.80000,1.20000) -- (-1.80000,1.20000);
+\draw[ink,thick] (-1.80000,1.20000) -- (-0.82000,1.20000);
+\draw[ink,thick] (0.02000,1.20000) -- (1.00000,1.20000);
+\begin{scope}[shift={(-0.40000,1.20000)},rotate=0.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab] at (-0.40000,1.62000) {$r$};
+\draw[ink,thick] (1.00000,1.20000) -- (2.50000,1.20000);
+\node[] at (-3.00000,1.20000) {$A$};
+\draw[ink,thick] (-2.80000,0.00000) -- (-1.80000,0.00000);
+\draw[ink,thick] (-1.80000,0.00000) -- (-0.82000,0.00000);
+\draw[ink,thick] (0.02000,0.00000) -- (1.00000,0.00000);
+\begin{scope}[shift={(-0.40000,0.00000)},rotate=0.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab] at (-0.40000,0.42000) {$r$};
+\draw[ink,thick] (1.00000,0.00000) -- (2.50000,0.00000);
+\node[] at (-3.00000,0.00000) {$B$};
+\draw[ink,thick] (-2.80000,-1.20000) -- (-1.80000,-1.20000);
+\draw[ink,thick] (-1.80000,-1.20000) -- (-0.82000,-1.20000);
+\draw[ink,thick] (0.02000,-1.20000) -- (1.00000,-1.20000);
+\begin{scope}[shift={(-0.40000,-1.20000)},rotate=0.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab] at (-0.40000,-0.78000) {$r$};
+\draw[ink,thick] (1.00000,-1.20000) -- (2.50000,-1.20000);
+\node[] at (-3.00000,-1.20000) {$C$};
+\node[] at (0.00000,2.20000) {三相电源 → 线路 → 平衡负载};
+\node[] at (0.00000,-2.20000) {$P=\sqrt3U_LI_L\cos\phi$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$I_L=P/(\sqrt3U_L\cos\phi)$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$P_{loss}=3I_L^2r$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {图中的每根输电线均有电阻r，三根线损应相加；提高线电压只在相同有功功率条件下比较。};
+
+\end{tikzpicture}\end{document}

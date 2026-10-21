@@ -1,0 +1,34 @@
+% 核心结论：交换体内导数会产生边界项，边界项不能省略。
+% 图契约：物理竞赛讲义；印刷宽16cm，最小字号8.5pt；几何示意与公式分区。
+% 布局：[几何/曲线 7cm] [定义/结果 7cm]；实线主量，虚线辅助；无装饰数据。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,positioning,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{
+ every node/.style={font=\fontsize{9.5}{13}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!60,fill=blue!4,
+   align=center,text width=6.8cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{11}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.5}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[title] at (0,2.95) {分部积分：体内导数与边界项同时保留};
+
+\node[card,text width=14cm] at (0,1.55) {$\displaystyle \int_V f\nabla\cdot\mathbf A\,dV=\oint_{\partial V}f\mathbf A\cdot d\mathbf S-\int_V\nabla f\cdot\mathbf A\,dV$};
+\node[card,text width=14cm,draw=green!65,fill=green!4] at (0,0) {$\displaystyle \int_V(\nabla\varphi\cdot\nabla\psi+\varphi\nabla^2\psi)\,dV=\oint_{\partial V}\varphi\frac{\partial\psi}{\partial n}\,dS$};
+\node[card,text width=14cm,draw=orange!65,fill=orange!4] at (0,-2.05) {$\displaystyle \int_V(\varphi\nabla^2\psi-\psi\nabla^2\varphi)\,dV$\\$\displaystyle =\oint_{\partial V}\left(\varphi\frac{\partial\psi}{\partial n}-\psi\frac{\partial\varphi}{\partial n}\right)dS$};
+
+\end{tikzpicture}\end{document}

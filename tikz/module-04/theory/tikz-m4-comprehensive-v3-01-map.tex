@@ -1,0 +1,73 @@
+% 图契约：保留原稿的物理与电路拓扑，启用中文字体及中文断行，逐图检查标注。
+
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathreplacing,bending}
+\IfFontExistsTF{Heiti SC}{
+  \IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}
+  \IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}
+}{
+  \IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}
+  \IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}
+}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{238,132,20}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{105,72,170}
+\definecolor{linegray}{RGB}{62,69,78}
+\definecolor{softgray}{RGB}{247,248,250}
+\definecolor{lightblue}{RGB}{232,239,255}
+\definecolor{lightred}{RGB}{255,237,234}
+\definecolor{lightgreen}{RGB}{232,248,240}
+\definecolor{lightorange}{RGB}{255,244,229}
+\tikzset{
+  arr/.style={-{Latex[length=3.0mm,width=1.9mm]},line width=1.05pt},
+  smallarr/.style={-{Latex[length=2.2mm,width=1.4mm]},line width=.82pt},
+  wire/.style={line width=1.0pt,linegray},
+  heavywire/.style={line width=1.55pt,linegray},
+  faintwire/.style={line width=.68pt,linegray!55},
+  nodept/.style={circle,fill=linegray,inner sep=1.65pt},
+  terminal/.style={circle,draw=linegray,fill=white,line width=.9pt,minimum size=7mm,inner sep=0pt},
+  card/.style={draw=linegray,rounded corners=4pt,fill=white,line width=.8pt,align=center,inner sep=6pt},
+  box/.style={draw=linegray,rounded corners=4pt,fill=softgray,line width=.78pt,align=center,inner sep=5pt},
+  formula/.style={draw=linegray,rounded corners=4pt,fill=white,line width=.78pt,align=center,inner sep=5pt,font=\large},
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \fill[white] (-9.8,-4.75) rectangle (9.8,4.8);
+  \node[font=\Large\bfseries] at (0,4.38) {复杂电阻网络：先辨结构，再选表示};
+
+  \node[card,draw=bluefield,fill=lightblue,text width=4.0cm] (a) at (-7.2,2.05)
+    {无限嵌套三角形\\自相似与 $\triangle-Y$ 变换};
+  \node[card,draw=greenfield,fill=lightgreen,text width=4.0cm] (b) at (-2.4,2.05)
+    {有限方形梯形\\端口递推与差分方程};
+  \node[card,draw=orangefield,fill=lightorange,text width=4.0cm] (c) at (2.4,2.05)
+    {斜接有限梯形\\端口改变与非齐次项};
+  \node[card,draw=purplefield,fill=purplefield!9,text width=4.0cm] (d) at (7.2,2.05)
+    {无限双线条带\\横向本征模态};
+
+  \node[card,draw=redfield,fill=lightred,text width=4.8cm] (e) at (-5.2,-1.25)
+    {环形梯形\\周期边界与闭合模态};
+  \node[card,draw=bluefield,fill=lightblue,text width=4.8cm] (f) at (0,-1.25)
+    {三排无限条带\\三个横向模式独立传播};
+  \node[card,draw=greenfield,fill=lightgreen,text width=4.8cm] (g) at (5.2,-1.25)
+    {半无限圆柱网格\\傅里叶分解与端面边界};
+
+  \draw[arr,linegray] (a)--(b);
+  \draw[arr,linegray] (b)--(c);
+  \draw[arr,linegray] (c)--(d);
+  \draw[arr,linegray] (d.south) .. controls (7.2,.15) and (5.8,.1) .. (g.north);
+  \draw[arr,linegray] (e)--(f);
+  \draw[arr,linegray] (f)--(g);
+
+  \node[box,draw=linegray,text width=15.8cm] at (0,-3.55)
+    {统一检查：端口是否明确；边界是有限、周期还是半无限；结果是否满足小规模值、单调性、量纲与极限。};
+\end{tikzpicture}
+\end{document}

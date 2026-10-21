@@ -1,0 +1,43 @@
+% 核心结论：阻抗与导纳的辐角
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-014　阻抗与导纳的辐角};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.50000,0.00000) -- (2.60000,0.00000);
+\draw[axis] (0.00000,-2.05000) -- (0.00000,2.25000);
+\node[] at (2.58000,-0.26000) {$\operatorname{Re}$};
+\node[] at (-0.33000,2.20000) {$\operatorname{Im}$};
+\node[] at (-0.18000,-0.20000) {$O$};
+\draw[v,blue] (0.00000,0.00000) -- (1.87500,2.50000);
+\draw[aux] (1.87500,2.50000) -- (1.87500,0.00000);
+\draw[blue!40] (1.87500,0.00000) -- (0.00000,0.00000);
+\node[text=blue] at (1.20000,-0.50000) {$R=3$};
+\node[lab,anchor=west] at (0.50000,-1.30000) {$X=4$};
+\node[text=blue] at (0.40000,2.65000) {$Z$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$Z=3+j4\;\Omega$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$Y=0.12-j0.16\;\mathrm S$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {复平面中阻抗位于第一象限；求倒数时虚部变号，导纳应转入第四象限。};
+
+\end{tikzpicture}\end{document}

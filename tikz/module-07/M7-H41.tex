@@ -1,0 +1,39 @@
+% 图契约：传输线上的前行波、反行波与电压电流方向；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-H41　传输线上的前行波、反行波与电压电流方向};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,line width=.8pt](-2.50000,0.50000)--(2.00000,0.50000);
+\draw[ink,line width=.8pt](-2.50000,-0.50000)--(2.00000,-0.50000);
+\draw[ink,line width=.8pt](2.00000,0.50000)--(2.00000,0.40000);
+\draw[ink,line width=.8pt](2.00000,-0.40000)--(2.00000,-0.50000);
+\draw[ink,fill=white](1.85,-0.4)rectangle(2.15,0.4);
+\node[lab]at(2.60000,0.00000){$Z_L$};
+\draw[v,blue](-2.00000,1.20000)--(0.60000,1.20000);
+\node[text=blue]at(-0.80000,1.60000){$V_+,I_+$};
+\node[lab]at(-0.60000,0.00000){$Z_0$};
+\draw[{Latex[length=1.3mm]}-{Latex[length=1.3mm]},ink!65,line width=.5pt](-2.50000,-2.20000)--(2.00000,-2.20000);
+\node[lab]at(-0.25000,-2.45000){$\ell$};
+\draw[v,red](0.60000,-1.20000)--(-2.00000,-1.20000);
+\node[text=red]at(-0.80000,-1.60000){$V_-,\ I_-=-V_-/Z_0$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$V=V_++V_-$};
+\node[card]at(4.00000,-1.05000){$I=(V_+-V_-)/Z_0$};
+\end{tikzpicture}\end{document}

@@ -1,0 +1,43 @@
+% 图契约：四端星形消元为六条等值边；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {M4-076\quad 四端星形消元为六条等值边};
+\begin{scope}[shift={(-4.05,0)}]\draw[wire,draw=ink](0,0)--(4.5924254968025736e-17,0.7499999999999999) (7.960204194457795e-17,1.2999999999999998)--(1.2552629691260368e-16,2.05);\begin{scope}[shift={(6.276314845630184e-17,1.025)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label,anchor=east,fill=white,inner sep=1pt]at(-0.32999999999999996,1.025){$r$};\draw[wire,draw=ink](0,0)--(0.7499999999999999,0.0) (1.2999999999999998,0.0)--(2.05,0.0);\begin{scope}[shift={(1.025,0.0)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label,anchor=center,fill=white,inner sep=1pt]at(1.025,0.5){$r$};\draw[wire,draw=ink](0,0)--(4.5924254968025736e-17,-0.7499999999999999) (7.960204194457795e-17,-1.2999999999999998)--(1.2552629691260368e-16,-2.05);\begin{scope}[shift={(6.276314845630184e-17,-1.025)},rotate=-90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label,anchor=west,fill=white,inner sep=1pt]at(0.33000000000000007,-1.025){$r$};\draw[wire,draw=ink](0,0)--(-0.7499999999999999,-9.184850993605147e-17) (-1.2999999999999998,-1.592040838891559e-16)--(-2.05,-2.5105259382520737e-16);\begin{scope}[shift={(-1.025,-1.2552629691260368e-16)},rotate=-180.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\node[label,anchor=center,fill=white,inner sep=1pt]at(-1.025,-0.5000000000000001){$r$};\fill[ink] (1.2552629691260368e-16,2.05)circle(2pt);\node[above=4pt] at(1.2552629691260368e-16,2.05){$1$};
+\fill[ink] (2.05,0.0)circle(2pt);\node[below=4pt] at(2.05,0.0){$2$};
+\fill[ink] (1.2552629691260368e-16,-2.05)circle(2pt);\node[below=4pt] at(1.2552629691260368e-16,-2.05){$3$};
+\fill[ink] (-2.05,-2.5105259382520737e-16)circle(2pt);\node[below=4pt] at(-2.05,-2.5105259382520737e-16){$4$};
+\fill[ink] (0,0)circle(2pt);
+\node[label]at(.4,.52){$O$};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$A=4/r,\quad g_{ij}=1/(4r)$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$R_{ij}^{\text{完}}=4r$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {其余端悬空：$R_{ij}^{\text{测}}=2r$};
+\end{tikzpicture}\end{document}

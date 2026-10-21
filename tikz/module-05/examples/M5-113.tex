@@ -1,0 +1,35 @@
+% 图契约：恒流充电；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {M5-113\quad 恒流充电};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[wire](-2.5,0)--(-0.16,0)(0.16,0)--(2.5,0);\draw[ink,thick](-0.16,-0.7)--(-0.16,0.7)(0.16,-0.7)--(0.16,0.7);\node[below]at(0.0,-0.85){$C$};\node[red]at(-.45,1.1){$+$};\node[blue]at(.45,1.1){$-$};\draw[vec,red](-2.3,.6)--(-.8,.6)node[midway,above]{$i$};\node[label]at(0,-2.1){$u$ 从左端量到右端，$i$ 流入正端};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$C=2.0\ \mu\mathrm F,\quad i=4.0\ \mu\mathrm A$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$du/dt=i/C=2.0\ \mathrm{V/s}$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {$u(t)=u(0)+2.0\,t\ \mathrm{V/s}$};
+\end{tikzpicture}\end{document}

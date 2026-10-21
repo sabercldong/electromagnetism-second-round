@@ -1,0 +1,47 @@
+% 2026-10-20用户反馈复核；图号、参考方向、数据与本题解答同步。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.3}{12.5}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.8mm,width=1.1mm]},ink!70,line width=.6pt},
+aux/.style={ink!40,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-3.6) rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{14}\selectfont,text width=15cm,align=center] at (0,3.23) {M4-024　电极边与绝缘边完整互换};
+\node[text=blue,font=\bfseries] at (-4,2.6) {原测量：上、下边为电极};
+\node[text=green,font=\bfseries] at (4,2.6) {新测量：完整边界角色互换};
+\begin{scope}[shift={(-5.1,-1.8)},scale=.9]
+\draw[ink!60,fill=blue!3] (0,0)--(2,0)--(2,1) arc[start angle=-90,end angle=-270,radius=1]--(2,4)--(0,4)--cycle;
+\draw[red,line width=1.5pt] (0,0)--(2,0);
+\draw[red,line width=1.5pt] (0,4)--(2,4);
+\draw[v,blue] (0.55,3.25)--(0.55,0.7);
+\node[] at (0.8,2) {$I$};
+\node[] at (-0.45,2) {绝缘};
+\node[text width=1.7cm,align=center] at (2.75,2) {绝缘\\含凹弧};
+\node[text=red] at (1,4.3) {电极};
+\end{scope}
+\begin{scope}[shift={(2.9,-1.8)},scale=.9]
+\draw[ink!60,fill=blue!3] (0,0)--(2,0)--(2,1) arc[start angle=-90,end angle=-270,radius=1]--(2,4)--(0,4)--cycle;
+\draw[red,line width=1.5pt] (0,0)--(0,4);
+\draw[red,line width=1.5pt] (2,0)--(2,1) arc[start angle=-90,end angle=-270,radius=1]--(2,4);
+\draw[v,blue] (0.25,0.5)--(1.55,0.5);
+\node[] at (0.9,0.85) {$I'$};
+\node[text=red] at (-0.45,2) {电极};
+\node[text=red,text width=1.7cm,align=center] at (2.75,2) {电极\\含凹弧};
+\node[] at (1,4.3) {绝缘};
+\end{scope}
+\node[] at (-4,-2.5) {$R=U/I$};
+\node[] at (4,-2.5) {$U^{\prime}=R_\square I,\quad I^{\prime}=U/R_\square$};
+\node[text width=15cm,align=center] at (0,-3.12) {在同一方块电阻下旋转电场、片电流的方向：$RR^{\prime}=R_\square^2$。蓝箭头仅标总电流正向。};
+\end{tikzpicture}\end{document}

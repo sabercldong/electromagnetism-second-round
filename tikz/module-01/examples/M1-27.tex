@@ -1,0 +1,40 @@
+% 对应题号 M1-27，复用已核对的本题几何图。
+% 核心结论：单一方向流入不代表总散度为负。
+% 图契约：物理竞赛讲义；印刷宽16cm，最小字号8.5pt；几何示意与公式分区。
+% 布局：[几何/曲线 7cm] [定义/结果 7cm]；实线主量，虚线辅助；无装饰数据。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,positioning,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{
+ every node/.style={font=\fontsize{9.5}{13}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!60,fill=blue!4,
+   align=center,text width=6.8cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{11}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.5}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[title] at (0,2.95) {例：散度需要相加三个方向的贡献};
+\begin{scope}[shift={(-4,0)}]
+
+\draw[ink!60,fill=blue!3] (-1.1,-1.1) rectangle(1.1,1.1);
+\draw[vec] (1.1,0)--(2.1,0);\draw[vec] (-1.1,0)--(-2.1,0);
+\draw[vec,red] (0,1.9)--(0,1.1);\draw[vec,red] (0,-1.9)--(0,-1.1);
+\node[blue] at (0,-2.45) {$x$ 向流出；$y$ 向流入；另有 $z$ 向流出};
+
+\end{scope}\node[card,draw=blue!65,fill=blue!4] at (3.9,1.65) {$\mathbf A=(2x,-y,3z)$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\nabla\cdot\mathbf A=2-1+3=4$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.65) {$\Delta\Phi=4\Delta V$\\此线性场中该通量关系精确成立。};
+\end{tikzpicture}\end{document}

@@ -1,0 +1,43 @@
+% 核心结论：尺度因子把坐标增量转换成真实长度。
+% 图契约：物理竞赛讲义；印刷宽16cm，最小字号8.5pt；几何示意与公式分区。
+% 布局：[几何/曲线 7cm] [定义/结果 7cm]；实线主量，虚线辅助；无装饰数据。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,positioning,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{
+ every node/.style={font=\fontsize{9.5}{13}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!60,fill=blue!4,
+   align=center,text width=6.8cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{11}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.5}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[title] at (0,2.95) {曲线坐标：坐标增量先换成真实长度};
+\begin{scope}[shift={(-4,0)}]
+
+\draw[axis] (-2.4,-1.6)--(2.5,-1.6) node[right] {$x$};
+\draw[axis] (-2.1,-1.9)--(-2.1,2.2) node[above] {$y$};
+\coordinate (O) at (-2.1,-1.6);
+\draw[ink!45] (O)--++(20:3.7);\draw[green] (O)--++(55:3.7);
+\draw[orange,line width=1.3pt] ($(O)+(20:3)$) arc[start angle=20,end angle=55,radius=3];
+\node[label,orange] at (.55,1.25) {$\rho\,d\phi$};
+\draw[guide] ($(O)+(20:3.7)$) arc[start angle=20,end angle=55,radius=3.7];
+\draw[<->,blue] ($(O)+(20:3)$)--($(O)+(20:3.7)$) node[midway,below=5pt] {$d\rho$};
+
+\end{scope}\node[card,draw=blue!65,fill=blue!4] at (3.9,1.65) {$d\mathbf r=\sum_i h_i\,dq_i\,\mathbf e_i$\\$h_i dq_i$ 才是真实边长。};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$\displaystyle \nabla f=\sum_i\frac1{h_i}\frac{\partial f}{\partial q_i}\mathbf e_i$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.65) {柱坐标：$(h_\rho,h_\phi,h_z)=(1,\rho,1)$\\球坐标：$(h_r,h_\theta,h_\phi)=(1,r,r\sin\theta)$};
+\end{tikzpicture}\end{document}

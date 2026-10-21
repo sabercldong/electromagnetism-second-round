@@ -1,0 +1,50 @@
+% 对应题号 M2-023，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {有限电荷对到理想偶极：远场只保留一阶方向信息};
+\begin{scope}[shift={(-4.7,-.1)}]
+\fill[bluefield] (-1.2,0) circle(.11) node[below] {$-q$}; \fill[redfield] (1.2,0) circle(.11) node[below] {$+q$};
+\draw[arrow,greenfield] (-1.2,.55)--(1.2,.55) node[midway,above] {$\boldsymbol\ell$};
+\fill[linegray] (2.7,2.0) circle(.07) node[right] {$P$};
+\draw[arrow,linegray] (0,0)--(2.65,1.95) node[midway,above left] {$\mathbf r$};
+\draw[guide] (-1.2,0)--(2.7,2.0) (1.2,0)--(2.7,2.0);
+\end{scope}
+\begin{scope}[shift={(4.6,-.1)}]
+\node[bluebox,text width=6.9cm] at (0,1.7) {$\displaystyle \varphi=kq\left(\frac1{|\mathbf r-\boldsymbol\ell/2|}-\frac1{|\mathbf r+\boldsymbol\ell/2|}\right)$};
+\node[greenbox,text width=6.9cm] at (0,0) {$r\gg\ell:\quad \mathbf p=q\boldsymbol\ell,\quad \varphi\simeq k\,\mathbf p\cdot\mathbf r/r^3$};
+\node[orangebox,text width=6.9cm] at (0,-1.7) {$\displaystyle \mathbf E=k\frac{3(\mathbf p\cdot\hat{\mathbf r})\hat{\mathbf r}-\mathbf p}{r^3}$};
+\end{scope}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,50 @@
+% 核心结论：
+% 草图：[真实几何与节点 | 条件、推导、结论]；17cm印宽，最小字号8pt。
+% 图契约：嵌套三角形：外层六段与同构三端尾网；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {M4-088\quad 嵌套三角形：外层六段与同构三端尾网};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[wire,draw=blue](-2.5,-1.65)--(-1.9416666666666669,-1.65) (-1.3916666666666666,-1.65)--(-0.8333333333333334,-1.6499999999999997);\begin{scope}[shift={(-1.6666666666666667,-1.65)},rotate=7.633331235512441e-15]\draw[draw=blue,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=orange](-0.8333333333333334,-1.6499999999999997)--(0.5583333333333332,-1.65) (1.1083333333333334,-1.65)--(2.5,-1.65);\begin{scope}[shift={(0.8333333333333333,-1.65)},rotate=-3.81666561775622e-15]\draw[draw=orange,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=blue](2.5,-1.65)--(2.229083041834208,-1.2165328669347324) (1.937583624832459,-0.7501337997319341)--(1.6666666666666667,-0.3166666666666666);\begin{scope}[shift={(2.0833333333333335,-0.9833333333333333)},rotate=122.0053832080835]\draw[draw=blue,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=orange](1.6666666666666667,-0.3166666666666666)--(0.9790830418342079,0.7834671330652676) (0.6875836248324588,1.249866200268066)--(0,2.35);\begin{scope}[shift={(0.8333333333333334,1.0166666666666668)},rotate=122.0053832080835]\draw[draw=orange,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=blue](0,2.35)--(-0.2709169581657922,1.9165328669347328) (-0.5624163751675412,1.4501337997319343)--(-0.8333333333333334,1.0166666666666668);\begin{scope}[shift={(-0.4166666666666667,1.6833333333333336)},rotate=-122.0053832080835]\draw[draw=blue,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=orange](-0.8333333333333334,1.0166666666666668)--(-1.5209169581657922,-0.08346713306526732) (-1.8124163751675413,-0.5498662002680658)--(-2.5,-1.65);\begin{scope}[shift={(-1.6666666666666667,-0.31666666666666654)},rotate=-122.0053832080835]\draw[draw=orange,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\filldraw[fill=blue!6,draw=blue,dashed](-0.8333333333333334,-1.6499999999999997)--(1.6666666666666667,-0.3166666666666666)--(-0.8333333333333334,1.0166666666666668)--cycle;\fill[ink] (-2.5,-1.65)circle(2pt);\node[below left=4pt] at(-2.5,-1.65){$A$};
+\fill[ink] (2.5,-1.65)circle(2pt);\node[below right=4pt] at(2.5,-1.65){$B$};
+\fill[ink] (0,2.35)circle(2pt);\node[above=4pt] at(0,2.35){$C$};
+\fill[ink] (-0.8333333333333334,-1.6499999999999997)circle(2pt);\node[below=4pt] at(-0.8333333333333334,-1.6499999999999997){$P$};
+\fill[ink] (1.6666666666666667,-0.3166666666666666)circle(2pt);\node[right=4pt] at(1.6666666666666667,-0.3166666666666666){$Q$};
+\fill[ink] (-0.8333333333333334,1.0166666666666668)circle(2pt);\node[left=4pt] at(-0.8333333333333334,1.0166666666666668){$S$};
+\node[label,text width=1.8cm]at(0,0){同构三端\\尾网};\node[label]at(0,-2.25){绕向 $A\to B\to C\to A$};\node[label,blue]at(-1.7,-1.28){$r/3$};\node[label,orange]at(.8,-1.28){$2r/3$};\node[note]at(0,-2.9){每条外边沿绕向先r/3、后2r/3；尾网内继续相同规则};\end{scope}
+\node[card,text width=6.5cm,draw=blue!65,fill=blue!4]at(3.9,1.8){尾网二端：$R_{PQ}=xr$\\等效三角形每边：$3xr/2$};
+\node[card,text width=6.5cm,draw=green!65,fill=green!4]at(3.9,0){$x=(4/9+x)/(1+3x/2)$};
+\node[card,text width=6.5cm,draw=orange!65,fill=orange!4]at(3.9,-1.8){$R_{AB}=2\sqrt6\,r/9$};
+
+\end{tikzpicture}\end{document}

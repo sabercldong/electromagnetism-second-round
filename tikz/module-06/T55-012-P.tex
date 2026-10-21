@@ -1,0 +1,45 @@
+% 核心结论：数值谐振：干路只剩有功电流
+% 图原型：纯几何／对比；按本题相位与电路拓扑绘制。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[font=\fontsize{11}{14}\selectfont\bfseries] at (0.00000,3.04000) {数值谐振：干路只剩有功电流};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-1.60000,0.90000) -- (2.10000,0.90000);
+\node[] at (2.15000,0.58000) {$\operatorname{Re}$};
+\draw[axis] (-1.00000,-2.00000) -- (-1.00000,2.00000);
+\node[] at (-1.38000,1.95000) {$\operatorname{Im}$};
+\draw[v,blue] (-1.00000,0.90000) -- (-0.73267,-1.77327);
+\node[lab,text=blue] at (-1.62000,-0.65000) {$\widetilde I_L$};
+\draw[v,green] (-0.73267,-1.77327) -- (-0.73267,0.90000);
+\node[lab,text=green,anchor=west] at (-0.35000,-0.60000) {$\widetilde I_C$};
+\draw[v,red] (-1.00000,0.90000) -- (-0.73267,0.90000);
+\node[lab,text=red] at (-0.70000,1.30000) {$\widetilde I$};
+\node[] at (-1.20000,1.08000) {$O$};
+\node[] at (-0.58267,0.75000) {$A$};
+\node[] at (-0.58267,-1.97327) {$B$};
+\node[] at (0.00000,-2.40000) {同一长度尺度：$2.7\,\mathrm{cm/A}$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.30000) {$\widetilde I_L=0.0990099-j0.990099\;\mathrm A$\\[4pt]$|\widetilde I_L|=0.995037\;\mathrm A$};
+\node[card] at (0.00000,-0.15000) {$\widetilde I_C=j0.990099\;\mathrm A$\\[4pt]$\widetilde I=0.0990099\;\mathrm A$};
+\node[text width=6cm,align=center] at (0.00000,-1.90000) {竖直分量等大反向，\\短的水平分量不为零。};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {线圈相量与电容相量首尾相接，终点 $A$ 位于实轴；所有电流单位为 A。};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,78 @@
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathreplacing}
+\IfFontExistsTF{Heiti SC}{
+  \IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}
+  \IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}
+}{
+  \IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}
+  \IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}
+}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{238,132,20}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{105,72,170}
+\definecolor{linegray}{RGB}{70,76,84}
+\definecolor{softgray}{RGB}{246,248,250}
+\definecolor{lightblue}{RGB}{230,238,255}
+\definecolor{lightred}{RGB}{255,235,232}
+\definecolor{lightgreen}{RGB}{232,248,240}
+\definecolor{lightorange}{RGB}{255,244,229}
+\tikzset{
+  axis/.style={-{Latex[length=2.7mm,width=1.8mm]},line width=.85pt,linegray},
+  arrow/.style={-{Latex[length=3.0mm,width=1.9mm]},line width=1.05pt},
+  thinarr/.style={-{Latex[length=2.2mm,width=1.45mm]},line width=.82pt},
+  flow/.style={-{Latex[length=2.7mm,width=1.8mm]},line width=1.0pt},
+  card/.style={draw=linegray,rounded corners=5pt,fill=white,line width=.82pt,align=center,inner sep=6pt},
+  box/.style={draw=linegray,rounded corners=4pt,fill=softgray,line width=.78pt,align=center,inner sep=6pt},
+  formula/.style={draw=linegray,rounded corners=4pt,fill=white,line width=.75pt,align=center,inner sep=5pt,font=\large},
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \fill[white] (-9.6,-4.35) rectangle (9.6,4.65);
+  \node[font=\Large\bfseries] at (0,4.22) {读纳布拉恒等式：同时追踪“矢量结构”和“微分作用”};
+
+  \node[formula,draw=purplefield,text width=4.6cm] (center) at (0,2.65)
+    {$\displaystyle \nabla
+    =\mathbf i\frac{\partial}{\partial x}
+    +\mathbf j\frac{\partial}{\partial y}
+    +\mathbf k\frac{\partial}{\partial z}$};
+
+  \begin{scope}[shift={(-5.45,.15)}]
+    \node[box,draw=bluefield,fill=lightblue,text width=5.2cm] (v) at (0,1.05)
+      {形式上像矢量\\可以点乘、叉乘、轮换};
+    \node[formula,text width=5.2cm] at (0,-.55)
+      {$\nabla\cdot\mathbf A,\quad
+       \nabla\times\mathbf A,\quad
+       \nabla^2=\nabla\cdot\nabla$};
+    \node[card,draw=bluefield,fill=white,text width=5.2cm,font=\small] at (0,-2.45)
+      {这一本账决定输出类型：\\标量、矢量，还是逐分量作用。};
+  \end{scope}
+
+  \begin{scope}[shift={(5.45,.15)}]
+    \node[box,draw=greenfield,fill=lightgreen,text width=5.2cm] (d) at (0,1.05)
+      {本质上是微分算符\\必须遵守求导法则};
+    \node[formula,text width=5.2cm] at (0,-.55)
+      {$\nabla(uv),\quad
+       \nabla\cdot(u\mathbf A),\quad
+       \nabla\times(u\mathbf A)$};
+    \node[card,draw=greenfield,fill=white,text width=5.2cm,font=\small] at (0,-2.45)
+      {这一本账决定它作用在哪个因子上，\\也决定会多出哪些项。};
+  \end{scope}
+
+  \draw[flow,bluefield] (center.west) -- (-3.15,1.28);
+  \draw[flow,greenfield] (center.east) -- (3.15,1.28);
+  \node[box,draw=orangefield,fill=lightorange,text width=12.6cm,font=\small] at (0,-3.72)
+    {安全读法：先问输入对象是什么，再看连接符号，最后检查微分算符有没有漏作用某个因子。};
+\end{tikzpicture}
+\end{document}

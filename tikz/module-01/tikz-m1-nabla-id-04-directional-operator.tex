@@ -1,0 +1,80 @@
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathreplacing}
+\IfFontExistsTF{Heiti SC}{
+  \IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}
+  \IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}
+}{
+  \IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}
+  \IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}
+}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{238,132,20}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{105,72,170}
+\definecolor{linegray}{RGB}{70,76,84}
+\definecolor{softgray}{RGB}{246,248,250}
+\definecolor{lightblue}{RGB}{230,238,255}
+\definecolor{lightred}{RGB}{255,235,232}
+\definecolor{lightgreen}{RGB}{232,248,240}
+\definecolor{lightorange}{RGB}{255,244,229}
+\tikzset{
+  axis/.style={-{Latex[length=2.7mm,width=1.8mm]},line width=.85pt,linegray},
+  arrow/.style={-{Latex[length=3.0mm,width=1.9mm]},line width=1.05pt},
+  thinarr/.style={-{Latex[length=2.2mm,width=1.45mm]},line width=.82pt},
+  flow/.style={-{Latex[length=2.7mm,width=1.8mm]},line width=1.0pt},
+  card/.style={draw=linegray,rounded corners=5pt,fill=white,line width=.82pt,align=center,inner sep=6pt},
+  box/.style={draw=linegray,rounded corners=4pt,fill=softgray,line width=.78pt,align=center,inner sep=6pt},
+  formula/.style={draw=linegray,rounded corners=4pt,fill=white,line width=.75pt,align=center,inner sep=5pt,font=\large},
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \fill[white] (-9.6,-4.35) rectangle (9.6,4.65);
+  \node[font=\Large\bfseries] at (0,4.22) {$(\mathbf A\cdot\nabla)$：把矢量变成“沿该方向求导”的算符};
+
+  \begin{scope}[shift={(-5.8,.1)}]
+    \draw[axis] (-2.55,-1.75)--(2.85,-1.75) node[right,font=\small] {$x$};
+    \draw[axis] (-2.55,-1.75)--(-2.55,2.35) node[above,font=\small] {$y$};
+    \foreach \r in {.55,1.05,1.55,2.05} {
+      \draw[linegray!35,line width=.75pt] (0,0) ellipse ({1.35*\r} and {.55*\r});
+    }
+    \fill[black] (.25,.2) circle (.04) node[below right,font=\small] {$P$};
+    \draw[arrow,greenfield] (.25,.2)--(1.75,.92) node[right,font=\small] {$\mathbf A$};
+    \draw[arrow,bluefield] (.25,.2)--(1.28,1.45) node[above,font=\small] {$\nabla u$};
+    \node[font=\small,greenfield] at (1.4,-.65) {只取沿 $\mathbf A$ 的变化率};
+    \node[formula,draw=greenfield,text width=5.2cm] at (0,-2.8)
+      {$\displaystyle (\mathbf A\cdot\nabla)u
+      =A_x\frac{\partial u}{\partial x}
+      +A_y\frac{\partial u}{\partial y}
+      +A_z\frac{\partial u}{\partial z}$};
+  \end{scope}
+
+  \begin{scope}[shift={(5.7,.1)}]
+    \node[box,draw=bluefield,fill=lightblue,text width=5.5cm] at (0,2.35)
+      {若 $\mathbf n$ 是单位矢量};
+    \node[formula,text width=5.5cm] at (0,1.05)
+      {$\displaystyle (\mathbf n\cdot\nabla)u=\frac{\partial u}{\partial n}$};
+    \node[box,draw=greenfield,fill=lightgreen,text width=5.5cm] at (0,-.35)
+      {若作用于矢量场};
+    \node[formula,text width=5.5cm] at (0,-1.65)
+      {$\displaystyle
+      (\mathbf A\cdot\nabla)\mathbf B
+      =\text{沿 }\mathbf A\text{ 方向看 }\mathbf B\text{ 的变化}$};
+    \node[card,draw=orangefield,fill=lightorange,text width=5.5cm,font=\small] at (0,-3.05)
+      {流体中的 $(\mathbf v\cdot\nabla)\mathbf v$，\\就是速度场沿自身流动方向的空间变化。};
+  \end{scope}
+
+  \node[box,draw=purplefield,fill=purplefield!8,text width=12.7cm,font=\small] at (0,-4.65)
+    {$(\mathbf A\cdot\nabla)$ 本身不是普通点乘后的数，而是一个会继续作用到后面对象上的微分算符。};
+\end{tikzpicture}
+\end{document}

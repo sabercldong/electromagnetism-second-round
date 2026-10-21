@@ -1,0 +1,64 @@
+% 图契约：平衡辅助态相加后只留下指定源汇；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {\quad 平衡辅助态相加后只留下指定源汇};
+\begin{scope}[shift={(-5.2,.8)}]\draw[wire,draw=ink](8.266365894244634e-17,1.35)--(0.4194834750461181,1.0452274155835197) (0.8644428219523392,0.7219455268226594)--(1.2839262969984573,0.417172942406179);\begin{scope}[shift={(0.6419631484992286,0.8835864712030895)},rotate=-36.00000000000001]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](1.2839262969984573,0.417172942406179)--(1.1236978672497586,-0.07595945801883291) (0.9537385203435376,-0.5990405419811673)--(0.7935100905948388,-1.0921729424061792);\begin{scope}[shift={(1.038718193796648,-0.33750000000000013)},rotate=-108.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](0.7935100905948388,-1.0921729424061792)--(0.2750000000000001,-1.0921729424061792) (-0.27499999999999997,-1.0921729424061792)--(-0.7935100905948387,-1.0921729424061792);\begin{scope}[shift={(5.551115123125783e-17,-1.0921729424061792)},rotate=180.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](-0.7935100905948387,-1.0921729424061792)--(-0.9537385203435376,-0.5990405419811674) (-1.1236978672497586,-0.07595945801883297)--(-1.2839262969984575,0.41717294240617886);\begin{scope}[shift={(-1.038718193796648,-0.3375000000000002)},rotate=108.00000000000001]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](-1.2839262969984575,0.41717294240617886)--(-0.8644428219523392,0.7219455268226593) (-0.4194834750461182,1.0452274155835195)--(8.266365894244634e-17,1.35);\begin{scope}[shift={(-0.6419631484992288,0.8835864712030894)},rotate=36.00000000000001]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\fill[ink] (8.266365894244634e-17,1.35)circle(2pt);\node[above=4pt] at(8.266365894244634e-17,1.35){$A$};
+\fill[ink] (1.2839262969984573,0.417172942406179)circle(2pt);
+\fill[ink] (0.7935100905948388,-1.0921729424061792)circle(2pt);\node[below right=4pt] at(0.7935100905948388,-1.0921729424061792){$B$};
+\fill[ink] (-0.7935100905948387,-1.0921729424061792)circle(2pt);
+\fill[ink] (-1.2839262969984575,0.41717294240617886)circle(2pt);
+\node[label]at(0,2.05){状态一};\end{scope}\node[card,text width=4.1cm,draw=blue!65,fill=blue!4]at(-5.2,-1.4){A:$+I$；其余各点 $-I/(N-1)$};
+\begin{scope}[shift={(0,.8)}]\draw[wire,draw=ink](8.266365894244634e-17,1.35)--(0.4194834750461181,1.0452274155835197) (0.8644428219523392,0.7219455268226594)--(1.2839262969984573,0.417172942406179);\begin{scope}[shift={(0.6419631484992286,0.8835864712030895)},rotate=-36.00000000000001]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](1.2839262969984573,0.417172942406179)--(1.1236978672497586,-0.07595945801883291) (0.9537385203435376,-0.5990405419811673)--(0.7935100905948388,-1.0921729424061792);\begin{scope}[shift={(1.038718193796648,-0.33750000000000013)},rotate=-108.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](0.7935100905948388,-1.0921729424061792)--(0.2750000000000001,-1.0921729424061792) (-0.27499999999999997,-1.0921729424061792)--(-0.7935100905948387,-1.0921729424061792);\begin{scope}[shift={(5.551115123125783e-17,-1.0921729424061792)},rotate=180.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](-0.7935100905948387,-1.0921729424061792)--(-0.9537385203435376,-0.5990405419811674) (-1.1236978672497586,-0.07595945801883297)--(-1.2839262969984575,0.41717294240617886);\begin{scope}[shift={(-1.038718193796648,-0.3375000000000002)},rotate=108.00000000000001]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](-1.2839262969984575,0.41717294240617886)--(-0.8644428219523392,0.7219455268226593) (-0.4194834750461182,1.0452274155835195)--(8.266365894244634e-17,1.35);\begin{scope}[shift={(-0.6419631484992288,0.8835864712030894)},rotate=36.00000000000001]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\fill[ink] (8.266365894244634e-17,1.35)circle(2pt);\node[above=4pt] at(8.266365894244634e-17,1.35){$A$};
+\fill[ink] (1.2839262969984573,0.417172942406179)circle(2pt);
+\fill[ink] (0.7935100905948388,-1.0921729424061792)circle(2pt);\node[below right=4pt] at(0.7935100905948388,-1.0921729424061792){$B$};
+\fill[ink] (-0.7935100905948387,-1.0921729424061792)circle(2pt);
+\fill[ink] (-1.2839262969984575,0.41717294240617886)circle(2pt);
+\node[label]at(0,2.05){状态二};\end{scope}\node[card,text width=4.1cm,draw=blue!65,fill=blue!4]at(0,-1.4){B:$-I$；其余各点 $+I/(N-1)$};
+\begin{scope}[shift={(5.2,.8)}]\draw[wire,draw=ink](8.266365894244634e-17,1.35)--(0.4194834750461181,1.0452274155835197) (0.8644428219523392,0.7219455268226594)--(1.2839262969984573,0.417172942406179);\begin{scope}[shift={(0.6419631484992286,0.8835864712030895)},rotate=-36.00000000000001]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](1.2839262969984573,0.417172942406179)--(1.1236978672497586,-0.07595945801883291) (0.9537385203435376,-0.5990405419811673)--(0.7935100905948388,-1.0921729424061792);\begin{scope}[shift={(1.038718193796648,-0.33750000000000013)},rotate=-108.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](0.7935100905948388,-1.0921729424061792)--(0.2750000000000001,-1.0921729424061792) (-0.27499999999999997,-1.0921729424061792)--(-0.7935100905948387,-1.0921729424061792);\begin{scope}[shift={(5.551115123125783e-17,-1.0921729424061792)},rotate=180.0]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](-0.7935100905948387,-1.0921729424061792)--(-0.9537385203435376,-0.5990405419811674) (-1.1236978672497586,-0.07595945801883297)--(-1.2839262969984575,0.41717294240617886);\begin{scope}[shift={(-1.038718193796648,-0.3375000000000002)},rotate=108.00000000000001]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\draw[wire,draw=ink](-1.2839262969984575,0.41717294240617886)--(-0.8644428219523392,0.7219455268226593) (-0.4194834750461182,1.0452274155835195)--(8.266365894244634e-17,1.35);\begin{scope}[shift={(-0.6419631484992288,0.8835864712030894)},rotate=36.00000000000001]\draw[draw=ink,fill=white,line width=.8pt](-0.275,-.085)rectangle(0.275,.085);\end{scope}
+\fill[ink] (8.266365894244634e-17,1.35)circle(2pt);\node[above=4pt] at(8.266365894244634e-17,1.35){$A$};
+\fill[ink] (1.2839262969984573,0.417172942406179)circle(2pt);
+\fill[ink] (0.7935100905948388,-1.0921729424061792)circle(2pt);\node[below right=4pt] at(0.7935100905948388,-1.0921729424061792){$B$};
+\fill[ink] (-0.7935100905948387,-1.0921729424061792)circle(2pt);
+\fill[ink] (-1.2839262969984575,0.41717294240617886)circle(2pt);
+\node[label]at(0,2.05){叠加态};\end{scope}\node[card,text width=4.1cm,draw=blue!65,fill=blue!4]at(5.2,-1.4){A、B 为 $\pm NI/(N-1)$；其余0};
+\node[label,text width=14cm]at(0,-2.75){示意N=5的有限网络；各辅助态分别满足总注入为零，叠加后再按真实端口电流归一化。};
+\end{tikzpicture}\end{document}

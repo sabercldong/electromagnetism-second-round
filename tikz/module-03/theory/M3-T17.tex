@@ -1,0 +1,39 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\usepackage{unicode-math}\IfFontExistsTF{STIX Two Math}{\setmathfont{STIX Two Math}}{\setmathfont{Latin Modern Math}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {理论图 T17\quad 从正电荷穿出到负束缚电荷留下};
+\begin{scope}[shift={(-4,0)}]
+
+\filldraw[draw=ink!60,fill=blue!4] (0,0)ellipse(1.7 and 1.15);
+\foreach \a in {35,145,215,325}{\draw[vec,orange](\a:1.0)--(\a:2.05);}
+\node[blue] at(0,0){$-Q_{\rm out}$};
+\node[label] at(0,-.6){闭合体积 $V$};\node[red] at(1.6,1.5){$+Q_{\rm out}$};
+\node[note] at(0,2.1){图示 $\mathbf P$ 的净通量为正};
+\node[note] at(0,-2.4){穿出正极化电荷，体内留下等量负束缚电荷；负号来自电荷守恒。};
+\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$\displaystyle Q_{\rm out}=\oiint_S\mathbf P\cdot d\mathbf S$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$Q_b=-Q_{\rm out}$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {$\displaystyle\oiint_S\mathbf P\cdot d\mathbf S=\iiint_V\nabla\!\cdot\mathbf P\,dV$\\$\rho_b=-\nabla\!\cdot\mathbf P$};
+\end{tikzpicture}\end{document}

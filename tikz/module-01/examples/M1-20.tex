@@ -1,0 +1,41 @@
+% 对应题号 M1-20，复用已核对的本题几何图。
+% 核心结论：球面的梯度沿径向，给出切平面的法向。
+% 图契约：物理竞赛讲义；印刷宽16cm，最小字号8.5pt；几何示意与公式分区。
+% 布局：[几何/曲线 7cm] [定义/结果 7cm]；实线主量，虚线辅助；无装饰数据。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,positioning,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{
+ every node/.style={font=\fontsize{9.5}{13}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!60,fill=blue!4,
+   align=center,text width=6.8cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{11}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.5}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.35);
+\node[title] at (0,2.95) {例：球面的梯度与切平面};
+\begin{scope}[shift={(-4,0)}]
+
+\draw[blue!55] (0,0) circle(1.65);\draw[guide] (0,0) ellipse(1.65 and .4);
+\coordinate (P) at (45:1.65);\draw[ink!50] (P)--++(-1.35,1.35) (P)--++(1.35,-1.35);
+\draw[vec] (45:1.65)--(45:2.65) node[above right] {$2\mathbf r$};
+\fill[red] (P) circle(2pt);\node[below right] at (P) {$P$};\node[below] at (0,0) {$O$};
+\node[label] at (0,-2.45) {梯度在 $P$ 处沿径向（箭长示意）；图为法截面};
+
+\end{scope}\node[card,draw=blue!65,fill=blue!4] at (3.9,1.65) {$\phi=x^2+y^2+z^2=C>0$\\$\nabla\phi=2\mathbf r$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$x_0(x-x_0)+y_0(y-y_0)$\\$+z_0(z-z_0)=0$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.65) {原点处梯度为零；\\它不属于任一 $C>0$ 的球面。};
+\end{tikzpicture}\end{document}

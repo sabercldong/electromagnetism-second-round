@@ -1,0 +1,65 @@
+% 核心结论：稳压管并联稳压电路中的串联电流、负载电流和稳压管电流
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-H43　稳压管并联稳压电路中的串联电流、负载电流和稳压管电流};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-2.60000,1.50000) -- (-2.60000,0.40000);
+\draw[ink,thick] (-2.60000,-0.40000) -- (-2.60000,-1.50000);
+\draw[ink,thick] (-2.6,0) circle (.4);
+\node[] at (-2.60000,0.18000) {$+$};
+\node[] at (-2.60000,-0.18000) {$-$};
+\node[] at (-3.22000,0.00000) {$U_{in}$};
+\draw[ink,thick] (-2.60000,1.50000) -- (-1.87000,1.50000);
+\draw[ink,thick] (-1.03000,1.50000) -- (-0.30000,1.50000);
+\begin{scope}[shift={(-1.45000,1.50000)},rotate=0.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab] at (-1.45000,1.92000) {$R_s$};
+\draw[ink,thick] (-0.30000,1.50000) -- (2.20000,1.50000);
+\draw[ink,thick] (-2.60000,-1.50000) -- (2.20000,-1.50000);
+\draw[ink,thick] (-0.30000,-1.50000) -- (-0.30000,-0.42000);
+\draw[ink,thick] (-0.30000,0.42000) -- (-0.30000,1.50000);
+\begin{scope}[shift={(-0.30000,0.00000)},rotate=90.0]
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.20000,0.00000);
+\draw[ink,thick] (0.16000,0.00000) -- (0.42000,0.00000);
+\draw[ink,thick,fill=white] (-.20,-.18)--(-.20,.18)--(.16,0)--cycle;
+\draw[ink,thick] (0.16000,-0.22000) -- (0.16000,0.22000);
+\draw[ink,thick] (0.16000,-0.22000) -- (0.07000,-0.29000);
+\draw[ink,thick] (0.16000,0.22000) -- (0.25000,0.29000);
+\end{scope}
+\node[lab,anchor=west] at (0.12000,0.00000) {$D_Z$};
+\draw[ink,thick] (2.20000,1.50000) -- (2.20000,0.42000);
+\draw[ink,thick] (2.20000,-0.42000) -- (2.20000,-1.50000);
+\begin{scope}[shift={(2.20000,0.00000)},rotate=-90.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab,anchor=east] at (1.78000,0.00000) {$R_L$};
+\node[text=green] at (0.20000,0.80000) {$I_Z\downarrow$};
+\node[] at (0.00000,-2.40000) {稳压管阴极在上；工作于反向击穿稳压区。};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$I_s=I_L+I_Z$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$I_Z>0,\quad P_Z=U_ZI_Z$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {二极管导通路径按实际端点连接；整流是分段问题，不能用单一相量表示输出。};
+
+\end{tikzpicture}\end{document}

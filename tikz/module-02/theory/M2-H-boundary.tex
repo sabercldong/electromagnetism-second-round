@@ -1,0 +1,43 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{blue}{HTML}{2455DE}
+\definecolor{green}{HTML}{078565}
+\definecolor{orange}{HTML}{D77B00}
+\definecolor{red}{HTML}{D53636}
+\definecolor{purple}{HTML}{7750C5}
+\definecolor{ink}{HTML}{28343C}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2.2mm,width=1.4mm]},line width=.85pt},
+axis/.style={-{Latex[length=2mm,width=1.2mm]},ink,line width=.6pt},
+aux/.style={ink!45,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-3.45) rectangle(8,3.45);
+\node[font=\bfseries\fontsize{11}{14}\selectfont,text width=15.2cm,align=center] at (0,3.05) {静电边值问题：区域、体电荷、方程与边界条件};
+\path[fill=blue!3] (-7,-1.8)..controls(-7.8,.7)and(-6.2,2.3)..(-4.5,2.05)..controls(-2.1,2)and(-1.55,.4)..(-2.25,-1.1)..controls(-2.9,-2.1)and(-5.6,-2.2)..cycle;
+\draw[ink,line width=.8pt] (-7,-1.8)..controls(-7.8,.7)and(-6.2,2.3)..(-4.5,2.05)..controls(-2.1,2)and(-1.55,.4)..(-2.25,-1.1);
+\draw[ink,line width=.8pt,dashed] (-2.25,-1.1)..controls(-2.9,-2.1)and(-5.6,-2.2)..(-7,-1.8);
+\node[text=blue] at (-4.9,1.5) {区域 $\Omega$};
+\fill[orange](-5.6,0.2)circle(2pt);
+\fill[orange](-4.3,0.55)circle(2pt);
+\fill[orange](-3.3,-0.6)circle(2pt);
+\fill[orange](-5,-1.05)circle(2pt);
+\node[text=orange] at (-4.4,-0.15) {体电荷密度 $\rho$};
+\draw[v,red] (-2.6341500000000004,1.4986187499999999)--(-1.9141500000000005,2.2016187499999997);
+\node[text=red] at (-1.65,2.55) {外法向 $\mathbf n$};
+\draw[ink!60,line width=.5pt] (-7.205762499999999,-0.73895625)--(-5.9,-0.6);
+\node[lab,text=green] at (-5.3,-0.65) {$\Gamma_1:\ \varphi=f$};
+\draw[ink!60,line width=.5pt] (-3.54224375,-1.8364)--(-3.5,-1.3);
+\node[lab,text=purple] at (-4.1,-1.5) {$\Gamma_2:\ \partial_n\varphi=g$};
+\fill[ink] (-7.205762499999999,-0.73895625)circle(1.1pt);
+\fill[ink] (-3.54224375,-1.8364)circle(1.1pt);
+\node[] at (-4.8,-2.5) {边界 $\partial\Omega=\Gamma_1\cup\Gamma_2$};
+\node[box,fill=blue!3,text width=6.2cm] at (4.0,1.45) {$\nabla^2\varphi=-\rho/\varepsilon_0$\\在区域内解泊松方程};
+\node[box,fill=green!3,text width=6.2cm] at (4.0,-0.05) {若某子区域 $\rho=0$：\\$\nabla^2\varphi=0$（拉普拉斯方程）};
+\node[box,fill=orange!3,text width=6.2cm] at (4.0,-1.75) {分别在 $\Gamma_1,\Gamma_2$ 指定边界数据；\\图中为分段混合条件。\\同一点不能任意重复指定两种数据。};
+\node[text width=15cm,align=center] at (0,-3.02) {$\Gamma_1$（细实线）给定电势；$\Gamma_2$（细虚线）给定法向导数。};
+\end{tikzpicture}\end{document}

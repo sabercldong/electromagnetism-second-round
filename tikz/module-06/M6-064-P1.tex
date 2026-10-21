@@ -1,0 +1,43 @@
+% 核心结论：输入有功的去向
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-064-P1　输入有功的去向};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.40000,-1.80000) -- (2.80000,-1.80000);
+\node[] at (2.50000,-2.15000) {$P/W$};
+\fill[blue!35] (-2.4,1.3-.22) rectangle (1.766666666666667,1.3+.22);
+\node[anchor=east] at (-2.60000,1.30000) {负载};
+\node[anchor=west] at (1.96667,1.30000) {$62.5$};
+\fill[green!35] (-2.4,0-.22) rectangle (-1.0666666666666667,0+.22);
+\node[anchor=east] at (-2.60000,0.00000) {铁损};
+\node[anchor=west] at (-0.86667,0.00000) {$20$};
+\fill[red!35] (-2.4,-1.3-.22) rectangle (-1.5666666666666664,-1.3+.22);
+\node[anchor=east] at (-2.60000,-1.30000) {铜损};
+\node[anchor=west] at (-1.36667,-1.30000) {$12.5$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$P_{in}=95W=62.5+20+12.5$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$\eta=62.5/95=65.8\%$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {负载62.5W、铁损20W、铜损12.5W；无功分量另按电抗与励磁支路核对。};
+
+\end{tikzpicture}\end{document}

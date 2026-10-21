@@ -1,0 +1,40 @@
+% 核心结论：旋转磁场、转子转速、同步速度和滑差的关系
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-H50　旋转磁场、转子转速、同步速度和滑差的关系};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink!60,fill=blue!3,thick] (0,0) circle(1.7);
+\draw[ink,fill=white,thick] (0,0) circle(.85);
+\node[] at (0.00000,0.00000) {转子};
+\draw[v,blue] (1.7,0) arc[start angle=0,end angle=140,radius=1.7];
+\node[text=blue] at (0.15000,2.15000) {$n_s$};
+\draw[v,green] (.85,0) arc[start angle=0,end angle=130,radius=.85];
+\node[text=green] at (1.35000,0.70000) {$n_r$};
+\node[] at (0.00000,-2.40000) {正常电动状态：$0<n_r<n_s$。};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$s=(n_s-n_r)/n_s$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$f_r=sf$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {对称正相序与平衡负载；空间磁场矢量和复平面相量分别解释。};
+
+\end{tikzpicture}\end{document}

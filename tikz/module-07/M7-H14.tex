@@ -1,0 +1,34 @@
+% 图契约：平方反比场、立体角和点电荷奇点的关系；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-H14　平方反比场、立体角和点电荷奇点的关系};
+\begin{scope}[shift={(-4,0)}]
+\node[text=red]at(-2.00000,0.00000){$+q$};
+\draw[blue](-1.80000,0.00000)--(2.00000,-1.29968);
+\draw[blue](-1.80000,0.00000)--(2.00000,1.29968);
+\draw[green,line width=2pt](2,-1.3)--(2,1.3);
+\node[]at(2.40000,1.60000){$dS$};
+\node[]at(-0.95000,1.00000){$d\Omega$};
+\draw[v,blue](-0.50000,0.00000)--(1.30000,0.00000);
+\node[]at(0.40000,-0.40000){$r$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$\mathbf E=q\mathbf e_r/(4\pi\varepsilon_0r^2)$};
+\node[card]at(4.00000,-1.05000){$d\Phi_E=q\,d\Omega/(4\pi\varepsilon_0)$};
+\end{tikzpicture}\end{document}

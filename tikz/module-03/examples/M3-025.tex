@@ -1,0 +1,39 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M3-025\quad 介质插入时的两种能量账本};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,line width=2pt] (-1.5,-.9)--(2,-.9) (-1.5,.9)--(2,.9);
+\filldraw[fill=blue!9,draw=blue!60] (-2.3,-.85) rectangle(.4,.85);
+\draw[guide] (.4,-1.7)--(.4,1.3);
+\node at(-.7,0){$\varepsilon_r$};\node at(1.2,0){真空};
+\draw[<->,orange] (-1.5,-1.3)--(.4,-1.3) node[midway,below] {$x$};
+\draw[<->,orange] (-1.5,1.5)--(2,1.5) node[midway,above] {$L$};
+\draw[<->,orange] (2.35,-.9)--(2.35,.9) node[midway,right] {$d$};
+\draw[vec,red] (-1.1,.35)--(-.1,.35) node[midway,above] {$F_x$};
+\node[label] at(0,-2.15){纸面外宽 $w$；$+x$ 沿插入方向向右};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {固定 $Q$：$U_{\rm field}=Q^2/(2C)$ 降低};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {固定 $V$：$U_{\rm field}=CV^2/2$ 增加\\电源做功 $dW_{\rm src}=V^2dC$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {两者均有 $F_x=\tfrac12V^2C^\prime(x)>0$};
+\end{tikzpicture}\end{document}

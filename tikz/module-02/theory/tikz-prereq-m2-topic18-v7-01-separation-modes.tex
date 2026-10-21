@@ -1,0 +1,51 @@
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {分离变量不是猜答案：它把边界图样拆成彼此独立的模态};
+\node[bluebox,text width=4.2cm] (region) at (-7.1,.55)
+  {矩形无源区域\\$\nabla^2\varphi=0$\\边界给定 $\varphi(0,y)=f(y)$};
+\node[greenbox,text width=4.2cm] (product) at (-2.15,.55)
+  {先看一个乘积模态\\$\varphi=X(x)Y(y)$\\$X''/X=-Y''/Y$};
+\node[orangebox,text width=4.25cm] (modes) at (2.95,.55)
+  {端点条件筛出离散模态\\$Y_n(y)=\sin(n\pi y/b)$\\每个 $X_n$ 独立传播};
+\node[bluebox,text width=4.25cm] (sum) at (7.75,.55)
+  {叠加满足一般边界\\$f(y)=\sum b_nY_n(y)$\\$\varphi=\sum b_nX_nY_n$};
+\draw[arrow,bluefield] (region)--(product);
+\draw[arrow,greenfield] (product)--(modes);
+\draw[arrow,orangefield] (modes)--(sum);
+\node[greenbox,text width=15.6cm] at (0,-2.35)
+  {短例：若边界本身只有 $\sin(2\pi y/b)$，正交性使其他系数全为零，\\
+   区域内部只需保留 $n=2$ 模态；这就是“先分模，再逐模匹配”。};
+\end{tikzpicture}
+\end{document}

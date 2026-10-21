@@ -1,0 +1,66 @@
+% 核心结论：从卷积还原阶跃响应
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-034　从卷积还原阶跃响应};
+\begin{scope}[shift={(-4,0)}]
+\draw[ink,thick] (-2.60000,1.50000) -- (-2.60000,0.40000);
+\draw[ink,thick] (-2.60000,-0.40000) -- (-2.60000,-1.50000);
+\draw[ink,thick] (-2.6,0) circle (.4);
+\node[] at (-2.60000,0.18000) {$+$};
+\node[] at (-2.60000,-0.18000) {$-$};
+\node[] at (-3.22000,0.00000) {$\mathcal E$};
+\draw[ink,thick] (-2.60000,1.50000) -- (-2.17000,1.50000);
+\draw[ink,thick] (-1.33000,1.50000) -- (-0.90000,1.50000);
+\begin{scope}[shift={(-1.75000,1.50000)},rotate=0.0]
+\draw[ink,thick,fill=white] (-0.42,-.14) rectangle (0.42,.14);
+\end{scope}
+\node[lab] at (-1.75000,1.92000) {$R$};
+\draw[ink,thick] (-0.90000,1.50000) -- (-0.42000,1.50000);
+\draw[ink,thick] (0.42000,1.50000) -- (0.90000,1.50000);
+\begin{scope}[shift={(0.00000,1.50000)},rotate=0.0]
+\draw[ink,thick] plot[domain=-0.42:0.42,samples=70] (\x,{.20*abs(sin(720*(\x+0.42)/0.84))});
+\end{scope}
+\node[lab] at (0.00000,1.92000) {$L$};
+\draw[ink,thick] (0.90000,1.50000) -- (1.33000,1.50000);
+\draw[ink,thick] (2.17000,1.50000) -- (2.60000,1.50000);
+\begin{scope}[shift={(1.75000,1.50000)},rotate=0.0]
+\draw[ink,thick] (-0.09000,-0.30000) -- (-0.09000,0.30000);
+\draw[ink,thick] (0.09000,-0.30000) -- (0.09000,0.30000);
+\draw[ink,thick] (-0.42000,0.00000) -- (-0.09000,0.00000);
+\draw[ink,thick] (0.09000,0.00000) -- (0.42000,0.00000);
+\end{scope}
+\node[lab] at (1.75000,1.92000) {$C$};
+\draw[ink,thick] (2.60000,1.50000) -- (2.60000,-1.50000);
+\draw[ink,thick] (2.60000,-1.50000) -- (-2.60000,-1.50000);
+\draw[v,blue] (-0.10000,-1.50000) -- (-1.10000,-1.50000);
+\node[lab,text=blue,anchor=center] at (-0.60000,-1.82000) {$i$};
+\node[] at (1.25000,1.05000) {$+$};
+\node[] at (2.25000,1.05000) {$-$};
+\node[] at (0.00000,-2.40000) {串联支路；$i$ 流入电容正极板。};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$h_q(t)=e^{-\alpha t}\sin\omega_dt/(L\omega_d)$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$q(t)=\mathcal E\int_0^t h_q(\tau)d\tau$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {从零初态出发，源电压阶跃与冲激响应卷积；积分上限t保留了因果边界。};
+
+\end{tikzpicture}\end{document}

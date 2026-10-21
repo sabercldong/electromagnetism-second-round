@@ -1,0 +1,4502 @@
+[
+  {
+    "source": "tikz/module-01/tikz-v11-module1-method-map.tex",
+    "output": "assets/module-01/tikz-v11-module1-method-map.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-01.tex",
+    "output": "assets/module-01/examples/M1-01.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-02.tex",
+    "output": "assets/module-01/examples/M1-02.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-03.tex",
+    "output": "assets/module-01/examples/M1-03.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-04.tex",
+    "output": "assets/module-01/examples/M1-04.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-05.tex",
+    "output": "assets/module-01/examples/M1-05.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-06.tex",
+    "output": "assets/module-01/examples/M1-06.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-07.tex",
+    "output": "assets/module-01/examples/M1-07.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-08.tex",
+    "output": "assets/module-01/examples/M1-08.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-09.tex",
+    "output": "assets/module-01/examples/M1-09.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-10.tex",
+    "output": "assets/module-01/examples/M1-10.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-11.tex",
+    "output": "assets/module-01/examples/M1-11.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-12.tex",
+    "output": "assets/module-01/examples/M1-12.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-13.tex",
+    "output": "assets/module-01/examples/M1-13.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-14.tex",
+    "output": "assets/module-01/examples/M1-14.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-15.tex",
+    "output": "assets/module-01/examples/M1-15.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-16.tex",
+    "output": "assets/module-01/examples/M1-16.pdf"
+  },
+  {
+    "source": "tikz/module-01/tikz-m1m2-29-nabla-identities-map.tex",
+    "output": "assets/module-01/tikz-m1m2-29-nabla-identities-map.pdf"
+  },
+  {
+    "source": "tikz/module-01/tikz-m1-nabla-id-01-dual-role.tex",
+    "output": "assets/module-01/tikz-m1-nabla-id-01-dual-role.pdf"
+  },
+  {
+    "source": "tikz/module-01/tikz-m1-nabla-id-02-product-rule-splitting.tex",
+    "output": "assets/module-01/tikz-m1-nabla-id-02-product-rule-splitting.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-028-revised.tex",
+    "output": "assets/module-01/figure-028-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/tikz-m1-nabla-id-04-directional-operator.tex",
+    "output": "assets/module-01/tikz-m1-nabla-id-04-directional-operator.pdf"
+  },
+  {
+    "source": "tikz/module-01/tikz-m1m2-30-component-proof-route.tex",
+    "output": "assets/module-01/tikz-m1m2-30-component-proof-route.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-031-revised.tex",
+    "output": "assets/module-01/figure-031-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-032-revised.tex",
+    "output": "assets/module-01/figure-032-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-033-revised.tex",
+    "output": "assets/module-01/figure-033-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-034-revised.tex",
+    "output": "assets/module-01/figure-034-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-039-revised.tex",
+    "output": "assets/module-01/figure-039-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-17.tex",
+    "output": "assets/module-01/examples/M1-17.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-18.tex",
+    "output": "assets/module-01/examples/M1-18.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-19.tex",
+    "output": "assets/module-01/examples/M1-19.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-20.tex",
+    "output": "assets/module-01/examples/M1-20.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-045-revised.tex",
+    "output": "assets/module-01/figure-045-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-21.tex",
+    "output": "assets/module-01/examples/M1-21.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-22.tex",
+    "output": "assets/module-01/examples/M1-22.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-047-revised.tex",
+    "output": "assets/module-01/figure-047-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-23.tex",
+    "output": "assets/module-01/examples/M1-23.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-24.tex",
+    "output": "assets/module-01/examples/M1-24.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-25.tex",
+    "output": "assets/module-01/examples/M1-25.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-26.tex",
+    "output": "assets/module-01/examples/M1-26.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-27.tex",
+    "output": "assets/module-01/examples/M1-27.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-28.tex",
+    "output": "assets/module-01/examples/M1-28.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-29.tex",
+    "output": "assets/module-01/examples/M1-29.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-30.tex",
+    "output": "assets/module-01/examples/M1-30.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-31.tex",
+    "output": "assets/module-01/examples/M1-31.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-32.tex",
+    "output": "assets/module-01/examples/M1-32.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-059-revised.tex",
+    "output": "assets/module-01/figure-059-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-33.tex",
+    "output": "assets/module-01/examples/M1-33.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-34.tex",
+    "output": "assets/module-01/examples/M1-34.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-35.tex",
+    "output": "assets/module-01/examples/M1-35.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-36.tex",
+    "output": "assets/module-01/examples/M1-36.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-37.tex",
+    "output": "assets/module-01/examples/M1-37.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-38.tex",
+    "output": "assets/module-01/examples/M1-38.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-39.tex",
+    "output": "assets/module-01/examples/M1-39.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-40.tex",
+    "output": "assets/module-01/examples/M1-40.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-41.tex",
+    "output": "assets/module-01/examples/M1-41.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-42.tex",
+    "output": "assets/module-01/examples/M1-42.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-071-revised.tex",
+    "output": "assets/module-01/figure-071-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-43.tex",
+    "output": "assets/module-01/examples/M1-43.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-44.tex",
+    "output": "assets/module-01/examples/M1-44.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-45.tex",
+    "output": "assets/module-01/examples/M1-45.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-46.tex",
+    "output": "assets/module-01/examples/M1-46.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-47.tex",
+    "output": "assets/module-01/examples/M1-47.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-48.tex",
+    "output": "assets/module-01/examples/M1-48.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-49.tex",
+    "output": "assets/module-01/examples/M1-49.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-50.tex",
+    "output": "assets/module-01/examples/M1-50.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-51.tex",
+    "output": "assets/module-01/examples/M1-51.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-52.tex",
+    "output": "assets/module-01/examples/M1-52.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-53.tex",
+    "output": "assets/module-01/examples/M1-53.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-54.tex",
+    "output": "assets/module-01/examples/M1-54.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-083-revised.tex",
+    "output": "assets/module-01/figure-083-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-55.tex",
+    "output": "assets/module-01/examples/M1-55.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-085-revised.tex",
+    "output": "assets/module-01/figure-085-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-56.tex",
+    "output": "assets/module-01/examples/M1-56.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-57.tex",
+    "output": "assets/module-01/examples/M1-57.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-58.tex",
+    "output": "assets/module-01/examples/M1-58.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-59.tex",
+    "output": "assets/module-01/examples/M1-59.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-60.tex",
+    "output": "assets/module-01/examples/M1-60.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-61.tex",
+    "output": "assets/module-01/examples/M1-61.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-62.tex",
+    "output": "assets/module-01/examples/M1-62.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-63.tex",
+    "output": "assets/module-01/examples/M1-63.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-64.tex",
+    "output": "assets/module-01/examples/M1-64.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-65.tex",
+    "output": "assets/module-01/examples/M1-65.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-66.tex",
+    "output": "assets/module-01/examples/M1-66.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-095-revised.tex",
+    "output": "assets/module-01/figure-095-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-67.tex",
+    "output": "assets/module-01/examples/M1-67.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-68.tex",
+    "output": "assets/module-01/examples/M1-68.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-69.tex",
+    "output": "assets/module-01/examples/M1-69.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-70.tex",
+    "output": "assets/module-01/examples/M1-70.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-71.tex",
+    "output": "assets/module-01/examples/M1-71.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-72.tex",
+    "output": "assets/module-01/examples/M1-72.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-108-revised.tex",
+    "output": "assets/module-01/figure-108-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/figure-111-revised.tex",
+    "output": "assets/module-01/figure-111-revised.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-73.tex",
+    "output": "assets/module-01/examples/M1-73.pdf"
+  },
+  {
+    "source": "tikz/module-01/examples/M1-74.tex",
+    "output": "assets/module-01/examples/M1-74.pdf"
+  },
+  {
+    "source": "tikz/module-02/theory/tikz-v11-module2-method-map.tex",
+    "output": "assets/module-02/theory/tikz-v11-module2-method-map.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-001.tex",
+    "output": "assets/module-02/examples/M2-001.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-002.tex",
+    "output": "assets/module-02/examples/M2-002.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-003.tex",
+    "output": "assets/module-02/examples/M2-003.pdf"
+  },
+  {
+    "source": "tikz/module-02/theory/unified7-poisson-regions.tex",
+    "output": "assets/module-02/theory/unified7-poisson-regions.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-004.tex",
+    "output": "assets/module-02/examples/M2-004.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-005.tex",
+    "output": "assets/module-02/examples/M2-005.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-006.tex",
+    "output": "assets/module-02/examples/M2-006.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-007.tex",
+    "output": "assets/module-02/examples/M2-007.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-008.tex",
+    "output": "assets/module-02/examples/M2-008.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-009.tex",
+    "output": "assets/module-02/examples/M2-009.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-010.tex",
+    "output": "assets/module-02/examples/M2-010.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-011.tex",
+    "output": "assets/module-02/examples/M2-011.pdf"
+  },
+  {
+    "source": "tikz/module-02/theory/M2-H-coordinate.tex",
+    "output": "assets/module-02/theory/M2-H-coordinate.pdf"
+  },
+  {
+    "source": "tikz/module-02/theory/M2-H-field-rules.tex",
+    "output": "assets/module-02/theory/M2-H-field-rules.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-012.tex",
+    "output": "assets/module-02/examples/M2-012.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-013.tex",
+    "output": "assets/module-02/examples/M2-013.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-014.tex",
+    "output": "assets/module-02/examples/M2-014.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-015.tex",
+    "output": "assets/module-02/examples/M2-015.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-016.tex",
+    "output": "assets/module-02/examples/M2-016.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-017.tex",
+    "output": "assets/module-02/examples/M2-017.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-018.tex",
+    "output": "assets/module-02/examples/M2-018.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-019.tex",
+    "output": "assets/module-02/examples/M2-019.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-020.tex",
+    "output": "assets/module-02/examples/M2-020.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-021.tex",
+    "output": "assets/module-02/examples/M2-021.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-022.tex",
+    "output": "assets/module-02/examples/M2-022.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-023.tex",
+    "output": "assets/module-02/examples/M2-023.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-024.tex",
+    "output": "assets/module-02/examples/M2-024.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-025.tex",
+    "output": "assets/module-02/examples/M2-025.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-026.tex",
+    "output": "assets/module-02/examples/M2-026.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-027.tex",
+    "output": "assets/module-02/examples/M2-027.pdf"
+  },
+  {
+    "source": "tikz/module-02/theory/unified7-kernel-error.tex",
+    "output": "assets/module-02/theory/unified7-kernel-error.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-028.tex",
+    "output": "assets/module-02/examples/M2-028.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-029.tex",
+    "output": "assets/module-02/examples/M2-029.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-030.tex",
+    "output": "assets/module-02/examples/M2-030.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-031.tex",
+    "output": "assets/module-02/examples/M2-031.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-032.tex",
+    "output": "assets/module-02/examples/M2-032.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-033.tex",
+    "output": "assets/module-02/examples/M2-033.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-034.tex",
+    "output": "assets/module-02/examples/M2-034.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-035.tex",
+    "output": "assets/module-02/examples/M2-035.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-036.tex",
+    "output": "assets/module-02/examples/M2-036.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-037.tex",
+    "output": "assets/module-02/examples/M2-037.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-038.tex",
+    "output": "assets/module-02/examples/M2-038.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-039.tex",
+    "output": "assets/module-02/examples/M2-039.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-040.tex",
+    "output": "assets/module-02/examples/M2-040.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-041.tex",
+    "output": "assets/module-02/examples/M2-041.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-042.tex",
+    "output": "assets/module-02/examples/M2-042.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-043.tex",
+    "output": "assets/module-02/examples/M2-043.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-044.tex",
+    "output": "assets/module-02/examples/M2-044.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-045.tex",
+    "output": "assets/module-02/examples/M2-045.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-046.tex",
+    "output": "assets/module-02/examples/M2-046.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-047.tex",
+    "output": "assets/module-02/examples/M2-047.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-048.tex",
+    "output": "assets/module-02/examples/M2-048.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-049.tex",
+    "output": "assets/module-02/examples/M2-049.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-050.tex",
+    "output": "assets/module-02/examples/M2-050.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-051.tex",
+    "output": "assets/module-02/examples/M2-051.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-052.tex",
+    "output": "assets/module-02/examples/M2-052.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-053.tex",
+    "output": "assets/module-02/examples/M2-053.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-054.tex",
+    "output": "assets/module-02/examples/M2-054.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-055.tex",
+    "output": "assets/module-02/examples/M2-055.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-056.tex",
+    "output": "assets/module-02/examples/M2-056.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-057.tex",
+    "output": "assets/module-02/examples/M2-057.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-058.tex",
+    "output": "assets/module-02/examples/M2-058.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-059.tex",
+    "output": "assets/module-02/examples/M2-059.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-060.tex",
+    "output": "assets/module-02/examples/M2-060.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-061.tex",
+    "output": "assets/module-02/examples/M2-061.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-062.tex",
+    "output": "assets/module-02/examples/M2-062.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-063.tex",
+    "output": "assets/module-02/examples/M2-063.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-064.tex",
+    "output": "assets/module-02/examples/M2-064.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-065.tex",
+    "output": "assets/module-02/examples/M2-065.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-066.tex",
+    "output": "assets/module-02/examples/M2-066.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-067.tex",
+    "output": "assets/module-02/examples/M2-067.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-068.tex",
+    "output": "assets/module-02/examples/M2-068.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-069.tex",
+    "output": "assets/module-02/examples/M2-069.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-070.tex",
+    "output": "assets/module-02/examples/M2-070.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-071.tex",
+    "output": "assets/module-02/examples/M2-071.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-072.tex",
+    "output": "assets/module-02/examples/M2-072.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-073.tex",
+    "output": "assets/module-02/examples/M2-073.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-074.tex",
+    "output": "assets/module-02/examples/M2-074.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-075.tex",
+    "output": "assets/module-02/examples/M2-075.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-076.tex",
+    "output": "assets/module-02/examples/M2-076.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-077.tex",
+    "output": "assets/module-02/examples/M2-077.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-078.tex",
+    "output": "assets/module-02/examples/M2-078.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-079.tex",
+    "output": "assets/module-02/examples/M2-079.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-080.tex",
+    "output": "assets/module-02/examples/M2-080.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-081.tex",
+    "output": "assets/module-02/examples/M2-081.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-082.tex",
+    "output": "assets/module-02/examples/M2-082.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-083.tex",
+    "output": "assets/module-02/examples/M2-083.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-084.tex",
+    "output": "assets/module-02/examples/M2-084.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-085.tex",
+    "output": "assets/module-02/examples/M2-085.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-086.tex",
+    "output": "assets/module-02/examples/M2-086.pdf"
+  },
+  {
+    "source": "tikz/module-02/theory/M2-H-boundary.tex",
+    "output": "assets/module-02/theory/M2-H-boundary.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-087.tex",
+    "output": "assets/module-02/examples/M2-087.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-088.tex",
+    "output": "assets/module-02/examples/M2-088.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-089.tex",
+    "output": "assets/module-02/examples/M2-089.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-090.tex",
+    "output": "assets/module-02/examples/M2-090.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-091.tex",
+    "output": "assets/module-02/examples/M2-091.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-092.tex",
+    "output": "assets/module-02/examples/M2-092.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-093.tex",
+    "output": "assets/module-02/examples/M2-093.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-094.tex",
+    "output": "assets/module-02/examples/M2-094.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-095.tex",
+    "output": "assets/module-02/examples/M2-095.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-096.tex",
+    "output": "assets/module-02/examples/M2-096.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-097.tex",
+    "output": "assets/module-02/examples/M2-097.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-098.tex",
+    "output": "assets/module-02/examples/M2-098.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-099.tex",
+    "output": "assets/module-02/examples/M2-099.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-100.tex",
+    "output": "assets/module-02/examples/M2-100.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-101.tex",
+    "output": "assets/module-02/examples/M2-101.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-102.tex",
+    "output": "assets/module-02/examples/M2-102.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-103.tex",
+    "output": "assets/module-02/examples/M2-103.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-104.tex",
+    "output": "assets/module-02/examples/M2-104.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-105.tex",
+    "output": "assets/module-02/examples/M2-105.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-106.tex",
+    "output": "assets/module-02/examples/M2-106.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-107.tex",
+    "output": "assets/module-02/examples/M2-107.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-108.tex",
+    "output": "assets/module-02/examples/M2-108.pdf"
+  },
+  {
+    "source": "tikz/module-02/theory/tikz-prereq-m2-topic18-v7-01-separation-modes.tex",
+    "output": "assets/module-02/theory/tikz-prereq-m2-topic18-v7-01-separation-modes.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-109.tex",
+    "output": "assets/module-02/examples/M2-109.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-110.tex",
+    "output": "assets/module-02/examples/M2-110.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-111.tex",
+    "output": "assets/module-02/examples/M2-111.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-112.tex",
+    "output": "assets/module-02/examples/M2-112.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-113.tex",
+    "output": "assets/module-02/examples/M2-113.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-114.tex",
+    "output": "assets/module-02/examples/M2-114.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-115.tex",
+    "output": "assets/module-02/examples/M2-115.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-116.tex",
+    "output": "assets/module-02/examples/M2-116.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-117.tex",
+    "output": "assets/module-02/examples/M2-117.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-118.tex",
+    "output": "assets/module-02/examples/M2-118.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-119.tex",
+    "output": "assets/module-02/examples/M2-119.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-120.tex",
+    "output": "assets/module-02/examples/M2-120.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-121.tex",
+    "output": "assets/module-02/examples/M2-121.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-122.tex",
+    "output": "assets/module-02/examples/M2-122.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-123.tex",
+    "output": "assets/module-02/examples/M2-123.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-124.tex",
+    "output": "assets/module-02/examples/M2-124.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-125.tex",
+    "output": "assets/module-02/examples/M2-125.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-126.tex",
+    "output": "assets/module-02/examples/M2-126.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-127.tex",
+    "output": "assets/module-02/examples/M2-127.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-128.tex",
+    "output": "assets/module-02/examples/M2-128.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-129.tex",
+    "output": "assets/module-02/examples/M2-129.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-130.tex",
+    "output": "assets/module-02/examples/M2-130.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-131.tex",
+    "output": "assets/module-02/examples/M2-131.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-132.tex",
+    "output": "assets/module-02/examples/M2-132.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-133.tex",
+    "output": "assets/module-02/examples/M2-133.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-134.tex",
+    "output": "assets/module-02/examples/M2-134.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-135.tex",
+    "output": "assets/module-02/examples/M2-135.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-136.tex",
+    "output": "assets/module-02/examples/M2-136.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-137.tex",
+    "output": "assets/module-02/examples/M2-137.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-138.tex",
+    "output": "assets/module-02/examples/M2-138.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-139.tex",
+    "output": "assets/module-02/examples/M2-139.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-140.tex",
+    "output": "assets/module-02/examples/M2-140.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-141.tex",
+    "output": "assets/module-02/examples/M2-141.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-142.tex",
+    "output": "assets/module-02/examples/M2-142.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-143.tex",
+    "output": "assets/module-02/examples/M2-143.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-144.tex",
+    "output": "assets/module-02/examples/M2-144.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-145.tex",
+    "output": "assets/module-02/examples/M2-145.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-146.tex",
+    "output": "assets/module-02/examples/M2-146.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-147.tex",
+    "output": "assets/module-02/examples/M2-147.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-148.tex",
+    "output": "assets/module-02/examples/M2-148.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-149.tex",
+    "output": "assets/module-02/examples/M2-149.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-150.tex",
+    "output": "assets/module-02/examples/M2-150.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-151.tex",
+    "output": "assets/module-02/examples/M2-151.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-152.tex",
+    "output": "assets/module-02/examples/M2-152.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-153.tex",
+    "output": "assets/module-02/examples/M2-153.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-154.tex",
+    "output": "assets/module-02/examples/M2-154.pdf"
+  },
+  {
+    "source": "tikz/module-02/theory/unified7-legendre-regularity.tex",
+    "output": "assets/module-02/theory/unified7-legendre-regularity.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-155.tex",
+    "output": "assets/module-02/examples/M2-155.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-156.tex",
+    "output": "assets/module-02/examples/M2-156.pdf"
+  },
+  {
+    "source": "tikz/module-02/theory/unified7-associated-legendre.tex",
+    "output": "assets/module-02/theory/unified7-associated-legendre.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-157.tex",
+    "output": "assets/module-02/examples/M2-157.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-158.tex",
+    "output": "assets/module-02/examples/M2-158.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-159.tex",
+    "output": "assets/module-02/examples/M2-159.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-160.tex",
+    "output": "assets/module-02/examples/M2-160.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-161.tex",
+    "output": "assets/module-02/examples/M2-161.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-162.tex",
+    "output": "assets/module-02/examples/M2-162.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-163.tex",
+    "output": "assets/module-02/examples/M2-163.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-164.tex",
+    "output": "assets/module-02/examples/M2-164.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-165.tex",
+    "output": "assets/module-02/examples/M2-165.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-166.tex",
+    "output": "assets/module-02/examples/M2-166.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-167.tex",
+    "output": "assets/module-02/examples/M2-167.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-168.tex",
+    "output": "assets/module-02/examples/M2-168.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-169.tex",
+    "output": "assets/module-02/examples/M2-169.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-170.tex",
+    "output": "assets/module-02/examples/M2-170.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-171.tex",
+    "output": "assets/module-02/examples/M2-171.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-172.tex",
+    "output": "assets/module-02/examples/M2-172.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-173.tex",
+    "output": "assets/module-02/examples/M2-173.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-174.tex",
+    "output": "assets/module-02/examples/M2-174.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-175.tex",
+    "output": "assets/module-02/examples/M2-175.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-175a.tex",
+    "output": "assets/module-02/process/M2-175a.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-175b.tex",
+    "output": "assets/module-02/process/M2-175b.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-176.tex",
+    "output": "assets/module-02/examples/M2-176.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-176a.tex",
+    "output": "assets/module-02/process/M2-176a.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-176b.tex",
+    "output": "assets/module-02/process/M2-176b.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-176c.tex",
+    "output": "assets/module-02/process/M2-176c.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-177.tex",
+    "output": "assets/module-02/examples/M2-177.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-177a.tex",
+    "output": "assets/module-02/process/M2-177a.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-177b.tex",
+    "output": "assets/module-02/process/M2-177b.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-178.tex",
+    "output": "assets/module-02/examples/M2-178.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-178a.tex",
+    "output": "assets/module-02/process/M2-178a.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-178b.tex",
+    "output": "assets/module-02/process/M2-178b.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-179.tex",
+    "output": "assets/module-02/examples/M2-179.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-179a.tex",
+    "output": "assets/module-02/process/M2-179a.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-180.tex",
+    "output": "assets/module-02/examples/M2-180.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-180a.tex",
+    "output": "assets/module-02/process/M2-180a.pdf"
+  },
+  {
+    "source": "tikz/module-02/examples/M2-181.tex",
+    "output": "assets/module-02/examples/M2-181.pdf"
+  },
+  {
+    "source": "tikz/module-02/process/M2-181a.tex",
+    "output": "assets/module-02/process/M2-181a.pdf"
+  },
+  {
+    "source": "tikz/module-03/theory/tikz-v11-module3-method-map.tex",
+    "output": "assets/module-03/theory/tikz-v11-module3-method-map.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-001.tex",
+    "output": "assets/module-03/examples/M3-001.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-002.tex",
+    "output": "assets/module-03/examples/M3-002.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-003.tex",
+    "output": "assets/module-03/examples/M3-003.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-004.tex",
+    "output": "assets/module-03/examples/M3-004.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-005.tex",
+    "output": "assets/module-03/examples/M3-005.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-006.tex",
+    "output": "assets/module-03/examples/M3-006.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-006a.tex",
+    "output": "assets/module-03/process/M3-006a.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-006b.tex",
+    "output": "assets/module-03/process/M3-006b.pdf"
+  },
+  {
+    "source": "tikz/module-03/theory/M3-T16.tex",
+    "output": "assets/module-03/theory/M3-T16.pdf"
+  },
+  {
+    "source": "tikz/module-03/theory/M3-T17.tex",
+    "output": "assets/module-03/theory/M3-T17.pdf"
+  },
+  {
+    "source": "tikz/module-03/theory/unified7-P-D-flux.tex",
+    "output": "assets/module-03/theory/unified7-P-D-flux.pdf"
+  },
+  {
+    "source": "tikz/module-03/theory/M3-T21.tex",
+    "output": "assets/module-03/theory/M3-T21.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-007.tex",
+    "output": "assets/module-03/examples/M3-007.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-008.tex",
+    "output": "assets/module-03/examples/M3-008.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-009.tex",
+    "output": "assets/module-03/examples/M3-009.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-010.tex",
+    "output": "assets/module-03/examples/M3-010.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-010a.tex",
+    "output": "assets/module-03/process/M3-010a.pdf"
+  },
+  {
+    "source": "tikz/module-03/theory/M3-T31.tex",
+    "output": "assets/module-03/theory/M3-T31.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-011.tex",
+    "output": "assets/module-03/examples/M3-011.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-012.tex",
+    "output": "assets/module-03/examples/M3-012.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-012a.tex",
+    "output": "assets/module-03/process/M3-012a.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-013.tex",
+    "output": "assets/module-03/examples/M3-013.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-014.tex",
+    "output": "assets/module-03/examples/M3-014.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-014a.tex",
+    "output": "assets/module-03/process/M3-014a.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-014b.tex",
+    "output": "assets/module-03/process/M3-014b.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-015.tex",
+    "output": "assets/module-03/examples/M3-015.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-016.tex",
+    "output": "assets/module-03/examples/M3-016.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-017.tex",
+    "output": "assets/module-03/examples/M3-017.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-017a.tex",
+    "output": "assets/module-03/process/M3-017a.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-018.tex",
+    "output": "assets/module-03/examples/M3-018.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-018a.tex",
+    "output": "assets/module-03/process/M3-018a.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-018b.tex",
+    "output": "assets/module-03/process/M3-018b.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-019.tex",
+    "output": "assets/module-03/examples/M3-019.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-019a.tex",
+    "output": "assets/module-03/process/M3-019a.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-020.tex",
+    "output": "assets/module-03/examples/M3-020.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-021.tex",
+    "output": "assets/module-03/examples/M3-021.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-022.tex",
+    "output": "assets/module-03/examples/M3-022.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-022a.tex",
+    "output": "assets/module-03/process/M3-022a.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-023.tex",
+    "output": "assets/module-03/examples/M3-023.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-023a.tex",
+    "output": "assets/module-03/process/M3-023a.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-024.tex",
+    "output": "assets/module-03/examples/M3-024.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-024a.tex",
+    "output": "assets/module-03/process/M3-024a.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-025.tex",
+    "output": "assets/module-03/examples/M3-025.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-026.tex",
+    "output": "assets/module-03/examples/M3-026.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-027.tex",
+    "output": "assets/module-03/examples/M3-027.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-027a.tex",
+    "output": "assets/module-03/process/M3-027a.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-028.tex",
+    "output": "assets/module-03/examples/M3-028.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-028a.tex",
+    "output": "assets/module-03/process/M3-028a.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-029.tex",
+    "output": "assets/module-03/examples/M3-029.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-030.tex",
+    "output": "assets/module-03/examples/M3-030.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-031.tex",
+    "output": "assets/module-03/examples/M3-031.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-032.tex",
+    "output": "assets/module-03/examples/M3-032.pdf"
+  },
+  {
+    "source": "tikz/module-03/process/M3-032a.tex",
+    "output": "assets/module-03/process/M3-032a.pdf"
+  },
+  {
+    "source": "tikz/module-03/examples/M3-033.tex",
+    "output": "assets/module-03/examples/M3-033.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-v11-module4-method-map.tex",
+    "output": "assets/module-04/theory/tikz-v11-module4-method-map.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-001.tex",
+    "output": "assets/module-04/examples/M4-001.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic27-v8-02.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic27-v8-02.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-002.tex",
+    "output": "assets/module-04/examples/M4-002.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic27-v8-03.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic27-v8-03.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-003.tex",
+    "output": "assets/module-04/examples/M4-003.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic27-v8-04.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic27-v8-04.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-004.tex",
+    "output": "assets/module-04/examples/M4-004.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic27-v8-07.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic27-v8-07.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic28-v9-01-carriers.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic28-v9-01-carriers.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-005.tex",
+    "output": "assets/module-04/examples/M4-005.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic28-v9-02-electrolysis.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic28-v9-02-electrolysis.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-006.tex",
+    "output": "assets/module-04/examples/M4-006.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic28-v9-03-gas-discharge.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic28-v9-03-gas-discharge.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-007.tex",
+    "output": "assets/module-04/examples/M4-007.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic28-v9-04-vacuum-beam.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic28-v9-04-vacuum-beam.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic28-v9-05-beam-deflection.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic28-v9-05-beam-deflection.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic28-v9-06-oscilloscope.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic28-v9-06-oscilloscope.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-008.tex",
+    "output": "assets/module-04/examples/M4-008.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-009.tex",
+    "output": "assets/module-04/examples/M4-009.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-010.tex",
+    "output": "assets/module-04/examples/M4-010.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-011.tex",
+    "output": "assets/module-04/examples/M4-011.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-012.tex",
+    "output": "assets/module-04/examples/M4-012.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic29-v9-01-electron-hole.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic29-v9-01-electron-hole.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-013.tex",
+    "output": "assets/module-04/examples/M4-013.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic29-v9-02-doping.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic29-v9-02-doping.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic29-v9-03-pn-junction.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic29-v9-03-pn-junction.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic29-v9-04-diode-models.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic29-v9-04-diode-models.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-014.tex",
+    "output": "assets/module-04/examples/M4-014.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic29-v9-05-transistor-regions.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic29-v9-05-transistor-regions.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-015.tex",
+    "output": "assets/module-04/examples/M4-015.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-016.tex",
+    "output": "assets/module-04/examples/M4-016.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-017.tex",
+    "output": "assets/module-04/examples/M4-017.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-018.tex",
+    "output": "assets/module-04/examples/M4-018.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-018a.tex",
+    "output": "assets/module-04/process/M4-018a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-019.tex",
+    "output": "assets/module-04/examples/M4-019.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic30-v9-from28-v8-02.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic30-v9-from28-v8-02.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic30-v9-from28-v8-03.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic30-v9-from28-v8-03.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic30-v9-from28-v8-05.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic30-v9-from28-v8-05.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic30-v9-from28-v8-07.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic30-v9-from28-v8-07.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic30-v9-from28-v8-08.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic30-v9-from28-v8-08.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/unified7-relaxation-times.tex",
+    "output": "assets/module-04/theory/unified7-relaxation-times.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-020.tex",
+    "output": "assets/module-04/examples/M4-020.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-020a.tex",
+    "output": "assets/module-04/process/M4-020a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-021.tex",
+    "output": "assets/module-04/examples/M4-021.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-021b.tex",
+    "output": "assets/module-04/process/M4-021b.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-022.tex",
+    "output": "assets/module-04/examples/M4-022.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-023.tex",
+    "output": "assets/module-04/examples/M4-023.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-023a.tex",
+    "output": "assets/module-04/process/M4-023a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-024.tex",
+    "output": "assets/module-04/examples/M4-024.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-025.tex",
+    "output": "assets/module-04/examples/M4-025.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-026.tex",
+    "output": "assets/module-04/examples/M4-026.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-026a.tex",
+    "output": "assets/module-04/process/M4-026a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-027.tex",
+    "output": "assets/module-04/examples/M4-027.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-028.tex",
+    "output": "assets/module-04/examples/M4-028.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic31-v9-from29-v8-01.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic31-v9-from29-v8-01.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-029.tex",
+    "output": "assets/module-04/examples/M4-029.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-030.tex",
+    "output": "assets/module-04/examples/M4-030.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-031.tex",
+    "output": "assets/module-04/examples/M4-031.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic31-v9-from29-v8-04.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic31-v9-from29-v8-04.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-032.tex",
+    "output": "assets/module-04/examples/M4-032.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-033.tex",
+    "output": "assets/module-04/examples/M4-033.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-033a.tex",
+    "output": "assets/module-04/process/M4-033a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-034.tex",
+    "output": "assets/module-04/examples/M4-034.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-035.tex",
+    "output": "assets/module-04/examples/M4-035.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic32-v9-01-meter-conversion.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic32-v9-01-meter-conversion.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-036.tex",
+    "output": "assets/module-04/examples/M4-036.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-036a.tex",
+    "output": "assets/module-04/process/M4-036a.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic32-v9-02-loading-effect.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic32-v9-02-loading-effect.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic32-v9-03-voltage-current-method.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic32-v9-03-voltage-current-method.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic32-v9-04-ohmmeter.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic32-v9-04-ohmmeter.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-037.tex",
+    "output": "assets/module-04/examples/M4-037.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic32-v9-05-wheatstone.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic32-v9-05-wheatstone.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic32-v9-06-potentiometer.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic32-v9-06-potentiometer.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-topic32-v9-07-black-box.tex",
+    "output": "assets/module-04/theory/tikz-m4-topic32-v9-07-black-box.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-038.tex",
+    "output": "assets/module-04/examples/M4-038.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-039.tex",
+    "output": "assets/module-04/examples/M4-039.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-040.tex",
+    "output": "assets/module-04/examples/M4-040.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-041.tex",
+    "output": "assets/module-04/examples/M4-041.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-042.tex",
+    "output": "assets/module-04/examples/M4-042.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-043.tex",
+    "output": "assets/module-04/examples/M4-043.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic33-v9-from30-v1-01-thevenin-norton.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic33-v9-from30-v1-01-thevenin-norton.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-044.tex",
+    "output": "assets/module-04/examples/M4-044.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-045.tex",
+    "output": "assets/module-04/examples/M4-045.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-046.tex",
+    "output": "assets/module-04/examples/M4-046.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-046a.tex",
+    "output": "assets/module-04/process/M4-046a.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic34-v9-from31-v8-01.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic34-v9-from31-v8-01.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic34-v9-from31-v8-02.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic34-v9-from31-v8-02.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-047.tex",
+    "output": "assets/module-04/examples/M4-047.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic34-v9-from31-v8-03.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic34-v9-from31-v8-03.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-048.tex",
+    "output": "assets/module-04/examples/M4-048.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/M4-R20-star-tests.tex",
+    "output": "assets/module-04/theory/M4-R20-star-tests.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/M4-R20-star-flow.tex",
+    "output": "assets/module-04/theory/M4-R20-star-flow.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-049.tex",
+    "output": "assets/module-04/examples/M4-049.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-049a.tex",
+    "output": "assets/module-04/process/M4-049a.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic35-v9-from32-v8-01.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic35-v9-from32-v8-01.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic35-v9-from32-v8-02.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic35-v9-from32-v8-02.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/M4-R20-fold.tex",
+    "output": "assets/module-04/theory/M4-R20-fold.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-050.tex",
+    "output": "assets/module-04/examples/M4-050.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-051.tex",
+    "output": "assets/module-04/examples/M4-051.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-052.tex",
+    "output": "assets/module-04/examples/M4-052.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-053.tex",
+    "output": "assets/module-04/examples/M4-053.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-053a.tex",
+    "output": "assets/module-04/process/M4-053a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-054.tex",
+    "output": "assets/module-04/examples/M4-054.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-055.tex",
+    "output": "assets/module-04/examples/M4-055.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-055a.tex",
+    "output": "assets/module-04/process/M4-055a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-056.tex",
+    "output": "assets/module-04/examples/M4-056.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-057.tex",
+    "output": "assets/module-04/examples/M4-057.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-057a.tex",
+    "output": "assets/module-04/process/M4-057a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-058.tex",
+    "output": "assets/module-04/examples/M4-058.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic36-v9-from33-v8-02.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic36-v9-from33-v8-02.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic36-v9-from33-v8-03.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic36-v9-from33-v8-03.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-059.tex",
+    "output": "assets/module-04/examples/M4-059.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic36-v9-from33-v8-04.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic36-v9-from33-v8-04.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-060.tex",
+    "output": "assets/module-04/examples/M4-060.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-061.tex",
+    "output": "assets/module-04/examples/M4-061.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-061a.tex",
+    "output": "assets/module-04/process/M4-061a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-062.tex",
+    "output": "assets/module-04/examples/M4-062.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-063.tex",
+    "output": "assets/module-04/examples/M4-063.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-064.tex",
+    "output": "assets/module-04/examples/M4-064.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic37-v9-from34-v8-01.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic37-v9-from34-v8-01.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-065.tex",
+    "output": "assets/module-04/examples/M4-065.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-foster-02-trace-proof-flow.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-foster-02-trace-proof-flow.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-foster-04-solving-workflow-pdf-v11.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-foster-04-solving-workflow-pdf-v11.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-066.tex",
+    "output": "assets/module-04/examples/M4-066.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-067.tex",
+    "output": "assets/module-04/examples/M4-067.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-067a.tex",
+    "output": "assets/module-04/process/M4-067a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-068.tex",
+    "output": "assets/module-04/examples/M4-068.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-068a.tex",
+    "output": "assets/module-04/process/M4-068a.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic38-v9-from35-v8-02.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic38-v9-from35-v8-02.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-069.tex",
+    "output": "assets/module-04/examples/M4-069.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic38-v9-from35-v8-04.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic38-v9-from35-v8-04.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-070.tex",
+    "output": "assets/module-04/examples/M4-070.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-071.tex",
+    "output": "assets/module-04/examples/M4-071.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-072.tex",
+    "output": "assets/module-04/examples/M4-072.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-073.tex",
+    "output": "assets/module-04/examples/M4-073.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-074.tex",
+    "output": "assets/module-04/examples/M4-074.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic39-v9-from36-v8-02.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic39-v9-from36-v8-02.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-075.tex",
+    "output": "assets/module-04/examples/M4-075.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-076.tex",
+    "output": "assets/module-04/examples/M4-076.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-077.tex",
+    "output": "assets/module-04/examples/M4-077.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic39-v9-from36-v8-08.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic39-v9-from36-v8-08.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-078.tex",
+    "output": "assets/module-04/examples/M4-078.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-079.tex",
+    "output": "assets/module-04/examples/M4-079.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-080.tex",
+    "output": "assets/module-04/examples/M4-080.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-081.tex",
+    "output": "assets/module-04/examples/M4-081.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-prereq-m4-topic40-v9-from37-v7-01-network-matrix.tex",
+    "output": "assets/module-04/theory/review-tikz-prereq-m4-topic40-v9-from37-v7-01-network-matrix.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-082.tex",
+    "output": "assets/module-04/examples/M4-082.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/review-tikz-m4-topic40-v9-from37-v1-03-strip-modes-safe-v7.tex",
+    "output": "assets/module-04/theory/review-tikz-m4-topic40-v9-from37-v1-03-strip-modes-safe-v7.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-083.tex",
+    "output": "assets/module-04/examples/M4-083.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-084.tex",
+    "output": "assets/module-04/examples/M4-084.pdf"
+  },
+  {
+    "source": "tikz/module-04/theory/tikz-m4-comprehensive-v3-01-map.tex",
+    "output": "assets/module-04/theory/tikz-m4-comprehensive-v3-01-map.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-085.tex",
+    "output": "assets/module-04/examples/M4-085.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-085a.tex",
+    "output": "assets/module-04/process/M4-085a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-086.tex",
+    "output": "assets/module-04/examples/M4-086.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-086a.tex",
+    "output": "assets/module-04/process/M4-086a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-087.tex",
+    "output": "assets/module-04/examples/M4-087.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-087a.tex",
+    "output": "assets/module-04/process/M4-087a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-088.tex",
+    "output": "assets/module-04/examples/M4-088.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-088a.tex",
+    "output": "assets/module-04/process/M4-088a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-089.tex",
+    "output": "assets/module-04/examples/M4-089.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-089a.tex",
+    "output": "assets/module-04/process/M4-089a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-090.tex",
+    "output": "assets/module-04/examples/M4-090.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-090a.tex",
+    "output": "assets/module-04/process/M4-090a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-091.tex",
+    "output": "assets/module-04/examples/M4-091.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-091a.tex",
+    "output": "assets/module-04/process/M4-091a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-092.tex",
+    "output": "assets/module-04/examples/M4-092.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-092a.tex",
+    "output": "assets/module-04/process/M4-092a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-093.tex",
+    "output": "assets/module-04/examples/M4-093.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-093a.tex",
+    "output": "assets/module-04/process/M4-093a.pdf"
+  },
+  {
+    "source": "tikz/module-04/examples/M4-094.tex",
+    "output": "assets/module-04/examples/M4-094.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-094a.tex",
+    "output": "assets/module-04/process/M4-094a.pdf"
+  },
+  {
+    "source": "tikz/module-04/process/M4-094b.tex",
+    "output": "assets/module-04/process/M4-094b.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-v11-module5-method-map.tex",
+    "output": "assets/module-05/theory/tikz-v11-module5-method-map.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-001.tex",
+    "output": "assets/module-05/examples/M5-001.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-002.tex",
+    "output": "assets/module-05/examples/M5-002.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-003.tex",
+    "output": "assets/module-05/examples/M5-003.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic41-v9-from38-v1-01-charge-sign-orbit.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic41-v9-from38-v1-01-charge-sign-orbit.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-004.tex",
+    "output": "assets/module-05/examples/M5-004.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic41-v9-from38-v1-02-helix-projections.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic41-v9-from38-v1-02-helix-projections.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic41-v9-from38-v1-03-exb-drift.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic41-v9-from38-v1-03-exb-drift.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-005.tex",
+    "output": "assets/module-05/examples/M5-005.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic41-v9-from38-v1-04-mass-spectrometer.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic41-v9-from38-v1-04-mass-spectrometer.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-006.tex",
+    "output": "assets/module-05/examples/M5-006.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic41-v9-from38-v1-05-cyclotron-safe-v7.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic41-v9-from38-v1-05-cyclotron-safe-v7.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic41-v9-from38-v1-07-loop-torque.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic41-v9-from38-v1-07-loop-torque.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-007.tex",
+    "output": "assets/module-05/examples/M5-007.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-007a.tex",
+    "output": "assets/module-05/process/M5-007a.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic41-v9-from38-v1-06-hall-sign-margin12-v11.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic41-v9-from38-v1-06-hall-sign-margin12-v11.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-008.tex",
+    "output": "assets/module-05/examples/M5-008.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic41-v9-from38-v8-01.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic41-v9-from38-v8-01.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic41-v9-from38-v1-08-magnetic-mirror.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic41-v9-from38-v1-08-magnetic-mirror.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-009.tex",
+    "output": "assets/module-05/examples/M5-009.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-010.tex",
+    "output": "assets/module-05/examples/M5-010.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-011.tex",
+    "output": "assets/module-05/examples/M5-011.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-011a.tex",
+    "output": "assets/module-05/process/M5-011a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-012.tex",
+    "output": "assets/module-05/examples/M5-012.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-013.tex",
+    "output": "assets/module-05/examples/M5-013.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-013a.tex",
+    "output": "assets/module-05/process/M5-013a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-014.tex",
+    "output": "assets/module-05/examples/M5-014.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-014a.tex",
+    "output": "assets/module-05/process/M5-014a.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic42-v9-from39-v1-01-current-element-direction.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic42-v9-from39-v1-01-current-element-direction.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-015.tex",
+    "output": "assets/module-05/examples/M5-015.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic42-v9-from39-v1-02-finite-wire.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic42-v9-from39-v1-02-finite-wire.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-016.tex",
+    "output": "assets/module-05/examples/M5-016.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic42-v9-from39-v1-03-arc-radial.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic42-v9-from39-v1-03-arc-radial.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-017.tex",
+    "output": "assets/module-05/examples/M5-017.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic42-v9-from39-v1-04-loop-double-view-margin12-v11.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic42-v9-from39-v1-04-loop-double-view-margin12-v11.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-018.tex",
+    "output": "assets/module-05/examples/M5-018.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic42-v9-from39-v1-05-finite-solenoid.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic42-v9-from39-v1-05-finite-solenoid.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-019.tex",
+    "output": "assets/module-05/examples/M5-019.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic42-v9-from39-v1-06-helmholtz.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic42-v9-from39-v1-06-helmholtz.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-020.tex",
+    "output": "assets/module-05/examples/M5-020.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic42-v9-from39-v1-07-polygon-limit-safe-v7.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic42-v9-from39-v1-07-polygon-limit-safe-v7.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-021.tex",
+    "output": "assets/module-05/examples/M5-021.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-022.tex",
+    "output": "assets/module-05/examples/M5-022.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-023.tex",
+    "output": "assets/module-05/examples/M5-023.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-024.tex",
+    "output": "assets/module-05/examples/M5-024.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-025.tex",
+    "output": "assets/module-05/examples/M5-025.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-025a.tex",
+    "output": "assets/module-05/process/M5-025a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-026.tex",
+    "output": "assets/module-05/examples/M5-026.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-026a.tex",
+    "output": "assets/module-05/process/M5-026a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-027.tex",
+    "output": "assets/module-05/examples/M5-027.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-028.tex",
+    "output": "assets/module-05/examples/M5-028.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic43-v9-from40-v1-01-orientation-symmetry-safe-v7.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic43-v9-from40-v1-01-orientation-symmetry-safe-v7.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-029.tex",
+    "output": "assets/module-05/examples/M5-029.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-030.tex",
+    "output": "assets/module-05/examples/M5-030.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-031.tex",
+    "output": "assets/module-05/examples/M5-031.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic43-v9-from40-v1-03-coaxial-cable-margin12-v11.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic43-v9-from40-v1-03-coaxial-cable-margin12-v11.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-032.tex",
+    "output": "assets/module-05/examples/M5-032.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic43-v9-from40-v1-04-current-sheets.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic43-v9-from40-v1-04-current-sheets.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-033.tex",
+    "output": "assets/module-05/examples/M5-033.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-034.tex",
+    "output": "assets/module-05/examples/M5-034.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-035.tex",
+    "output": "assets/module-05/examples/M5-035.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic43-v9-from40-v1-07-boundary-conditions.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic43-v9-from40-v1-07-boundary-conditions.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-036.tex",
+    "output": "assets/module-05/examples/M5-036.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-037.tex",
+    "output": "assets/module-05/examples/M5-037.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-038.tex",
+    "output": "assets/module-05/examples/M5-038.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-038a.tex",
+    "output": "assets/module-05/process/M5-038a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-039.tex",
+    "output": "assets/module-05/examples/M5-039.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-040.tex",
+    "output": "assets/module-05/examples/M5-040.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-041.tex",
+    "output": "assets/module-05/examples/M5-041.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-041a.tex",
+    "output": "assets/module-05/process/M5-041a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-042.tex",
+    "output": "assets/module-05/examples/M5-042.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic44-v9-from41-v1-01-magnetization.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic44-v9-from41-v1-01-magnetization.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-043.tex",
+    "output": "assets/module-05/examples/M5-043.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic44-v9-from41-v1-02-bound-current.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic44-v9-from41-v1-02-bound-current.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-044.tex",
+    "output": "assets/module-05/examples/M5-044.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-045.tex",
+    "output": "assets/module-05/examples/M5-045.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic44-v9-from41-v1-03-two-representations.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic44-v9-from41-v1-03-two-representations.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-046.tex",
+    "output": "assets/module-05/examples/M5-046.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-047.tex",
+    "output": "assets/module-05/examples/M5-047.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic44-v9-from41-v1-04-demagnetizing-field.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic44-v9-from41-v1-04-demagnetizing-field.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-048.tex",
+    "output": "assets/module-05/examples/M5-048.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic44-v9-from41-v1-05-air-gap-core.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic44-v9-from41-v1-05-air-gap-core.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-049.tex",
+    "output": "assets/module-05/examples/M5-049.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-050.tex",
+    "output": "assets/module-05/examples/M5-050.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-051.tex",
+    "output": "assets/module-05/examples/M5-051.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-051a.tex",
+    "output": "assets/module-05/process/M5-051a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-052.tex",
+    "output": "assets/module-05/examples/M5-052.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-v11-topic45-potential-comparison.tex",
+    "output": "assets/module-05/theory/tikz-v11-topic45-potential-comparison.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic45-v9-from42-v8-01.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic45-v9-from42-v8-01.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-053.tex",
+    "output": "assets/module-05/examples/M5-053.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-054.tex",
+    "output": "assets/module-05/examples/M5-054.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-055.tex",
+    "output": "assets/module-05/examples/M5-055.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic45-v9-from42-v8-04.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic45-v9-from42-v8-04.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-056.tex",
+    "output": "assets/module-05/examples/M5-056.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic45-v9-from42-v8-05.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic45-v9-from42-v8-05.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-057.tex",
+    "output": "assets/module-05/examples/M5-057.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-058.tex",
+    "output": "assets/module-05/examples/M5-058.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic45-v9-from42-v8-07.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic45-v9-from42-v8-07.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-059.tex",
+    "output": "assets/module-05/examples/M5-059.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-060.tex",
+    "output": "assets/module-05/examples/M5-060.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-061.tex",
+    "output": "assets/module-05/examples/M5-061.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-062.tex",
+    "output": "assets/module-05/examples/M5-062.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-063.tex",
+    "output": "assets/module-05/examples/M5-063.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-064.tex",
+    "output": "assets/module-05/examples/M5-064.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-065.tex",
+    "output": "assets/module-05/examples/M5-065.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-065a.tex",
+    "output": "assets/module-05/process/M5-065a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-066.tex",
+    "output": "assets/module-05/examples/M5-066.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-067.tex",
+    "output": "assets/module-05/examples/M5-067.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-068.tex",
+    "output": "assets/module-05/examples/M5-068.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-069.tex",
+    "output": "assets/module-05/examples/M5-069.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-070.tex",
+    "output": "assets/module-05/examples/M5-070.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-070a.tex",
+    "output": "assets/module-05/process/M5-070a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-071.tex",
+    "output": "assets/module-05/examples/M5-071.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic46-v9-from43-v8-02.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic46-v9-from43-v8-02.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-072.tex",
+    "output": "assets/module-05/examples/M5-072.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic46-v9-from43-v8-03.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic46-v9-from43-v8-03.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-073.tex",
+    "output": "assets/module-05/examples/M5-073.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic46-v9-from43-v8-04.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic46-v9-from43-v8-04.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-074.tex",
+    "output": "assets/module-05/examples/M5-074.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic46-v9-from43-v8-06.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic46-v9-from43-v8-06.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic46-v9-from43-v8-09-margin12-v11.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic46-v9-from43-v8-09-margin12-v11.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-075.tex",
+    "output": "assets/module-05/examples/M5-075.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-076.tex",
+    "output": "assets/module-05/examples/M5-076.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-077.tex",
+    "output": "assets/module-05/examples/M5-077.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-078.tex",
+    "output": "assets/module-05/examples/M5-078.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-078a.tex",
+    "output": "assets/module-05/process/M5-078a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-079.tex",
+    "output": "assets/module-05/examples/M5-079.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-080.tex",
+    "output": "assets/module-05/examples/M5-080.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-080a.tex",
+    "output": "assets/module-05/process/M5-080a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-081.tex",
+    "output": "assets/module-05/examples/M5-081.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-081a.tex",
+    "output": "assets/module-05/process/M5-081a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-082.tex",
+    "output": "assets/module-05/examples/M5-082.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-083.tex",
+    "output": "assets/module-05/examples/M5-083.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-084.tex",
+    "output": "assets/module-05/examples/M5-084.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-085.tex",
+    "output": "assets/module-05/examples/M5-085.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-086.tex",
+    "output": "assets/module-05/examples/M5-086.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic47-v9-from44-v8-05.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic47-v9-from44-v8-05.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic47-v9-from44-v8-06.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic47-v9-from44-v8-06.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic47-v9-from44-v8-07.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic47-v9-from44-v8-07.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-087.tex",
+    "output": "assets/module-05/examples/M5-087.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-088.tex",
+    "output": "assets/module-05/examples/M5-088.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic47-v9-from44-v8-10.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic47-v9-from44-v8-10.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-089.tex",
+    "output": "assets/module-05/examples/M5-089.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-090.tex",
+    "output": "assets/module-05/examples/M5-090.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-091.tex",
+    "output": "assets/module-05/examples/M5-091.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-092.tex",
+    "output": "assets/module-05/examples/M5-092.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-093.tex",
+    "output": "assets/module-05/examples/M5-093.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-093a.tex",
+    "output": "assets/module-05/process/M5-093a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-094.tex",
+    "output": "assets/module-05/examples/M5-094.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-095.tex",
+    "output": "assets/module-05/examples/M5-095.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-095a.tex",
+    "output": "assets/module-05/process/M5-095a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-096.tex",
+    "output": "assets/module-05/examples/M5-096.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-097.tex",
+    "output": "assets/module-05/examples/M5-097.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic48-v9-from45-v8-01.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic48-v9-from45-v8-01.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-098.tex",
+    "output": "assets/module-05/examples/M5-098.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-099.tex",
+    "output": "assets/module-05/examples/M5-099.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-100.tex",
+    "output": "assets/module-05/examples/M5-100.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic48-v9-from45-v8-06.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic48-v9-from45-v8-06.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-101.tex",
+    "output": "assets/module-05/examples/M5-101.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-101a.tex",
+    "output": "assets/module-05/process/M5-101a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-102.tex",
+    "output": "assets/module-05/examples/M5-102.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-103.tex",
+    "output": "assets/module-05/examples/M5-103.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-104.tex",
+    "output": "assets/module-05/examples/M5-104.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-105.tex",
+    "output": "assets/module-05/examples/M5-105.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-106.tex",
+    "output": "assets/module-05/examples/M5-106.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-107.tex",
+    "output": "assets/module-05/examples/M5-107.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-108.tex",
+    "output": "assets/module-05/examples/M5-108.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-108a.tex",
+    "output": "assets/module-05/process/M5-108a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-109.tex",
+    "output": "assets/module-05/examples/M5-109.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic49-v9-from46-v8-02.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic49-v9-from46-v8-02.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-110.tex",
+    "output": "assets/module-05/examples/M5-110.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-111.tex",
+    "output": "assets/module-05/examples/M5-111.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-112.tex",
+    "output": "assets/module-05/examples/M5-112.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-113.tex",
+    "output": "assets/module-05/examples/M5-113.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-114.tex",
+    "output": "assets/module-05/examples/M5-114.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/M5-R20-continuity-C.tex",
+    "output": "assets/module-05/theory/M5-R20-continuity-C.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-115.tex",
+    "output": "assets/module-05/examples/M5-115.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/M5-R20-continuity-L.tex",
+    "output": "assets/module-05/theory/M5-R20-continuity-L.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-116.tex",
+    "output": "assets/module-05/examples/M5-116.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic49-v9-from46-v8-10.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic49-v9-from46-v8-10.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-117.tex",
+    "output": "assets/module-05/examples/M5-117.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-117a.tex",
+    "output": "assets/module-05/process/M5-117a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-118.tex",
+    "output": "assets/module-05/examples/M5-118.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-118a.tex",
+    "output": "assets/module-05/process/M5-118a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-119.tex",
+    "output": "assets/module-05/examples/M5-119.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-120.tex",
+    "output": "assets/module-05/examples/M5-120.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-120a.tex",
+    "output": "assets/module-05/process/M5-120a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-121.tex",
+    "output": "assets/module-05/examples/M5-121.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-121a.tex",
+    "output": "assets/module-05/process/M5-121a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-122.tex",
+    "output": "assets/module-05/examples/M5-122.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-122a.tex",
+    "output": "assets/module-05/process/M5-122a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-123.tex",
+    "output": "assets/module-05/examples/M5-123.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-124.tex",
+    "output": "assets/module-05/examples/M5-124.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-125.tex",
+    "output": "assets/module-05/examples/M5-125.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-126.tex",
+    "output": "assets/module-05/examples/M5-126.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic50-v9-from47-v8-03.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic50-v9-from47-v8-03.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic50-v9-from47-v8-04.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic50-v9-from47-v8-04.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-127.tex",
+    "output": "assets/module-05/examples/M5-127.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-128.tex",
+    "output": "assets/module-05/examples/M5-128.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-129.tex",
+    "output": "assets/module-05/examples/M5-129.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-129a.tex",
+    "output": "assets/module-05/process/M5-129a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-130.tex",
+    "output": "assets/module-05/examples/M5-130.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-131.tex",
+    "output": "assets/module-05/examples/M5-131.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-132.tex",
+    "output": "assets/module-05/examples/M5-132.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-133.tex",
+    "output": "assets/module-05/examples/M5-133.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-134.tex",
+    "output": "assets/module-05/examples/M5-134.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-135.tex",
+    "output": "assets/module-05/examples/M5-135.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-136.tex",
+    "output": "assets/module-05/examples/M5-136.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-136a.tex",
+    "output": "assets/module-05/process/M5-136a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-137.tex",
+    "output": "assets/module-05/examples/M5-137.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-138.tex",
+    "output": "assets/module-05/examples/M5-138.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-139.tex",
+    "output": "assets/module-05/examples/M5-139.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-140.tex",
+    "output": "assets/module-05/examples/M5-140.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-141.tex",
+    "output": "assets/module-05/examples/M5-141.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-142.tex",
+    "output": "assets/module-05/examples/M5-142.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic51-v9-from48-v8-01.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic51-v9-from48-v8-01.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-143.tex",
+    "output": "assets/module-05/examples/M5-143.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic51-v9-from48-v8-03.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic51-v9-from48-v8-03.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic51-v9-from48-v8-04.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic51-v9-from48-v8-04.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-144.tex",
+    "output": "assets/module-05/examples/M5-144.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-144a.tex",
+    "output": "assets/module-05/process/M5-144a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-145.tex",
+    "output": "assets/module-05/examples/M5-145.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-145a.tex",
+    "output": "assets/module-05/process/M5-145a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-146.tex",
+    "output": "assets/module-05/examples/M5-146.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-146a.tex",
+    "output": "assets/module-05/process/M5-146a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-147.tex",
+    "output": "assets/module-05/examples/M5-147.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-147a.tex",
+    "output": "assets/module-05/process/M5-147a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-148.tex",
+    "output": "assets/module-05/examples/M5-148.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-149.tex",
+    "output": "assets/module-05/examples/M5-149.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-149a.tex",
+    "output": "assets/module-05/process/M5-149a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-150.tex",
+    "output": "assets/module-05/examples/M5-150.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-150a.tex",
+    "output": "assets/module-05/process/M5-150a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-151.tex",
+    "output": "assets/module-05/examples/M5-151.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-152.tex",
+    "output": "assets/module-05/examples/M5-152.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-153.tex",
+    "output": "assets/module-05/examples/M5-153.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-154.tex",
+    "output": "assets/module-05/examples/M5-154.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-154a.tex",
+    "output": "assets/module-05/process/M5-154a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-155.tex",
+    "output": "assets/module-05/examples/M5-155.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/M5-R20-diffusion.tex",
+    "output": "assets/module-05/theory/M5-R20-diffusion.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-156.tex",
+    "output": "assets/module-05/examples/M5-156.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic52-v9-from49-v8-02.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic52-v9-from49-v8-02.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-157.tex",
+    "output": "assets/module-05/examples/M5-157.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-158.tex",
+    "output": "assets/module-05/examples/M5-158.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-159.tex",
+    "output": "assets/module-05/examples/M5-159.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-159a.tex",
+    "output": "assets/module-05/process/M5-159a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-160.tex",
+    "output": "assets/module-05/examples/M5-160.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-161.tex",
+    "output": "assets/module-05/examples/M5-161.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-162.tex",
+    "output": "assets/module-05/examples/M5-162.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-163.tex",
+    "output": "assets/module-05/examples/M5-163.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-164.tex",
+    "output": "assets/module-05/examples/M5-164.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-164a.tex",
+    "output": "assets/module-05/process/M5-164a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-165.tex",
+    "output": "assets/module-05/examples/M5-165.pdf"
+  },
+  {
+    "source": "tikz/module-05/theory/tikz-m5-topic53-v9-from50-v8-02.tex",
+    "output": "assets/module-05/theory/tikz-m5-topic53-v9-from50-v8-02.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-166.tex",
+    "output": "assets/module-05/examples/M5-166.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-166a.tex",
+    "output": "assets/module-05/process/M5-166a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-167.tex",
+    "output": "assets/module-05/examples/M5-167.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-168.tex",
+    "output": "assets/module-05/examples/M5-168.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-168a.tex",
+    "output": "assets/module-05/process/M5-168a.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-169.tex",
+    "output": "assets/module-05/examples/M5-169.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-170.tex",
+    "output": "assets/module-05/examples/M5-170.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-171.tex",
+    "output": "assets/module-05/examples/M5-171.pdf"
+  },
+  {
+    "source": "tikz/module-05/examples/M5-172.tex",
+    "output": "assets/module-05/examples/M5-172.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-172a.tex",
+    "output": "assets/module-05/process/M5-172a.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-172e.tex",
+    "output": "assets/module-05/process/M5-172e.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-172b.tex",
+    "output": "assets/module-05/process/M5-172b.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-172c.tex",
+    "output": "assets/module-05/process/M5-172c.pdf"
+  },
+  {
+    "source": "tikz/module-05/process/M5-172d.tex",
+    "output": "assets/module-05/process/M5-172d.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H00.tex",
+    "output": "assets/module-06/M6-H00.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-001.tex",
+    "output": "assets/module-06/T55-001.pdf"
+  },
+  {
+    "source": "tikz/module-06/T01.tex",
+    "output": "assets/module-06/T01.pdf"
+  },
+  {
+    "source": "tikz/module-06/T02.tex",
+    "output": "assets/module-06/T02.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-002.tex",
+    "output": "assets/module-06/T55-002.pdf"
+  },
+  {
+    "source": "tikz/module-06/T03.tex",
+    "output": "assets/module-06/T03.pdf"
+  },
+  {
+    "source": "tikz/module-06/T04.tex",
+    "output": "assets/module-06/T04.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-003.tex",
+    "output": "assets/module-06/T55-003.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-003-P.tex",
+    "output": "assets/module-06/T55-003-P.pdf"
+  },
+  {
+    "source": "tikz/module-06/T05.tex",
+    "output": "assets/module-06/T05.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-004.tex",
+    "output": "assets/module-06/T55-004.pdf"
+  },
+  {
+    "source": "tikz/module-06/T06.tex",
+    "output": "assets/module-06/T06.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-005.tex",
+    "output": "assets/module-06/T55-005.pdf"
+  },
+  {
+    "source": "tikz/module-06/T07.tex",
+    "output": "assets/module-06/T07.pdf"
+  },
+  {
+    "source": "tikz/module-06/T08.tex",
+    "output": "assets/module-06/T08.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-006.tex",
+    "output": "assets/module-06/T55-006.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-007.tex",
+    "output": "assets/module-06/T55-007.pdf"
+  },
+  {
+    "source": "tikz/module-06/T09.tex",
+    "output": "assets/module-06/T09.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-008.tex",
+    "output": "assets/module-06/T55-008.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-009.tex",
+    "output": "assets/module-06/T55-009.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-009-P.tex",
+    "output": "assets/module-06/T55-009-P.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-010.tex",
+    "output": "assets/module-06/T55-010.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-011.tex",
+    "output": "assets/module-06/T55-011.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-012.tex",
+    "output": "assets/module-06/T55-012.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-012-P.tex",
+    "output": "assets/module-06/T55-012-P.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-012-Q.tex",
+    "output": "assets/module-06/T55-012-Q.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-013.tex",
+    "output": "assets/module-06/T55-013.pdf"
+  },
+  {
+    "source": "tikz/module-06/T55-013-P.tex",
+    "output": "assets/module-06/T55-013-P.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H01.tex",
+    "output": "assets/module-06/M6-H01.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H02.tex",
+    "output": "assets/module-06/M6-H02.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H03.tex",
+    "output": "assets/module-06/M6-H03.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-014.tex",
+    "output": "assets/module-06/M6-014.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H04.tex",
+    "output": "assets/module-06/M6-H04.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-015.tex",
+    "output": "assets/module-06/M6-015.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H05.tex",
+    "output": "assets/module-06/M6-H05.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-016.tex",
+    "output": "assets/module-06/M6-016.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H06.tex",
+    "output": "assets/module-06/M6-H06.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-017.tex",
+    "output": "assets/module-06/M6-017.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H07.tex",
+    "output": "assets/module-06/M6-H07.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-018.tex",
+    "output": "assets/module-06/M6-018.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-018-P1.tex",
+    "output": "assets/module-06/M6-018-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H08.tex",
+    "output": "assets/module-06/M6-H08.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-019.tex",
+    "output": "assets/module-06/M6-019.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-019-P1.tex",
+    "output": "assets/module-06/M6-019-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H09.tex",
+    "output": "assets/module-06/M6-H09.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-020.tex",
+    "output": "assets/module-06/M6-020.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H10.tex",
+    "output": "assets/module-06/M6-H10.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-021.tex",
+    "output": "assets/module-06/M6-021.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H11.tex",
+    "output": "assets/module-06/M6-H11.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H12.tex",
+    "output": "assets/module-06/M6-H12.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-022.tex",
+    "output": "assets/module-06/M6-022.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-022-P1.tex",
+    "output": "assets/module-06/M6-022-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-023.tex",
+    "output": "assets/module-06/M6-023.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-023-P1.tex",
+    "output": "assets/module-06/M6-023-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-024.tex",
+    "output": "assets/module-06/M6-024.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-025.tex",
+    "output": "assets/module-06/M6-025.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-025-P1.tex",
+    "output": "assets/module-06/M6-025-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-026.tex",
+    "output": "assets/module-06/M6-026.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-027.tex",
+    "output": "assets/module-06/M6-027.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-028.tex",
+    "output": "assets/module-06/M6-028.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-029.tex",
+    "output": "assets/module-06/M6-029.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-029-P1.tex",
+    "output": "assets/module-06/M6-029-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-030.tex",
+    "output": "assets/module-06/M6-030.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H13.tex",
+    "output": "assets/module-06/M6-H13.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-031.tex",
+    "output": "assets/module-06/M6-031.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-031-P1.tex",
+    "output": "assets/module-06/M6-031-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-032.tex",
+    "output": "assets/module-06/M6-032.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-032-P1.tex",
+    "output": "assets/module-06/M6-032-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H14.tex",
+    "output": "assets/module-06/M6-H14.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H15.tex",
+    "output": "assets/module-06/M6-H15.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-033.tex",
+    "output": "assets/module-06/M6-033.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-033-P1.tex",
+    "output": "assets/module-06/M6-033-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H16.tex",
+    "output": "assets/module-06/M6-H16.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H17.tex",
+    "output": "assets/module-06/M6-H17.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-034.tex",
+    "output": "assets/module-06/M6-034.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-034-P2.tex",
+    "output": "assets/module-06/M6-034-P2.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-034-P1.tex",
+    "output": "assets/module-06/M6-034-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H18.tex",
+    "output": "assets/module-06/M6-H18.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H19.tex",
+    "output": "assets/module-06/M6-H19.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-035.tex",
+    "output": "assets/module-06/M6-035.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-035-P1.tex",
+    "output": "assets/module-06/M6-035-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-036.tex",
+    "output": "assets/module-06/M6-036.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-036-P1.tex",
+    "output": "assets/module-06/M6-036-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-037.tex",
+    "output": "assets/module-06/M6-037.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-037-P1.tex",
+    "output": "assets/module-06/M6-037-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-038.tex",
+    "output": "assets/module-06/M6-038.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-038-P1.tex",
+    "output": "assets/module-06/M6-038-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-039.tex",
+    "output": "assets/module-06/M6-039.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-039-P1.tex",
+    "output": "assets/module-06/M6-039-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-040.tex",
+    "output": "assets/module-06/M6-040.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-040-P1.tex",
+    "output": "assets/module-06/M6-040-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H20.tex",
+    "output": "assets/module-06/M6-H20.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H21.tex",
+    "output": "assets/module-06/M6-H21.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-X01.tex",
+    "output": "assets/module-06/M6-X01.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-X01-P2.tex",
+    "output": "assets/module-06/M6-X01-P2.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-X01-P1.tex",
+    "output": "assets/module-06/M6-X01-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-041.tex",
+    "output": "assets/module-06/M6-041.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-K01.tex",
+    "output": "assets/module-06/M6-K01.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-K02.tex",
+    "output": "assets/module-06/M6-K02.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-K03.tex",
+    "output": "assets/module-06/M6-K03.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-K04.tex",
+    "output": "assets/module-06/M6-K04.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-K05.tex",
+    "output": "assets/module-06/M6-K05.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-K06.tex",
+    "output": "assets/module-06/M6-K06.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-K07.tex",
+    "output": "assets/module-06/M6-K07.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-042.tex",
+    "output": "assets/module-06/M6-042.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-043.tex",
+    "output": "assets/module-06/M6-043.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-043-P1.tex",
+    "output": "assets/module-06/M6-043-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-044.tex",
+    "output": "assets/module-06/M6-044.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-044-P1.tex",
+    "output": "assets/module-06/M6-044-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-045.tex",
+    "output": "assets/module-06/M6-045.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-045-P1.tex",
+    "output": "assets/module-06/M6-045-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-046.tex",
+    "output": "assets/module-06/M6-046.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-047.tex",
+    "output": "assets/module-06/M6-047.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-047-P1.tex",
+    "output": "assets/module-06/M6-047-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H22.tex",
+    "output": "assets/module-06/M6-H22.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H23.tex",
+    "output": "assets/module-06/M6-H23.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-048.tex",
+    "output": "assets/module-06/M6-048.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H24.tex",
+    "output": "assets/module-06/M6-H24.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-049.tex",
+    "output": "assets/module-06/M6-049.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-049-P1.tex",
+    "output": "assets/module-06/M6-049-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H25.tex",
+    "output": "assets/module-06/M6-H25.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-050.tex",
+    "output": "assets/module-06/M6-050.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H26.tex",
+    "output": "assets/module-06/M6-H26.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-051.tex",
+    "output": "assets/module-06/M6-051.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H27.tex",
+    "output": "assets/module-06/M6-H27.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-052.tex",
+    "output": "assets/module-06/M6-052.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-052-P1.tex",
+    "output": "assets/module-06/M6-052-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H28.tex",
+    "output": "assets/module-06/M6-H28.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H29.tex",
+    "output": "assets/module-06/M6-H29.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-053.tex",
+    "output": "assets/module-06/M6-053.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-054.tex",
+    "output": "assets/module-06/M6-054.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-054-P1.tex",
+    "output": "assets/module-06/M6-054-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-055.tex",
+    "output": "assets/module-06/M6-055.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-055-P1.tex",
+    "output": "assets/module-06/M6-055-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-056.tex",
+    "output": "assets/module-06/M6-056.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-056-P1.tex",
+    "output": "assets/module-06/M6-056-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H30.tex",
+    "output": "assets/module-06/M6-H30.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H31.tex",
+    "output": "assets/module-06/M6-H31.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-057.tex",
+    "output": "assets/module-06/M6-057.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H32.tex",
+    "output": "assets/module-06/M6-H32.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-058.tex",
+    "output": "assets/module-06/M6-058.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-059.tex",
+    "output": "assets/module-06/M6-059.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H33.tex",
+    "output": "assets/module-06/M6-H33.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H34.tex",
+    "output": "assets/module-06/M6-H34.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H35.tex",
+    "output": "assets/module-06/M6-H35.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-060.tex",
+    "output": "assets/module-06/M6-060.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H36.tex",
+    "output": "assets/module-06/M6-H36.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-061.tex",
+    "output": "assets/module-06/M6-061.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-061-P1.tex",
+    "output": "assets/module-06/M6-061-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H37.tex",
+    "output": "assets/module-06/M6-H37.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-062.tex",
+    "output": "assets/module-06/M6-062.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-063.tex",
+    "output": "assets/module-06/M6-063.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-063-P1.tex",
+    "output": "assets/module-06/M6-063-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-064.tex",
+    "output": "assets/module-06/M6-064.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-064-P1.tex",
+    "output": "assets/module-06/M6-064-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H38.tex",
+    "output": "assets/module-06/M6-H38.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H39.tex",
+    "output": "assets/module-06/M6-H39.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H40.tex",
+    "output": "assets/module-06/M6-H40.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H41.tex",
+    "output": "assets/module-06/M6-H41.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H42.tex",
+    "output": "assets/module-06/M6-H42.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H43.tex",
+    "output": "assets/module-06/M6-H43.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-065.tex",
+    "output": "assets/module-06/M6-065.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-065-P1.tex",
+    "output": "assets/module-06/M6-065-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-066.tex",
+    "output": "assets/module-06/M6-066.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-066-P1.tex",
+    "output": "assets/module-06/M6-066-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-067.tex",
+    "output": "assets/module-06/M6-067.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-067-P1.tex",
+    "output": "assets/module-06/M6-067-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-068.tex",
+    "output": "assets/module-06/M6-068.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-069.tex",
+    "output": "assets/module-06/M6-069.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-069-P1.tex",
+    "output": "assets/module-06/M6-069-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-070.tex",
+    "output": "assets/module-06/M6-070.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-070-P1.tex",
+    "output": "assets/module-06/M6-070-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H44.tex",
+    "output": "assets/module-06/M6-H44.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H45.tex",
+    "output": "assets/module-06/M6-H45.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H46.tex",
+    "output": "assets/module-06/M6-H46.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H47.tex",
+    "output": "assets/module-06/M6-H47.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-071.tex",
+    "output": "assets/module-06/M6-071.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H48.tex",
+    "output": "assets/module-06/M6-H48.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H49.tex",
+    "output": "assets/module-06/M6-H49.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-H50.tex",
+    "output": "assets/module-06/M6-H50.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-072.tex",
+    "output": "assets/module-06/M6-072.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-073.tex",
+    "output": "assets/module-06/M6-073.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-074.tex",
+    "output": "assets/module-06/M6-074.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-075.tex",
+    "output": "assets/module-06/M6-075.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-075-P1.tex",
+    "output": "assets/module-06/M6-075-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-076.tex",
+    "output": "assets/module-06/M6-076.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-076-P1.tex",
+    "output": "assets/module-06/M6-076-P1.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-077.tex",
+    "output": "assets/module-06/M6-077.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-078.tex",
+    "output": "assets/module-06/M6-078.pdf"
+  },
+  {
+    "source": "tikz/module-06/M6-078-P1.tex",
+    "output": "assets/module-06/M6-078-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H00.tex",
+    "output": "assets/module-07/M7-H00.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H01.tex",
+    "output": "assets/module-07/M7-H01.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-001.tex",
+    "output": "assets/module-07/M7-001.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H02.tex",
+    "output": "assets/module-07/M7-H02.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-002.tex",
+    "output": "assets/module-07/M7-002.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H03.tex",
+    "output": "assets/module-07/M7-H03.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-003.tex",
+    "output": "assets/module-07/M7-003.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H04.tex",
+    "output": "assets/module-07/M7-H04.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H05.tex",
+    "output": "assets/module-07/M7-H05.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H06.tex",
+    "output": "assets/module-07/M7-H06.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H07.tex",
+    "output": "assets/module-07/M7-H07.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H08.tex",
+    "output": "assets/module-07/M7-H08.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H09.tex",
+    "output": "assets/module-07/M7-H09.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H10.tex",
+    "output": "assets/module-07/M7-H10.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-004.tex",
+    "output": "assets/module-07/M7-004.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-005.tex",
+    "output": "assets/module-07/M7-005.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-006.tex",
+    "output": "assets/module-07/M7-006.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-007.tex",
+    "output": "assets/module-07/M7-007.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-007-P1.tex",
+    "output": "assets/module-07/M7-007-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-008.tex",
+    "output": "assets/module-07/M7-008.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H11.tex",
+    "output": "assets/module-07/M7-H11.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H12.tex",
+    "output": "assets/module-07/M7-H12.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H13.tex",
+    "output": "assets/module-07/M7-H13.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-009.tex",
+    "output": "assets/module-07/M7-009.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H14.tex",
+    "output": "assets/module-07/M7-H14.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-010.tex",
+    "output": "assets/module-07/M7-010.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H15.tex",
+    "output": "assets/module-07/M7-H15.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-011.tex",
+    "output": "assets/module-07/M7-011.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H16.tex",
+    "output": "assets/module-07/M7-H16.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-012.tex",
+    "output": "assets/module-07/M7-012.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H17.tex",
+    "output": "assets/module-07/M7-H17.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-013.tex",
+    "output": "assets/module-07/M7-013.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H18.tex",
+    "output": "assets/module-07/M7-H18.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-014.tex",
+    "output": "assets/module-07/M7-014.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H19.tex",
+    "output": "assets/module-07/M7-H19.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-015.tex",
+    "output": "assets/module-07/M7-015.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H20.tex",
+    "output": "assets/module-07/M7-H20.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-016.tex",
+    "output": "assets/module-07/M7-016.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-016-P1.tex",
+    "output": "assets/module-07/M7-016-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H21.tex",
+    "output": "assets/module-07/M7-H21.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-017.tex",
+    "output": "assets/module-07/M7-017.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H22.tex",
+    "output": "assets/module-07/M7-H22.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H23.tex",
+    "output": "assets/module-07/M7-H23.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H24.tex",
+    "output": "assets/module-07/M7-H24.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-018.tex",
+    "output": "assets/module-07/M7-018.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-018-P1.tex",
+    "output": "assets/module-07/M7-018-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-019.tex",
+    "output": "assets/module-07/M7-019.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-020.tex",
+    "output": "assets/module-07/M7-020.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H25.tex",
+    "output": "assets/module-07/M7-H25.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H26.tex",
+    "output": "assets/module-07/M7-H26.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-021.tex",
+    "output": "assets/module-07/M7-021.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-021-P1.tex",
+    "output": "assets/module-07/M7-021-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H27.tex",
+    "output": "assets/module-07/M7-H27.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H28.tex",
+    "output": "assets/module-07/M7-H28.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H29.tex",
+    "output": "assets/module-07/M7-H29.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H30.tex",
+    "output": "assets/module-07/M7-H30.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-022.tex",
+    "output": "assets/module-07/M7-022.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-022-P1.tex",
+    "output": "assets/module-07/M7-022-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-023.tex",
+    "output": "assets/module-07/M7-023.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-024.tex",
+    "output": "assets/module-07/M7-024.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-024-P1.tex",
+    "output": "assets/module-07/M7-024-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-025.tex",
+    "output": "assets/module-07/M7-025.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-026.tex",
+    "output": "assets/module-07/M7-026.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H31.tex",
+    "output": "assets/module-07/M7-H31.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H32.tex",
+    "output": "assets/module-07/M7-H32.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-027.tex",
+    "output": "assets/module-07/M7-027.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-027-P1.tex",
+    "output": "assets/module-07/M7-027-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H33.tex",
+    "output": "assets/module-07/M7-H33.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-028.tex",
+    "output": "assets/module-07/M7-028.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-029.tex",
+    "output": "assets/module-07/M7-029.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-029-P1.tex",
+    "output": "assets/module-07/M7-029-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-030.tex",
+    "output": "assets/module-07/M7-030.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H34.tex",
+    "output": "assets/module-07/M7-H34.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-031.tex",
+    "output": "assets/module-07/M7-031.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-032.tex",
+    "output": "assets/module-07/M7-032.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H35.tex",
+    "output": "assets/module-07/M7-H35.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-033.tex",
+    "output": "assets/module-07/M7-033.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H36.tex",
+    "output": "assets/module-07/M7-H36.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-034.tex",
+    "output": "assets/module-07/M7-034.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H37.tex",
+    "output": "assets/module-07/M7-H37.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-035.tex",
+    "output": "assets/module-07/M7-035.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-036.tex",
+    "output": "assets/module-07/M7-036.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H38.tex",
+    "output": "assets/module-07/M7-H38.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H39.tex",
+    "output": "assets/module-07/M7-H39.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-037.tex",
+    "output": "assets/module-07/M7-037.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-038.tex",
+    "output": "assets/module-07/M7-038.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-039.tex",
+    "output": "assets/module-07/M7-039.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-040.tex",
+    "output": "assets/module-07/M7-040.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-041.tex",
+    "output": "assets/module-07/M7-041.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-041-P1.tex",
+    "output": "assets/module-07/M7-041-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-042.tex",
+    "output": "assets/module-07/M7-042.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-042-P1.tex",
+    "output": "assets/module-07/M7-042-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-043.tex",
+    "output": "assets/module-07/M7-043.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H40.tex",
+    "output": "assets/module-07/M7-H40.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-044.tex",
+    "output": "assets/module-07/M7-044.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-045.tex",
+    "output": "assets/module-07/M7-045.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H41.tex",
+    "output": "assets/module-07/M7-H41.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H42.tex",
+    "output": "assets/module-07/M7-H42.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-046.tex",
+    "output": "assets/module-07/M7-046.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H43.tex",
+    "output": "assets/module-07/M7-H43.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-047.tex",
+    "output": "assets/module-07/M7-047.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-048.tex",
+    "output": "assets/module-07/M7-048.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H44.tex",
+    "output": "assets/module-07/M7-H44.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H45.tex",
+    "output": "assets/module-07/M7-H45.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-049.tex",
+    "output": "assets/module-07/M7-049.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-050.tex",
+    "output": "assets/module-07/M7-050.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-051.tex",
+    "output": "assets/module-07/M7-051.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-052.tex",
+    "output": "assets/module-07/M7-052.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-052-P1.tex",
+    "output": "assets/module-07/M7-052-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-053.tex",
+    "output": "assets/module-07/M7-053.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-054.tex",
+    "output": "assets/module-07/M7-054.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-055.tex",
+    "output": "assets/module-07/M7-055.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H46.tex",
+    "output": "assets/module-07/M7-H46.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H47.tex",
+    "output": "assets/module-07/M7-H47.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H48.tex",
+    "output": "assets/module-07/M7-H48.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-056.tex",
+    "output": "assets/module-07/M7-056.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-056-P1.tex",
+    "output": "assets/module-07/M7-056-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H49.tex",
+    "output": "assets/module-07/M7-H49.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-057.tex",
+    "output": "assets/module-07/M7-057.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H50.tex",
+    "output": "assets/module-07/M7-H50.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H51.tex",
+    "output": "assets/module-07/M7-H51.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-058.tex",
+    "output": "assets/module-07/M7-058.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-058-P1.tex",
+    "output": "assets/module-07/M7-058-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H52.tex",
+    "output": "assets/module-07/M7-H52.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-059.tex",
+    "output": "assets/module-07/M7-059.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H53.tex",
+    "output": "assets/module-07/M7-H53.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H54.tex",
+    "output": "assets/module-07/M7-H54.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-060.tex",
+    "output": "assets/module-07/M7-060.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H55.tex",
+    "output": "assets/module-07/M7-H55.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-H56.tex",
+    "output": "assets/module-07/M7-H56.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-061.tex",
+    "output": "assets/module-07/M7-061.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-062.tex",
+    "output": "assets/module-07/M7-062.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-062-P1.tex",
+    "output": "assets/module-07/M7-062-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-063.tex",
+    "output": "assets/module-07/M7-063.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-064.tex",
+    "output": "assets/module-07/M7-064.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-064-P1.tex",
+    "output": "assets/module-07/M7-064-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-065.tex",
+    "output": "assets/module-07/M7-065.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-066.tex",
+    "output": "assets/module-07/M7-066.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-066-P1.tex",
+    "output": "assets/module-07/M7-066-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-067.tex",
+    "output": "assets/module-07/M7-067.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-067-P1.tex",
+    "output": "assets/module-07/M7-067-P1.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-068.tex",
+    "output": "assets/module-07/M7-068.pdf"
+  },
+  {
+    "source": "tikz/module-07/M7-068-P1.tex",
+    "output": "assets/module-07/M7-068-P1.pdf"
+  }
+]

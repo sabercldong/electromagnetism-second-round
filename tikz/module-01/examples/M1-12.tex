@@ -1,0 +1,49 @@
+% 对应题号 M1-12；图与本题条件、推导、结论逐项对应。
+% 图契约：印刷宽16cm；最小字号8.4pt；几何/场或曲线在左，计算关系在右。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,graphicx}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+ axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+ vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+ short/.style={-{Stealth[length=3pt]},line width=.8pt},
+ guide/.style={dashed,draw=ink!40,line width=.5pt},
+ card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.6cm,inner xsep=9pt,inner ysep=7pt},
+ title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+ label/.style={font=\fontsize{8.4}{11}\selectfont,align=center}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.4) rectangle(8,3.4);
+\node[title] at (0,3) {M1-12\quad 本题的等值线、梯度与旋度方向};
+\begin{scope}[shift={(-4,0)}]
+
+\draw[axis](-2.05,.2)--(1.7,.2)node[right]{$x$};
+\draw[axis](-1.8,0)--(-1.8,2.05)node[above]{$y$};
+\foreach\c in{.4,1,1.6}{\pgfmathsetmacro{\lo}{sqrt(\c/1.5)}
+\draw[blue!65]plot[domain=\lo:2.2,samples=70]({-1.8+1.2*\x},{.2+1.2*\c/(\x*\x)});}
+\coordinate(P)at(-.6,1.4);\fill[red](P)circle(2pt)node[below left=2pt]{$P$};
+\draw[vec,green](P)--(.48,1.94);
+\node[label,green,fill=white,inner sep=1.5pt]at(.95,2.15){$\nabla f(P)=(2,1,0)$};
+\node[label]at(-.15,2.62){$z=0$：$f=x^2y$；$P=(1,1,0)$};
+\node[label]at(1.65,1.1){等值线\\$x^2y=C$};
+
+\begin{scope}[shift={(-.2,-1.3)}]
+\draw[ink!40,fill=blue!3](0,0)circle(.82);
+\foreach\a in{0,90,180,270}{\draw[short,blue](\a:.82)arc[start angle=\a,end angle={\a+32},radius=.82];}
+\node[blue]at(0,0){$\odot$};
+\end{scope}
+\node[label]at(-.2,-.3){$\mathbf A=(-y,x,0)$：绕 $z$ 轴逆时针};
+\node[label]at(-.2,-2.42){$\nabla\cdot\mathbf A=0$；$\nabla\times\mathbf A=2\mathbf e_z$};
+
+\end{scope}\node[card,draw=blue!65,fill=blue!4] at (3.95,1.65) {$f=x^2y$\\$\mathbf A=(-y,x,0)$};
+\node[card,draw=green!65,fill=green!4] at (3.95,0) {$\nabla f=(2xy,x^2,0)$};
+\node[card,draw=orange!65,fill=orange!4] at (3.95,-1.65) {$\nabla\cdot\mathbf A=0$\\$\nabla\times\mathbf A=2\mathbf e_z$};
+\end{tikzpicture}\end{document}

@@ -1,0 +1,81 @@
+% 核心结论：
+% 草图：[真实几何与节点 | 条件、推导、结论]；17cm印宽，最小字号8pt。
+% 图契约：周期网络的基本域：同色对边逐点、逐边识别；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {\quad 周期网络的基本域：同色对边逐点、逐边识别};
+\begin{scope}[shift={(-4.05,0)}]
+\draw[purple!35,line width=5pt](-1.65,-1.65)--(-1.65,1.65)(1.65,-1.65)--(1.65,1.65);\draw[green!35,line width=5pt](-1.65,-1.65)--(1.65,-1.65)(-1.65,1.65)--(1.65,1.65);\draw[wire,draw=ink](-1.65,-1.65)--(-1.331,-1.65) (-0.8690000000000001,-1.65)--(-0.55,-1.65);\begin{scope}[shift={(-1.1,-1.65)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](-0.55,-1.65)--(-0.23100000000000004,-1.65) (0.23100000000000004,-1.65)--(0.55,-1.65);\begin{scope}[shift={(0.0,-1.65)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.231,-.085)rectangle(0.231,.085);\end{scope}
+\draw[wire,draw=ink](0.55,-1.65)--(0.8690000000000001,-1.65) (1.331,-1.65)--(1.65,-1.65);\begin{scope}[shift={(1.1,-1.65)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](-1.65,-0.55)--(-1.331,-0.55) (-0.8690000000000001,-0.55)--(-0.55,-0.55);\begin{scope}[shift={(-1.1,-0.55)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](-0.55,-0.55)--(-0.23100000000000004,-0.55) (0.23100000000000004,-0.55)--(0.55,-0.55);\begin{scope}[shift={(0.0,-0.55)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.231,-.085)rectangle(0.231,.085);\end{scope}
+\draw[wire,draw=ink](0.55,-0.55)--(0.8690000000000001,-0.55) (1.331,-0.55)--(1.65,-0.55);\begin{scope}[shift={(1.1,-0.55)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](-1.65,0.55)--(-1.331,0.55) (-0.8690000000000001,0.55)--(-0.55,0.55);\begin{scope}[shift={(-1.1,0.55)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](-0.55,0.55)--(-0.23100000000000004,0.55) (0.23100000000000004,0.55)--(0.55,0.55);\begin{scope}[shift={(0.0,0.55)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.231,-.085)rectangle(0.231,.085);\end{scope}
+\draw[wire,draw=ink](0.55,0.55)--(0.8690000000000001,0.55) (1.331,0.55)--(1.65,0.55);\begin{scope}[shift={(1.1,0.55)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](-1.65,1.65)--(-1.331,1.65) (-0.8690000000000001,1.65)--(-0.55,1.65);\begin{scope}[shift={(-1.1,1.65)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](-0.55,1.65)--(-0.23100000000000004,1.65) (0.23100000000000004,1.65)--(0.55,1.65);\begin{scope}[shift={(0.0,1.65)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.231,-.085)rectangle(0.231,.085);\end{scope}
+\draw[wire,draw=ink](0.55,1.65)--(0.8690000000000001,1.65) (1.331,1.65)--(1.65,1.65);\begin{scope}[shift={(1.1,1.65)},rotate=0.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](-1.65,-1.65)--(-1.65,-1.331) (-1.65,-0.8690000000000001)--(-1.65,-0.55);\begin{scope}[shift={(-1.65,-1.1)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](-1.65,-0.55)--(-1.65,-0.23100000000000004) (-1.65,0.23100000000000004)--(-1.65,0.55);\begin{scope}[shift={(-1.65,0.0)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.231,-.085)rectangle(0.231,.085);\end{scope}
+\draw[wire,draw=ink](-1.65,0.55)--(-1.65,0.8690000000000001) (-1.65,1.331)--(-1.65,1.65);\begin{scope}[shift={(-1.65,1.1)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](-0.55,-1.65)--(-0.55,-1.331) (-0.55,-0.8690000000000001)--(-0.55,-0.55);\begin{scope}[shift={(-0.55,-1.1)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](-0.55,-0.55)--(-0.55,-0.23100000000000004) (-0.55,0.23100000000000004)--(-0.55,0.55);\begin{scope}[shift={(-0.55,0.0)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.231,-.085)rectangle(0.231,.085);\end{scope}
+\draw[wire,draw=ink](-0.55,0.55)--(-0.55,0.8690000000000001) (-0.55,1.331)--(-0.55,1.65);\begin{scope}[shift={(-0.55,1.1)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](0.55,-1.65)--(0.55,-1.331) (0.55,-0.8690000000000001)--(0.55,-0.55);\begin{scope}[shift={(0.55,-1.1)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](0.55,-0.55)--(0.55,-0.23100000000000004) (0.55,0.23100000000000004)--(0.55,0.55);\begin{scope}[shift={(0.55,0.0)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.231,-.085)rectangle(0.231,.085);\end{scope}
+\draw[wire,draw=ink](0.55,0.55)--(0.55,0.8690000000000001) (0.55,1.331)--(0.55,1.65);\begin{scope}[shift={(0.55,1.1)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](1.65,-1.65)--(1.65,-1.331) (1.65,-0.8690000000000001)--(1.65,-0.55);\begin{scope}[shift={(1.65,-1.1)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\draw[wire,draw=ink](1.65,-0.55)--(1.65,-0.23100000000000004) (1.65,0.23100000000000004)--(1.65,0.55);\begin{scope}[shift={(1.65,0.0)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.231,-.085)rectangle(0.231,.085);\end{scope}
+\draw[wire,draw=ink](1.65,0.55)--(1.65,0.8690000000000001) (1.65,1.331)--(1.65,1.65);\begin{scope}[shift={(1.65,1.1)},rotate=90.0]\draw[draw=ink,fill=white,line width=.8pt](-0.23099999999999996,-.085)rectangle(0.23099999999999996,.085);\end{scope}
+\fill[ink] (-1.65,-1.65)circle(2pt);
+\fill[ink] (-1.65,-0.55)circle(2pt);
+\fill[ink] (-1.65,0.55)circle(2pt);
+\fill[ink] (-1.65,1.65)circle(2pt);
+\fill[ink] (-0.55,-1.65)circle(2pt);
+\fill[ink] (-0.55,-0.55)circle(2pt);
+\fill[ink] (-0.55,0.55)circle(2pt);
+\fill[ink] (-0.55,1.65)circle(2pt);
+\fill[ink] (0.55,-1.65)circle(2pt);
+\fill[ink] (0.55,-0.55)circle(2pt);
+\fill[ink] (0.55,0.55)circle(2pt);
+\fill[ink] (0.55,1.65)circle(2pt);
+\fill[ink] (1.65,-1.65)circle(2pt);
+\fill[ink] (1.65,-0.55)circle(2pt);
+\fill[ink] (1.65,0.55)circle(2pt);
+\fill[ink] (1.65,1.65)circle(2pt);
+\fill[green] (-0.55,-0.55)circle(2pt);
+\fill[red] (0.55,-0.55)circle(2pt);
+\node[label]at(-.9,-.2){$A$};\node[label]at(.9,-.2){$B$};\node[label,purple]at(-2.25,0){同一边};\node[label,purple]at(2.25,0){同一边};\node[label,green]at(0,2.15){同一边};\node[label,green]at(0,-2.15){同一边};\node[note]at(0,-2.8){示意m=3；对应节点及对应边均为同一对象，只计一次};
+\end{scope}
+\node[card,text width=6.5cm,draw=blue!65,fill=blue!4]at(3.9,1.8){一般 $m\times m$ 周期网：$N=m^2,\ E=2m^2$};
+\node[card,text width=6.5cm,draw=green!65,fill=green!4]at(3.9,0){对边识别后每点度数4、各边等价\\$R_m/r=(m^2-1)/(2m^2)$};
+\node[card,text width=6.5cm,draw=orange!65,fill=orange!4]at(3.9,-1.8){$m\to\infty:\quad R_{AB}\to r/2$};
+
+\end{tikzpicture}\end{document}

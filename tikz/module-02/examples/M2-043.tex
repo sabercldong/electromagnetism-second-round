@@ -1,0 +1,51 @@
+% 对应题号 M2-043，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {四极节点方向：首项电势为零，不代表电场为零};
+\begin{scope}[shift={(-4.8,-.25)}]
+\draw[axis] (0,-2.7)--(0,2.8) node[above] {$z$};
+\fill[redfield] (0,1.15) circle(.1); \fill[bluefield] (0,0) circle(.14); \fill[redfield] (0,-1.15) circle(.1);
+\draw[orangefield,line width=1.1pt] (0,0)--(3.18,2.25); \draw[orangefield,line width=1.1pt] (0,0)--(-3.18,2.25);
+\draw[orangefield,line width=1.1pt] (0,0)--(3.18,-2.25); \draw[orangefield,line width=1.1pt] (0,0)--(-3.18,-2.25);
+\draw[thinarr] (0,.8) arc[start angle=90,end angle=35.2644,radius=.8] node[midway,above right] {$\theta_0$};
+\node[orangefield,fill=white,inner sep=3pt] at (1.8,2.9) {$\cos^2\theta_0=1/3$};
+\end{scope}
+\begin{scope}[shift={(4.65,-.1)}]
+\node[bluebox,text width=6.9cm] at (0,1.65) {$\displaystyle \varphi=2kq\sum_{n=1}^{\infty}\frac{\ell^{2n}}{r^{2n+1}}P_{2n}(\cos\theta)$};
+\node[greenbox,text width=6.9cm] at (0,0) {$P_2(\cos\theta_0)=0$，故该方向电势从 $r^{-5}P_4$ 开始。};
+\node[orangebox,text width=6.9cm] at (0,-1.7) {$\partial_\theta P_2(\cos\theta_0)\ne0$，所以四极阶切向电场仍然存在。};
+\end{scope}
+\end{tikzpicture}
+\end{document}

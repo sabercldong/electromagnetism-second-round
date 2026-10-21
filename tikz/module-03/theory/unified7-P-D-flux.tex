@@ -1,0 +1,50 @@
+% 通量积分下移独占一行；正束缚/自由电荷的两幅独立示意。
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+
+\begin{document}\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box](-8,-4)rectangle(8,4);
+\node[title]at(0,3.65){$\mathbf P$ 与 $\mathbf D$ 的通量：先分清所包围的电荷};
+\begin{scope}[shift={(-4,1)}]
+\node[font=\bfseries]at(0,1.8){极化矢量 $\mathbf P$};
+\draw[ink!65](0,0)circle(1.25);
+\filldraw[draw=red!60,fill=red!6](0,0)circle(.45);
+\node[red]at(0,0){$q_b>0$};
+\foreach \a in {20,80,140,200,260,320}{
+\draw[vec,red](\a:1.55)--(\a:.8);}
+\draw[axis](1.25,0)--(1.95,0)node[right]{$\mathbf n$};
+\node[label]at(0,-1.9){向内净通量；$q_b$ 是净束缚电荷};
+\end{scope}
+\begin{scope}[shift={(4,1)}]
+\node[font=\bfseries]at(0,1.8){电位移 $\mathbf D$};
+\draw[ink!65](0,0)circle(1.25);
+\filldraw[draw=blue!60,fill=blue!6](0,0)circle(.45);
+\node[blue]at(0,0){$q_f>0$};
+\foreach \a in {20,80,140,200,260,320}{
+\draw[vec,blue](\a:.8)--(\a:1.55);}
+\draw[axis](1.25,0)--(1.95,0)node[right]{$\mathbf n$};
+\node[label]at(0,-1.9){向外净通量；$q_f$ 是自由电荷};
+\end{scope}
+\node[align=center]at(-4,-2.1){$\displaystyle\oint_S\mathbf P\cdot\mathbf n\,dS=-q_b$};
+\node[align=center]at(4,-2.1){$\displaystyle\oint_S\mathbf D\cdot\mathbf n\,dS=q_f$};
+\node[label,text width=15cm]at(0,-3.35){$\mathbf n$ 均取闭曲面外法向；左右为独立示意，箭头表示净通量符号，不能把两种电荷互换。};
+\end{tikzpicture}\end{document}

@@ -1,0 +1,36 @@
+% 图契约：电小圆回路的辐射电阻；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-060　电小圆回路的辐射电阻};
+\begin{scope}[shift={(-4,0)}]
+\draw[blue,line width=1pt](0,0)circle(1.6);
+\draw[v,blue](1.6,0)arc(0:240:1.6);
+\draw[{Latex[length=1.3mm]}-{Latex[length=1.3mm]},ink!65,line width=.5pt](0.00000,0.00000)--(1.60000,0.00000);
+\node[lab]at(0.80000,0.30000){$a$};
+\draw[green](0,0)circle(0.13);
+\fill[green](0,0)circle(.035);
+\node[text=green]at(0.00000,0.80000){$\mathbf m=IS\mathbf n$};
+\node[]at(0.00000,2.20000){逆时针电流：磁矩出纸面};
+\node[]at(0.00000,-2.40000){$S=\pi a^2$；电小：$ka\ll1$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$ka=0.0209\ll1$};
+\node[card]at(4.00000,-1.05000){$R_{\rm rad}=3.80\times10^{-5}\,\Omega$};
+\node[text width=15.2cm,align=center]at(0.00000,-3.20000){$a=0.10\,\mathrm m,f=10\,\mathrm{MHz},I_{\rm rms}=1.0\,\mathrm A$。};
+\end{tikzpicture}\end{document}

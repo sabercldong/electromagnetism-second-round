@@ -1,0 +1,35 @@
+% 图契约：为什么完整金属盘制动明显；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {M5-157\quad 为什么完整金属盘制动明显};
+\begin{scope}[shift={(-4.05,0)}]
+\filldraw[fill=blue!4,draw=ink](-1.5,0)circle(1.15);\fill[ink](-1.5,0)circle(.13);\filldraw[fill=blue!4,draw=ink](1.5,0)circle(1.15);\fill[ink](1.5,0)circle(.13);\draw[red](-1.5,0)ellipse(.65 and .8);\draw[arrow short,red](-.85,0)arc(0:-55:.65 and .8);\draw[white,line width=4pt](1.9,0.0)--(2.65,0.0);\draw[ink!50,line width=.4pt](1.9,0.0)--(2.65,0.0);\draw[white,line width=4pt](1.7000000000000002,0.34641016151377546)--(2.075,0.9959292143521044);\draw[ink!50,line width=.4pt](1.7000000000000002,0.34641016151377546)--(2.075,0.9959292143521044);\draw[white,line width=4pt](1.3,0.3464101615137755)--(0.9250000000000003,0.9959292143521045);\draw[ink!50,line width=.4pt](1.3,0.3464101615137755)--(0.9250000000000003,0.9959292143521045);\draw[white,line width=4pt](1.1,4.898587196589413e-17)--(0.3500000000000001,1.408343819019456e-16);\draw[ink!50,line width=.4pt](1.1,4.898587196589413e-17)--(0.3500000000000001,1.408343819019456e-16);\draw[white,line width=4pt](1.2999999999999998,-0.34641016151377535)--(0.9249999999999995,-0.995929214352104);\draw[ink!50,line width=.4pt](1.2999999999999998,-0.34641016151377535)--(0.9249999999999995,-0.995929214352104);\draw[white,line width=4pt](1.7000000000000002,-0.34641016151377546)--(2.075,-0.9959292143521044);\draw[ink!50,line width=.4pt](1.7000000000000002,-0.34641016151377546)--(2.075,-0.9959292143521044);\node[above]at(-1.5,1.5){完整圆盘};\node[above]at(1.5,1.5){径向绝缘窄槽};\node[label]at(0,-1.8){保留公共轮轴；槽未贯通中心};\node[label]at(0,-2.4){大涡流路径受阻，制动力矩通常减小};\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {闭合涡流路径产生焦耳耗散};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {开槽切断大回路，减小制动力矩};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {磁制动能量来自机械功};
+\end{tikzpicture}\end{document}

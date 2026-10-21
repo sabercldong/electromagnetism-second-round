@@ -1,0 +1,32 @@
+% 图契约：本题的源、边界和推导逐项对应；箭头符号按图注解释。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+axis/.style={-{Stealth[length=4pt]},line width=.65pt,draw=ink!65},
+vec/.style={-{Stealth[length=5pt]},line width=1pt,draw=blue},
+short/.style={-{Stealth[length=3pt]},line width=.8pt},
+guide/.style={dashed,draw=ink!40,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.2cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.5);
+\node[title] at (0,3.15) {M2-141\quad 60度接地劈形的完整像源列};
+\begin{scope}[shift={(-4,0)}]
+\fill[green!7](0,0)--(2.2,0)arc(0:60:2.2)--cycle;\draw[ink,thick](0,0)--(2.2,0) (0,0)--(60:2.2);\draw[guide](0,0)circle(1.6);\fill[red](20:1.6)circle(2.5pt);\fill[blue](-20:1.6)circle(2.5pt);\fill[red](140:1.6)circle(2.5pt);\fill[blue](100:1.6)circle(2.5pt);\fill[red](260:1.6)circle(2.5pt);\fill[blue](220:1.6)circle(2.5pt);\node[label]at(0,2.2){红 $+q$，蓝 $-q$};\node[note] at (0,-2.85) {图示 $\theta_0=20^\circ$；绿色扇区为真实域。};
+\end{scope}
+\node[card,draw=blue!65,fill=blue!4] at (3.9,1.8) {$\alpha=\pi/3,\quad2n=6$};
+\node[card,draw=green!65,fill=green!4] at (3.9,0) {$+q:\ \theta_0+2k\alpha$\\$-q:\ -\theta_0+2k\alpha$};
+\node[card,draw=orange!65,fill=orange!4] at (3.9,-1.8) {含真实源共 $6$ 枚；\\像电荷为 $5$ 枚。};
+\end{tikzpicture}\end{document}

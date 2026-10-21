@@ -1,0 +1,58 @@
+% 对应题号 M1-25，复用已核对的本题几何图。
+% 修订：启用 xeCJK 自动换行；保留原题参数与物理关系。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {柱对称电势：在子午截面中看等势线与电场正交};
+\begin{scope}[shift={(-4.8,-.25)}]
+\draw[axis] (-2.8,-2.5)--(2.9,-2.5) node[right] {$\rho$};
+\draw[axis] (-2.55,-2.8)--(-2.55,2.7) node[above] {$z$};
+\draw[redfield,line width=1.2pt] (-2.45,-2.5)--(-2.45,2.55);
+\node[redfield,font=\small,align=center,text width=2.6cm] at (-1.0,2.7) {轴线 $\rho=0$\\不在定义域内};
+\foreach \s/\c in {-1.1/bluefield,0/greenfield,1.1/orangefield}{
+  \draw[\c,line width=1.1pt] plot[domain=.65:5.1,samples=70] ({-2.2+\x},{.85*ln(\x)+\s-1.0});
+}
+\draw[arrow,purplefield] (-.3,.6456)--(-.837,1.8456) node[above] {$\mathbf E$};
+\draw[guide] (-.802,.4216)--(.202,.8696);
+\draw[linegray] (-.0992,.7354)--(-.189,.9362)--(-.3898,.8464);
+\node[text=linegray] at (.3,-3.2) {各曲线表示 $A\ln(\rho/\rho_0)-E_0z=C$};
+\end{scope}
+\begin{scope}[shift={(4.55,-.15)}]
+\node[bluebox,text width=6.6cm] at (0,1.6) {$\displaystyle \nabla\varphi=\frac A\rho\mathbf e_\rho-E_0\mathbf e_z$};
+\node[greenbox,text width=6.6cm] at (0,-.05) {$\displaystyle \mathbf E=-\frac A\rho\mathbf e_\rho+E_0\mathbf e_z$};
+\node[orangebox,text width=6.6cm] at (0,-1.75) {$d\varphi=\nabla\varphi\cdot d\mathbf r_t=0$\\故 $\mathbf E$ 垂直每一条截面等势线。};
+\end{scope}
+\node[font=\small] at (0,-4.1) {图示 $A>0,E_0>0$；系数变号时对应场分量反向。};
+\end{tikzpicture}
+\end{document}

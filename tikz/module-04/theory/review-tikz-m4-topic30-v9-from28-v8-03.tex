@@ -1,0 +1,39 @@
+% 核心结论：电流从介质1流入界面再流出到介质2，分开角标与介质说明
+% 草图：[真实几何与节点 | 条件、推导、结论]；17cm印宽，最小字号8pt。
+% 图契约：导电界面：法向电流连续，切向电场连续；图中的端口、几何、箭头和方程对应本题。
+% 版面：沿用前三模块的几何图+推导分区；目标印宽17cm，简图至中等密度。
+% 布局：左侧真实结构，右侧关键关系；真实电路边不作为架构流程箭头处理。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,bending,calc,patterns,positioning,decorations.pathmorphing}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\tikzset{every node/.style={font=\fontsize{9.3}{12.5}\selectfont,text=ink},
+arrow/.style={-{Stealth[length=5pt 1.5,width'=0pt 3]},shorten >=2pt,shorten <=1pt,line width=1pt},
+arrow short/.style={-{Stealth[length=3pt 1.0,width'=0pt 2.5]},shorten >=1pt,shorten <=0pt,line width=.8pt},
+axis/.style={arrow,draw=ink!60,line width=.6pt},
+vec/.style={arrow,draw=blue},
+wire/.style={draw=ink!75,line width=.8pt},
+guide/.style={dashed,draw=ink!45,line width=.5pt},
+card/.style={rounded corners=2pt,draw=blue!65,fill=blue!4,align=center,text width=6.5cm,inner xsep=9pt,inner ysep=7pt},
+title/.style={font=\fontsize{10.5}{14}\selectfont\bfseries,text width=15cm,align=center},
+label/.style={font=\fontsize{8.4}{11}\selectfont,align=center},
+note/.style={label,text width=6.1cm}}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-8,-3.5) rectangle(8,3.65);
+\node[title] at (0,3.25) {\quad 导电界面：法向电流连续，切向电场连续};
+\begin{scope}[shift={(-4.05,0)}]
+\fill[blue!4](-2.7,-2.1)rectangle(2.7,0);\fill[green!4](-2.7,0)rectangle(2.7,2.1);\draw[ink](-2.7,0)--(2.7,0);\draw[guide](0,-2)--(0,2);\draw[vec,ink](.15,.1)--(.15,1.8)node[right]{$\mathbf n_{12}$};\draw[vec,blue](-.95,-1.65)--(0,0)node[pos=.25,left]{$\mathbf J_1$};\draw[vec,green](0,0)--(1.9,1.25)node[pos=.5,above=9pt]{$\mathbf J_2$};\draw[orange](0,-.65)arc(-90:-120:.65);\draw[orange](0,.65)arc(90:33:.65);\node[label]at(-.35,-.95){$\theta_1$};\node[label]at(.65,.9){$\theta_2$};\node[label]at(-1.9,-.5){介质1\\$\sigma_1,\varepsilon_1$};\node[label]at(-1.9,1.15){介质2\\$\sigma_2,\varepsilon_2$};\node[note]at(0,-2.8){图示 $\sigma_2>\sigma_1$；角度均从法线量起};
+\end{scope}
+\node[card,text width=6.5cm,draw=blue!65,fill=blue!4]at(3.9,1.8){$J_{1n}=J_{2n},\quad E_{1t}=E_{2t}$};
+\node[card,text width=6.5cm,draw=green!65,fill=green!4]at(3.9,0){$\tan\theta_1/\tan\theta_2=\sigma_1/\sigma_2$};
+\node[card,text width=6.5cm,draw=orange!65,fill=orange!4]at(3.9,-1.8){$\sigma_s=J_n(\varepsilon_2/\sigma_2-\varepsilon_1/\sigma_1)$};
+
+\end{tikzpicture}\end{document}

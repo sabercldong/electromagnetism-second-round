@@ -1,0 +1,49 @@
+% 对应题号 M2-107，本题条件、变量及几何关系逐项核对。
+% 修订：启用中文断行；核对题设及图文对应。
+\documentclass[tikz,border=14pt]{standalone}
+\usepackage{fontspec,xeCJK}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning,bending}
+\IfFontExistsTF{Heiti SC}{\IfFontExistsTF{Heiti SC}{\setmainfont{Heiti SC}}{\setmainfont{FandolHei-Regular}}\IfFontExistsTF{Heiti SC}{\setsansfont{Heiti SC}}{\setsansfont{TeX Gyre Heros}}}{\IfFontExistsTF{Songti SC}{\setmainfont{Songti SC}}{\setmainfont{FandolSong-Regular}}\IfFontExistsTF{Songti SC}{\setsansfont{Songti SC}}{\setsansfont{FandolSong-Regular}}}
+\definecolor{bluefield}{RGB}{24,76,255}
+\definecolor{redfield}{RGB}{232,49,35}
+\definecolor{orangefield}{RGB}{236,132,18}
+\definecolor{greenfield}{RGB}{18,132,86}
+\definecolor{purplefield}{RGB}{112,72,190}
+\definecolor{linegray}{RGB}{60,68,78}
+\definecolor{softblue}{RGB}{238,243,255}
+\definecolor{softgreen}{RGB}{238,249,244}
+\definecolor{softorange}{RGB}{255,247,235}
+\tikzset{
+  arrow/.style={-{Latex[length=3.1mm,width=2.1mm]},line width=1.1pt},
+  thinarr/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.85pt},
+  axis/.style={-{Latex[length=2.5mm,width=1.7mm]},line width=.8pt,draw=linegray},
+  guide/.style={draw=linegray!55,dashed,line width=.65pt},
+  box/.style={draw=linegray,rounded corners=3pt,fill=white,align=center,inner sep=6pt,line width=.75pt},
+  bluebox/.style={box,draw=bluefield,fill=softblue},
+  greenbox/.style={box,draw=greenfield,fill=softgreen},
+  orangebox/.style={box,draw=orangefield,fill=softorange}
+}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\begin{document}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-10,-4.6) rectangle (10,4.6);
+\fill[white] (-10,-4.6) rectangle (10,4.6);
+\node[font=\Large\bfseries,text width=18.6cm,align=center] at (0,4.05) {泊松方程的五点差分：中心值由四邻点与局部源共同更新};
+\begin{scope}[shift={(-4.8,-.15)}]
+\foreach \x in {-2,-1,0,1,2}{\draw[linegray!35] (\x,-2)--(\x,2);} \foreach \y in {-2,-1,0,1,2}{\draw[linegray!35] (-2,\y)--(2,\y);}
+\fill[redfield] (0,0) circle(.12) node[below right] {$C$};
+\foreach \x/\y/\n in {1/0/E,-1/0/W,0/1/N,0/-1/S}{\fill[bluefield] (\x,\y) circle(.1) node[above right] {$\varphi_\n$}; \draw[arrow,greenfield] (\x,\y)--({.2*\x},{.2*\y});}
+\node[below] at (1,-2) {$h$};
+\end{scope}
+\begin{scope}[shift={(4.65,-.1)}]
+\node[bluebox,text width=6.9cm] at (0,1.65) {$\displaystyle \varphi_C=\frac{\varphi_E+\varphi_W+\varphi_N+\varphi_S}{4}+\frac{h^2\rho_C}{4\varepsilon_0}$};
+\node[greenbox,text width=6.9cm] at (0,0) {四邻点均为零且 $\rho_C>0$ 时，中心电势为正。};
+\node[orangebox,text width=6.4cm,align=center] at (0,-1.7) {迭代残差趋零只说明离散方程已解；\\加密网格才能检查截断误差。};
+\end{scope}
+\end{tikzpicture}
+\end{document}

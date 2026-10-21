@@ -1,0 +1,65 @@
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage[fontset=none]{ctex}
+\usepackage{amsmath,amssymb,bm}
+\usetikzlibrary{arrows.meta,calc,positioning,angles,quotes}
+
+\definecolor{ink}{HTML}{263238}
+\definecolor{muted}{HTML}{6B7780}
+\definecolor{blue}{HTML}{245BFF}
+\definecolor{green}{HTML}{087F5B}
+\definecolor{orange}{HTML}{E67700}
+\definecolor{red}{HTML}{E03131}
+\definecolor{purple}{HTML}{7048E8}
+\definecolor{paleBlue}{HTML}{EDF3FF}
+\definecolor{paleGreen}{HTML}{EAF8F3}
+\definecolor{paleOrange}{HTML}{FFF4E6}
+\definecolor{palePurple}{HTML}{F3F0FF}
+
+\tikzset{
+  title/.style={font=\fontsize{18}{22}\selectfont\bfseries,text=ink,align=center},
+  subtitle/.style={font=\fontsize{12.5}{16}\selectfont\bfseries,text=ink,align=center},
+  body/.style={font=\fontsize{10.5}{14}\selectfont,text=ink,align=center},
+  small/.style={font=\fontsize{8.8}{11.5}\selectfont,text=ink,align=center},
+  box/.style={draw=muted,line width=.8pt,rounded corners=2pt,inner sep=6pt,body},
+  vec/.style={-{Latex[length=3.2mm,width=2.3mm]},line width=1.35pt},
+  patharrow/.style={-{Latex[length=2.8mm,width=2mm]},line width=1.25pt},
+  nodept/.style={circle,fill=ink,minimum size=5pt,inner sep=0pt}
+}
+
+\usepackage{fontspec,xeCJK}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\usetikzlibrary{bending}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \path[use as bounding box] (0,0) rectangle (16,8); \fill[white] (0,0) rectangle (16,8);
+  \node[title] at (8,7.45) {圆弧中心场：圆弧有贡献，径向导线贡献为零};
+  \draw[muted,line width=.8pt] (8,1.0)--(8,6.75);
+  \node[subtitle,blue] at (4,6.35) {半径 $R$、圆心角 $\varphi$ 的电流弧};
+  \coordinate (O) at (3.75,3.45);
+  \draw[muted,dashed] (O)--++(2.45,0);
+  \draw[muted,dashed] (O)--++(65:2.45);
+  \draw[red,line width=2.0pt] ($(O)+(0:2.45)$) arc[start angle=0,end angle=65,radius=2.45];
+  \draw[red,patharrow] ($(O)+(28:2.45)$) arc[start angle=28,end angle=40,radius=2.45];
+  \draw[blue,<->,line width=1.1pt] (O)--++(32:2.45); \node[small,blue,below right] at ($(O)+(32:1.25)$) {$R$};
+  \draw[orange,line width=1.3pt] ($(O)+(0:1.15)$) arc[start angle=0,end angle=65,radius=1.15];
+  \node[small,orange] at ($(O)+(32:1.45)$) {$\varphi$};
+  \fill[ink] (O) circle (.09); \node[small,below] at (O) {圆心};
+  \draw[purple,line width=1.35pt] ($(O)+(-.6,.5)$) circle (.22); \fill[purple] ($(O)+(-.6,.5)$) circle (.065);
+  \node[small,purple,left] at ($(O)+(-.9,.5)$) {$\bm B$};
+  \node[box,fill=paleBlue,text width=5.5cm] at (4,1.0)
+    {$\displaystyle \bm B_O=\frac{\mu_0I\varphi}{4\pi R}\,\bm n$，其中 $\varphi$ 必须用弧度，$\bm n$ 由右手定则确定};
+
+  \node[subtitle,green] at (12,6.35) {径向引线为何不产生圆心磁场};
+  \coordinate (C) at (11.6,3.6);
+  \draw[red,line width=2pt] (C)--++(2.8,0);
+  \draw[red,vec] ($(C)+(1.0,.15)$)--++(.9,0); \node[small,red,above] at (13.0,3.85) {$I\,d\bm l'$};
+  \fill[ink] (C) circle (.09); \node[small,below] at (C) {圆心};
+  \draw[blue,vec] ($(C)+(2.45,-.25)$)--($(C)+(0,-.25)$); \node[small,blue,below] at (12.85,3.3) {$\bm R$};
+  \node[box,fill=paleGreen,text width=5.6cm] at (12,2.05)
+    {$d\bm l'\parallel\bm R\quad\Longrightarrow\quad
+      d\bm l'\times\bm R=\bm0$};
+  \node[box,fill=paleOrange,text width=5.6cm] at (12,.85)
+    {半圆弧加两条径向引线：$\displaystyle B_O=\frac{\mu_0I}{4R}$};
+\end{tikzpicture}
+\end{document}

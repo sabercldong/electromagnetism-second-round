@@ -1,0 +1,36 @@
+% 图契约：由两个正交分量判断偏振；几何、方向和公式与正文同一约定。
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,patterns}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.5}{12}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.7mm,width=1.1mm]},ink!65,line width=.55pt},
+aux/.style={ink!45,dashed,line width=.55pt},
+lab/.style={fill=white,inner sep=1.8pt},
+card/.style={draw=ink!25,fill=blue!3,rounded corners=2pt,text width=6.1cm,minimum height=.85cm,inner sep=6pt,align=center}]
+\path[use as bounding box](-8,-3.6)rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{13}\selectfont,text width=15.1cm,align=center]at(0.00000,3.22000){M7-020　由两个正交分量判断偏振};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis](-2.50000,0.00000)--(2.50000,0.00000);
+\draw[axis](0.00000,-2.50000)--(0.00000,2.50000);
+\node[]at(2.40000,-0.35000){$E_x$};
+\node[]at(0.40000,2.50000){$E_y$};
+\draw[blue,line width=.9pt](0,0)ellipse(1.05 and 2.1);
+\draw[v,blue](0.00000,0.00000)--(1.05000,0.00000);
+\draw[red,line width=.9pt,-{Latex[length=2mm]}]plot coordinates{(1.03821,-0.31382) (1.03625,-0.33871) (1.03415,-0.36356) (1.03189,-0.38835) (1.02949,-0.41309) (1.02693,-0.43777) (1.02423,-0.46238) (1.02138,-0.48693) (1.01839,-0.51141) (1.01525,-0.53581) (1.01196,-0.56014) (1.00853,-0.58438) (1.00495,-0.60854) (1.00122,-0.63262) (0.99736,-0.65660) (0.99334,-0.68049) (0.98919,-0.70428) (0.98489,-0.72797) (0.98045,-0.75155) (0.97587,-0.77503) (0.97115,-0.79840) (0.96629,-0.82165) (0.96130,-0.84478) (0.95616,-0.86779) (0.95088,-0.89067) (0.94547,-0.91343) (0.93992,-0.93605) (0.93424,-0.95854) (0.92842,-0.98089) (0.92247,-1.00311) (0.91638,-1.02517) (0.91016,-1.04709) (0.90382,-1.06886) (0.89734,-1.09047) (0.89073,-1.11193) (0.88400,-1.13323) (0.87713,-1.15436) (0.87014,-1.17533) (0.86303,-1.19613) (0.85579,-1.21675) (0.84843,-1.23720) (0.84094,-1.25748) (0.83334,-1.27757) (0.82561,-1.29748) (0.81777,-1.31720) (0.80981,-1.33673) (0.80173,-1.35607) (0.79354,-1.37521) (0.78523,-1.39416) (0.77681,-1.41290)};
+\node[]at(1.40000,0.35000){$A$};
+\node[]at(-0.45000,2.20000){$2A$};
+\end{scope}
+\node[card]at(4.00000,1.25000){$E_x^2/A^2+E_y^2/(4A^2)=1$};
+\node[card]at(4.00000,-1.05000){$z=0:\ (A,0)\longrightarrow E_y<0$};
+\node[text width=15.2cm,align=center]at(0.00000,-3.20000){横半轴 $A$，纵半轴 $2A$；红箭头表示时间增加。};
+\end{tikzpicture}\end{document}

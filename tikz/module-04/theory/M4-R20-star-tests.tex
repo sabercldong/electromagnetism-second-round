@@ -1,0 +1,29 @@
+% 2026-10-20用户反馈复核；图号、参考方向、数据与本题解答同步。
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{orange}{HTML}{AA6C16}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9.3}{12.5}\selectfont,
+v/.style={-{Latex[length=2mm,width=1.3mm]},line width=.85pt},
+axis/.style={-{Latex[length=1.8mm,width=1.1mm]},ink!70,line width=.6pt},
+aux/.style={ink!40,dashed,line width=.5pt},
+box/.style={draw=ink!40,rounded corners=2pt,inner sep=5pt,align=center},
+lab/.style={fill=white,inner sep=2pt}]
+\path[use as bounding box] (-8,-3.6) rectangle(8,3.65);
+\node[font=\bfseries\fontsize{10.5}{14}\selectfont,text width=15cm,align=center] at (0,3.23) {星形—三角形变换的三项检验};
+\node[font=\bfseries,text=blue] at (-5.1,2.25) {完全对称};
+\node[box,fill=blue!3,text width=4.4cm,minimum height=3.6cm] at (-5.1,0.1) {$R_{12}=R_{23}=R_{31}=R_\Delta$\\[8pt]$R_1=R_2=R_3=R_\Delta/3$\\[8pt]反变换：$R_\Delta=3R_Y$};
+\node[font=\bfseries,text=orange] at (0,2.25) {一边开路};
+\node[box,fill=orange!3,text width=4.4cm,minimum height=3.6cm] at (0,0.1) {$R_{23}\to\infty$\\[8pt]$R_1\to0,\quad R_2\to R_{12}$\\[5pt]$R_3\to R_{31}$\\[8pt]中心点与节点1合并};
+\node[font=\bfseries,text=green] at (5.1,2.25) {逆变换};
+\node[box,fill=green!3,text width=4.4cm,minimum height=3.6cm] at (5.1,0.1) {$\Delta\to Y\to\Delta$\\[8pt]逐项恢复\\[4pt]$R_{12},R_{23},R_{31}$\\[8pt]检查节点对应与下标};
+\node[text width=15cm,align=center] at (0,-3.12) {量纲也要一致：相邻两边乘积除以三边之和，或电阻平方和除以相应电阻。};
+\end{tikzpicture}\end{document}

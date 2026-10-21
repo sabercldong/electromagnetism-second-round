@@ -1,0 +1,42 @@
+% 核心结论：补偿电流的首尾相接
+% 图原型：纯几何／对比。物理网络按本题节点、端口和符号构建。
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,amssymb}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\definecolor{ink}{HTML}{243745}
+\definecolor{blue}{HTML}{275DAB}
+\definecolor{green}{HTML}{177C63}
+\definecolor{red}{HTML}{BD4935}
+\definecolor{purple}{HTML}{715393}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,text=ink,
+ v/.style={line width=1.1pt,-{Stealth[length=2.4mm,width=1.5mm]}},
+ axis/.style={ink!65,line width=.45pt,-{Stealth[length=1.7mm,width=1.1mm]}},
+ aux/.style={ink!40,densely dashed,line width=.5pt},
+ lab/.style={fill=white,inner sep=2pt},
+ card/.style={draw=blue!25,fill=blue!3,rounded corners=3pt,text width=6cm,align=left,inner sep=10pt}]
+\path[use as bounding box] (-8,-3.35) rectangle (8,3.65);
+\node[font=\fontsize{10.5}{13}\selectfont\bfseries,text width=15cm,align=center] at (0.00000,3.22000) {M6-022-P1　补偿电流的首尾相接};
+\begin{scope}[shift={(-4,0)}]
+\draw[axis] (-2.10000,0.90000) -- (2.10000,0.90000);
+\draw[v,blue] (-1.60000,0.90000) -- (0.80000,-0.90000);
+\node[lab,text=blue,anchor=east] at (-0.55000,-0.12000) {$\widetilde I_{load}$};
+\draw[v,green] (0.80000,-0.90000) -- (0.80000,0.90000);
+\node[lab,text=green,anchor=west] at (0.98000,0.00000) {$\widetilde I_C$};
+\draw[v,red] (-1.60000,0.90000) -- (0.80000,0.90000);
+\node[lab,text=red,anchor=center] at (-0.40000,1.22000) {$\widetilde I$};
+\node[] at (-1.78000,1.05000) {$O$};
+\node[] at (0.95000,-1.12000) {$B$};
+\node[] at (0.92000,1.08000) {$A$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,1.15000) {$I_{load}=4-j3A$};
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+\node[card] at (0.00000,-1.15000) {$I_C=j3A,\quad I=4A$};
+\end{scope}
+\node[text width=15cm,align=center] at (0.00000,-3.00000) {同一电流尺度，OA:AB=4:3；电容只抵消虚部，有功电流仍由电源提供。};
+
+\end{tikzpicture}\end{document}

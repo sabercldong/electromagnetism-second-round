@@ -1,0 +1,61 @@
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage[fontset=none]{ctex}
+\usepackage{amsmath,amssymb,bm}
+\usetikzlibrary{arrows.meta,calc,positioning}
+
+\definecolor{ink}{HTML}{263238}
+\definecolor{muted}{HTML}{6B7780}
+\definecolor{blue}{HTML}{245BFF}
+\definecolor{green}{HTML}{087F5B}
+\definecolor{orange}{HTML}{E67700}
+\definecolor{red}{HTML}{E03131}
+\definecolor{purple}{HTML}{7048E8}
+\definecolor{paleBlue}{HTML}{EDF3FF}
+\definecolor{paleGreen}{HTML}{EAF8F3}
+\definecolor{paleOrange}{HTML}{FFF4E6}
+\definecolor{palePurple}{HTML}{F3F0FF}
+
+\tikzset{
+  title/.style={font=\fontsize{18}{22}\selectfont\bfseries,text=ink,align=center},
+  subtitle/.style={font=\fontsize{12.5}{16}\selectfont\bfseries,text=ink,align=center},
+  body/.style={font=\fontsize{10.5}{14}\selectfont,text=ink,align=center},
+  small/.style={font=\fontsize{8.8}{11.5}\selectfont,text=ink,align=center},
+  box/.style={draw=muted,line width=.8pt,rounded corners=2pt,inner sep=6pt,body},
+  vec/.style={-{Latex[length=3.2mm,width=2.3mm]},line width=1.35pt},
+  patharrow/.style={-{Latex[length=2.8mm,width=2mm]},line width=1.25pt}
+}
+
+\usepackage{fontspec,xeCJK}
+\IfFontExistsTF{Heiti SC}{\setCJKmainfont[AutoFakeBold=1.5]{Heiti SC}}{\setCJKmainfont[AutoFakeBold=1.5]{FandolHei-Regular}}
+\IfFontExistsTF{Heiti SC}{\setCJKsansfont{Heiti SC}}{\setCJKsansfont{FandolHei-Regular}}
+\usetikzlibrary{bending}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \path[use as bounding box] (0,0) rectangle (16,8); \fill[white] (0,0) rectangle (16,8);
+  \node[title,font=\fontsize{16}{20}\selectfont\bfseries] at (8,7.45) {无限电流面：单面两侧反向，双面可在指定区域叠加或抵消};
+  \draw[muted,line width=.8pt] (8,1.0)--(8,6.75);
+  \node[subtitle,blue] at (4,6.35) {单个电流面，$\bm K$ 指向纸外};
+  \draw[ink,line width=2pt] (.8,3.8)--(7.2,3.8);
+  \foreach \x in {1.2,2.0,...,6.8}{\draw[red] (\x,3.8) circle (.10); \fill[red] (\x,3.8) circle (.03);}
+  \foreach \y in {4.45,5.15}{\draw[blue,vec] (6.5,\y)--(1.4,\y);}
+  \foreach \y in {3.15,2.45}{\draw[blue,vec] (1.4,\y)--(6.5,\y);}
+  \node[small,blue] at (4.0,5.55) {上侧 $\bm B$ 向左}; \node[small,blue] at (4.0,2.15) {下侧 $\bm B$ 向右};
+  \draw[green,line width=1.2pt] (2.0,3.15) rectangle (6.0,4.45);
+  \draw[green,patharrow] (4.5,4.45)--(5.3,4.45);
+  \node[box,fill=paleBlue,text width=5.9cm,font=\fontsize{8.6}{11.2}\selectfont] at (4,1.05)
+    {两侧磁场大小均为 $\mu_0K/2$、方向相反；跨越薄回路得到两侧切向场之差为 $\mu_0K$};
+
+  \node[subtitle,green] at (12,6.35) {两面电流相反：内部叠加，外部抵消};
+  \draw[ink,line width=1.7pt] (8.8,4.9)--(15.2,4.9);
+  \draw[ink,line width=1.7pt] (8.8,2.7)--(15.2,2.7);
+  \foreach \x in {9.2,10.0,...,14.8}{
+    \draw[red] (\x,4.9) circle (.10); \fill[red] (\x,4.9) circle (.03);
+    \draw[purple] (\x,2.7) circle (.10); \draw[purple,line width=.75pt] (\x-.06,2.64)--(\x+.06,2.76); \draw[purple,line width=.75pt] (\x-.06,2.76)--(\x+.06,2.64);
+  }
+  \foreach \y in {3.45,4.15}{\draw[blue,vec] (9.3,\y)--(14.7,\y);}
+  \node[small,blue] at (12,3.8) {内部 $B=\mu_0K$};
+  \node[small,muted] at (12,5.55) {上方 $B=0$}; \node[small,muted] at (12,2.15) {下方 $B=0$};
+  \node[box,fill=paleGreen,text width=5.9cm,font=\fontsize{8.6}{11.2}\selectfont] at (12,1.05)
+    {若两面电流同向，内部磁场抵消而两侧磁场叠加；叠加前必须逐面用右手定则判方向};
+\end{tikzpicture}
+\end{document}
